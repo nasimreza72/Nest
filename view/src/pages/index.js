@@ -1,5 +1,5 @@
 import Home from "./Home";
-import Hauses from "./Houses";
-import Hause from "./House";
+import Houses from "./Houses";
+import House from "./House";
 
-export {Home,Hauses,Hause};
+export {Home,Houses,House};
