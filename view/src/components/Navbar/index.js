@@ -4,8 +4,8 @@ const Navbar=()=>{
         <div>
             <nav>
                 <Link className="mr-4 text-amber-800" to="/">Home</Link>
-                <Link className="mr-4 text-amber-800" to="hauses">Hauses</Link>
-                <Link className="mr-4 text-amber-800" to="hause">Hause</Link>
+                <Link className="mr-4 text-amber-800" to="hauses">Houses</Link>
+                <Link className="mr-4 text-amber-800" to="hause">House</Link>
             </nav>
         </div>
     )
