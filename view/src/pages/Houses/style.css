@@ -55,6 +55,8 @@ nav{
 main{
     width:100%;
     display: flex;
+    color: #222222;
+
 }
 
 .rightSection{
@@ -66,7 +68,8 @@ main{
 
 .rightSection img{
     width: 100%;
-    height: 86.35vh;
+    height: 87vh;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 
 .leftSection{
@@ -80,14 +83,19 @@ main{
     overflow: scroll;
 }
 
+::-webkit-scrollbar {
+    display: none;
+    }
+
 .subSection{
     width: 100%;
+    height: 240px;
     display: flex;
     align-items: flex-start;
-    justify-content: flex-start;
     border-bottom: 1px solid #a3a3a3;
     margin-bottom: 20px;
     padding-bottom: 20px;
+    position: relative;
 }
 
 .subSection1{
@@ -102,16 +110,36 @@ main{
 }
 
 .subSection img{
-    width: 50%;
-    height: 300px;
+    width: 300px;
+    height: 200px;
     border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
-.subSection div{
+.subSection .divInsideSubSection{
     width: 100%;
+    height: 200px;
+    text-align: start;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: flex-start;
-    padding-left: 15px;
+    justify-content: space-between;
+    padding-left: 20px;
+}
+
+.leftSubSectionLastParagraph{
+    color: rgb(92, 91, 91);
+    margin-top: 5px;
+}
+
+.heartIcon:hover{
+    color: red;
+    cursor: pointer;
+    transition: ease-in-out .25s;
+}
+
+.DrawLine{
+    width: 40px;
+    border: .5px solid #a3a3a3;
+    margin: 8px 0px;
 }
