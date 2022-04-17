@@ -1,8 +1,14 @@
 import "./style.css";
 import { FaAngleDown, FaFilter, FaStar, FaHeart } from "react-icons/fa";
 import image from './map.png'
+import { useState } from "react";
 
 const Houses = () => {
+
+  const [ filter, setFilter ] = useState(false)
+
+
+
   return (
     <div className="Houses">
       <nav>
@@ -19,58 +25,110 @@ const Houses = () => {
         </div>
 
         <div className="wrapper">
-          <div className="subWrapper">
+          <div className="subWrapper mediaScreenMax690">
             <p>Free cancellation</p>
           </div>
-          <div className="subWrapper">
+          <div className="subWrapper mediaScreenMax690">
             <p>Wifi</p>
           </div>
-          <div className="subWrapper">
+          <div className="subWrapper mediaScreenMax885">
             <p>Kitchen</p>
           </div>
-          <div className="subWrapper">
+          <div className="subWrapper mediaScreenMax885">
             <p>Washer</p>
           </div>
-          <div className="subWrapper">
+          <div className="subWrapper mediaScreenMax1200">
             <p>Self check-in</p>
           </div>
-          <div className="subWrapper">
+          <div className="subWrapper mediaScreenMax1200">
             <p>Dedicated workshop</p>
           </div>
-          <div className="subWrapper">
+          <div className="subWrapper mediaScreenMax1450">
             <p>Free parking</p>
           </div>
-          <div className="subWrapper">
+          <div className="subWrapper mediaScreenMax1450">
             <p>Dryer</p>
           </div>
-          <div className="subWrapper">
+          <div className="subWrapper mediaScreenMax1650">
             <p>Pool</p>
           </div>
-          <div className="subWrapper">
+          <div className="subWrapper mediaScreenMax1650">
             <p>Air conditioning</p>
           </div>
-          <div className="subWrapper">
+          <div className="subWrapper mediaScreenMax1750">
             <p>Iron</p>
           </div>
-          <div className="subWrapper">
+          <div className="subWrapper mediaScreenMax1750">
             <p>Gym</p>
           </div>
-          <div className="subWrapper">
+          <div className="subWrapper mediaScreenMax690 hiddenAmenities">
+            <p>Amenities</p>
+          </div>
+          <div className="subWrapper" 
+          onClick={() => setFilter(true)}>
             <FaFilter style={{ display: "inline", marginRight: 10 }} />
             <p>Filters</p>
           </div>
         </div>
       </nav>
 
+      {filter && 
+      
+      <div className="filter">
+        <section>
+          <p><strong>More filters</strong></p>
+          <hr />
+          <button onClick={() => setFilter(false)}>x</button>
+          <div className="filterSubsection">
+            <h2>Rooms and beds</h2>
+
+            <div>
+              <div className="counterDivWrapper">
+                  <div>Beds</div>
+                  <div className="counterDiv">
+                    <div> - </div>
+                    <div className="counter">0</div>
+                    <div> + </div>
+                  </div>
+              </div>
+              <div className="counterDivWrapper">
+                  <div>Bedrooms</div>
+                  <div className="counterDiv">
+                    <div> - </div>
+                    <div className="counter">0</div>
+                    <div> + </div>
+                  </div>
+              </div>
+              <div className="counterDivWrapper">
+                  <div>Bathrooms</div>
+                  <div className="counterDiv">
+                    <div> - </div>
+                    <div className="counter">0</div>
+                    <div> + </div>
+                  </div>
+              </div> 
+            </div>
+
+            <hr />
+
+            <h2>Verified places</h2>
+
+          </div>
+        </section>
+      </div>
+      
+      }
+
+
       <hr />
 
       <main>
         <section className="leftSection">
           <div className="subSection1">
-            <p>300+ stays in map area</p> <br />
+            <p>300+ stays in map area</p>
+            <p style={{color:"gray"}}>Enter dates and number of guests to see the total price per night.</p>
             <p>
-              Support refugees fleeing Ukraine by donating throuh Airbnb.org.{" "}
-              <u>Donate now</u>{" "}
+              Support refugees fleeing Ukraine by donating throuh Airbnb.org.<u>Donate now</u>
             </p>
           </div>
 
@@ -106,12 +164,7 @@ const Houses = () => {
                 <strong> 4.75</strong> (200 reviews)
               </div>
             </div>
-
-            <div className="heartIcon">
-              <FaHeart
-                style={{ fontSize: "25px", position: "absolute", right: "0px" }}
-              />
-            </div>
+            <FaHeart className="FaHeart" />
           </div>
 
           <div className="subSection">
@@ -143,11 +196,8 @@ const Houses = () => {
                 <strong> 4.75</strong> (200 reviews)
               </div>
             </div>
-            <div className="heartIcon">
-              <FaHeart
-                style={{ fontSize: "25px", position: "absolute", right: "0px" }}
-              />
-            </div>
+            <FaHeart className="FaHeart" />
+            
           </div>
 
           <div className="subSection">
@@ -179,11 +229,7 @@ const Houses = () => {
                 <strong> 4.75</strong> (200 reviews)
               </div>
             </div>
-            <div className="heartIcon">
-              <FaHeart
-                style={{ fontSize: "25px", position: "absolute", right: "0px" }}
-              />
-            </div>
+            <FaHeart className="FaHeart" />
           </div>
           <div className="subSection">
             <img src="https://cdn.vox-cdn.com/thumbor/MFQLpHmnFrma-qGt9zq8qJ6UU-c=/0x0:1000x668/1200x800/filters:focal(420x254:580x414)/cdn.vox-cdn.com/uploads/chorus_image/image/62947990/285_5thAve2R_Kitchen_straight_on.6.jpg" />
@@ -214,11 +260,7 @@ const Houses = () => {
                 <strong> 4.75</strong> (200 reviews)
               </div>
             </div>
-            <div className="heartIcon">
-              <FaHeart
-                style={{ fontSize: "25px", position: "absolute", right: "0px" }}
-              />
-            </div>
+            <FaHeart className="FaHeart" />
           </div>
 
           <div className="subSection">
@@ -250,11 +292,7 @@ const Houses = () => {
                 <strong> 4.75</strong> (200 reviews)
               </div>
             </div>
-            <div className="heartIcon">
-              <FaHeart
-                style={{ fontSize: "25px", position: "absolute", right: "0px" }}
-              />
-            </div>
+            <FaHeart className="FaHeart" />
           </div>
         </section>
         <section className="rightSection">
