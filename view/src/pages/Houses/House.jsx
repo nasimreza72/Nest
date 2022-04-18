@@ -113,6 +113,18 @@ const Houses = () => {
 
             <h2>Verified places</h2>
 
+            <div className="verifiedPlaces">
+              <div className="subVerifiedPlaces">
+                <div>
+                 <div>Airbnb places</div>
+                 <div className="selectionOfPlaces">A selection of places to stay verified for quality and design </div>
+                </div>
+                <div>
+                  
+                </div>
+              </div>
+            </div>
+
           </div>
         </section>
       </div>
