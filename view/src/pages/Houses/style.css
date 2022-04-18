@@ -67,7 +67,7 @@ main{
 }
 
 .rightSection img{
-    width:fit-content;
+    width:100%;
     min-width: 950px;
     height: 87vh;
     max-height: 800px;
@@ -189,6 +189,7 @@ strong{
     background-color: white;
     border-radius: 10px;
     position: relative;
+    overflow: scroll;
 }
 
 .filter section p{
@@ -210,7 +211,7 @@ strong{
 .filterSubsection h2{
     font-size: x-large;
     font-weight: 500;
-    padding: 25px 0px 15px 0px;
+    padding: 25px 0px 0px 0px;
 }
 
 .counterDivWrapper{
@@ -238,6 +239,23 @@ strong{
     font-size: 15px;
     color: gray;
 }
+
+/***** Verified Place *****/
+.verifiedPlaces{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px 0px;
+}
+
+.FaCheck{
+    font-size: 30px;
+    border: 1px solid darkgray;
+    padding: 3px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 
 /***** Media screen *****/
 
@@ -337,6 +355,25 @@ strong{
         width: 100%;
         height: auto;
     }
+    .rightSection img{
+        width:100%;
+        min-width: 692px;
+        height: auto;
+    }
 }
+
+@media screen and (max-width: 475px) {
+    .mediaScreenMax475{
+        display: none;
+    }
+    .subWrapper{
+        padding: 10px 10px;
+    }
+    .rightSection img{
+        width:100%;
+        min-width: 400px;
+        height: auto;
+    }
+  } 
 
 
