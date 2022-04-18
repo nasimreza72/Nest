@@ -1,24 +1,29 @@
 import "./style.css";
-import { FaAngleDown, FaFilter, FaStar, FaHeart } from "react-icons/fa";
-import image from './map.png'
+import {
+  FaAngleDown,
+  FaFilter,
+  FaStar,
+  FaHeart,
+  FaCheck,
+} from "react-icons/fa";
+import image from "./map.png";
 import { useState } from "react";
 
 const Houses = () => {
-
-  const [ filter, setFilter ] = useState(false)
-
-
+  const [filter, setFilter] = useState(false);
+  const [checked, setChecked] = useState(false);
+  const [instantBook, setInstantBook] = useState(false);
 
   return (
     <div className="Houses">
       <nav>
         <div className="wrapper">
-          <div className="subWrapper">
+          <div className="subWrapper mediaScreenMax475">
             <p>Price </p>
             <FaAngleDown style={{ display: "inline" }} />
           </div>
           <div className="subWrapper">
-            <p>Type of place </p>
+            <p>Type of place</p>
             <FaAngleDown style={{ display: "inline" }} />
           </div>
           <div className="subWrapperRightBorder"></div>
@@ -64,73 +69,174 @@ const Houses = () => {
           <div className="subWrapper mediaScreenMax690 hiddenAmenities">
             <p>Amenities</p>
           </div>
-          <div className="subWrapper" 
-          onClick={() => setFilter(true)}>
+          <div className="subWrapper" onClick={() => setFilter(true)}>
             <FaFilter style={{ display: "inline", marginRight: 10 }} />
             <p>Filters</p>
           </div>
         </div>
       </nav>
 
-      {filter && 
-      
-      <div className="filter">
-        <section>
-          <p><strong>More filters</strong></p>
-          <hr />
-          <button onClick={() => setFilter(false)}>x</button>
-          <div className="filterSubsection">
-            <h2>Rooms and beds</h2>
+      {filter && (
+        <div className="filter">
+          <section>
+            <p>
+              <strong>More filters</strong>
+            </p>
+            <hr />
+            <button onClick={() => setFilter(false)}>x</button>
+            <div className="filterSubsection">
+              <h2>Rooms and beds</h2>
 
-            <div>
-              <div className="counterDivWrapper">
+              <div>
+                <div className="counterDivWrapper">
                   <div>Beds</div>
                   <div className="counterDiv">
                     <div> - </div>
                     <div className="counter">0</div>
                     <div> + </div>
                   </div>
-              </div>
-              <div className="counterDivWrapper">
+                </div>
+                <div className="counterDivWrapper">
                   <div>Bedrooms</div>
                   <div className="counterDiv">
                     <div> - </div>
                     <div className="counter">0</div>
                     <div> + </div>
                   </div>
-              </div>
-              <div className="counterDivWrapper">
+                </div>
+                <div className="counterDivWrapper">
                   <div>Bathrooms</div>
                   <div className="counterDiv">
                     <div> - </div>
                     <div className="counter">0</div>
                     <div> + </div>
                   </div>
-              </div> 
-            </div>
-
-            <hr />
-
-            <h2>Verified places</h2>
-
-            <div className="verifiedPlaces">
-              <div className="subVerifiedPlaces">
-                <div>
-                 <div>Airbnb places</div>
-                 <div className="selectionOfPlaces">A selection of places to stay verified for quality and design </div>
-                </div>
-                <div>
-                  
                 </div>
               </div>
+
+              <hr />
+
+              <h2>Verified places</h2>
+
+              <div className="verifiedPlaces">
+                <div className="subVerifiedPlaces">
+                  <div>
+                    <div>Airbnb places</div>
+                    <div className="selectionOfPlaces">
+                      A selection of places to stay verified for quality and
+                      design{" "}
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <FaCheck
+                    style={{ color: checked == true ? "green" : "gray" }}
+                    onClick={() => {
+                      if (checked == true) {
+                        setChecked(false);
+                      } else if (checked == false) {
+                        setChecked(true);
+                      }
+                    }}
+                    className="FaCheck"
+                  />
+                </div>
+              </div>
+
+              <hr />
+
+              <div className="verifiedPlaces">
+                <div className="subVerifiedPlaces">
+                  <div>
+                    <div>Instant Book</div>
+                    <div className="selectionOfPlaces">
+                      Listings you can book without waiting for Host approval
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <FaCheck
+                    style={{ color: instantBook == true ? "green" : "gray" }}
+                    onClick={() => {
+                      if (instantBook == true) {
+                        setInstantBook(false);
+                      } else if (instantBook == false) {
+                        setInstantBook(true);
+                      }
+                    }}
+                    className="FaCheck"
+                  />
+                </div>
+              </div>
+
+              <hr />
+
+              <h2>More options</h2>
+
+              <div className="verifiedPlaces">
+                <div className="subVerifiedPlaces">
+                  <div>
+                    <div>Superhost</div>
+                    <div className="selectionOfPlaces">
+                      Stay with recognized Hosts
+                    </div>
+                  </div>
+                  <div>
+                    <a href="*">
+                      <u>Learn more</u>
+                    </a>
+                  </div>
+                </div>
+
+                <div>
+                  <FaCheck
+                    style={{ color: instantBook == true ? "green" : "gray" }}
+                    onClick={() => {
+                      if (instantBook == true) {
+                        setInstantBook(false);
+                      } else if (instantBook == false) {
+                        setInstantBook(true);
+                      }
+                    }}
+                    className="FaCheck"
+                  />
+                </div>
+              </div>
+
+              <div className="verifiedPlaces">
+                <div className="subVerifiedPlaces">
+                  <div>
+                    <div>Free cancellation</div>
+                    <div className="selectionOfPlaces">
+                    Only show stays that offer free cancellation
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <FaCheck
+                    style={{ color: instantBook == true ? "green" : "gray" }}
+                    onClick={() => {
+                      if (instantBook == true) {
+                        setInstantBook(false);
+                      } else if (instantBook == false) {
+                        setInstantBook(true);
+                      }
+                    }}
+                    className="FaCheck"
+                  />
+                </div>
+              </div>
+
+              <hr />
+          
+
             </div>
-
-          </div>
-        </section>
-      </div>
-      
-      }
-
+          </section>
+        </div>
+      )}
 
       <hr />
 
@@ -138,9 +244,12 @@ const Houses = () => {
         <section className="leftSection">
           <div className="subSection1">
             <p>300+ stays in map area</p>
-            <p style={{color:"gray"}}>Enter dates and number of guests to see the total price per night.</p>
+            <p style={{ color: "gray" }}>
+              Enter dates and number of guests to see the total price per night.
+            </p>
             <p>
-              Support refugees fleeing Ukraine by donating throuh Airbnb.org.<u>Donate now</u>
+              Support refugees fleeing Ukraine by donating throuh Airbnb.org.
+              <u>Donate now</u>
             </p>
           </div>
 
@@ -209,7 +318,6 @@ const Houses = () => {
               </div>
             </div>
             <FaHeart className="FaHeart" />
-            
           </div>
 
           <div className="subSection">
@@ -308,10 +416,7 @@ const Houses = () => {
           </div>
         </section>
         <section className="rightSection">
-          <img
-            src={image}
-            alt=""
-          />
+          <img src={image} alt="" />
         </section>
       </main>
     </div>
