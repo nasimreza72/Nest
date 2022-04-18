@@ -1,0 +1,342 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 24px 12px 24px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #222222;
+}
+
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4px 8px;
+}
+
+.subWrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #d4d4d4;
+    padding: 10px 16px;
+    border-radius: 25px;
+    transition: ease-in-out .25s;
+    margin-right: 8px;
+}
+
+.subWrapper p{
+    margin-right: 5px;
+    font-size: 14px;
+    line-height: 18px;
+    margin-right: 8px;
+}
+
+.subWrapperRightBorder{
+    height: 25px;
+    width: 10px;
+    border-right: 1px solid #a3a3a3;
+}
+
+.subWrapper:hover{
+    border: 1px solid black;
+}
+
+
+/****** Beginning of Main Part ******/
+
+main{
+    width:100%;
+    display: flex;
+    color: #222222;
+
+}
+
+.rightSection{
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.rightSection img{
+    width:fit-content;
+    min-width: 950px;
+    height: 87vh;
+    max-height: 800px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.leftSection{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 8px 24px;
+    height: 87vh;
+    overflow: scroll;
+}
+
+::-webkit-scrollbar {
+    display: none;
+    }
+
+.subSection{
+    width: 100%;
+    height: 240px;
+    display: flex;
+    align-items: flex-start;
+    border-bottom: 1px solid #a3a3a3;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.subSection1{
+    width: 100%;
+    text-align: start;
+    border-bottom: 1px solid #a3a3a3;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+
+.subSection1 p{
+    margin-top: 18px;
+}
+
+.subSection img{
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.subSection .divInsideSubSection{
+    width: 100%;
+    height: 200px;
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-left: 20px;
+}
+
+.leftSubSectionLastParagraph{
+    color: rgb(92, 91, 91);
+    margin-top: 5px;
+}
+
+.DrawLine{
+    width: 40px;
+    border: .5px solid #a3a3a3;
+    margin: 8px 0px;
+}
+
+
+/****** React icon  *****/
+
+.FaHeart{
+    font-size: x-large;
+    position: absolute;
+    right: 0px;
+    transition: ease-in-out .125s;
+    color: #2e2e2e;
+}
+
+.FaHeart:hover{
+    color: rgb(231, 6, 6);
+    cursor: pointer;
+}
+
+.hiddenAmenities{
+    display: none;
+}
+
+strong{
+    font-size: large;
+    color: #414141;
+}
+
+
+/***** Filter icon *****/
+
+.filter{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.589);
+    position: absolute;
+    top: 0px;
+    z-index: 10;
+}
+
+.filter section{
+    width: 50vw;
+    max-width: 850px;
+    height: 90vh;
+    background-color: white;
+    border-radius: 10px;
+    position: relative;
+}
+
+.filter section p{
+  padding: 17px 0px;
+}
+
+.filter section button{
+    position: absolute;
+    top: 12px;
+    left: 17px;
+    font-size: x-large;
+  }
+
+.filterSubsection{
+    text-align: start;
+    margin: 0px 17px;
+}
+
+.filterSubsection h2{
+    font-size: x-large;
+    font-weight: 500;
+    padding: 25px 0px 15px 0px;
+}
+
+.counterDivWrapper{
+    margin: 20px 0px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.counterDiv{
+    display: flex;
+    width: 100px;
+    justify-content: space-around;
+    font-size: larger;
+}
+
+.counterDiv div:not(:nth-child(2)){
+    border: 1px solid gray;
+    padding: 2px 10px;
+    border-radius: 7.5px;
+    cursor: pointer;
+}
+
+.selectionOfPlaces{
+    font-size: 15px;
+    color: gray;
+}
+
+/***** Media screen *****/
+
+@media screen and (max-width: 1800px) {
+    .mediaScreenMax1750{
+        display: none;
+    }
+  }
+
+  @media screen and (max-width: 1650px) {
+    .mediaScreenMax1650{
+        display: none;
+    }
+  }  
+
+  @media screen and (max-width: 1415px) {
+    .mediaScreenMax1450{
+        display: none;
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    .mediaScreenMax1200{
+        display: none;
+    }
+    main{
+        width:100%;
+        display: flex;
+        flex-direction: column;
+        color: #222222;
+    }
+
+    .leftSection, .rightSection{
+        width: 100%;
+        overflow: auto;
+    }
+
+    .filter section{
+        width: 65vw;
+    }
+    
+  }
+
+  @media screen and (max-width: 885px) {
+    .mediaScreenMax885{
+        display: none;
+    }
+    main{
+        width:100%;
+        display: flex;
+        flex-direction: column;
+        color: #222222;
+    }
+
+    .filter section{
+        width: 75vw;
+    }
+
+    .FaHeart{
+        bottom: 181.5px;
+    }
+    
+
+    .leftSection .subSection{
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        padding-left: 0px ;
+    }
+
+    .subSection .divInsideSubSection{
+        padding: 15px 0px;
+    }
+  }
+
+  @media screen and (max-width: 692px) {
+    .mediaScreenMax690{
+        display: none;
+    }
+    .hiddenAmenities{
+        display: block;
+    }
+
+    .filter section{
+        width: 95vw;
+    }
+
+    .subWrapper, .wrapper, .subWrapper p{
+        margin-right:3px ;
+    } 
+
+    nav{
+        padding: 8px 2px 12px 2px;
+
+    }
+    .subSection img{
+        width: 100%;
+        height: auto;
+    }
+}
+
+
