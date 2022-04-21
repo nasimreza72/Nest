@@ -75,12 +75,7 @@ const Houses = () => {
         </div>
       </nav>
 
-            
-      {filter && <button 
-      style={{zIndex:"100", position:"fixed", top:"5px", left:"15px", fontSize:"25px", background:"white", padding:"0px 10px ",borderRadius:"10px"}}
-      onClick={() => setFilter(false)}>x</button> }
-      {filter && <Filter /> }
-
+      {filter && <Filter setFilter={setFilter} /> }
 
       <hr />
 
@@ -264,7 +259,7 @@ const Houses = () => {
         </section>
       </main>
     </div>
-  );
+  )
 };
 
 export default Houses;
