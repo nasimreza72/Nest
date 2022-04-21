@@ -4,12 +4,12 @@ import { FaCheck } from "react-icons/fa";
 
 
 
-export default function Filter (){
-    const [ filter, setFilter ] = useState(false);
+export default function Filter ({setFilter}){
     const [ checked, setChecked ] = useState(false);
     const [ instantBook, setInstantBook ] = useState(false);
     const [ superHost, setSuperHost ] = useState(false);
     const [ cancellation, setCancellation ] = useState(false);
+    const [ count, setCount ] = useState(0)
 
 
 
@@ -20,7 +20,7 @@ export default function Filter (){
               <strong>More filters</strong>
             </p>
             <hr />
-            {/* <button onClick={() => setFilter(false)}>x</button> */}
+            <button onClick={() => setFilter(false)}>x</button>
             <div className="filterSubsection">
               <h2>Rooms and beds</h2>
 
@@ -28,9 +28,9 @@ export default function Filter (){
                 <div className="counterDivWrapper">
                   <div>Beds</div>
                   <div className="counterDiv">
-                    <div> - </div>
-                    <div className="counter">0</div>
-                    <div> + </div>
+                    <div style={{opacity: count>0? "1": "0.25"}} onClick={()=>setCount(count-1>=0?count-1:0)}> - </div>
+                    <div className="counter">{count}</div>
+                    <div onClick={()=>setCount(count+1)}> + </div>
                   </div>
                 </div>
                 <div className="counterDivWrapper">
