@@ -1,7 +1,8 @@
 import './App.css';
 import {Routes,Route} from "react-router-dom";
-import {Home, Houses, House} from "./pages";
+import {Houses, House} from "./pages";
 import {Navbar} from "./components";
+import Home from "./pages/Home/index.jsx"
 
 function App() {
   return (
