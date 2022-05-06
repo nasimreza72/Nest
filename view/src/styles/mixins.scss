@@ -1,0 +1,23 @@
+@mixin whiteBg {
+    background-color: #F7F7F7;
+}
+@mixin radius {
+    border-radius: 100px;
+}
+ @mixin w-50 {
+     width: 50%;
+     
+ }
+@mixin darkTypo {
+color: #282c34;    
+}
+@mixin searchH4 {
+font-family: "Helvetica";
+color: #282c34;
+font-size: 16px;
+font-weight: 800;
+}
+
+@mixin  marginInline16px {
+    margin-inline: 16px; 
+}
