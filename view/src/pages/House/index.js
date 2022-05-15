@@ -1,8 +1,8 @@
-import { Header, Images, Information, Price, Amenities,CheckInDate } from "../../components/House";
+import { Header, Images, Information, Price, Amenities,CheckInDate, Reviews, Location, HostedBy } from "../../components/House";
 
 const Houses=()=>{
     return(
-        <div className="flex justify-center">
+        <div className="flex justify-center ">
             <div className="w-2/3">
                 <Header/>
                 <Images/>
@@ -14,7 +14,9 @@ const Houses=()=>{
                     </div>
                     <Price className="w-3/12"/>
                 </div>
-
+                <Reviews/>
+                <Location/>
+                <HostedBy/>
             </div>
         </div>
     )

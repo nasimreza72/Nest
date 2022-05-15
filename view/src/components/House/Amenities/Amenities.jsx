@@ -4,6 +4,7 @@ import {AiOutlineWifi} from "react-icons/ai";
 import {GiComb,GiHairStrands} from "react-icons/gi";
 import {MdOutlineSmokeFree} from "react-icons/md";
 import {FaFireExtinguisher} from "react-icons/fa";
+import {Button} from "../";
 
 
 export const Amenities = ()=>{
@@ -58,9 +59,7 @@ export const Amenities = ()=>{
                     <div><p>{item[0].text}</p></div> 
                 </div>)}
             </div>
-            <div className=" flex justify-start mb-10 mt-5">
-                <input className=" border-2 px-20 py-4 rounded-lg hover:bg-gray-100 hover:underline cursor-pointer text-lg" type="button" value="Show all 13 amenities"/>
-            </div>
+            <Button text={"Show all 13 amenities"}/>
         </div>
     )
 }

@@ -4,5 +4,9 @@ import { Information } from "./Information/Information";
 import { Price } from "./Price/Price";
 import {Amenities} from "./Amenities/Amenities";
 import { CheckInDate } from "./Check-inDate/Check-inDate";
+import { Reviews } from "./Reviews/Reviews";
+import { Button } from "./Button/Button";
+import { Location } from "./Location/Location";
+import { HostedBy } from "./HostedBy/HostedBy";
 
-export {Header,Images, Information, Price, Amenities, CheckInDate};
+export {Header,Images, Information, Price, Amenities, CheckInDate, Reviews, Button, Location, HostedBy};
