@@ -4,6 +4,7 @@ import {AiOutlineWifi} from "react-icons/ai";
 import {GiComb,GiHairStrands} from "react-icons/gi";
 import {MdOutlineSmokeFree} from "react-icons/md";
 import {FaFireExtinguisher} from "react-icons/fa";
+import {Button} from "../";
 
 
 export const Amenities = ()=>{
@@ -46,21 +47,19 @@ export const Amenities = ()=>{
     const houseAmenities=["Elevator","Essentials","Hair dryer","Smoke alarm","Wifi"]
 
     const houseAmenitiesWithSymbols = houseAmenities.map(item=>{
-        return allAmenities.filter(e=>e.text==item)
+        return allAmenities.filter(e=>e.text===item)
     })
     console.log('houseAmenitiesWithSymbols :>> ', houseAmenitiesWithSymbols);
     return(
         <div className="border-b-2 mb-10">
             <h2 className=" text-left text-2xl mb-5">Amenities</h2>
-            <div className=" flex flex-wrap">
+            <div className=" flex flex-col md:flex-row md:flex-wrap">
                 {houseAmenitiesWithSymbols.map(item=> <div className=" w-1/2 flex items-center mb-3">
                     <div className=" mr-3">{ item[0].sybmol}</div> 
                     <div><p>{item[0].text}</p></div> 
                 </div>)}
             </div>
-            <div className=" flex justify-start mb-10 mt-5">
-                <input className=" border-2 px-20 py-4 rounded-lg hover:bg-gray-100 hover:underline cursor-pointer text-lg" type="button" value="Show all 13 amenities"/>
-            </div>
+            <Button text={"Show all 13 amenities"}/>
         </div>
     )
 }
