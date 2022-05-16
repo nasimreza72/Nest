@@ -47,13 +47,13 @@ export const Amenities = ()=>{
     const houseAmenities=["Elevator","Essentials","Hair dryer","Smoke alarm","Wifi"]
 
     const houseAmenitiesWithSymbols = houseAmenities.map(item=>{
-        return allAmenities.filter(e=>e.text==item)
+        return allAmenities.filter(e=>e.text===item)
     })
     console.log('houseAmenitiesWithSymbols :>> ', houseAmenitiesWithSymbols);
     return(
         <div className="border-b-2 mb-10">
             <h2 className=" text-left text-2xl mb-5">Amenities</h2>
-            <div className=" flex flex-wrap">
+            <div className=" flex flex-col md:flex-row md:flex-wrap">
                 {houseAmenitiesWithSymbols.map(item=> <div className=" w-1/2 flex items-center mb-3">
                     <div className=" mr-3">{ item[0].sybmol}</div> 
                     <div><p>{item[0].text}</p></div> 

@@ -46,12 +46,12 @@ export const Information=()=>{
                         </div>
                     </div>
                 </div>
-                <div className="border-b-2 mb-10">
+                <div>
                     <p className=" text-left mb-5">We have something to offer for every kind of traveller: dorm rooms, private rooms and female-only rooms which all come with comfy beds and lockers to store your things.
                     Did we mention we have a swanky rooftop terrace, too? The perfect place to chill out in the summer with awesome views over Mitte.</p>
                     <p className=" text-left mb-10">At our reception, book yourself into one of our free walking tours of the city or come along on our host…<a href="">read more</a></p>
                 </div>
-                <div>
+                {/* <div>
                     <h1 className=" text-2xl text-left mb-5 mt-10">Sleeping arrangements</h1>
                     <img className="w-1/2" src="https://a0.muscache.com/im/pictures/8a4568c9-4b46-4bac-8e15-3a3b53707472.jpg?im_w=720" alt="" />
                 </div>
@@ -59,7 +59,7 @@ export const Information=()=>{
                     <MdOutlineBedroomChild className=" text-3xl"/>
                     <h3 className=" text-lg text-left mb-5 mt-5">Bedroom</h3>
                     <p className=" text-left">1 single bed</p>
-                </div>
+                </div> */}
             </div>
         </div>
     )

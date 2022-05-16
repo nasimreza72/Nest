@@ -2,17 +2,17 @@ import { Header, Images, Information, Price, Amenities,CheckInDate, Reviews, Loc
 
 const Houses=()=>{
     return(
-        <div className="flex justify-center ">
-            <div className="w-2/3">
+        <div className="flex justify-center  ">
+            <div className="w-4/5 xl:w-[72rem] grid">
                 <Header/>
                 <Images/>
-                <div className="flex justify-center mt-10">
-                    <div className=" w-9/12">
+                <div className="flex justify-center mt-10 ">
+                    <div className="w-full md:w-8/12">
                         <Information/>
                         <Amenities/>
                         <CheckInDate/>
                     </div>
-                    <Price className="w-3/12"/>
+                    <Price/>
                 </div>
                 <Reviews/>
                 <Location/>

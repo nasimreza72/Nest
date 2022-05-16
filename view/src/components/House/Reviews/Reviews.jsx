@@ -35,7 +35,7 @@ export const Reviews = () =>{
                     <h1 className=' text-2xl'>4.57 ( 455 reviews )</h1>
                 </div>
                 <div className='flex justify-between'>
-                    <div className='w-2/5 text-left'>
+                    <div className='hidden md:block w-1/2 text-left mr-24'>
                         <div className='mb-2 flex items-center justify-between'>
                             <span>Cleanliness</span>
                             <ProgressBar percent={45}/>
@@ -49,7 +49,7 @@ export const Reviews = () =>{
                             <ProgressBar percent={45}/>
                         </div>
                     </div>
-                    <div className='w-2/5 text-left'>
+                    <div className='hidden md:block w-1/2 text-left'>
                         <div className='mb-2 flex items-center justify-between'>
                             <span>Accuracy</span>
                             <ProgressBar percent={45}/>
@@ -65,13 +65,13 @@ export const Reviews = () =>{
                     </div>
                 </div>
             </div>
-            <div className=' flex justify-between'>
-                <div className='w-2/5'>
+            <div className=' flex justify-between flex-col lg:flex-row'>
+                <div className='w-full lg:w-2/5'>
                     <Review src={'https://a0.muscache.com/im/pictures/user/c3cf9d2b-0e00-4235-a698-689e23eaa995.jpg?im_w=240'}/>
                     <Review src={"https://a0.muscache.com/im/pictures/user/a8476f49-1458-46a5-9978-bbe831632ed3.jpg?im_w=240"}/>
                     <Review src={"https://a0.muscache.com/im/pictures/user/16922f48-08ab-4d18-89ae-41548e02f6e3.jpg?im_w=240"}/>
                 </div>
-                <div className='w-2/5'>
+                <div className='w-full lg:w-2/5'>
                     <Review src={"https://a0.muscache.com/im/pictures/user/11370ce4-0557-4d31-848d-4c84a7f3a12d.jpg?im_w=240"}/>
                     <Review src={"https://a0.muscache.com/defaults/user_pic-225x225.png?im_w=240"}/>
                     <Review src={"https://a0.muscache.com/im/pictures/user/fdf72bfb-16fa-44d3-8466-54ca6f46a08d.jpg?im_w=240"}/>
