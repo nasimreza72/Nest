@@ -22,6 +22,7 @@
     font-size: 1.125rem;
     line-height: 1.75rem;
 }
+
 @mixin buttonHover{
     --tw-bg-opacity: 1;
     background-color: rgb(243 244 246 / var(--tw-bg-opacity));
