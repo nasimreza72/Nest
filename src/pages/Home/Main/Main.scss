@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Montserrat:wght@600&display=swap');
-
+@import "../../../mixin.scss";
 
 
 .Home{
     width: 100%;
     height: auto;
-    background-color: goldenrod; 
+    @include nestRedBackground;
    
     
     .grid-container{
@@ -19,41 +19,14 @@
 
         .blackBox{
             grid-column: 1/15;
-            grid-row: 1/11;
+            grid-row: 1/5;
             background-color: black;
         }
-        .refugeeBanner{
-            grid-column: 2/14;
-            grid-row: 2/6;
-            background-color: #ff385c;
-            border-radius: 17px;
-            display: flex;
-            justify-content: center;
-            align-content: center;
-            flex-direction: column;
-            font-family: 'Montserrat', sans-serif;
-            color: white;
-            font-size: 3rem;
-
-                button{
-                    width: 150px;
-                    height: 40px;
-                    border: 1px solid white;
-                    font-size: 1rem;
-                    border-radius: 7px;
-                    padding: 5px;
-                    align-self: center;
-                    margin-top: 10px;
-                }
-
-        
-        }
-
         .firstLargeImage{
             grid-column: 2/14;
-            grid-row: 7/15;
+            grid-row: 2/7;
             border-radius: 17px;
-            background-image: url("./assets/daniel-diesenreither-9K8q3K_zuog-unsplash.jpg"); 
+            background-image: url("./assets/familyWGrandma.jpg"); 
             background-size: cover;
             background-repeat: no-repeat; 
             background-position: center;  
@@ -68,22 +41,23 @@
                 h2{
                     color: white;
                     font-size: 3rem;
+                    margin-bottom: 60px;
                 }
                 button{
-                    width: 150px;
-                    height: 50px;
+                    width: 200px;
+                    height: 55px;
                     color: black;
-                    font-size: 1rem;
+                    font-size: 1.3rem;
                     border-radius: 25px;
+                    background-color: #FF385C;// need to find out why BG color is not changing
+                    @include font;
                     background-color: white;
-                    font-family: 'Montserrat', sans-serif;
-
+                    font-weight: 600;
                 }   
         }
-
         .firstLargeImage + h2{
             grid-column: 2/14;
-            grid-row: 15/16;
+            grid-row: 7/8;
             display: flex;
             justify-content: flex-start;
             align-items: flex-end;
@@ -91,76 +65,70 @@
             font-family: 'Montserrat', sans-serif;
             padding-bottom: 20px;
         }
-
-        .inspirationOne{
+        .locationOne{
             grid-column: 2/5;
-            grid-row: 16/18;
+            grid-row: 8/10;
             background-image: url("./assets/imgBerlin.png");
             background-size: cover;
             background-repeat: no-repeat;
             border-radius: 17px 17px 0px 0px;
         }
-        .inspirationOne + div{
+        .locationOne + div{
             grid-column: 2/5;
-            grid-row: 18/20;
-            background-color: #de3151;
+            grid-row: 10/12;
+            @include nestRedBackground;            
             border-radius: 0px 0px 17px 17px;
             margin-bottom: 10px;
         }
-
-
-        .inspirationTwo{
+        .locationTwo{
             grid-column: 5/8;
-            grid-row: 16/18;
+            grid-row: 8/10;
             background-image: url("./assets/imgRostock.png");
             background-size: cover;
             background-repeat: no-repeat;
             border-radius: 17px 17px 0px 0px;
         }
-        .inspirationTwo + div{
+        .locationTwo + div{
             grid-column: 5/8;
-            grid-row: 18/20;
-            background-color: #d93b30;
+            grid-row: 10/12;
+            @include nestRedBackground;            
             border-radius: 0px 0px 17px 17px;
             margin-bottom: 10px;
         }
-
-        .inspirationThree{
+        .locationThree{
             grid-column: 8/11;
-            grid-row: 16/18;
+            grid-row: 8/10;
             background-image: url("./assets/imgHamburg.png");
             background-size: cover;
             background-repeat: no-repeat;
             border-radius: 17px 17px 0px 0px;
         }
-        .inspirationThree + div{
+        .locationThree + div{
             grid-column: 8/11;
-            grid-row: 18/20;
-            background-color: #cc2d4a;
+            grid-row: 10/12;
+            @include nestRedBackground;
             border-radius: 0px 0px 17px 17px;
             margin-bottom: 10px;
         }
-        
-
-        .inspirationFour{
+        .locationFour{
             grid-column: 11/14;
-            grid-row: 16/18;
+            grid-row: 8/10;
             grid-gap: 20px;
             background-image: url("./assets/imgUsedom.png");
             background-size: cover;
             background-repeat: no-repeat;
             border-radius: 17px 17px 0px 0px;
         }
-        .inspirationFour + div{
+        .locationFour + div{
             grid-column: 11/14;
-            grid-row: 18/20;
-            background-color: #de3151;
+            grid-row: 10/12;
+            @include nestRedBackground;            
             border-radius: 0px 0px 17px 17px;
             margin-bottom: 10px;
         }
-        
         .locations{
-            font-family: 'Montserrat', sans-serif;
+            @include font;
+            font-weight: 500;
             color: white;
             display: flex;
             flex-direction: column;
@@ -172,124 +140,70 @@
                 }
                 p{
                     font-size: 1.3rem;
-                    
                 }
             
         }
         .locations + h2{
             font-size: 3rem;
+            @include font;
             grid-column: 2/15;
-            grid-row: 20/21;
+            grid-row: 12/13;
             display: flex;
             align-items: flex-end;
             padding-bottom: 15px;
         }
-
-       
-        .doOnYourTripImage{
+        .about-us{
             grid-column: 2/8;
-            grid-row: 21/27;
-            background-image: url("./assets/twoguysHangingOut.jpg");
-            background-size: cover;
-            background-position-y: center;
-            background-repeat: no-repeat;
-            border-radius: 17px;
-            display: flex;
-            align-items: flex-start;
-            
-                
-        }
-        .filterDoTripStuff{
-            grid-column: 2/8;
-            grid-row: 21/27;
+            grid-row: 13/19;
             z-index: 100;
             border-radius: 17px;
-           /* ff 3.6+ */
-            background:-moz-linear-gradient(124deg, rgba(18, 1, 18, 0.52) 0%, rgba(3, 3, 38, 0) 52%); 
-
-            /* safari 5.1+,chrome 10+ */
-            background:-webkit-linear-gradient(124deg, rgba(18, 1, 18, 0.52) 0%, rgba(3, 3, 38, 0) 52%);
-
-            /* opera 11.10+ */
-            background:-o-linear-gradient(124deg, rgba(18, 1, 18, 0.52) 0%, rgba(3, 3, 38, 0) 52%);
-
-            /* ie 6-9 */
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#030326', endColorstr='#120112', GradientType=0 );
-
-            /* ie 10+ */
-            background:-ms-linear-gradient(124deg, rgba(18, 1, 18, 0.52) 0%, rgba(3, 3, 38, 0) 52%);
-
-            /* global 94%+ browsers support */
-            background:linear-gradient(124deg, rgba(18, 1, 18, 0.52) 0%, rgba(3, 3, 38, 0) 52%);
-
-
-
-}
-        
-        
-        .doHomeImage{
+            border: 5px solid #FF385C;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            flex-direction: column;
+            padding: 50px;
+            position: relative;
+                h3{
+                    font-size: 3rem;
+                    color: black;
+                    @include font;
+                }
+        }
+        .about-us p{
+            margin-top: 40px;
+            color: black;
+            @include font
+        }
+        .about-us button{
+            position: absolute;
+            bottom: 40px;
+            width: 200px;
+            height: 55px;
+            @include nestRedBackground;
+            border-radius: 10px;
+            color: white;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+        .imageAboutUs{
             grid-column: 8/14;
-            grid-row: 21/27;
+            grid-row: 13/19;
             border-radius: 17px;
-            background-image: url("./assets/colorfullIndia.jpg");
+            background-image: url("./assets/we-were-all-refugees.jpg");
             background-size: cover;
             background-position-y: center;
             background-repeat: no-repeat;
-           
         }
         .filterDoHomeStuff{
             grid-column: 8/14;
-            grid-row: 21/27;
+            grid-row: 13/19;
             z-index: 100;
             border-radius: 17px;
-            /* ff 3.6+ */
-            background:-moz-linear-gradient(124deg, rgba(18, 1, 18, 0.52) 0%, rgba(3, 3, 38, 0) 52%); 
-
-            /* safari 5.1+,chrome 10+ */
-            background:-webkit-linear-gradient(124deg, rgba(18, 1, 18, 0.52) 0%, rgba(3, 3, 38, 0) 52%);
-
-            /* opera 11.10+ */
-            background:-o-linear-gradient(124deg, rgba(18, 1, 18, 0.52) 0%, rgba(3, 3, 38, 0) 52%);
-
-            /* ie 6-9 */
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#030326', endColorstr='#120112', GradientType=0 );
-
-            /* ie 10+ */
-            background:-ms-linear-gradient(124deg, rgba(18, 1, 18, 0.52) 0%, rgba(3, 3, 38, 0) 52%);
-
-            /* global 94%+ browsers support */
-            background:linear-gradient(124deg, rgba(18, 1, 18, 0.52) 0%, rgba(3, 3, 38, 0) 52%);
-
-
-
-
         }
-
-        .doStuff{
-            display: flex;
-            align-items: flex-start;
-            padding: 50px;
-                h3{
-                    font-size: 3rem;
-                    color: white;
-                    font-family: 'Montserrat', sans-serif ;
-                }
-                #secondHThree{
-                    transform: translate(0, -30%);
-                }
-                button{
-                    width: 180px;
-                    height: 50px;
-                    color: black;
-                    background-color: white;
-                    border-radius: 9px;
-                    display: block;
-                }
-        }
-        .giftCardsText{
-            grid-column: 2/5;
-            grid-row: 28/30;
-            //min-width: 330px;
+        .InfoUponEnter{
+            grid-column: 2/6;
+            grid-row: 20/22;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
@@ -297,11 +211,8 @@
 
                 h2{
                     font-size: 3rem;
-                    font-family: 'Montserrat', sans-serif;
+                    @include font;
                     
-                }
-                #secondHTwo{
-                    transform: translate(0, -22%);
                 }
                 button{
                     width: 180px;
@@ -309,42 +220,37 @@
                     border-radius: 9px;
                     background-color: black;
                     color: white;
+                    margin-top: 20px;
                 }
         }
+        .cards{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
         .cardOne{
-            grid-column: 5/8;
-            grid-row: 28/30;
+            grid-column: 8/10;
+            grid-row: 20/22;
             border-radius: 17px;
-            min-width: 400px;
-            background-image: url(./assets/airbnbCard1.png);
-            background-size: cover;
-            background-position-x: center;
-            transform: rotate(-5deg) translate(29%, 0%);
-            z-index: 100;
-            -webkit-box-shadow: 25px 100px 50px -30px rgba(0,0,0,0.41); 
-            box-shadow: 100px 130px 50px -100px rgba(0,0,0,0.50);
+            background-color: yellowgreen;
         }
         .cardTwo{
-            grid-column: 8/11;
-            grid-row: 28/30;
+            grid-column: 10/12;
+            grid-row: 20/22;
             border-radius: 17px;
-            min-width: 400px;
             background-color: #de3151;
-            transform: rotate(-20deg) translate(-20%, 25%);
-            z-index: 50;
- 
         }
         .cardThree{
-            grid-column: 10/13;
-            grid-row: 28/30;
+            grid-column: 12/14;
+            grid-row: 20/22;
             border-radius: 17px;
-            min-width: 400px;
             background-color: gray;
-            transform: rotate(19deg) translate(10%, 5%);
         }
         .askSuperHost{
             grid-column: 2/14;
-            grid-row: 32/39;
+            grid-row: 23/30;
             border-radius: 17px;
             background-image: url(./assets/superHost.jpg);
             background-size: cover;
@@ -352,7 +258,7 @@
         }
         .filterSuperHost{
             grid-column: 2/14;
-            grid-row: 32/39;
+            grid-row: 23/30;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
@@ -389,11 +295,16 @@
                     width: 180px;
                     height: 50px;
                     border-radius: 9px;
-                    background-color: white;
                     color: black;
                     margin-left: 70px;
                     margin-bottom: 70px;
                 }
+        }
+        .footer{
+            grid-column: 2/14;
+            grid-row: 31/40;
+            background-color: #f7f7f7;
+            font-size: 4rem;
         }
         
 
