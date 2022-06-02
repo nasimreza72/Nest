@@ -1,0 +1,8 @@
+@import "../../../mixin.scss";
+
+input{
+    @include button;
+}
+input:hover{
+    @include buttonHover;
+}

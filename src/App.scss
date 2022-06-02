@@ -1,6 +1,9 @@
+@import "./mixin.scss";
 
 .App {
   text-align: center;
+  @include font;
+  @include blackTextColor;
 }
 
 .App-logo {
