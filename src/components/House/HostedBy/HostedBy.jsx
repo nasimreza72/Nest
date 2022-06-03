@@ -1,6 +1,6 @@
 import { AiTwotoneStar } from 'react-icons/ai';
 import {MdVerifiedUser} from "react-icons/md";
-import {Button} from "../Button/Button";
+import {StyledButton} from "../../General Components/StyledButton/StyledButton";
 
 export const HostedBy = () => {
   return (
@@ -31,7 +31,7 @@ export const HostedBy = () => {
           <p className=' mb-2'>Languages: English, Français, Deutsch</p>
           <p className=' mb-2'>Response rate: 100%</p>
           <p className=' mb-2'>Response time: within an hour</p>
-          <Button text={"Contact Host"}/>
+          <StyledButton text={"Contact Host"}/>
       </div>
     </div>
   );

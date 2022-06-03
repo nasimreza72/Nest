@@ -5,61 +5,74 @@ import {GiComb,GiHairStrands} from "react-icons/gi";
 import {MdOutlineSmokeFree} from "react-icons/md";
 import {FaFireExtinguisher} from "react-icons/fa";
 import {Button} from "../";
-
+import "./Amenities.scss";
 
 export const Amenities = ()=>{
     const allAmenities=[
+    // {
+    //     sybmol:<GrElevator/>,
+    //     text:"Elevator"
+    // },
     {
-        sybmol:<GrElevator/>,
-        text:"Elevator"
-    },
-    {
-        sybmol:<IoLaptopOutline/>,
-        text:"Dedicated workspace"
+        sybmol:<AiOutlineWifi/>,
+        text:"Kitchen"
     },
     {
         sybmol:<AiOutlineWifi/>,
         text:"Wifi"
     },
     {
-        sybmol:<IoMedkitOutline/>,
-        text:"First aid kit"
+        sybmol:<AiOutlineWifi/>,
+        text:"TV"
     },
     {
-        sybmol:<GiComb/>,
-        text:"Essentials"
+        sybmol:<AiOutlineWifi/>,
+        text:"Washer"
     },
     {
-        sybmol:<GiHairStrands/>,
-        text:"Hair dryer"
+        sybmol:<IoLaptopOutline/>,
+        text:"Dedicated workspace"
     },
-    {
-        sybmol:<MdOutlineSmokeFree/>,
-        text:"Smoke alarm"
-    },
-    {
-        sybmol:<FaFireExtinguisher/>,
-        text:"Fire extinguisher"
-    }
+   
+    // {
+    //     sybmol:<IoMedkitOutline/>,
+    //     text:"First aid kit"
+    // },
+    // {
+    //     sybmol:<GiComb/>,
+    //     text:"Essentials"
+    // },
+    // {
+    //     sybmol:<GiHairStrands/>,
+    //     text:"Hair dryer"
+    // },
+    // {
+    //     sybmol:<MdOutlineSmokeFree/>,
+    //     text:"Smoke alarm"
+    // },
+    // {
+    //     sybmol:<FaFireExtinguisher/>,
+    //     text:"Fire extinguisher"
+    // }
     ]
 
     //This data is gonna come from database
-    const houseAmenities=["Elevator","Essentials","Hair dryer","Smoke alarm","Wifi"]
+    const houseAmenities=["Kitchen","Wifi","TV","Washer","Dedicated workspace"]
 
     const houseAmenitiesWithSymbols = houseAmenities.map(item=>{
         return allAmenities.filter(e=>e.text===item)
     })
     console.log('houseAmenitiesWithSymbols :>> ', houseAmenitiesWithSymbols);
     return(
-        <div className="border-b-2 mb-10">
-            <h2 className=" text-left text-2xl mb-5">Amenities</h2>
-            <div className=" flex flex-col md:flex-row md:flex-wrap">
-                {houseAmenitiesWithSymbols.map(item=> <div className=" w-1/2 flex items-center mb-3">
-                    <div className=" mr-3">{ item[0].sybmol}</div> 
+        <div className="amenities-container">
+            <h2>Amenities</h2>
+            <div className="amenities">
+                {houseAmenitiesWithSymbols.map(item=> <div className="amenity">
+                    <div className="icon-container">{ item[0].sybmol}</div> 
                     <div><p>{item[0].text}</p></div> 
                 </div>)}
             </div>
-            <Button text={"Show all 13 amenities"}/>
+            {/* <Button text={"Show all 5 amenities"}/> */}
         </div>
     )
 }

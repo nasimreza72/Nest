@@ -1,5 +1,6 @@
 import React from 'react'
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
+import "./Location.scss";
 
 export const Location = ()=>{
     const containerStyle = {
@@ -12,9 +13,9 @@ export const Location = ()=>{
         lng: -38.523
     };
     return(
-        <div className="border-b-2 mb-10 text-left">
-            <h1 className=' text-2xl mb-3'>Where Yo'll be</h1>
-            <div className="mb-10">
+        <div className="location-container">
+            <h1>Where Yo'll be</h1>
+            <div className="map-container">
                 <LoadScript googleMapsApiKey="AIzaSyB5mlMUDFJUY_FYU6-8ez0eqtrSdrxh298">
                     <GoogleMap
                       mapContainerStyle={containerStyle}
@@ -23,12 +24,12 @@ export const Location = ()=>{
                     />
                 </LoadScript>
             </div>
-            <div className=' mb-10'>
-                <h3 className=' text-lg mb-3'>Berlin, Germany</h3>
-                <p className=' mb-3'>We have an eastern and western German, partly international neighbourhood. 
+            <div className='text'>
+                <h3>Berlin, Germany</h3>
+                <p>We have an eastern and western German, partly international neighbourhood. 
                     Our neighborhood and our neighbors are friendly, helpful and also remarkably quiet, although many families with children live here.
                 </p>
-                <a className="underline" href='#'>Show More</a>
+                <a href='#'>Show More</a>
             </div>
         </div>
     )

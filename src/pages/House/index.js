@@ -1,13 +1,14 @@
 import { Header, Images, Information, Price, Amenities,CheckInDate, Reviews, Location, HostedBy } from "../../components/House";
+import "./style.scss";
 
 const Houses=()=>{
     return(
-        <div className="flex justify-center  ">
-            <div className="w-4/5 xl:w-[72rem] grid">
+        <div className="house-container">
+            <div className="house-subcontainer">
                 <Header/>
                 <Images/>
-                <div className="flex justify-center mt-10 ">
-                    <div className="w-full md:w-8/12">
+                <div className="content-container">
+                    <div className="content md:w-8/12">
                         <Information/>
                         <Amenities/>
                         <CheckInDate/>
@@ -16,7 +17,6 @@ const Houses=()=>{
                 </div>
                 <Reviews/>
                 <Location/>
-                <HostedBy/>
             </div>
         </div>
     )
