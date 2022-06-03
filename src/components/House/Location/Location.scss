@@ -1,0 +1,27 @@
+@import "../../../mixin.scss";
+
+.location-container{
+    // border-bottom-width: 2px;
+    margin-bottom: 2.5rem;
+    text-align: left;
+    h1{
+        @include xl-header;
+        margin-bottom: 0.75rem;
+    }
+    .map-container{
+        margin-bottom: 2.5rem;
+    }
+    .text{
+        margin-bottom: 2.5rem;
+        h3{
+            @include lg-header;
+            margin-bottom: 0.75rem;
+        }
+        p{
+            margin-bottom: 0.75rem;
+        }
+        a{
+            text-decoration-line: underline;  
+        }
+    }
+}
