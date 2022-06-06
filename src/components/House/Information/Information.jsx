@@ -16,7 +16,7 @@ export const Information=()=>{
                 </div>
                 <div className="host-information">
                     <h3>Some Information about the host</h3>
-                    <p className=" text-left mb-10">At our reception, book yourself into one of our free walking tours of the city or come along on our host…<a href="">read more</a></p>
+                    <p>At our reception, book yourself into one of our free walking tours of the city or come along on our host…<a href="">read more</a></p>
                     <StyledButton text={`Contact Host`}/>
                 </div>
             </div>

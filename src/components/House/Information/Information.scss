@@ -27,8 +27,12 @@
             text-align: left;
             margin-bottom: 1.25rem;
         }
-        input{
-            @include button;
+        p{
+            text-align: left;
+            margin-bottom: 2.5rem;
         }
+        // input{
+        //     @include button;
+        // }
     }
 }

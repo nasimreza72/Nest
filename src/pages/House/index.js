@@ -8,7 +8,7 @@ const Houses=()=>{
                 <Header/>
                 <Images/>
                 <div className="content-container">
-                    <div className="content md:w-8/12">
+                    <div className="content">
                         <Information/>
                         <Amenities/>
                         <CheckInDate/>
