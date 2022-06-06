@@ -7,7 +7,7 @@
 }
 
 @mixin  grayTextColor {
-    color:#A3C2DF;
+    color:#717171;
 }
 
 @mixin  nestRedBackground {
@@ -35,6 +35,14 @@
 @mixin  md-header{
     font-size: 1rem;
     line-height: 1.5rem;
+}
+@mixin sm-header{
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+@mixin xs-header{
+    font-size: 0.75rem;
+    line-height: 1rem;
 }
 
 @mixin  button {

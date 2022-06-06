@@ -33,7 +33,6 @@ export const Amenities = ()=>{
         sybmol:<IoLaptopOutline/>,
         text:"Dedicated workspace"
     },
-   
     // {
     //     sybmol:<IoMedkitOutline/>,
     //     text:"First aid kit"
@@ -69,7 +68,7 @@ export const Amenities = ()=>{
             <div className="amenities">
                 {houseAmenitiesWithSymbols.map(item=> <div className="amenity">
                     <div className="icon-container">{ item[0].sybmol}</div> 
-                    <div><p>{item[0].text}</p></div> 
+                    <div>{item[0].text}</div>
                 </div>)}
             </div>
             {/* <Button text={"Show all 5 amenities"}/> */}

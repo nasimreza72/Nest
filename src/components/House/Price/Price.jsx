@@ -1,41 +1,141 @@
-import { AiTwotoneStar } from 'react-icons/ai';
-import {IoIosArrowDown } from "react-icons/io"
-export const Price=()=>{
+import { useEffect, useState } from 'react';
+import { AiTwotoneStar,AiOutlinePlusCircle, AiOutlineMinusCircle } from 'react-icons/ai';
+import {IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import "./Price.scss";
+
+const Dropdown = ({guests,setGuests})=>{
+    const [adult,setAdult] = useState(1);
+    const [children, setChildren] = useState(0);
+    const [infant, setInfant] = useState(0);
+    const [pets, setPets] = useState(0);
+    
+    const minus = (value, setValue,min)=>{
+        if(value>min){
+            setValue(value-1);
+        }
+        
+        console.log('guests :>> ', guests);
+    }
+
+    useEffect(()=>{
+        const text1 = adult+children ==1 ? "1 guest" : adult + children+" guests";
+        const text2 = text1+ (infant>0 ? infant==1 ? ", 1 infant" : ", "+infant+" infants":"");
+        const tempGuests = text2 + (pets>0 ? pets==1 ? ", 1 pet" : ", "+pets+" pets":"");
+        setGuests(tempGuests);
+    },[adult,children,infant,pets])
+    
     return(
-        <div className='ml-10 mt-10 hidden md:block md:w-4/12 lg:w-[24rem]'>            
-            <div className="p-6 border-2 rounded-lg shadow-2xl">
-                <div>
-                    <h2 className=' text-left text-2xl'>Add dates for prices</h2>
-                    <div className=' flex items-center mt-3 mb-3'>
-                        <AiTwotoneStar className=' text-red-600 mr-2'/>
-                        <span>4.57</span>
-                        <a href="" className=' mr-5 ml-5 underline'>435 reviews</a>  
-                    </div>
+        <div className='dropdown-container'>
+            <div className='section'>
+                <div className='key'>
+                    <h3>Adults</h3>
+                    <p>Age 13+</p>
                 </div>
-                <div className='rounded-lg'>
-                    <div className=' flex text-left'>
-                        <div className='w-1/2 border-2 p-2 rounded-tl-lg'>
-                            <h5 className=' text-xs'>CHECK-IN</h5>
-                            <p className=' text-sm'>Add date</p>
-                        </div>
-                        <div className='w-1/2 border-2 p-2 rounded-tr-lg'>
-                            <h5 className=' text-xs'>CHECKOUT</h5>
-                            <p className=' text-sm'>Add date</p>
-                        </div>
-                    </div>
-                    <div className=' p-2 border-2 rounded-b-lg flex justify-between items-center'>
-                        <div>
-                            <h5 className=' text-xs'>GUESTS</h5>
-                            <p className=' text-sm'>Add date</p>
-                        </div>
-                        <div>
-                            <IoIosArrowDown className=' text-2xl'/>
-                        </div>
-                    </div>
-                    <input className=' bg-red-600 text-white p-4 mt-3 w-full font-medium rounded-xl mb-3' type="submit" value="Check availability"/>
-                    <p className=' text-sm'>Enter your travel dates to see the total price per night.</p>
+                <div className='values'>
+                    <button style={adult == 1 ? {cursor:"not-allowed", }:null} onClick={()=>minus(adult,setAdult,1)}>
+                        <AiOutlineMinusCircle className='icon'/>
+                    </button>
+                    <span>{adult}</span>
+                    <button onClick={()=>setAdult(adult+1)}>
+                        <AiOutlinePlusCircle className='icon'/>
+                    </button>
                 </div>
             </div>
+            <div className='section'>
+                <div className='key'>
+                    <h3>Children</h3>
+                    <p>Ages 2–12</p>
+                </div>
+                <div className='values'>
+                    <button style={children == 0 ? {cursor:"not-allowed"}:null} onClick={()=>minus(children,setChildren,0)}>
+                        <AiOutlineMinusCircle className='icon'/>
+                    </button>
+                    <span>{children}</span>
+                    <button onClick={()=>setChildren(children+1)}>    
+                        <AiOutlinePlusCircle className='icon'/>
+                    </button>
+                </div>
+            </div>
+            <div className='section'>
+                <div className='key'>
+                    <h3>Infants</h3>
+                    <p>Under 2</p>
+                </div>
+                <div className='values'>
+                    <button style={infant == 0 ? {cursor:"not-allowed"}:null} onClick={()=>minus(infant,setInfant,0)}>
+                        <AiOutlineMinusCircle className='icon'/>
+                    </button>
+                    <span>{infant}</span>
+                    <button onClick={()=>setInfant(infant+1)}> 
+                        <AiOutlinePlusCircle className='icon'/>
+                    </button>   
+                </div>
+            </div>
+            <div className='section'>
+                <div className='key'>
+                    <h3>Pets</h3>
+                </div>
+                <div className='values'>
+                    <button style={pets == 0 ? {cursor:"not-allowed"}:null} onClick={()=>minus(pets,setPets,0)}>
+                        <AiOutlineMinusCircle className='icon'/>
+                    </button>
+                        <span>{pets}</span>
+                    <button onClick={()=>setPets(pets+1)}>
+                        <AiOutlinePlusCircle className='icon'/>
+                    </button>
+                </div>
+            </div>
+            <div>
+                <p>This place has a maximum of 8 guests, not including infants. Pets aren't allowed.</p>
+            </div>
+            <div className='close-container'>
+                <a href="#">Close</a>
+            </div>
+        </div>
+    )
+}
+
+export const Price=()=>{
+    const [toggle, setToggle] = useState(false);
+    const [guests,setGuests] = useState("1 guest");
+
+    return(
+        <div className='preis-container'>            
+            <div className="preis">
+                <div className='section-1'>
+                    <h2>Add dates for prices</h2>
+                    <div>
+                        <AiTwotoneStar className='star'/>
+                        <span>4.57</span>
+                        <a href="#">435 reviews</a>  
+                    </div>
+                </div>
+                <div className='section-2'>
+                    <div className='add-date'>
+                        <div>
+                            <h5>START DATE</h5>
+                            <p>Add date</p>
+                        </div>
+                        <div >
+                            <h5>ENDING</h5>
+                            <p>Add date</p>
+                        </div>
+                    </div>
+                    <div className='add-guest'>
+                        <div>
+                            <h5>GUESTS</h5>
+                            <p>{guests}</p>
+                        </div>
+                        <div className='toggle'>
+                            {!toggle && <IoIosArrowDown className="toggle-icon" onClick={()=>setToggle(!toggle)}/>}
+                            {toggle &&<IoIosArrowUp className="toggle-icon" onClick={()=>setToggle(!toggle)}/>}
+                        </div>
+                    </div>
+                    <input type="submit" value="Send Request"/>
+                    <p>Enter your travel dates to see the total price per night.</p>
+                </div>
+            </div>
+            {toggle && <Dropdown guests={guests} setGuests={setGuests}/>}
         </div>
     )
 }
