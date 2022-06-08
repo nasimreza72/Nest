@@ -1,0 +1,43 @@
+@import "../../mixin.scss";
+
+.messages{
+   border: 1px solid rgb(226, 218, 218);
+   height: 75vh;
+   padding: 2rem 1rem 1rem 1rem;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   @include shadow;
+   .host-container{
+       text-align: right;
+        margin-bottom: 1rem;
+       .host{
+           background-color:#86B817 ;
+           color: white;
+           padding: .5rem;
+           border-radius: 7px;
+        }
+    }
+    .client-container{
+        text-align: left;
+        margin-bottom: 1rem;
+        .client{
+            @include nestRedBackground;
+            color: white;
+            padding: .5rem;
+            border-radius: 7px;
+        }
+    }
+    .input-container{
+        display: flex;
+        justify-content: space-between;
+        .text-input{
+            width: 80%;
+            padding: .5rem;
+        }
+        .button{
+            width: 19%;
+            padding: .5rem;
+        }
+    }
+}
