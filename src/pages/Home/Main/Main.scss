@@ -14,17 +14,17 @@
         background-color: #ffffff;
         display: grid;
         grid-template-columns: repeat(14, 1fr);
-        grid-template-rows: repeat(40, 1fr);
+        grid-template-rows: repeat(27, 1fr);
         column-gap: 20px;
 
         .blackBox{
             grid-column: 1/15;
-            grid-row: 1/5;
+            grid-row: 1/4;
             background-color: black;
         }
         .firstLargeImage{
             grid-column: 2/14;
-            grid-row: 2/7;
+            grid-row: 1/7;
             border-radius: 17px;
             background-image: url("./assets/familyWGrandma.jpg"); 
             background-size: cover;
@@ -37,10 +37,14 @@
             justify-content: flex-end;
             padding-bottom: 60px;
             margin-bottom: 10px;
-
-                h2{
+            
+                
+                #Nest{
+                    font-size: 5rem;
+                }
+                h1{
                     color: white;
-                    font-size: 3rem;
+                    @include xl-header;
                     margin-bottom: 60px;
                 }
                 button{
@@ -65,96 +69,13 @@
             font-family: 'Montserrat', sans-serif;
             padding-bottom: 20px;
         }
-        .locationOne{
-            grid-column: 2/5;
-            grid-row: 8/10;
-            background-image: url("./assets/imgBerlin.png");
-            background-size: cover;
-            background-repeat: no-repeat;
-            border-radius: 17px 17px 0px 0px;
-        }
-        .locationOne + div{
-            grid-column: 2/5;
-            grid-row: 10/12;
-            @include nestRedBackground;            
-            border-radius: 0px 0px 17px 17px;
-            margin-bottom: 10px;
-        }
-        .locationTwo{
-            grid-column: 5/8;
-            grid-row: 8/10;
-            background-image: url("./assets/imgRostock.png");
-            background-size: cover;
-            background-repeat: no-repeat;
-            border-radius: 17px 17px 0px 0px;
-        }
-        .locationTwo + div{
-            grid-column: 5/8;
-            grid-row: 10/12;
-            @include nestRedBackground;            
-            border-radius: 0px 0px 17px 17px;
-            margin-bottom: 10px;
-        }
-        .locationThree{
-            grid-column: 8/11;
-            grid-row: 8/10;
-            background-image: url("./assets/imgHamburg.png");
-            background-size: cover;
-            background-repeat: no-repeat;
-            border-radius: 17px 17px 0px 0px;
-        }
-        .locationThree + div{
-            grid-column: 8/11;
-            grid-row: 10/12;
-            @include nestRedBackground;
-            border-radius: 0px 0px 17px 17px;
-            margin-bottom: 10px;
-        }
-        .locationFour{
-            grid-column: 11/14;
-            grid-row: 8/10;
-            grid-gap: 20px;
-            background-image: url("./assets/imgUsedom.png");
-            background-size: cover;
-            background-repeat: no-repeat;
-            border-radius: 17px 17px 0px 0px;
-        }
-        .locationFour + div{
-            grid-column: 11/14;
-            grid-row: 10/12;
-            @include nestRedBackground;            
-            border-radius: 0px 0px 17px 17px;
-            margin-bottom: 10px;
-        }
-        .locations{
-            @include font;
-            font-weight: 500;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: flex-start;
-            padding: 15px;
-                h3{
-                    font-size: 2rem;
-                }
-                p{
-                    font-size: 1.3rem;
-                }
-            
-        }
-        .locations + h2{
-            font-size: 3rem;
-            @include font;
-            grid-column: 2/15;
-            grid-row: 12/13;
-            display: flex;
-            align-items: flex-end;
-            padding-bottom: 15px;
+        .carousel{
+            grid-column: 2/14;
+            grid-row: 8/12;
         }
         .about-us{
             grid-column: 2/8;
-            grid-row: 13/19;
+            grid-row: 11/15;
             z-index: 100;
             border-radius: 17px;
             border: 5px solid #FF385C;
@@ -164,64 +85,29 @@
             flex-direction: column;
             padding: 50px;
             position: relative;
-                h3{
-                    font-size: 3rem;
-                    color: black;
-                    @include font;
-                }
+                // h3{
+                //     font-size: 3rem;
+                //     color: black;
+                //     @include font;
+                // }
         }
         .about-us p{
             margin-top: 40px;
             color: black;
             @include font
         }
-        .about-us button{
-            position: absolute;
-            bottom: 40px;
-            width: 200px;
-            height: 55px;
-            @include nestRedBackground;
-            border-radius: 10px;
-            color: white;
-            font-weight: 600;
-            font-size: 1.2rem;
-        }
         .imageAboutUs{
             grid-column: 8/14;
-            grid-row: 13/19;
+            grid-row: 11/15;
             border-radius: 17px;
             background-image: url("./assets/we-were-all-refugees.jpg");
             background-size: cover;
             background-position-y: center;
             background-repeat: no-repeat;
         }
-        .filterDoHomeStuff{
-            grid-column: 8/14;
-            grid-row: 13/19;
-            z-index: 100;
-            border-radius: 17px;
-        }
         .InfoUponEnter{
             grid-column: 2/6;
-            grid-row: 20/22;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: flex-start;
-
-                h2{
-                    font-size: 3rem;
-                    @include font;
-                    
-                }
-                button{
-                    width: 180px;
-                    height: 50px;
-                    border-radius: 9px;
-                    background-color: black;
-                    color: white;
-                    margin-top: 20px;
-                }
+            grid-row: 16/18;
         }
         .cards{
             display: flex;
@@ -229,37 +115,39 @@
             align-items: center;
             font-size: 1.3rem;
             font-weight: 600;
+            grid-row: 16/17;
         }
         .cardOne{
             grid-column: 8/10;
-            grid-row: 20/22;
             border-radius: 17px;
             background-color: yellowgreen;
         }
         .cardTwo{
             grid-column: 10/12;
-            grid-row: 20/22;
             border-radius: 17px;
             background-color: #de3151;
         }
         .cardThree{
             grid-column: 12/14;
-            grid-row: 20/22;
             border-radius: 17px;
             background-color: gray;
         }
         .askSuperHost{
             grid-column: 2/14;
-            grid-row: 23/30;
+            grid-row: 18/24;
             border-radius: 17px;
-            background-image: url(./assets/superHost.jpg);
+            background-image: url(../../../components/Home/AboutUs/assets/hannah-busing-Zyx1bK9mqmA-unsplash.jpg);
             background-size: cover;
             background-position-y: center;
+            
         }
         .filterSuperHost{
             grid-column: 2/14;
-            grid-row: 23/30;
+            grid-row: 18/24;
             display: flex;
+            border-radius: 17px;
+            padding-top: 80px;
+            padding-left: 50px;
             flex-direction: column;
             align-items: flex-start;
             justify-content: space-between;
@@ -280,37 +168,6 @@
             /* global 94%+ browsers support */
             background:linear-gradient(124deg, rgba(18, 1, 18, 0.52) 0%, rgba(3, 3, 38, 0) 52%);  
             
-            
-                .text{
-                    display: flex;
-                    flex-direction: column;
-                    align-items: flex-start;
-                    font-size: 6rem;
-                    color: white;
-                    font-family: 'Montserrat', sans-serif;
-                    padding-left: 70px;
-                    padding-top: 70px;
-                }
-                button{
-                    width: 180px;
-                    height: 50px;
-                    border-radius: 9px;
-                    color: black;
-                    margin-left: 70px;
-                    margin-bottom: 70px;
-                }
         }
-        .footer{
-            grid-column: 2/14;
-            grid-row: 31/40;
-            background-color: #f7f7f7;
-            font-size: 4rem;
-        }
-        
-
     }
-    
-    
-
-    
 }

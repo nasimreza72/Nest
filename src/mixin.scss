@@ -13,19 +13,22 @@
 @mixin  nestRedBackground {
     background-color: #FF385C;
 }
+@mixin borderColor {
+    border: 2px solid #FF385C;
+}
 
 @mixin nestRedTextColor{
     color: #FF385C;
 }
 
 @mixin xxl-header{
-    font-size: 1.75rem;
-    line-height: 2.25rem;
+    font-size: 5.75rem;
+    line-height: 5.8rem;
 }
 
 @mixin xl-header{
-    font-size: 1.5rem;
-    line-height: 2rem;
+    font-size: 2.5rem;
+    line-height: 2.9rem;
 }
 
 @mixin lg-header{
@@ -52,6 +55,9 @@
     cursor: pointer;
     font-size: 1.125rem;
     line-height: 1.75rem;
+    border: none;
+    width: 300px;
+    height: 65px;
 }
 
 @mixin buttonHover{
