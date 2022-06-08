@@ -12,7 +12,7 @@
        text-align: right;
         margin-bottom: 1rem;
        .host{
-           background-color:#86B817 ;
+           background-color: #808080;
            color: white;
            padding: .5rem;
            border-radius: 7px;
@@ -33,11 +33,16 @@
         justify-content: space-between;
         .text-input{
             width: 80%;
-            padding: .5rem;
+            padding-left: .5rem;
+            height: 3rem;
+            border: 1px solid rgb(226, 218, 218);
         }
         .button{
             width: 19%;
             padding: .5rem;
+            height: 3rem;
+            color: white;
+            background-color:  #9ACD32;
         }
     }
 }
