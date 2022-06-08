@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Montserrat:wght@600&display=swap');
-
+@import "../../../mixin.scss";
 
 
 .Home{
     width: 100%;
     height: auto;
-    background-color: goldenrod; 
+    @include nestRedBackground;
    
     
     .grid-container{
@@ -14,46 +14,19 @@
         background-color: #ffffff;
         display: grid;
         grid-template-columns: repeat(14, 1fr);
-        grid-template-rows: repeat(40, 1fr);
+        grid-template-rows: repeat(27, 1fr);
         column-gap: 20px;
 
         .blackBox{
             grid-column: 1/15;
-            grid-row: 1/11;
+            grid-row: 1/4;
             background-color: black;
         }
-        .refugeeBanner{
-            grid-column: 2/14;
-            grid-row: 2/6;
-            background-color: #ff385c;
-            border-radius: 17px;
-            display: flex;
-            justify-content: center;
-            align-content: center;
-            flex-direction: column;
-            font-family: 'Montserrat', sans-serif;
-            color: white;
-            font-size: 3rem;
-
-                button{
-                    width: 150px;
-                    height: 40px;
-                    border: 1px solid white;
-                    font-size: 1rem;
-                    border-radius: 7px;
-                    padding: 5px;
-                    align-self: center;
-                    margin-top: 10px;
-                }
-
-        
-        }
-
         .firstLargeImage{
             grid-column: 2/14;
-            grid-row: 7/15;
+            grid-row: 1/7;
             border-radius: 17px;
-            background-image: url("./assets/daniel-diesenreither-9K8q3K_zuog-unsplash.jpg"); 
+            background-image: url("./assets/familyWGrandma.jpg"); 
             background-size: cover;
             background-repeat: no-repeat; 
             background-position: center;  
@@ -64,26 +37,31 @@
             justify-content: flex-end;
             padding-bottom: 60px;
             margin-bottom: 10px;
-
-                h2{
+            
+                
+                #Nest{
+                    font-size: 5rem;
+                }
+                h1{
                     color: white;
-                    font-size: 3rem;
+                    @include xl-header;
+                    margin-bottom: 60px;
                 }
                 button{
-                    width: 150px;
-                    height: 50px;
+                    width: 200px;
+                    height: 55px;
                     color: black;
-                    font-size: 1rem;
+                    font-size: 1.3rem;
                     border-radius: 25px;
+                    background-color: #FF385C;// need to find out why BG color is not changing
+                    @include font;
                     background-color: white;
-                    font-family: 'Montserrat', sans-serif;
-
+                    font-weight: 600;
                 }   
         }
-
         .firstLargeImage + h2{
             grid-column: 2/14;
-            grid-row: 15/16;
+            grid-row: 7/8;
             display: flex;
             justify-content: flex-start;
             align-items: flex-end;
@@ -91,269 +69,85 @@
             font-family: 'Montserrat', sans-serif;
             padding-bottom: 20px;
         }
-
-        .inspirationOne{
-            grid-column: 2/5;
-            grid-row: 16/18;
-            background-image: url("./assets/imgBerlin.png");
-            background-size: cover;
-            background-repeat: no-repeat;
-            border-radius: 17px 17px 0px 0px;
+        .carousel{
+            grid-column: 2/14;
+            grid-row: 8/12;
         }
-        .inspirationOne + div{
-            grid-column: 2/5;
-            grid-row: 18/20;
-            background-color: #de3151;
-            border-radius: 0px 0px 17px 17px;
-            margin-bottom: 10px;
-        }
-
-
-        .inspirationTwo{
-            grid-column: 5/8;
-            grid-row: 16/18;
-            background-image: url("./assets/imgRostock.png");
-            background-size: cover;
-            background-repeat: no-repeat;
-            border-radius: 17px 17px 0px 0px;
-        }
-        .inspirationTwo + div{
-            grid-column: 5/8;
-            grid-row: 18/20;
-            background-color: #d93b30;
-            border-radius: 0px 0px 17px 17px;
-            margin-bottom: 10px;
-        }
-
-        .inspirationThree{
-            grid-column: 8/11;
-            grid-row: 16/18;
-            background-image: url("./assets/imgHamburg.png");
-            background-size: cover;
-            background-repeat: no-repeat;
-            border-radius: 17px 17px 0px 0px;
-        }
-        .inspirationThree + div{
-            grid-column: 8/11;
-            grid-row: 18/20;
-            background-color: #cc2d4a;
-            border-radius: 0px 0px 17px 17px;
-            margin-bottom: 10px;
-        }
-        
-
-        .inspirationFour{
-            grid-column: 11/14;
-            grid-row: 16/18;
-            grid-gap: 20px;
-            background-image: url("./assets/imgUsedom.png");
-            background-size: cover;
-            background-repeat: no-repeat;
-            border-radius: 17px 17px 0px 0px;
-        }
-        .inspirationFour + div{
-            grid-column: 11/14;
-            grid-row: 18/20;
-            background-color: #de3151;
-            border-radius: 0px 0px 17px 17px;
-            margin-bottom: 10px;
-        }
-        
-        .locations{
-            font-family: 'Montserrat', sans-serif;
-            color: white;
+        .about-us{
+            grid-column: 2/8;
+            grid-row: 11/15;
+            z-index: 100;
+            border-radius: 17px;
+            border: 5px solid #FF385C;
             display: flex;
-            flex-direction: column;
+            align-items: flex-start;
             justify-content: flex-start;
-            align-items: flex-start;
-            padding: 15px;
-                h3{
-                    font-size: 2rem;
-                }
-                p{
-                    font-size: 1.3rem;
-                    
-                }
-            
-        }
-        .locations + h2{
-            font-size: 3rem;
-            grid-column: 2/15;
-            grid-row: 20/21;
-            display: flex;
-            align-items: flex-end;
-            padding-bottom: 15px;
-        }
-
-       
-        .doOnYourTripImage{
-            grid-column: 2/8;
-            grid-row: 21/27;
-            background-image: url("./assets/twoguysHangingOut.jpg");
-            background-size: cover;
-            background-position-y: center;
-            background-repeat: no-repeat;
-            border-radius: 17px;
-            display: flex;
-            align-items: flex-start;
-            
-                
-        }
-        .filterDoTripStuff{
-            grid-column: 2/8;
-            grid-row: 21/27;
-            z-index: 100;
-            border-radius: 17px;
-           /* ff 3.6+ */
-            background:-moz-linear-gradient(124deg, rgba(18, 1, 18, 0.52) 0%, rgba(3, 3, 38, 0) 52%); 
-
-            /* safari 5.1+,chrome 10+ */
-            background:-webkit-linear-gradient(124deg, rgba(18, 1, 18, 0.52) 0%, rgba(3, 3, 38, 0) 52%);
-
-            /* opera 11.10+ */
-            background:-o-linear-gradient(124deg, rgba(18, 1, 18, 0.52) 0%, rgba(3, 3, 38, 0) 52%);
-
-            /* ie 6-9 */
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#030326', endColorstr='#120112', GradientType=0 );
-
-            /* ie 10+ */
-            background:-ms-linear-gradient(124deg, rgba(18, 1, 18, 0.52) 0%, rgba(3, 3, 38, 0) 52%);
-
-            /* global 94%+ browsers support */
-            background:linear-gradient(124deg, rgba(18, 1, 18, 0.52) 0%, rgba(3, 3, 38, 0) 52%);
-
-
-
-}
-        
-        
-        .doHomeImage{
-            grid-column: 8/14;
-            grid-row: 21/27;
-            border-radius: 17px;
-            background-image: url("./assets/colorfullIndia.jpg");
-            background-size: cover;
-            background-position-y: center;
-            background-repeat: no-repeat;
-           
-        }
-        .filterDoHomeStuff{
-            grid-column: 8/14;
-            grid-row: 21/27;
-            z-index: 100;
-            border-radius: 17px;
-            /* ff 3.6+ */
-            background:-moz-linear-gradient(124deg, rgba(18, 1, 18, 0.52) 0%, rgba(3, 3, 38, 0) 52%); 
-
-            /* safari 5.1+,chrome 10+ */
-            background:-webkit-linear-gradient(124deg, rgba(18, 1, 18, 0.52) 0%, rgba(3, 3, 38, 0) 52%);
-
-            /* opera 11.10+ */
-            background:-o-linear-gradient(124deg, rgba(18, 1, 18, 0.52) 0%, rgba(3, 3, 38, 0) 52%);
-
-            /* ie 6-9 */
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#030326', endColorstr='#120112', GradientType=0 );
-
-            /* ie 10+ */
-            background:-ms-linear-gradient(124deg, rgba(18, 1, 18, 0.52) 0%, rgba(3, 3, 38, 0) 52%);
-
-            /* global 94%+ browsers support */
-            background:linear-gradient(124deg, rgba(18, 1, 18, 0.52) 0%, rgba(3, 3, 38, 0) 52%);
-
-
-
-
-        }
-
-        .doStuff{
-            display: flex;
-            align-items: flex-start;
+            flex-direction: column;
             padding: 50px;
-                h3{
-                    font-size: 3rem;
-                    color: white;
-                    font-family: 'Montserrat', sans-serif ;
-                }
-                #secondHThree{
-                    transform: translate(0, -30%);
-                }
-                button{
-                    width: 180px;
-                    height: 50px;
-                    color: black;
-                    background-color: white;
-                    border-radius: 9px;
-                    display: block;
-                }
+            position: relative;
+                // h3{
+                //     font-size: 3rem;
+                //     color: black;
+                //     @include font;
+                // }
         }
-        .giftCardsText{
-            grid-column: 2/5;
-            grid-row: 28/30;
-            //min-width: 330px;
+        .about-us p{
+            margin-top: 40px;
+            color: black;
+            @include font
+        }
+        .imageAboutUs{
+            grid-column: 8/14;
+            grid-row: 11/15;
+            border-radius: 17px;
+            background-image: url("./assets/we-were-all-refugees.jpg");
+            background-size: cover;
+            background-position-y: center;
+            background-repeat: no-repeat;
+        }
+        .InfoUponEnter{
+            grid-column: 2/6;
+            grid-row: 16/18;
+        }
+        .cards{
             display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: flex-start;
-
-                h2{
-                    font-size: 3rem;
-                    font-family: 'Montserrat', sans-serif;
-                    
-                }
-                #secondHTwo{
-                    transform: translate(0, -22%);
-                }
-                button{
-                    width: 180px;
-                    height: 50px;
-                    border-radius: 9px;
-                    background-color: black;
-                    color: white;
-                }
+            justify-content: center;
+            align-items: center;
+            font-size: 1.3rem;
+            font-weight: 600;
+            grid-row: 16/17;
         }
         .cardOne{
-            grid-column: 5/8;
-            grid-row: 28/30;
+            grid-column: 8/10;
             border-radius: 17px;
-            min-width: 400px;
-            background-image: url(./assets/airbnbCard1.png);
-            background-size: cover;
-            background-position-x: center;
-            transform: rotate(-5deg) translate(29%, 0%);
-            z-index: 100;
-            -webkit-box-shadow: 25px 100px 50px -30px rgba(0,0,0,0.41); 
-            box-shadow: 100px 130px 50px -100px rgba(0,0,0,0.50);
+            background-color: yellowgreen;
         }
         .cardTwo{
-            grid-column: 8/11;
-            grid-row: 28/30;
+            grid-column: 10/12;
             border-radius: 17px;
-            min-width: 400px;
             background-color: #de3151;
-            transform: rotate(-20deg) translate(-20%, 25%);
-            z-index: 50;
- 
         }
         .cardThree{
-            grid-column: 10/13;
-            grid-row: 28/30;
+            grid-column: 12/14;
             border-radius: 17px;
-            min-width: 400px;
             background-color: gray;
-            transform: rotate(19deg) translate(10%, 5%);
         }
         .askSuperHost{
             grid-column: 2/14;
-            grid-row: 32/39;
+            grid-row: 18/24;
             border-radius: 17px;
-            background-image: url(./assets/superHost.jpg);
+            background-image: url(../../../components/Home/AboutUs/assets/hannah-busing-Zyx1bK9mqmA-unsplash.jpg);
             background-size: cover;
             background-position-y: center;
+            
         }
         .filterSuperHost{
             grid-column: 2/14;
-            grid-row: 32/39;
+            grid-row: 18/24;
             display: flex;
+            border-radius: 17px;
+            padding-top: 80px;
+            padding-left: 50px;
             flex-direction: column;
             align-items: flex-start;
             justify-content: space-between;
@@ -374,32 +168,6 @@
             /* global 94%+ browsers support */
             background:linear-gradient(124deg, rgba(18, 1, 18, 0.52) 0%, rgba(3, 3, 38, 0) 52%);  
             
-            
-                .text{
-                    display: flex;
-                    flex-direction: column;
-                    align-items: flex-start;
-                    font-size: 6rem;
-                    color: white;
-                    font-family: 'Montserrat', sans-serif;
-                    padding-left: 70px;
-                    padding-top: 70px;
-                }
-                button{
-                    width: 180px;
-                    height: 50px;
-                    border-radius: 9px;
-                    background-color: white;
-                    color: black;
-                    margin-left: 70px;
-                    margin-bottom: 70px;
-                }
         }
-        
-
     }
-    
-    
-
-    
 }

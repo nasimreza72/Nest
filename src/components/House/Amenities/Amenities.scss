@@ -1,0 +1,31 @@
+@import "../../../mixin.scss";
+
+.amenities-container{
+    border-bottom-width: 2px;
+    margin-bottom: 2.5rem;
+    h2{
+        text-align: left;
+        @include lg-header;
+        margin-bottom: 1.25rem;
+    }
+    .amenities{
+        display: flex;
+        flex-direction: column;
+        .amenity{
+            width: 50%;
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            .icon-container{
+                margin-right: 0.75rem;
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .amenities {
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+    }
+}

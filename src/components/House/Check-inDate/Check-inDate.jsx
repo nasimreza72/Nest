@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Calendar from 'react-calendar';
+import "./Check-inDate.jsx";
 
 export const CheckInDate = ()=>{
     const [value, setValue] = useState(new Date());
