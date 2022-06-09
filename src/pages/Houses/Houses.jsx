@@ -1,4 +1,4 @@
-// import "./style.css";
+import "./style.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FaAngleDown, FaFilter, FaStar, FaHeart } from "react-icons/fa";
 import { useState } from "react";
