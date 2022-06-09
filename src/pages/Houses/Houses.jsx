@@ -2,9 +2,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FaAngleDown, FaFilter, FaStar, FaHeart } from "react-icons/fa";
 import { useState } from "react";
-import Filter from "./HousesComponents/Filter.jsx";
+import Filter from "../../components/HousesComponents/Filter.jsx";
 import { Carousel } from "react-bootstrap";
-import MapContainer from "./HousesComponents/MapContainer.jsx";
+import MapContainer from "../../components/HousesComponents/MapContainer.jsx";
 
 
 
