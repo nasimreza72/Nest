@@ -67,7 +67,9 @@ const MapContainer = () => {
   };
 
   return (
-    <LoadScript googleMapsApiKey="AIzaSyBIo2VwqE2BYnrvSjtIsRhHa7lNTwBWx3I">
+    <LoadScript 
+    // googleMapsApiKey="AIzaSyBIo2VwqE2BYnrvSjtIsRhHa7lNTwBWx3I"
+    >
       <GoogleMap mapContainerStyle={mapStyles} zoom={13} center={defaultCenter}>
         {locations.map((item) => {
           return (
