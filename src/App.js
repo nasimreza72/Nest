@@ -4,6 +4,7 @@ import {Houses, House, HostingPage1} from "./pages";
 import {Navbar} from "./components/General Components";
 import {Messages} from "./pages/Messages/Messages.jsx";
 import Home from "./pages/Home/index.jsx"
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
