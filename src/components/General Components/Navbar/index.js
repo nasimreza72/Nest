@@ -94,6 +94,7 @@ const Navbar=()=>{
 
   return(
       <div>
+          <Example/>
           <nav>
               <Link className="mr-4 text-amber-800" to="/">Home</Link>
               <Link className="mr-4 text-amber-800" to="houses">Houses</Link>
