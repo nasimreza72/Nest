@@ -1,6 +1,6 @@
 import './App.scss';
 import {Routes,Route} from "react-router-dom";
-import {Houses, House, HostingPage1} from "./pages";
+import {Houses, House, Login, HostingPage1} from "./pages";
 import {Navbar} from "./components/General Components";
 import {Messages} from "./pages/Messages/Messages.jsx";
 import Home from "./pages/Home/index.jsx"
