@@ -1,18 +1,15 @@
 import "./Main.scss"
 import  { WeProvideHousing, Locations, AboutUs, InfoUponEntering,CardOne, CardTwo, CardThree, HostQuestions} from "../../../components/Home";
-import Login from "../../Login/Login.jsx" 
-import  { useState, useContext } from "react";
+import Login from "../../Login/Login.jsx"
+import Register from "../../Register/Register.jsx"; 
+import  { useState, useContext, useEffect, useRef } from "react";
 import { loginContext } from "../../../Context/LoginContext.jsx"
+import { GiBodyBalance } from "react-icons/gi";
 
  
-
-
-
-
 export const Main=()=>{
 
-    const {login, setLogin} = useContext(loginContext)
-
+    const {login, setLogin, register, setRegister} = useContext(loginContext)
 
     return(
 
@@ -21,8 +18,9 @@ export const Main=()=>{
 
                 <div className="blackBox"></div>
 
-                {login ?  <Login /> : null}
-                               
+                {login ?  <Login /> : null }
+                {register ?  <Register /> : null}
+         
                 <div className="firstLargeImage">
                     <WeProvideHousing/>
                 </div>
