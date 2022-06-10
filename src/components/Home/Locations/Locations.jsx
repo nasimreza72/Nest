@@ -53,7 +53,7 @@ export default function Locations(){
 
     return(
         <div>
-             <motion.div ref={carousel} className="carousel" whileTap={{cursor: "grabbing"}}>
+             <motion.div ref={carousel} className="carouselli" whileTap={{cursor: "grabbing"}}>
                 <motion.div drag="x" dragConstraints={{right:0, left: -width}} className="innerCaousel">
 
                     {[...Array(arrayLength)].map((item, index) => {
