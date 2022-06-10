@@ -1,9 +1,11 @@
 
+import { useContext, useState } from "react";
+import { loginContext } from "../../../Context/LoginContext.jsx"
 import { Link } from "react-router-dom";
 import { BiSearch } from "react-icons/bi";
 import "./index.scss";
 import {Offcanvas, Button} from "react-bootstrap";
-import { useState } from "react";
+
 
 // const MainNav = ({setIsMainActive}) => {
 //   return (
@@ -36,9 +38,10 @@ const BigNav=()=>{
                 </div>
                 <div></div>
             </div>
-        </div>
+          </div>
     )
-}
+  }
+
 
 function OffCanvasExample({ name, ...props }) {
   const [show, setShow] = useState(false);
@@ -82,22 +85,25 @@ function Example() {
 }
 
 
-const Navbar = () => {
-  const [isMainActive, setIsMainActive] = useState(true);
-  return (
-    <div>
-      <Example/>
-      <nav>
-        <Link className="mr-4 text-amber-800" to="/">Home</Link>
-        <Link className="mr-4 text-amber-800" to="houses">Houses</Link>
-        <Link className="mr-4 text-amber-800" to="house">House</Link>
-        <Link className="mr-4 text-amber-800" to="hostingPage1">HostingPage1</Link>
-        <Link className="mr-4 text-amber-800" to="messages">Messages</Link>
-      </nav>
-       {/* <MainNav setIsMainActive={setIsMainActive}/> */}
-      {/* {!isMainActive && <BigNav/>} */}
-    </div>
-  );
-};
+const Navbar=()=>{
 
+  const {login, setLogin} = useContext(loginContext);
+  const [isMainActive, setIsMainActive] = useState(true);
+
+  console.log(login)
+
+  return(
+      <div>
+          <nav>
+              <Link className="mr-4 text-amber-800" to="/">Home</Link>
+              <Link className="mr-4 text-amber-800" to="houses">Houses</Link>
+              <Link className="mr-4 text-amber-800" to="house">House</Link>
+              <Link className="mr-4 text-amber-800" to="hostingPage1">HostingPage1</Link>
+              <Link className="mr-4 text-amber-800" to="messages">Messages</Link>
+          </nav>
+          <button onClick={ e => setLogin(!login)}>Login</button>
+
+      </div>
+    )
+  }
 export default Navbar;
