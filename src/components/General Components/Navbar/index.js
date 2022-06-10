@@ -16,6 +16,8 @@ const Navbar=()=>{
                 <Link className="mr-4 text-amber-800" to="/">Home</Link>
                 <Link className="mr-4 text-amber-800" to="houses">Houses</Link>
                 <Link className="mr-4 text-amber-800" to="house">House</Link>
+                <Link className="mr-4 text-amber-800" to="hostingPage1">HostingPage1</Link>
+                <Link className="mr-4 text-amber-800" to="messages">Messages</Link>
             </nav>
             <button onClick={ e => setLogin(!login)}>Login</button>
             <button onClick={ e => setRegister(!register)}>Register</button>
