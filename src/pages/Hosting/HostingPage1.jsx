@@ -45,12 +45,7 @@ export default function HostingPage1() {
                   </div>
               </div>
 
-              <div className="subMainRightDiv">
-                  <p>Garage</p>
-                  <div className="apartmentImage">
-                      <img src="https://stylebyemilyhenderson.com/wp-content/uploads/2020/06/Emily-Henderson_Shanty-Wijaya_Opener.jpg" alt="" width={60} />
-                  </div>
-              </div>
+        
           </div>
           <div className="subMainRightBottom">
               <div className="bottomPart">
