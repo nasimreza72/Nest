@@ -2,22 +2,25 @@ import "./Register.scss"
 import { Input, FacebookButton, GoogleButton, AppleButton, EmailButton } from "../../components/Login/"
 import { loginContext } from "../../Context/LoginContext.jsx"
 import { useContext, useState, useRef, useEffect } from "react";
-import useClickOutside from "../../lib/ClickOutsideHook.jsx" // Custom Hook
 
 
 export default function Register(){
 
+    // Disable Modal by clicking outside............
     const { register, setRegister } = useContext(loginContext)
+    let menuRef = useRef()
 
-    // Custom HOOK for click-Outside-Event ............
-    let domNode = useClickOutside(() => {
-        setRegister(false)
-    })
+    useEffect(() => {
+        document.addEventListener("mousedown", (e) => {
+            if(!menuRef.current.contains(e.target))
+            setRegister(false)
+        })
+    }, [register])
     ////////////////////////////////////////////////////
 
 
     return(
-        <div className="Register" ref={domNode}>
+        <div className="Register" ref={menuRef}>
             <div className="xAndLogIn">
                 <div onClick={ e => setRegister(!register) } id="X">X</div>
                 <div>Register</div>
