@@ -41,6 +41,7 @@
             border-radius: 2rem;
             &:hover{
                 background-color: #EBEBEB;
+                cursor: pointer;
             }
             h6{
                 @include sm-header;
@@ -61,19 +62,8 @@
     }
 }
 
-.modal-css{
-    // background-color: red;
-    width: 200rem !important;
-    height: 500px;
-}
 
-.off-canvas{
-    margin-top: 4rem;
-    // background-color: red;
-    margin-top: 5rem;
-    height: 90vh;
-}
 .off-canvas-body{
-    background-color: azure;
+    
     
 }

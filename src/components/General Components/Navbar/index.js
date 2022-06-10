@@ -59,7 +59,7 @@ function OffCanvasExample({ name, ...props }) {
       <button className="search-button"><BiSearch/></button>
     </div>
  
-    <Offcanvas show={show}  onHide={handleClose} {...props} backdropClassName="off-canvas">
+    <Offcanvas show={show}  onHide={handleClose} {...props}>
       {/* <Offcanvas.Header>
       </Offcanvas.Header> */}
       <Offcanvas.Body className="off-canvas-body">
