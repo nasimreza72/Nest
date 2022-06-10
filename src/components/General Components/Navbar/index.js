@@ -4,9 +4,11 @@ import { loginContext } from "../../../Context/LoginContext.jsx"
 
 const Navbar=()=>{
 
-    const {login, setLogin} = useContext(loginContext)
+    const {login, setLogin, register, setRegister} = useContext(loginContext)
     
-    console.log(login)
+    const clickHandler = (e) => {
+        // Verb.............
+    }
     
     return(
         <div>
@@ -18,6 +20,7 @@ const Navbar=()=>{
                 <Link className="mr-4 text-amber-800" to="messages">Messages</Link>
             </nav>
             <button onClick={ e => setLogin(!login)}>Login</button>
+            <button onClick={ e => setRegister(!register)}>Register</button>
 
         </div>
     )

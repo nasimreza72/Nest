@@ -14,7 +14,7 @@
         background-color: #ffffff;
         display: grid;
         grid-template-columns: repeat(14, 1fr);
-        grid-template-rows: repeat(27, 1fr);
+        grid-template-rows: repeat(24, 1fr);
         column-gap: 20px;
 
         .blackBox{
@@ -24,7 +24,7 @@
         }
         .firstLargeImage{
             grid-column: 2/14;
-            grid-row: 1/7;
+            grid-row: 1/5;
             border-radius: 17px;
             background-image: url("./assets/familyWGrandma.jpg"); 
             background-size: cover;
@@ -61,7 +61,7 @@
         }
         .firstLargeImage + h2{
             grid-column: 2/14;
-            grid-row: 7/8;
+            grid-row: 5/6;
             display: flex;
             justify-content: flex-start;
             align-items: flex-end;
@@ -71,11 +71,11 @@
         }
         .carousel{
             grid-column: 2/14;
-            grid-row: 8/12;
+            grid-row: 6/10;
         }
         .about-us{
             grid-column: 2/8;
-            grid-row: 11/15;
+            grid-row: 9/13;
             z-index: 100;
             border-radius: 17px;
             border: 5px solid #FF385C;
@@ -85,11 +85,6 @@
             flex-direction: column;
             padding: 50px;
             position: relative;
-                // h3{
-                //     font-size: 3rem;
-                //     color: black;
-                //     @include font;
-                // }
         }
         .about-us p{
             margin-top: 40px;
@@ -98,7 +93,7 @@
         }
         .imageAboutUs{
             grid-column: 8/14;
-            grid-row: 11/15;
+            grid-row: 9/13;
             border-radius: 17px;
             background-image: url("./assets/we-were-all-refugees.jpg");
             background-size: cover;
@@ -107,7 +102,7 @@
         }
         .InfoUponEnter{
             grid-column: 2/6;
-            grid-row: 16/18;
+            grid-row: 14/15;
         }
         .cards{
             display: flex;
@@ -115,7 +110,7 @@
             align-items: center;
             font-size: 1.3rem;
             font-weight: 600;
-            grid-row: 16/17;
+            grid-row: 14/15;
         }
         .cardOne{
             grid-column: 8/10;
@@ -134,16 +129,15 @@
         }
         .askSuperHost{
             grid-column: 2/14;
-            grid-row: 18/24;
+            grid-row: 16/22;
             border-radius: 17px;
             background-image: url(../../../components/Home/AboutUs/assets/hannah-busing-Zyx1bK9mqmA-unsplash.jpg);
             background-size: cover;
             background-position-y: center;
-            
         }
         .filterSuperHost{
             grid-column: 2/14;
-            grid-row: 18/24;
+            grid-row: 16/22;
             display: flex;
             border-radius: 17px;
             padding-top: 80px;
