@@ -2,26 +2,24 @@ import "./Login.scss"
 import { Input, FacebookButton, GoogleButton, AppleButton, EmailButton } from "../../components/Login/"
 import { loginContext } from "../../Context/LoginContext.jsx"
 import { useContext, useState, useRef, useEffect} from "react";
-import useClickOutside from "../../lib/ClickOutsideHook.jsx" // Custom Hook
 
 
 export default function Login(){
 
+    // Disable Modal by clicking outside............
     const { login, setLogin } = useContext(loginContext)
+    let menuRef = useRef()
 
-    //Custom Hook for outside click Event...............
-    let domNode = useClickOutside(() => {
-        setLogin(false)
-    })
-   
-//    useEffect(() => {
-
-//     const body = document.querySelector("body")
-//     login ? body.style.overflow="hidden" : body.style.overflow="visible"  
-//    }, [login])
+    useEffect(() => {
+        document.addEventListener("mousedown", (e) => {
+            if(!menuRef.current.contains(e.target))
+            setLogin(false)
+        })
+    }, [login])
+    //////////////////////////////////////////////////////
 
     return(
-        <div className="Login" ref={domNode} >
+        <div className="Login" ref={menuRef} >
             <div className="xAndLogIn">
                 <div id="X" onClick={ e => setLogin(false) }>X</div>
                 <div>Login</div>
