@@ -27,7 +27,7 @@ export const Main=()=>{
 
                 <h2>Locations with available housing</h2>
 
-                <div className="carousel">
+                <div className="carouselli">
                     <Locations />
                 </div>
 
