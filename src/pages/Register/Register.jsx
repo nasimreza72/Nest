@@ -1,30 +1,26 @@
-import "./Login.scss"
+import "./Register.scss"
 import { Input, FacebookButton, GoogleButton, AppleButton, EmailButton } from "../../components/Login/"
 import { loginContext } from "../../Context/LoginContext.jsx"
-import { useContext, useState, useRef, useEffect} from "react";
+import { useContext, useState, useRef, useEffect } from "react";
 import useClickOutside from "../../lib/ClickOutsideHook.jsx" // Custom Hook
 
 
-export default function Login(){
+export default function Register(){
 
-    const { login, setLogin } = useContext(loginContext)
+    const { register, setRegister } = useContext(loginContext)
 
-    //Custom Hook for outside click Event...............
+    // Custom HOOK for click-Outside-Event ............
     let domNode = useClickOutside(() => {
-        setLogin(false)
+        setRegister(false)
     })
-   
-//    useEffect(() => {
+    ////////////////////////////////////////////////////
 
-//     const body = document.querySelector("body")
-//     login ? body.style.overflow="hidden" : body.style.overflow="visible"  
-//    }, [login])
 
     return(
-        <div className="Login" ref={domNode} >
+        <div className="Register" ref={domNode}>
             <div className="xAndLogIn">
-                <div id="X" onClick={ e => setLogin(false) }>X</div>
-                <div>Login</div>
+                <div onClick={ e => setRegister(!register) } id="X">X</div>
+                <div>Register</div>
             </div>
 
             <div className="WelcomeToNest">Welcome to NEST</div>
