@@ -11,7 +11,4 @@ export default function InfoUponEntering(){
             <button>Learn More</button>
         </div>
     )
-
-
-
 }

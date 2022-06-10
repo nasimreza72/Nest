@@ -1,12 +1,18 @@
 import "./Main.scss"
-import  { WeProvideHousing, Locations, AboutUs, InfoUponEntering, 
-          CardOne, CardTwo, CardThree, HostQuestions
-        } from "../../../components/Home/index";
+import  { WeProvideHousing, Locations, AboutUs, InfoUponEntering,CardOne, CardTwo, CardThree, HostQuestions} from "../../../components/Home";
+import Login from "../../Login/Login.jsx" 
+import  { useState, useContext } from "react";
+import { loginContext } from "../../../Context/LoginContext.jsx"
+
+ 
 
 
 
 
 export const Main=()=>{
+
+    const {login, setLogin} = useContext(loginContext)
+
 
     return(
 
@@ -14,7 +20,9 @@ export const Main=()=>{
             <div className="grid-container">
 
                 <div className="blackBox"></div>
-               
+
+                {login ?  <Login /> : null}
+                               
                 <div className="firstLargeImage">
                     <WeProvideHousing/>
                 </div>
