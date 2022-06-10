@@ -1,5 +1,7 @@
 import React from 'react'
-import { GoogleMap, LoadScript } from '@react-google-maps/api';
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+// const ScriptLoaded = require("../../docs/ScriptLoaded").default;
+
 import "./Location.scss";
 
 export const Location = ()=>{
@@ -12,6 +14,15 @@ export const Location = ()=>{
         lat: -3.745,
         lng: -38.523
     };
+
+    const position = {
+        lat: -3.745,
+        lng: -38.523
+      }
+      
+      const onLoad = marker => {
+        console.log('marker: ', marker)
+      }
     return(
         <div className="location-container">
             <h1>Where Yo'll be</h1>
@@ -21,7 +32,13 @@ export const Location = ()=>{
                       mapContainerStyle={containerStyle}
                       center={center}
                       zoom={10}
+                    >
+                    <Marker
+                    //  icon={"https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png"}
+                        // onLoad={onLoad}
+                        position={position}
                     />
+                    </GoogleMap>
                 </LoadScript>
             </div>
             <div className='text'>
