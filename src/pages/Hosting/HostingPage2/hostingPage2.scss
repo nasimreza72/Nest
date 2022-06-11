@@ -40,6 +40,8 @@
             align-items: center;
             flex-direction: column;
             position: relative;
+            box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+
         }
 
         .subMainRightDiv {
@@ -53,7 +55,8 @@
             border: 0.5px solid rgb(185, 185, 185);
             border-radius: 40px;
             background-color: white;
-            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+            box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+
 
             &:hover {
                 border: 2px solid rgb(73, 73, 73);
@@ -62,13 +65,12 @@
 
             input {
                 width: 90%;
+                height: 60px;
                 padding: 0px 20px;
                 border: none;
                 outline: none;
                 background: none;
             }
-
-
         }
 
         .subMainRightBottom {
@@ -123,14 +125,50 @@
 
         .mainLeft {
             width: 100vw;
-            height: 35vh;
+            height: 27.5vh;
+            justify-content: center;
+
+            h1 {
+                font-size: 25px;
+                padding: 0px 20px;
+            }
         }
 
         .mainRight {
             width: 100vw;
 
             .subMainRight {
-                height: 50vh;
+                height: 65vh;
+
+
+                .subMainRightDiv {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 75%;
+                    min-width: 300px;
+                    z-index: 1;
+                    position: absolute;
+                    border: 0.5px solid rgb(185, 185, 185);
+                    border-radius: 40px;
+                    background-color: white;
+                    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+
+
+                    &:hover {
+                        border: 2px solid rgb(73, 73, 73);
+                    }
+
+
+                    input {
+                        width: 90%;
+                        height: 45px;
+                        padding: 0px 20px;
+                        border: none;
+                        outline: none;
+                        background: none;
+                    }
+                }
             }
         }
 

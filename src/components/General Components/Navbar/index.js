@@ -147,9 +147,15 @@ const Navbar = () => {
         </Link>
         <Link className="mr-4 text-amber-800" to="hostingPage2">
           HP2
-        </Link>{" "}
+        </Link>
         <Link className="mr-4 text-amber-800" to="hostingPage3">
           HP3
+        </Link>
+        <Link className="mr-4 text-amber-800" to="hostingPage4">
+          HP4
+        </Link>
+        <Link className="mr-4 text-amber-800" to="hostingPage5">
+          HP5
         </Link>
         <Link className="mr-4 text-amber-800" to="messages">
           Messages

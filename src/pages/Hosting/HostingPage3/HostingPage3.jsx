@@ -6,7 +6,7 @@ export default function HostingPage3() {
   return (
     <div className="hostingPage3">
       <div className="mainLeft">
-        <h1>What kind of place will you host?</h1>
+        <h1>How many guests would you like to welcome?</h1>
       </div>
       <div className="mainRight">
           <div className="subMainRight">

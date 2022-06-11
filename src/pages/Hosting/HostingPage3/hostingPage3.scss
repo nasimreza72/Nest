@@ -39,6 +39,7 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
         }
 
         .subMainRightDiv {
@@ -55,11 +56,8 @@
             cursor: pointer;
             transition: 0.1s ease-in-out;
 
-            // &:hover {
-            //     border: 2px solid rgb(73, 73, 73);
-            // }
 
-            div {
+            .leftWrapper {
                 font-size: 20px;
             }
 
@@ -70,7 +68,7 @@
 
                 .increaseButton {
                     border: 1px solid gray;
-                    padding: 2px 11px;
+                    padding: 3px 11px;
                     border-radius: 50%;
 
                     &:hover {
@@ -80,7 +78,7 @@
 
                 .decreaseButton {
                     border: 1px solid gray;
-                    padding: 2px 13px;
+                    padding: 3px 13px;
                     border-radius: 50%;
 
                     &:hover {
@@ -89,7 +87,7 @@
                 }
 
                 .showNumber {
-                    margin: 0px 15px;
+                    margin: 0px 10px;
                 }
             }
         }
@@ -143,6 +141,12 @@
         .mainLeft {
             width: 100vw;
             height: 45vh;
+            justify-content: center;
+     
+            h1{
+                font-size: 25px;
+                padding: 0px 20px
+            }
         }
 
         .mainRight {
@@ -150,6 +154,12 @@
 
             .subMainRight {
                 height: 55vh;
+
+                .subMainRightDiv {
+                    width: 75%;
+                    min-width: 250px;
+                    height: 70px;
+                }
             }
         }
 
