@@ -110,7 +110,7 @@
 
         .mainLeft {
             width: 100vw;
-            height: 35vh;
+            min-height: 300px;
             justify-content: center;
 
             h1 {
@@ -123,7 +123,7 @@
             width: 100vw;
 
             .subMainRight {
-                height: 55vh;
+                height: 525px;
 
                 .subMainRightDiv {
                     width: 75%;
