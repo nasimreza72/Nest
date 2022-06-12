@@ -157,6 +157,18 @@ const Navbar = () => {
         <Link className="mr-4 text-amber-800" to="hostingPage5">
           HP5
         </Link>
+        <Link className="mr-4 text-amber-800" to="hostingPage6">
+          HP6
+        </Link>
+        <Link className="mr-4 text-amber-800" to="hostingPage7">
+          HP7
+        </Link>
+        <Link className="mr-4 text-amber-800" to="hostingPage8">
+          HP8
+        </Link>
+        <Link className="mr-4 text-amber-800" to="hostingPage9">
+          HP9
+        </Link>
         <Link className="mr-4 text-amber-800" to="messages">
           Messages
         </Link>
