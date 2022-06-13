@@ -1,69 +1,43 @@
 @import "../../../mixin.scss";
 
-.main-nav{
-    width: 22rem;
+.navbar-container{
+    width: 85%;
+    height: 3rem;
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem !important;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: auto;
-    border: .5px solid rgb(226, 218, 218);
-    padding: .5rem 1rem;
-    border-radius: 2rem;
-    button{
-        border-right: .5px solid rgb(226, 218, 218);
-        padding-right: .5rem
-    }
-    .search-button{
-        @include nestRedBackground;
-        color: white;
-        padding: .5rem;
-        border-radius: 100%;
-    }
-}
-
-.big-nav{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    .section1{
-        width: 30rem;
-        display: flex;
-        justify-content: space-around;
-        margin-bottom: 1rem;
-    }
-    .section2{
-        display: flex;
-        border: .5px solid rgb(226, 218, 218);
-        border-radius: 2rem;
-        div{
-            width: 12rem;
-            padding: .5rem 1.5rem;
-            border-radius: 2rem;
-            &:hover{
-                background-color: #EBEBEB;
-                cursor: pointer;
-            }
-            h6{
-                @include sm-header;
-                text-align: left;
-            }
-            input{
-                width: 10rem;
-                font-size: 16px;
-                height: 1rem;
-                background-color: hsla(120, 100%, 50%, 0);
-                padding: 0rem;
-                outline: none;
-                &:hover{
-                    background-color: #EBEBEB;
-                }
-            }
+    .logo-container{
+        width: 33%;
+        img{
+            width: 5rem;
         }
     }
-}
-
-
-.off-canvas-body{
-    
-    
+    .main-nav{
+        width: 33%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: auto;
+        border: .5px solid rgb(226, 218, 218);
+        padding: .5rem 1rem;
+        border-radius: 2rem;
+        button{
+            border-right: .5px solid rgb(218, 226, 220);
+            padding-right: 2rem
+        }
+        .search-button{
+            @include nestRedBackground;
+            color: white;
+            padding: .5rem;
+            border-radius: 100%;
+        }
+    }
+    .right-menu-container{
+        width: 33%;
+        display: flex;
+        justify-content: flex-end;
+    }
 }

@@ -3,7 +3,7 @@ import { AiTwotoneStar,AiOutlinePlusCircle, AiOutlineMinusCircle } from 'react-i
 import {IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import "./Price.scss";
 
-const Dropdown = ({guests,setGuests})=>{
+export const Dropdown = ({guests,setGuests})=>{
     const [adult,setAdult] = useState(1);
     const [children, setChildren] = useState(0);
     const [infant, setInfant] = useState(0);
@@ -74,6 +74,7 @@ const Dropdown = ({guests,setGuests})=>{
             <div className='section'>
                 <div className='key'>
                     <h3>Pets</h3>
+                    <p></p>
                 </div>
                 <div className='values'>
                     <button style={pets == 0 ? {cursor:"not-allowed"}:null} onClick={()=>minus(pets,setPets,0)}>
@@ -84,12 +85,6 @@ const Dropdown = ({guests,setGuests})=>{
                         <AiOutlinePlusCircle className='icon'/>
                     </button>
                 </div>
-            </div>
-            <div>
-                <p>This place has a maximum of 8 guests, not including infants. Pets aren't allowed.</p>
-            </div>
-            <div className='close-container'>
-                <a href="#">Close</a>
             </div>
         </div>
     )
@@ -135,7 +130,18 @@ export const Price=()=>{
                     <p>Enter your travel dates to see the total price per night.</p>
                 </div>
             </div>
-            {toggle && <Dropdown guests={guests} setGuests={setGuests}/>}
+            <div className='dropdown'>
+                {toggle && <div>
+                    <Dropdown guests={guests} setGuests={setGuests}/>
+                    <div className='sub-info'>
+                        <p>This place has a maximum of 8 guests, not including infants. Pets aren't allowed.</p>
+                    </div>
+                    <div className='close-container'>
+                        <a href="#">Close</a>
+                    </div> 
+                </div>
+                }
+            </div>
         </div>
     )
 }

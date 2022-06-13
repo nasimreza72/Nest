@@ -1,0 +1,70 @@
+@import "../../../../mixin.scss";
+.big-nav{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    .section1{
+        width: 30rem;
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 1rem;
+    }
+    .section2{
+        display: flex;
+        border: .5px solid rgb(226, 218, 218);
+        border-radius: 2rem;
+        .menu{
+            width: 12rem;
+            padding: .5rem 1.5rem;
+            border-radius: 2rem;
+            &:hover{
+                background-color: #EBEBEB;
+                cursor: pointer;
+            }
+            
+            h6{
+                @include sm-header;
+                text-align: left;
+                margin-bottom: 0;
+            }
+            input, p{
+                text-align: left;
+                border-radius: 0;
+                width: 10rem;
+                font-size: 15px;
+                height: 1rem;
+                background-color: hsla(120, 100%, 50%, 0);
+                padding: 0rem;
+                margin-bottom: 0;
+                outline: none;
+                &:hover{
+                    background-color: #EBEBEB;
+                    text-decoration: none;
+                }
+            }
+        }
+        .search-container{
+            width: 20rem; 
+            display: flex;
+            justify-content: space-between;
+            padding-right: .5rem;
+            .search{
+                width: 8rem;
+                display: flex;
+                border-radius: 2rem;
+                align-items: center;
+                justify-content: center;
+                text-decoration: none;
+                @include nestRedBackground;
+                .search-icon{
+                    color: white;
+                    font-size: 20px;
+                }
+                span{
+                    color: white;
+                    margin-left: 1rem;
+                }
+            }
+        }
+    }
+}
