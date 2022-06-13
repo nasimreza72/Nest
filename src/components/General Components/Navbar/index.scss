@@ -1,12 +1,15 @@
 @import "../../../mixin.scss";
 
-.container{
+.navbar-container{
+    width: 85%;
+    height: 3rem;
+    margin: auto;
     margin-top: 1rem;
     margin-bottom: 1rem !important;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    .logo{
+    justify-content: space-between;
+    .logo-container{
         width: 33%;
         img{
             width: 5rem;
@@ -23,7 +26,7 @@
         border-radius: 2rem;
         button{
             border-right: .5px solid rgb(218, 226, 220);
-            padding-right: 1.5rem
+            padding-right: 2rem
         }
         .search-button{
             @include nestRedBackground;
@@ -36,22 +39,5 @@
         width: 33%;
         display: flex;
         justify-content: flex-end;
-        .menu{
-            border:.5px solid rgb(218, 226, 220);
-            padding: .5rem;
-            border-radius: 5rem;
-            display: flex;
-            align-items: center;
-
-            .three-line{
-                margin-right: .5rem;
-                font-size: 22px;
-            }
-            .user-container{
-                background-color: rgb(218, 226, 220);
-                padding: .4rem;
-                border-radius: 100%;
-            }
-        }
     }
 }

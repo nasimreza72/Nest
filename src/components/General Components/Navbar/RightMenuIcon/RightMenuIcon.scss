@@ -1,0 +1,25 @@
+@import "../../../../mixin.scss";
+
+
+.menu-container{
+    .menu{
+        border:.5px solid rgb(218, 226, 220);
+        padding: .5rem;
+        border-radius: 5rem;
+        display: flex;
+        align-items: center;
+        &:hover{
+            cursor: pointer;
+            @include shadow;
+        }
+        .three-line{
+            margin-right: .5rem;
+            font-size: 22px;
+        }
+        .user-container{
+            background-color: rgb(218, 226, 220);
+            padding: .4rem;
+            border-radius: 100%;
+        }
+    }
+}

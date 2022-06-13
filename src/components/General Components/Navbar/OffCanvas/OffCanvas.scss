@@ -1,3 +1,18 @@
 .offcanvas-top{
     height: 16vh;
+    #body{
+        width: 90%;
+        margin: auto;
+        .logo-container{
+            width: 33%;
+            img{
+                width: 5rem;
+            }
+        }
+        .right-menu-container{
+            width: 33%;
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
 }
