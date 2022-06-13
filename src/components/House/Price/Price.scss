@@ -1,16 +1,10 @@
 @import "../../../mixin.scss";
 
 .dropdown-container{
-    position: absolute;
-    z-index: 1;
+    
     background-color: white;
-    // width: 20rem;
-    width: 86%;
-    top:16rem;
-    left:1.66rem;
-    border-radius: 10px;
-    @include shadow;
-
+    // width: 20.1rem;
+    
     padding: 1rem;
     .section{
         display: flex;
@@ -19,6 +13,7 @@
             h3{
                 @include md-header;
                 text-align: left;
+                margin-bottom: 0;
             }
         }
         .values{
@@ -125,6 +120,15 @@
                @include sm-header; 
             }
         }
+    }
+    .dropdown{
+        position: absolute;
+        z-index: 1;
+        top:20rem;
+        left:1.66rem;
+        width: 86%;
+        @include shadow;
+        border-radius: 10px;
     }
 }
 
