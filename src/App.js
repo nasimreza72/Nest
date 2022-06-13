@@ -4,6 +4,7 @@ import {Houses, House, Login, HostingPage1, HostingPage2, HostingPage3, HostingP
 import {Navbar} from "./components/General Components";
 import {Messages} from "./pages/Messages/Messages.jsx";
 import Home from "./pages/Home/index.jsx"
+import HostProfile from "./pages/PersonalinfoHost/PersonalinfoHost.jsx"
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -25,6 +26,7 @@ function App() {
         <Route path="houses" element={<Houses/>} />
         <Route path="house" element={<House/>} />
         <Route path="messages" element={<Messages/>} />
+        <Route path="hostaccount" element={<HostProfile/>} />
       </Routes>
     </div>
   );
