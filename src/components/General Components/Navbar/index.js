@@ -183,6 +183,9 @@ const Navbar=()=>{
         <Link className="mr-4 text-amber-800" to="hostingPage9">
           HP9
         </Link>
+        <Link className="mr-4 text-amber-800" to="hostaccount">
+          Host Account
+        </Link>
           </nav>
           <button onClick={ e => setLogin(!login)}>Login</button>
           <button onClick={ e => setRegister(!register)}>Register</button>
@@ -190,5 +193,4 @@ const Navbar=()=>{
       </div>
     )
   }
-
 export default Navbar;
