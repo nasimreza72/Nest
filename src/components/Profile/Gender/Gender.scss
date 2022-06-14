@@ -1,0 +1,24 @@
+
+    //background-color: red;
+    .modalBody{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+            .header{
+                width: 100%;
+                margin: -10px;
+            }
+            .selectContainer{
+                width: 100%;
+                
+                margin-top: 20px;
+                margin-bottom: 15px;
+            }
+            .saveButton{
+                width: 100%;
+                margin-bottom: 2px;
+            }
+            
+    }
+
