@@ -1,6 +1,7 @@
 import "./PersonalinfoHost.scss"
 import { GrFormNext } from 'react-icons/gr';
 import LegalName from "../../components/Profile/LegalName/LegalName.jsx"
+import Gender from "../../components/Profile/Gender/Gender.jsx"
 
 
 
@@ -31,7 +32,7 @@ export default function HostProfile (){
                                 <h2>Gender</h2>
                                 <div className="nameInput">Male</div>
                             </div>
-                            <button>Edit</button>
+                            <Gender />
                         </div>
                         <div className="InfoAndButton">
                             <div className="infoCells">
