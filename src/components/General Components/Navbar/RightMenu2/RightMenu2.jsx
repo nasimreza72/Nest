@@ -1,13 +1,13 @@
 import "./RightMenu2.scss";
 import { Link } from "react-router-dom";
 
-const RightMenu2 = ()=>{
+const RightMenu2 = ({setRightMenu})=>{
     return(
         <div className="right-menu2-container">
             <ul>
-                <li><Link to="messages">Messages</Link></li>
-                <li><Link to="hostaccount">Profile</Link></li>
-                <li>Logout</li>
+                <Link onClick={()=>setRightMenu(false)} className="link" to="messages">Messages</Link>
+                <Link onClick={()=>setRightMenu(false)} className="link" to="hostaccount">Profile</Link>
+                <Link onClick={()=>setRightMenu(false)} className="link" to="/">Logout</Link>
             </ul>
         </div>
     )
