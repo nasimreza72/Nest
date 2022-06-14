@@ -6,6 +6,8 @@
         display: flex;
         .img-container{
             margin-right: 1.25rem;
+            display: flex;
+            align-items: center;
             img{
                 border-radius: 9999px;
                 width: 4rem;
@@ -13,9 +15,16 @@
             }
         }
         .text{
-           display: flex;
-           justify-content: center;
+           display:flex;
            flex-direction: column;
+           justify-content: center;
+           h4{
+               @include md-header;
+           }
+           p{
+               margin: 0;
+               @include sm-header;
+           }
         }
     }
     p{
