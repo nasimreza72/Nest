@@ -1,0 +1,13 @@
+.when-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    .calendars-container{
+        margin-top: 2rem;
+        display: flex;
+        margin-bottom: 5rem;
+        .calendar1{
+            margin-right: 1.25rem;
+        }
+    }
+}
