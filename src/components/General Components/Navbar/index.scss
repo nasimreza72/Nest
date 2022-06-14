@@ -16,7 +16,8 @@
         }
     }
     .main-nav{
-        width: 33%;
+        min-width: 25rem;
+        // width: 33%;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -26,7 +27,8 @@
         border-radius: 2rem;
         button{
             border-right: .5px solid rgb(218, 226, 220);
-            padding-right: 2rem
+            padding-right: 1.5rem;
+            @include sm-header;
         }
         .search-button{
             @include nestRedBackground;
