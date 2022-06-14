@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,UAAU,CAAA;EACL,KAAK,EAAE,KAAK;EACZ,MAAM,EAAC,KAAK;EACZ,aAAa,EAAE,IAAI;EACnB,QAAQ,EAAE,QAAQ;EAClB,GAAG,EAAE,IAAI;EACT,IAAI,EAAE,KAAK;CACf;;AACD,AAAA,eAAe,CAAA;EACV,UAAU,EAAE,MAAM;EAClB,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,MAAM;CAC3B",
+    "sources": [
+        "SearchByRegion.scss"
+    ],
+    "names": [],
+    "file": "SearchByRegion.css"
+}

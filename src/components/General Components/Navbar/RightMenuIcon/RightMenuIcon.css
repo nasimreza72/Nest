@@ -1,0 +1,29 @@
+.menu-container .menu {
+  border: 0.5px solid #dae2dc;
+  padding: .5rem;
+  border-radius: 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.menu-container .menu:hover {
+  cursor: pointer;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+          box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+}
+
+.menu-container .menu .three-line {
+  margin-right: .5rem;
+  font-size: 22px;
+}
+
+.menu-container .menu .user-container {
+  background-color: #dae2dc;
+  padding: .4rem;
+  border-radius: 100%;
+}
+/*# sourceMappingURL=RightMenuIcon.css.map */

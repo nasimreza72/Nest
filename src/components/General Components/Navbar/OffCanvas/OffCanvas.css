@@ -1,0 +1,42 @@
+.offcanvas-top {
+  height: 16vh;
+}
+
+.offcanvas-top #body {
+  width: 90%;
+  margin: auto;
+}
+
+.offcanvas-top #body .logo-container {
+  width: 33%;
+}
+
+.offcanvas-top #body .logo-container img {
+  width: 5rem;
+}
+
+.offcanvas-top #body .right-menu-container {
+  width: 33%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.offcanvas-top #body .right-menu-container .switch-to-hosting {
+  text-decoration: none;
+  color: black;
+  margin-right: 1rem;
+  padding: .5rem;
+  border-radius: 1rem;
+}
+
+.offcanvas-top #body .right-menu-container .switch-to-hosting:hover {
+  background-color: #eeeeee;
+}
+/*# sourceMappingURL=OffCanvas.css.map */

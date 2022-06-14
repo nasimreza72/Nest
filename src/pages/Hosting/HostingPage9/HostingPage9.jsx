@@ -1,7 +1,8 @@
 import "./hostingPage9.scss";
-import { IoMdPhotos } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
 export default function HostingPage9() {
+  let navigate = useNavigate();
   return (
     <div className="hostingPage9">
       <div className="mainLeft">
@@ -22,7 +23,9 @@ export default function HostingPage9() {
         <div className="subMainRightBottom">
           <div className="bottomPart">
             <div className="back">
-              <button>
+              <button
+                onClick={() => navigate("../hostingPage8", { replace: true })}
+              >
                 <u>Back</u>
               </button>
             </div>

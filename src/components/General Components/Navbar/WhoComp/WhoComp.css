@@ -1,0 +1,10 @@
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.container .dropdown-container {
+  width: 20rem;
+}
+/*# sourceMappingURL=WhoComp.css.map */

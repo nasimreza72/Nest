@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,eAAe,CAAA;EACX,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,UAAU,EAAE,IAAI;CASnB;;AAZD,AAII,eAJW,CAIX,oBAAoB,CAAA;EAChB,UAAU,EAAE,IAAI;EAChB,OAAO,EAAE,IAAI;EACb,aAAa,EAAE,IAAI;CAItB;;AAXL,AAQQ,eARO,CAIX,oBAAoB,CAIhB,UAAU,CAAA;EACN,YAAY,EAAE,OAAO;CACxB",
+    "sources": [
+        "WhenComp.scss"
+    ],
+    "names": [],
+    "file": "WhenComp.css"
+}

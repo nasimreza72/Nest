@@ -68,7 +68,7 @@ const MapContainer = () => {
 
   return (
     <LoadScript 
-    // googleMapsApiKey="AIzaSyBIo2VwqE2BYnrvSjtIsRhHa7lNTwBWx3I"
+    googleMapsApiKey={process.env.REACT_APP_GOOGLE_API_KEY}
     >
       <GoogleMap mapContainerStyle={mapStyles} zoom={13} center={defaultCenter}>
         {locations.map((item) => {

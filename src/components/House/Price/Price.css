@@ -1,0 +1,187 @@
+.dropdown-container {
+  background-color: white;
+  padding: 1rem;
+}
+
+.dropdown-container .section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.dropdown-container .section .key h3 {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  text-align: left;
+  margin-bottom: 0;
+}
+
+.dropdown-container .section .values {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 4rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.dropdown-container .section .values .icon {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  color: #717171;
+}
+
+.dropdown-container p {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  text-align: left;
+}
+
+.dropdown-container .close-container {
+  text-align: right;
+}
+
+.preis-container {
+  position: relative;
+  margin-left: 2.5rem;
+  margin-top: 2.5rem;
+  display: none;
+}
+
+.preis-container .preis {
+  padding: 1.5rem;
+  border-width: 2px;
+  border-radius: 0.5rem;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+          box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+}
+
+.preis-container .preis .section-1 h2 {
+  text-align: left;
+  font-size: 1.5rem;
+  line-height: 2.0rem;
+}
+
+.preis-container .preis .section-1 div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: .75rem 0 .75rem 0;
+}
+
+.preis-container .preis .section-1 div .star {
+  color: #FF385C;
+  margin-right: 0.5rem;
+}
+
+.preis-container .preis .section-1 div a {
+  margin: 0 1.25rem 0 1.25rem;
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+}
+
+.preis-container .preis .section-2 .add-date {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: left;
+}
+
+.preis-container .preis .section-2 .add-date div {
+  width: 50%;
+  border-width: 1px;
+  padding: 0.5rem 0 0 .5rem;
+}
+
+.preis-container .preis .section-2 .add-date div h5 {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.preis-container .preis .section-2 .add-date div p {
+  font-size: 0.875rem;
+}
+
+.preis-container .preis .section-2 .add-guest {
+  padding: 0.5rem;
+  border-width: 1px;
+  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.preis-container .preis .section-2 .add-guest div h5 {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  text-align: left;
+}
+
+.preis-container .preis .section-2 .add-guest div p {
+  font-size: 0.875rem;
+}
+
+.preis-container .preis .section-2 .add-guest .toggle {
+  cursor: pointer;
+}
+
+.preis-container .preis .section-2 .add-guest .toggle .toggle-icon {
+  font-size: 18px;
+}
+
+.preis-container .preis .section-2 input {
+  background-color: #FF385C;
+  width: 100%;
+  font-weight: 500;
+  border-radius: 0.75rem;
+  margin: .75rem 0 .75rem 0;
+  color: white;
+}
+
+.preis-container .preis .section-2 p {
+  font-size: 0.875rem;
+}
+
+.preis-container .dropdown {
+  position: absolute;
+  z-index: 1;
+  top: 20rem;
+  left: 1.66rem;
+  width: 86%;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+          box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  border-radius: 10px;
+}
+
+@media (min-width: 768px) {
+  .preis-container {
+    display: block;
+    width: 33.333333%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .preis-container {
+    width: 24rem;
+  }
+}
+/*# sourceMappingURL=Price.css.map */

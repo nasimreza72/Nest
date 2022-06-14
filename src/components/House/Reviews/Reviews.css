@@ -1,0 +1,105 @@
+.review-container {
+  margin-top: 2.5rem;
+}
+
+.review-container .review {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.review-container .review .img-container {
+  margin-right: 1.25rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.review-container .review .img-container img {
+  border-radius: 9999px;
+  width: 4rem;
+  height: 4rem;
+}
+
+.review-container .review .text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.review-container .review .text h4 {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.review-container .review .text p {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.review-container p {
+  text-align: left;
+  margin-top: 1rem;
+}
+
+.reviews-container {
+  border-bottom-width: 2px;
+  margin-bottom: 2.5rem;
+}
+
+.reviews-container .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.reviews-container .header .icon {
+  color: #FF385C;
+  margin-right: 0.5rem;
+}
+
+.reviews-container .header h1 {
+  font-size: 1.5rem;
+  line-height: 2.0rem;
+}
+
+.reviews-container .reviews {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.reviews-container .reviews .reviews1, .reviews-container .reviews .reviews2 {
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .reviews {
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
+  }
+}
+/*# sourceMappingURL=Reviews.css.map */
