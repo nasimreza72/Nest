@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,UAAU,CAAA;EACN,OAAO,EAAE,IAAI;EACb,aAAa,EAAE,IAAI;CAItB;;AAND,AAGI,UAHM,CAGN,UAAU,CAAA;EACN,YAAY,EAAE,OAAO;CACxB",
+    "sources": [
+        "Check-inDate.scss"
+    ],
+    "names": [],
+    "file": "Check-inDate.css"
+}

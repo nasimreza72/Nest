@@ -1,0 +1,44 @@
+.information-container {
+  border-bottom-width: 2px;
+  margin-bottom: 2.5rem;
+}
+
+.information-container .house-information {
+  border-bottom-width: 2px;
+  margin-bottom: 2.5rem;
+}
+
+.information-container .house-information h1 {
+  font-size: 1.5rem;
+  line-height: 2.0rem;
+  text-align: left;
+}
+
+.information-container .house-information ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.information-container .house-information ul li {
+  margin-right: 1.25rem;
+}
+
+.information-container .host-information {
+  margin-bottom: 2.5rem;
+}
+
+.information-container .host-information h3 {
+  font-size: 1.5rem;
+  line-height: 2.0rem;
+  text-align: left;
+  margin-bottom: 1.25rem;
+}
+
+.information-container .host-information p {
+  text-align: left;
+  margin-bottom: 2.5rem;
+}
+/*# sourceMappingURL=Information.css.map */

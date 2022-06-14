@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,UAAU,CAAA;EACN,OAAO,EAAE,IAAI;CAIhB;;AALD,AAEI,UAFM,CAEN,mBAAmB,CAAA;EACf,KAAK,EAAE,KAAK;CACf",
+    "sources": [
+        "WhoComp.scss"
+    ],
+    "names": [],
+    "file": "WhoComp.css"
+}
