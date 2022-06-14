@@ -1,5 +1,4 @@
 import { useState, useRef } from "react";
-
 import { Link } from "react-router-dom";
 import OffcanvasNav from "./OffCanvas/OffCanvas.jsx";
 import SearchByRegion from "./SearchByRegion/SearchByRegion.jsx";
@@ -71,8 +70,8 @@ const Navbar=()=>{
             <button onClick={()=>anyClick(2)}>Add guests</button>
             <button className="search-button"><BiSearch/></button>
           </div>
-
           <div className="right-menu-container">
+            <Link className="switch-to-hosting" to="hostingPage1">Switch to Hosting</Link>
             <RightMenuIcon setRightMenu={setRightMenu} rightMenu={rightMenu}/>
             {activeUser ? rightMenu && <RightMenu2 setRightMenu={setRightMenu}/> : rightMenu && <RightMenu1 setRightMenu={setRightMenu}/>}
           </div>

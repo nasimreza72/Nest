@@ -23,6 +23,7 @@ function OffcanvasNav({showOffCanvas, handleCloseOffCanvas, active, setActive, w
           </div>
           <BigNav where={where} active={active} setActive={setActive} handleCloseModal={handleCloseModal} handleShowModal={handleShowModal} handleCloseAll={handleCloseAll}/>
           <div className="right-menu-container">
+            <Link className="switch-to-hosting" to="hostingPage1">Switch to Hosting</Link>
             <RightMenuIcon setRightMenu={setRightMenu} rightMenu={rightMenu}/>
             {activeUser ? rightMenu && <RightMenu2 setRightMenu={setRightMenu}/> : rightMenu && <RightMenu1 setRightMenu={setRightMenu}/>}
           </div>
