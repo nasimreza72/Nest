@@ -1,5 +1,6 @@
 import "./PersonalinfoHost.scss"
 import { GrFormNext } from 'react-icons/gr';
+import LegalName from "../../components/Profile/LegalName/LegalName.jsx"
 
 
 
@@ -23,7 +24,7 @@ export default function HostProfile (){
                                 <h2>Legal name</h2>
                                 <div className="nameInput">Ronny Korneli</div>
                             </div>
-                            <button>Edit</button>
+                            <LegalName />
                         </div>
                         <div className="InfoAndButton">
                             <div className="infoCells">

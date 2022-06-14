@@ -1,5 +1,5 @@
 import { Header, Images, Information, Price, Amenities,CheckInDate, Reviews, Location, HostedBy } from "../../components/House";
-import "./style.scss";
+import "./House.scss";
 
 const Houses=()=>{
     return(

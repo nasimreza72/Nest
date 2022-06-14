@@ -12,7 +12,7 @@ const Review = ({src})=>{
                 </div>
                 <div className='text'>
                     <h4>Alex</h4>
-                    <h5>April 2022</h5>
+                    <p>April 2022</p>
                 </div>
             </div>
             <p>Super Laden he</p>
