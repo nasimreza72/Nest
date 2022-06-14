@@ -1,5 +1,4 @@
-import { useContext, useState, useRef } from "react";
-import { loginContext } from "../../../Context/LoginContext.jsx"
+import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import OffcanvasNav from "./OffCanvas/OffCanvas.jsx";
 import SearchByRegion from "./SearchByRegion/SearchByRegion.jsx";
@@ -17,7 +16,7 @@ const Navbar=()=>{
   const [active, setActive] = useState(null);
   const [rightMenu, setRightMenu] = useState(false);
   
-  const {login, setLogin, register, setRegister} = useContext(loginContext);
+  
   // const [isMainActive, setIsMainActive] = useState(true);
   const where = useRef();
   
@@ -43,8 +42,8 @@ const Navbar=()=>{
   }
 
    // it will come from Context
-  //  const activeUser={name:"Ömer"}
-   const activeUser=null;
+  const activeUser={name:"Ömer"}
+  //  const activeUser=null;
 
   return(
       <div className="navbar-container">
@@ -71,10 +70,10 @@ const Navbar=()=>{
             <button onClick={()=>anyClick(2)}>Add guests</button>
             <button className="search-button"><BiSearch/></button>
           </div>
-
-          <div className="right-menu-container" onClick={()=>setRightMenu(!rightMenu)}>
-            <RightMenuIcon/>
-            {activeUser ? rightMenu && <RightMenu2/> : rightMenu && <RightMenu1/>}
+          <div className="right-menu-container">
+            <Link className="switch-to-hosting" to="hostingPage1">Switch to Hosting</Link>
+            <RightMenuIcon setRightMenu={setRightMenu} rightMenu={rightMenu}/>
+            {activeUser ? rightMenu && <RightMenu2 setRightMenu={setRightMenu}/> : rightMenu && <RightMenu1 setRightMenu={setRightMenu}/>}
           </div>
 
          {/*  <nav>
@@ -84,8 +83,7 @@ const Navbar=()=>{
               <Link className="mr-4 text-amber-800" to="messages">Messages</Link>
               <Link className="mr-4 text-amber-800" to="hostingPage1">HP1</Link>
           </nav>
-          <button onClick={ e => setLogin(!login)}>Login</button>
-          <button onClick={ e => setRegister(!register)}>Register</button>*/}
+         */}
           <SearchByRegion showModal={showModal} handleCloseAll={handleCloseAll} active={active}/>
       </div>
     )

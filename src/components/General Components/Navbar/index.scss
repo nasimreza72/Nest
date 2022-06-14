@@ -39,5 +39,16 @@
         width: 33%;
         display: flex;
         justify-content: flex-end;
+        align-items: center;
+        .switch-to-hosting{
+            text-decoration: none;
+            color: black;
+            margin-right: 1rem;
+            padding:.5rem;
+            border-radius: 1rem;
+            &:hover{
+                background-color: #eeeeee;
+            }
+        }
     }
 }

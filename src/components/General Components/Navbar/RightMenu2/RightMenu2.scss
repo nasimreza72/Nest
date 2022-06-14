@@ -12,17 +12,18 @@
     padding-top: 1rem;
     ul{
         padding-left: 0;
-        li{
+        display: flex;
+        flex-direction: column;
+        .link{
+            width: 100%;
+            color: black;
+            text-decoration: none;
             padding:.5rem 1rem;
             text-align: left;    
             cursor: pointer;
             width: 100%; 
             &:hover{
                 background-color: #eeeeee;
-            }
-            Link{
-                color: black;
-                text-decoration: none;
             }
         }
     }
