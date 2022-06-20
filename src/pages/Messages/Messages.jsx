@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./Messages.scss";
 import { MessageBoard } from "../../components/Messages/MessageBoard.jsx";
 
+
 export const Messages = ()=>{
     
     // this activeUser will come as props
@@ -61,6 +62,9 @@ export const Messages = ()=>{
 ]
 const [activeMessage, setActiveMessage] = useState(messagesArray[0]);
 const [messages,setMessages]=useState(messagesArray);
+
+
+
 return(
     <>
         <h3>My Messages</h3>
