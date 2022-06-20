@@ -1,23 +1,37 @@
 import "./MessageBoard.scss";
-import {useRef} from "react";
+import {useEffect, useRef} from "react";
+import io from "socket.io-client";
 
 export const MessageBoard = ({activeMessage, activeUser, setActiveMessage}) => {
 
   const text=useRef();
+  const conversationId=123;
+  const socket = io("http://localhost:7777");
 
   const addMessage=()=>{
+    
     if(text.current.value.length > 0){
+      socket.emit("Send_Message", {
+        text:text.current.value,
+        conversationId
+      });
       const tempActiveMessage={...activeMessage}
       tempActiveMessage.texts.push({
         sender:activeUser,
         text:text.current.value,
         date:Date.now()
       })
+      console.log("tempActiveMessage :>>",tempActiveMessage);
       setActiveMessage(tempActiveMessage);
       text.current.value="";  
     }
   }
-
+  
+  useEffect(()=>{
+    socket.on(conversationId,(data)=>{
+       console.log('data :>> ', data);
+    })
+  },[])
   return (
     <div className="messages">
       <div>

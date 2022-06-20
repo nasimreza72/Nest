@@ -9,8 +9,8 @@ import "./OffCanvas.scss";
 function OffcanvasNav({showOffCanvas, handleCloseOffCanvas, active, setActive, where,handleCloseModal,handleShowModal,handleCloseAll, rightMenu, setRightMenu}) {
     
     // it will come from Context
-    const activeUser={name:"Ömer"}
-    //const activeUser=null;
+    // const activeUser={name:"Ömer"}
+    const activeUser=null;
 
     return (
       <>
