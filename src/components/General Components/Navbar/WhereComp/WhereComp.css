@@ -1,0 +1,66 @@
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.container .recent-researches {
+  width: 60%;
+  border-right: .5px solid #d8d4d4;
+  margin-right: 3rem;
+}
+
+.container .recent-researches .recent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
+  padding: .5rem;
+  cursor: pointer;
+}
+
+.container .recent-researches .recent:hover {
+  background-color: #f5f3f3;
+}
+
+.container .recent-researches .recent .clock-container {
+  background-color: #d8d4d4;
+  padding: .8rem;
+  border-radius: 10px;
+}
+
+.container .recent-researches .recent p {
+  font-size: 0.875rem;
+  margin-bottom: 0px;
+}
+
+.container .recent-researches .recent h6 {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.container .search-by-region-container .search-by-region {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.container .search-by-region-container .search-by-region .region {
+  width: 8rem;
+}
+
+.container .search-by-region-container .search-by-region .region h6 {
+  margin-top: .5rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+/*# sourceMappingURL=WhereComp.css.map */

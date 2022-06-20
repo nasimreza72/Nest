@@ -1,0 +1,28 @@
+.right-menu1-container {
+  width: 10rem;
+  -webkit-box-shadow: 0px 0px 10px 4px #b6b3b3d2;
+          box-shadow: 0px 0px 10px 4px #b6b3b3d2;
+  border-radius: 10px;
+  position: absolute;
+  top: 5rem;
+  right: 3rem;
+  z-index: 2;
+  background-color: white;
+  padding-top: 1rem;
+}
+
+.right-menu1-container ul {
+  padding-left: 0;
+}
+
+.right-menu1-container ul li {
+  padding: .5rem 1rem;
+  text-align: left;
+  cursor: pointer;
+  width: 100%;
+}
+
+.right-menu1-container ul li:hover {
+  background-color: #eeeeee;
+}
+/*# sourceMappingURL=RightMenu1.css.map */

@@ -1,0 +1,66 @@
+.messages {
+  border: 1px solid #e2dada;
+  height: 75vh;
+  padding: 2rem 1rem 1rem 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+          box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+}
+
+.messages .host-container {
+  text-align: right;
+  margin-bottom: 1rem;
+}
+
+.messages .host-container .host {
+  background-color: #808080;
+  color: white;
+  padding: .5rem;
+  border-radius: 7px;
+}
+
+.messages .client-container {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.messages .client-container .client {
+  background-color: #FF385C;
+  color: white;
+  padding: .5rem;
+  border-radius: 7px;
+}
+
+.messages .input-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.messages .input-container .text-input {
+  width: 80%;
+  padding-left: .5rem;
+  height: 3rem;
+  border: 1px solid #e2dada;
+}
+
+.messages .input-container .button {
+  width: 19%;
+  padding: .5rem;
+  height: 3rem;
+  color: white;
+  background-color: #9ACD32;
+}
+/*# sourceMappingURL=MessageBoard.css.map */

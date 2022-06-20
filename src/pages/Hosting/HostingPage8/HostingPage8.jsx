@@ -1,7 +1,9 @@
 import "./hostingPage8.scss";
 import { IoMdPhotos } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
 export default function HostingPage8() {
+  let navigate = useNavigate();
   return (
     <div className="hostingPage8">
       <div className="mainLeft">
@@ -22,12 +24,18 @@ export default function HostingPage8() {
         <div className="subMainRightBottom">
           <div className="bottomPart">
             <div className="back">
-              <button>
+              <button
+                onClick={() => navigate("../hostingPage7", { replace: true })}
+              >
                 <u>Back</u>
               </button>
             </div>
             <div className="next">
-              <button>Next</button>
+              <button
+                onClick={() => navigate("../hostingPage9", { replace: true })}
+              >
+                Next
+              </button>
             </div>
           </div>
         </div>

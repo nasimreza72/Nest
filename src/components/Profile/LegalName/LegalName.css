@@ -1,0 +1,113 @@
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 30px;
+}
+
+.header .link {
+  color: black;
+  font-size: 0.9rem;
+}
+
+.modalBody {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 10px;
+}
+
+.modalBody form .firstName {
+  border: 1px solid grey;
+  width: 100%;
+  height: 40px;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  padding-left: 10px;
+  padding-top: 30px;
+}
+
+.modalBody form .firstName::-webkit-input-placeholder {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  font-size: 0.7rem;
+  color: black;
+}
+
+.modalBody form .firstName:-ms-input-placeholder {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  font-size: 0.7rem;
+  color: black;
+}
+
+.modalBody form .firstName::-ms-input-placeholder {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  font-size: 0.7rem;
+  color: black;
+}
+
+.modalBody form .firstName::placeholder {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  font-size: 0.7rem;
+  color: black;
+}
+
+.modalBody form .lastName {
+  border: 1px solid grey;
+  width: 100%;
+  height: 40px;
+  margin-bottom: 15px;
+  padding-left: 10px;
+  padding-top: 30px;
+}
+
+.modalBody form .lastName::-webkit-input-placeholder {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  font-size: 0.7rem;
+  color: black;
+}
+
+.modalBody form .lastName:-ms-input-placeholder {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  font-size: 0.7rem;
+  color: black;
+}
+
+.modalBody form .lastName::-ms-input-placeholder {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  font-size: 0.7rem;
+  color: black;
+}
+
+.modalBody form .lastName::placeholder {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  font-size: 0.7rem;
+  color: black;
+}
+
+.modalBody .saveButton {
+  margin-bottom: 40px;
+}
+/*# sourceMappingURL=LegalName.css.map */

@@ -1,0 +1,80 @@
+.navbar-container {
+  width: 85%;
+  height: 3rem;
+  margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.navbar-container .logo-container {
+  width: 33%;
+}
+
+.navbar-container .logo-container img {
+  width: 5rem;
+}
+
+.navbar-container .main-nav {
+  min-width: 25rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: auto;
+  border: 0.5px solid #e2dada;
+  padding: .5rem 1rem;
+  border-radius: 2rem;
+}
+
+.navbar-container .main-nav button {
+  border-right: 0.5px solid #dae2dc;
+  padding-right: 1.5rem;
+  font-size: 0.875rem;
+}
+
+.navbar-container .main-nav .search-button {
+  background-color: #FF385C;
+  color: white;
+  padding: .5rem;
+  border-radius: 100%;
+}
+
+.navbar-container .right-menu-container {
+  width: 33%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navbar-container .right-menu-container .switch-to-hosting {
+  text-decoration: none;
+  color: black;
+  margin-right: 1rem;
+  padding: .5rem;
+  border-radius: 1rem;
+}
+
+.navbar-container .right-menu-container .switch-to-hosting:hover {
+  background-color: #eeeeee;
+}
+/*# sourceMappingURL=index.css.map */

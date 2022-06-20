@@ -1,0 +1,102 @@
+.big-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.big-nav .section1 {
+  width: 30rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-bottom: 1rem;
+}
+
+.big-nav .section2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 0.5px solid #e2dada;
+  border-radius: 2rem;
+}
+
+.big-nav .section2 .menu {
+  width: 12rem;
+  padding: .5rem 1.5rem;
+  border-radius: 2rem;
+}
+
+.big-nav .section2 .menu:hover {
+  background-color: #EBEBEB;
+  cursor: pointer;
+}
+
+.big-nav .section2 .menu h6 {
+  font-size: 0.875rem;
+  text-align: left;
+  margin-bottom: 0;
+}
+
+.big-nav .section2 .menu input, .big-nav .section2 .menu p {
+  text-align: left;
+  border-radius: 0;
+  width: 10rem;
+  font-size: 15px;
+  height: 1rem;
+  background-color: rgba(0, 255, 0, 0);
+  padding: 0rem;
+  margin-bottom: 0;
+  outline: none;
+}
+
+.big-nav .section2 .menu input:hover, .big-nav .section2 .menu p:hover {
+  background-color: #EBEBEB;
+  text-decoration: none;
+}
+
+.big-nav .section2 .search-container {
+  width: 20rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-right: .5rem;
+}
+
+.big-nav .section2 .search-container .search {
+  width: 8rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 2rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-decoration: none;
+  background-color: #FF385C;
+}
+
+.big-nav .section2 .search-container .search .search-icon {
+  color: white;
+  font-size: 20px;
+}
+
+.big-nav .section2 .search-container .search span {
+  color: white;
+  margin-left: 1rem;
+}
+/*# sourceMappingURL=BigNav.css.map */

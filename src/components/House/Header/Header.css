@@ -1,0 +1,75 @@
+.header-container {
+  -ms-grid-row: 2;
+      grid-row-start: 2;
+  margin-top: 1.25rem;
+}
+
+.header-container .first-line h2 {
+  font-size: 1.5rem;
+  line-height: 2.0rem;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.header-container .second-line {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.header-container .second-line .second-line-left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header-container .second-line .second-line-left .star {
+  color: #FF385C;
+  margin-right: .5rem;
+}
+
+.header-container .second-line .second-line-left a {
+  margin: 0 1.25rem;
+  text-decoration: underline;
+}
+
+.header-container .second-line .second-line-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.header-container .second-line .second-line-right .share, .header-container .second-line .second-line-right .save {
+  display: none;
+  margin-right: 1.25rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header-container .second-line .second-line-right .share .icon, .header-container .second-line .second-line-right .save .icon {
+  margin-right: 1rem;
+}
+
+.header-container .second-line .second-line-right .share a, .header-container .second-line .second-line-right .save a {
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  .header-container {
+    -ms-grid-row: 1;
+        grid-row-start: 1;
+  }
+  .second-line-right .share, .second-line-right .save {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+  }
+}
+/*# sourceMappingURL=Header.css.map */
