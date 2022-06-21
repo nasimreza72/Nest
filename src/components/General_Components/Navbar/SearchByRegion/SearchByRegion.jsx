@@ -1,29 +1,37 @@
-import {Offcanvas} from "react-bootstrap";
-import "./SearchByRegion.scss";
+import {useRef,useEffect} from "react";
 import WhereComp from "../WhereComp/WhereComp.jsx";
 import WhenComp from "../WhenComp/WhenComp.jsx";
 import WhoComp from "../WhoComp/WhoComp.jsx";
+import "./SearchByRegion.scss";
 
-function SearchByRegion({showModal, handleCloseAll, active}) {
+function SearchByRegion({showModal, handleCloseAll, active, bigNavRef, setShowModal,showOffCanvas}) {
+
+  const offCanvas = useRef();
+
   const whoStyle={
     width:"20rem", 
     left:"50%", 
     height:"18rem",
     textAlign:"center"
-    // display:"flex",
-    // justifyContent:"center"
   }
-  return (
-    <Offcanvas id="offcanvas" style={ active===2 ? whoStyle:null} scroll show={showModal}  onHide={handleCloseAll} placement="top" > 
-    {/* <Offcanvas.Header> */}
-    {/* </Offcanvas.Header> */}
-      <Offcanvas.Body id="offcanvas-body" >
-        {active === 0 ? <WhereComp/> :null}
-        {active === 1 ? <WhenComp/> :null}
-        {active === 2 ? <WhoComp/> :null}
-      </Offcanvas.Body>
-    </Offcanvas>
-  );
+
+  useEffect(() => {
+    document.addEventListener("mousedown", (e) => {
+        if(!offCanvas.current.contains(e.target) && !bigNavRef.current.contains(e.target) )
+          {
+            handleCloseAll();
+            document.classList.add({})
+          }
+    })
+  }, [])
+
+  return(
+    <div ref={offCanvas}   id="offcanvas" style={Object.assign(showModal ? {opacity:1} : {}, active === 2 ? whoStyle: {})  }>
+      {active === 0 ? <WhereComp/> :null}
+      {active === 1 ? <WhenComp/> :null}
+      {active === 2 ? <WhoComp/> :null}
+    </div>
+  )
 }
 
   export default SearchByRegion;

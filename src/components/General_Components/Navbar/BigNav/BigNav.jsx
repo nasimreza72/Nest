@@ -2,9 +2,9 @@ import { BiSearch } from "react-icons/bi";
 import {Link} from "react-router-dom";
 import "./BigNav.scss";
 
-const BigNav=({active, setActive,where,handleCloseModal,handleShowModal,handleCloseAll})=>{
+const BigNav=({active, setActive,where,handleCloseModal,handleShowModal,handleCloseAll, bigNavRef})=>{
     return(
-        <div className="big-nav">
+        <div ref={bigNavRef} className="big-nav">
             <div className="section1">
                 <button onClick={handleCloseModal}>Stays</button>
                 <button onClick={handleCloseModal}>Experiences</button>

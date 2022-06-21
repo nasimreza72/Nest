@@ -1,10 +1,16 @@
 #offcanvas{
+     background-color: white;
      width: 45rem;
      height:23rem;
      border-radius: 20px;
      position: absolute;
-     top: 16vh;
+     top: 8.5rem;
      left: 20%;
+     z-index: 1;
+     opacity: 0;
+     transition: opacity .3s;
+     padding-top: 1rem;
+     padding-left: 1rem;
 }
 .offcanvas-body{
      text-align: center;

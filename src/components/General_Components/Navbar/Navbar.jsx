@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import OffcanvasNav from "./OffCanvas/OffCanvas.jsx";
 import SearchByRegion from "./SearchByRegion/SearchByRegion.jsx";
+import BigNav from "./BigNav/BigNav.jsx";
 import { BiSearch } from "react-icons/bi";
 import RightMenuIcon from "./RightMenuIcon/RightMenuIcon.jsx";
 import RightMenu1 from "./RightMenu1/RightMenu1.jsx";
@@ -12,6 +12,8 @@ import "./Navbar.scss";
 const Navbar=()=>{
   const [showOffCanvas, setShowOffCanvas] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  // const [isBigNav, setIsBigNav] = useState(false);
+
   //active Menu where,when,who
   const [active, setActive] = useState(null);
   const [rightMenu, setRightMenu] = useState(false);
@@ -19,9 +21,10 @@ const Navbar=()=>{
   
   // const [isMainActive, setIsMainActive] = useState(true);
   const where = useRef();
+  const bigNavRef = useRef();
   
   const handleShowOffCanvas = () => setShowOffCanvas(true);
-  const handleCloseOffCanvas = () => setShowOffCanvas(false);
+  // const handleCloseOffCanvas = () => setShowOffCanvas(false);
 
   const handleShowModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
@@ -35,56 +38,44 @@ const Navbar=()=>{
 
   const anyClick=(menu)=>{
     handleShowOffCanvas(); 
-    handleShowModal();
-    console.log('where 2:>> ', where?.current );
+    handleShowModal(); 
     setActive(menu)
     where?.current?.focus()
   }
 
    // it will come from Context
-  // const activeUser={name:"Ömer"}
-   const activeUser=null;
+   const activeUser={name:"Ömer"}
+  //const activeUser=null;
+
+   const bigNavStyle={
+    height:"6.5rem",
+    zIndex:1,
+    transition:"height .3s"
+   }
 
   return(
-      <div className="navbar-container">
-          <OffcanvasNav  
-            showOffCanvas={showOffCanvas} 
-            handleCloseOffCanvas={handleCloseOffCanvas}
-            active={active}
-            setActive={setActive}
-            where={where}
-            handleCloseModal={handleCloseModal}
-            handleShowModal={handleShowModal}
-            handleCloseAll={handleCloseAll}
-            rightMenu={rightMenu}
-            setRightMenu={setRightMenu}
-          />
+      <div className="navbar-container" style={ showOffCanvas ? bigNavStyle:null}>
           <div className="logo-container">
             <Link to="/">
-              <img src="https://www.nest-mv.de/images/nest-logo-web-negativ.svg"/>
+              <img alt="logo" src="https://www.nest-mv.de/images/nest-logo-web-negativ.svg"/>
             </Link>
           </div>
+          { showOffCanvas ? 
+         <BigNav bigNavRef={bigNavRef} where={where} active={active} setActive={setActive} handleCloseModal={handleCloseModal} handleShowModal={handleShowModal} handleCloseAll={handleCloseAll}/>
+          :
           <div className="main-nav">
             <button onClick={()=>anyClick(0)}>Anywhere</button>
             <button onClick={()=>anyClick(1)}>Any week</button>
             <button onClick={()=>anyClick(2)}>Add guests</button>
             <button className="search-button"><BiSearch/></button>
           </div>
+          }
           <div className="right-menu-container">
             <Link className="switch-to-hosting" to="hostingPage1">Switch to Hosting</Link>
-            <RightMenuIcon setRightMenu={setRightMenu} rightMenu={rightMenu}/>
+            <RightMenuIcon setRightMenu={setRightMenu}/>
             {activeUser ? rightMenu && <RightMenu2 setRightMenu={setRightMenu}/> : rightMenu && <RightMenu1 setRightMenu={setRightMenu}/>}
           </div>
-
-         {/*  <nav>
-              <Link className="mr-4 text-amber-800" to="/">Home</Link>
-              <Link className="mr-4 text-amber-800" to="houses">Houses</Link>
-              <Link className="mr-4 text-amber-800" to="house">House</Link>
-              <Link className="mr-4 text-amber-800" to="messages">Messages</Link>
-              <Link className="mr-4 text-amber-800" to="hostingPage1">HP1</Link>
-          </nav>
-         */}
-          <SearchByRegion showModal={showModal} handleCloseAll={handleCloseAll} active={active}/>
+          <SearchByRegion bigNavRef={bigNavRef} showOffCanvas={showOffCanvas} showModal={showModal} setShowModal={setShowModal} handleCloseAll={handleCloseAll} active={active}/>
       </div>
     )
   }
