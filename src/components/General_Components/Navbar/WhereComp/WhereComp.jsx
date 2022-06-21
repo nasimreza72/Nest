@@ -4,28 +4,28 @@ import {BsClock } from "react-icons/bs"
 
 const WhereComp = ()=>{
     const regions=[{
-        src: "https://a0.muscache.com/pictures/f9ec8a23-ed44-420b-83e5-10ff1f071a13.jpg",
-        text:"I’m flexible"
+        src: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Germany_in_Europe_%28-rivers_-mini_map%29.svg/701px-Germany_in_Europe_%28-rivers_-mini_map%29.svg.png?20160712194932",
+        text:"Germany"
     },
     {
-        src: "https://a0.muscache.com/im/pictures/4e762891-75a3-4fe1-b73a-cd7e673ba915.jpg?im_w=320",
-        text:"United States"
+        src: "https://ukmap360.com/img/1200/united%20kingdom%20(uk)-map-europe.jpg",
+        text:"United Kingdom"
     },
     {
-        src: "https://a0.muscache.com/im/pictures/ea5598d7-2b07-4ed7-84da-d1eabd9f2714.jpg?im_w=320",
-        text:"Italy"
-    },
-    {
-        src: "https://a0.muscache.com/im/pictures/66355b01-4695-4db9-b292-c149c46fb1ca.jpg?im_w=320",
-        text:"Middle East"
-    },
-    {
-        src: "https://a0.muscache.com/im/pictures/f0ece7c0-d9b2-49d5-bb83-64173d29cbe3.jpg?im_w=320",
+        src: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/France_in_Europe.svg/701px-France_in_Europe.svg.png?20160712071110",
         text:"France"
     },
     {
-        src: "https://a0.muscache.com/im/pictures/7e9673a5-4164-4708-a047-8d281b5980e7.jpg?im_w=320",
-        text:"Africa"
+        src: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Netherlands_in_Europe.svg/701px-Netherlands_in_Europe.svg.png",
+        text:"Netherlands"
+    },
+    {
+        src: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Switzerland_in_Europe.svg/640px-Switzerland_in_Europe.svg.png",
+        text:"Switzerland"
+    },
+    {
+        src: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/United_States_in_North_America_%28-mini_map_-rivers%29.svg/2041px-United_States_in_North_America_%28-mini_map_-rivers%29.svg.png",
+        text:"USA"
     }]
 
     const recentResearches=[{

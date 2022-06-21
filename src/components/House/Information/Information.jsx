@@ -1,5 +1,5 @@
 import "./Information.scss";
-import {StyledButton} from "../../General Components"
+import {StyledButton} from "../../General_Components"
 
 export const Information=()=>{
     return(

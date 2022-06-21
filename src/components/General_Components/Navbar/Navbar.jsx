@@ -6,7 +6,7 @@ import { BiSearch } from "react-icons/bi";
 import RightMenuIcon from "./RightMenuIcon/RightMenuIcon.jsx";
 import RightMenu1 from "./RightMenu1/RightMenu1.jsx";
 import RightMenu2 from "./RightMenu2/RightMenu2.jsx";
-import "./index.scss";
+import "./Navbar.scss";
 
 
 const Navbar=()=>{

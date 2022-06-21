@@ -7,7 +7,7 @@ import WhoComp from "../WhoComp/WhoComp.jsx";
 function SearchByRegion({showModal, handleCloseAll, active}) {
   const whoStyle={
     width:"20rem", 
-    left:"50rem", 
+    left:"50%", 
     height:"18rem",
     textAlign:"center"
     // display:"flex",

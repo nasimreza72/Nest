@@ -1,5 +1,5 @@
 import { AiTwotoneStar } from 'react-icons/ai';
-import {StyledButton} from "../../General Components"
+import {StyledButton} from "../../General_Components"
 import "./Reviews.scss";
 
 
