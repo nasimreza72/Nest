@@ -1,6 +1,6 @@
 import "./Register.scss"
 import { Input, FacebookButton, GoogleButton, AppleButton, EmailButton } from "../../components/Login/"
-import { loginContext } from "../../Context/LoginContext.jsx"
+import { loginContext } from "../../context/LoginContext.jsx"
 import { useContext, useState, useRef, useEffect } from "react";
 
 

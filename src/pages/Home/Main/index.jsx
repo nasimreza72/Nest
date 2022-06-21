@@ -2,9 +2,8 @@ import "./Main.scss"
 import  { WeProvideHousing, Locations, AboutUs, InfoUponEntering,CardOne, CardTwo, CardThree, HostQuestions} from "../../../components/Home";
 import Login from "../../Login/Login.jsx"
 import Register from "../../Register/Register.jsx"; 
-import  { useState, useContext, useEffect, useRef } from "react";
-import { loginContext } from "../../../Context/LoginContext.jsx"
-import { GiBodyBalance } from "react-icons/gi";
+import  { useContext } from "react";
+import { loginContext } from "../../../context/LoginContext.jsx"
 
  
 export const Main=()=>{

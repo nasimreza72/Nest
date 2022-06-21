@@ -2,20 +2,21 @@ import "./Gender.scss"
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import Select from 'react-select';
+import Form from 'react-bootstrap/Form';
 
-const options = [
-    { value: 'Male', label: 'Male' },
-    { value: 'Female', label: 'Female' },
-    { value: 'Other', label: 'Other' },
-  ];
 
 export default function Gender() {
   const [show, setShow] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(null);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const [gender, setGender] = useState("")
+
+  const valueSelect = (e) => {
+    console.log(gender)
+    handleClose()
+  }
+
+  
 
   return (
     <>
@@ -30,7 +31,6 @@ export default function Gender() {
         keyboard={false}
       >
         
-        
         <Modal.Body>
             <div className="modalBody">
                 <div className="header">
@@ -39,15 +39,16 @@ export default function Gender() {
                     Cancel
                 </Button>
                 </div>
-                <div className="selectContainer" classNamePrefix="innerElements">
-                    <Select
-                        defaultValue={selectedOption}
-                        onChange={setSelectedOption}
-                        options={options}
-                    />
-                </div>
+                <Form.Select placeholder="Gender" aria-label="Default select example" 
+                             className="select"
+                             onChange={(e) => setGender(e.target.value)}>
+                    <option>Select Gender</option>
+                    <option value="He">He</option>
+                    <option value="She">She</option>
+                    <option value="Other">Other</option>
+                </Form.Select>
                 <div className="saveButton">
-                    <Button variant="dark" size="l">Save</Button>
+                    <Button variant="dark" size="l" onClick={valueSelect}>Save</Button>
                 </div>
                
             </div>

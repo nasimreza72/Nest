@@ -7,7 +7,8 @@ export default function LoginContextProvider(props){
     
     const [login, setLogin] = useState(false)
     const [register, setRegister] = useState(false)
-    const loginVariable = { login, setLogin, register, setRegister }
+    const [token, setToken] = useState("")
+    const loginVariable = { token, setToken, login, setLogin, register, setRegister }
 
     return(
         <loginContext.Provider value={loginVariable}>

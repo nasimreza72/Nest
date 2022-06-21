@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
-import LoginContextProvider from "./Context/LoginContext.jsx"
+import LoginContextProvider from "./context/LoginContext.jsx"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

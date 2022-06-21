@@ -2,6 +2,9 @@ import "./PersonalinfoHost.scss"
 import { GrFormNext } from 'react-icons/gr';
 import LegalName from "../../components/Profile/LegalName/LegalName.jsx"
 import Gender from "../../components/Profile/Gender/Gender.jsx"
+import DayOfBirth from "../../components/Profile/DateOfBirth/DateOfBirth.jsx"
+import Email from "../../components/Profile/Email/Email.jsx"
+import PhoneNumber from "../../components/Profile/PhoneNumber/PhoneNumber.jsx";
 
 
 
@@ -39,21 +42,21 @@ export default function HostProfile (){
                                 <h2>Date of birth</h2>
                                 <div className="nameInput">25.03.1977</div>
                             </div>
-                            <button>Edit</button>
+                            <DayOfBirth />
                         </div>
                         <div className="InfoAndButton">
                             <div className="infoCells">
                                 <h2>Email address</h2>
                                 <div className="nameInput">ronnykorneli@gmail.com</div>
                             </div>
-                            <button>Edit</button>
+                            <Email />
                         </div>
                         <div className="InfoAndButton">
                             <div className="infoCells">
                                 <h2>Phone number</h2>
                                 <div className="nameInput">0176 732 54255</div>
                             </div>
-                            <button>Edit</button>
+                            <PhoneNumber />
                         </div>
                         <div className="InfoAndButton">
                             <div className="infoCells">

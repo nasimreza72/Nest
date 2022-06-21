@@ -1,5 +1,5 @@
 import {useContext} from "react";
-import { loginContext } from "../../../../Context/LoginContext.jsx";
+import { loginContext } from "../../../../context/LoginContext.jsx";
 import "./RightMenu1.scss";
 
 const RightMenu1 = ({setRightMenu})=>{
