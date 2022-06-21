@@ -1,6 +1,6 @@
 import { AiTwotoneStar } from 'react-icons/ai';
 import {MdVerifiedUser} from "react-icons/md";
-import {StyledButton} from "../../General Components/StyledButton/StyledButton";
+import {StyledButton} from "../../General_Components/StyledButton/StyledButton";
 
 export const HostedBy = () => {
   return (

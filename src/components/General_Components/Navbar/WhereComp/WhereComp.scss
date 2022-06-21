@@ -24,10 +24,12 @@
             }
             p{
                 @include sm-header;
+                text-align: left;
                 margin-bottom: 0px;
             }
             h6{
                 @include xs-header;
+                text-align: left;
             }
         }        
     }
@@ -38,6 +40,10 @@
             gap: .5rem;
             .region{
                 width: 8rem;
+                img{
+                    width: 8rem;
+                    height: 6rem;
+                }
                 h6{
                     margin-top: .5rem;
                     @include xs-header;
