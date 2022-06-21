@@ -8,7 +8,7 @@ export const Messages = ()=>{
     // this activeUser will come as props
     const [activeUser, setActiveUser]=useState("Ömer Iliski");
     
-    const messagesArray=[{
+    const conversationsArray=[{
         image:"https://a0.muscache.com/im/pictures/d0dd10d8-84f6-4f66-9e41-a6108ff3ec60.jpg?im_w=720",
         sender1:"Nasim Reza",
         sender2:"Ömer Iliski",
@@ -60,8 +60,8 @@ export const Messages = ()=>{
         ]
     }
 ]
-const [activeMessage, setActiveMessage] = useState(messagesArray[0]);
-const [messages,setMessages]=useState(messagesArray);
+const [activeConversation, setActiveConversation] = useState(conversationsArray[0]);
+const [conversations,setconversations]=useState(conversationsArray);
 
 
 
@@ -70,15 +70,15 @@ return(
         <h3>My Messages</h3>
         <div className="main-container">
             <div className="messages-container">
-                {messages.map((message)=>
+                {conversations.map((conversation)=>
                     // console.log('message :>> ', message);
-                    <div className="message-container" onClick={()=>setActiveMessage(message)}>
+                    <div className="message-container" onClick={()=>setActiveConversation(conversation)}>
                         <div className="img-container">
-                            <img src={message.image}/>
+                            <img src={conversation.image}/>
                         </div>
                         <div>
-                            <p>{message.sender1}</p>
-                            <h3>{message.house}</h3>
+                            <p>{conversation.sender1}</p>
+                            <h3>{conversation.house}</h3>
                         </div>
 
                     </div>
@@ -87,14 +87,14 @@ return(
             <div className="message-board-container">
                 <div className="header">
                     <div className="img-container">
-                        <img src={activeMessage.image}/>
+                        <img src={activeConversation.image}/>
                     </div>
                     <div>
-                        <p>{activeMessage.sender1}</p>
-                        <h3>{activeMessage.house}</h3>
+                        <p>{activeConversation.sender1}</p>
+                        <h3>{activeConversation.house}</h3>
                     </div>
                 </div>
-                <MessageBoard activeUser={activeUser} activeMessage={activeMessage} setActiveMessage={setActiveMessage}/>
+                <MessageBoard activeUser={activeUser} activeConversation={activeConversation} setActiveConversation={setActiveConversation}/>
             </div>
         </div>
     </>
