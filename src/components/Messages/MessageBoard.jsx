@@ -2,7 +2,7 @@ import "./MessageBoard.scss";
 import {useEffect, useRef} from "react";
 import io from "socket.io-client";
 
-export const MessageBoard = ({activeMessage, activeUser, setActiveMessage}) => {
+export const MessageBoard = ({activeConversation, activeUser, setActiveConversation}) => {
 
   const text=useRef();
   const conversationId=123;
@@ -15,27 +15,27 @@ export const MessageBoard = ({activeMessage, activeUser, setActiveMessage}) => {
         text:text.current.value,
         conversationId
       });
-      const tempActiveMessage={...activeMessage}
-      tempActiveMessage.texts.push({
-        sender:activeUser,
-        text:text.current.value,
-        date:Date.now()
-      })
-      console.log("tempActiveMessage :>>",tempActiveMessage);
-      setActiveMessage(tempActiveMessage);
-      text.current.value="";  
+       
     }
   }
   
   useEffect(()=>{
     socket.on(conversationId,(data)=>{
-       console.log('data :>> ', data);
+      console.log('data :>> ', data);
+      const tempActiveConversation={...activeConversation}
+      tempActiveConversation.texts.push({
+        sender:activeUser,
+        text:data,
+        date:Date.now()
+      })
+      setActiveConversation(tempActiveConversation);
+      text.current.value=""; 
     })
   },[])
   return (
     <div className="messages">
       <div>
-        {activeMessage.texts.map((text) =>
+        {activeConversation.texts.map((text) =>
         <div className={
           text.sender == activeUser
           ? "host-container"

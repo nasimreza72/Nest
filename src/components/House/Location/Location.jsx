@@ -36,7 +36,7 @@ export const Location = ()=>{
         <div className="location-container">
             <h1>Where Yo'll be</h1>
             <div className="map-container">
-                <LoadScript googleMapsApiKey="AIzaSyB5mlMUDFJUY_FYU6-8ez0eqtrSdrxh298">
+                <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_API_KEY}>
                     <GoogleMap
                       mapContainerStyle={containerStyle}
                       center={center}
