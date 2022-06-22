@@ -1,48 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useContext, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import "./LegalName.scss"
+import { profileContext } from '../../../Context/ProfileContext';
 
 export default function LegalName() {
-  const [show, setShow] = useState(false);
+  const { legalName, setLegalName } = useContext(profileContext)
+  let menuRef = useRef()
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
-  return (
-    <>
-      <Button variant="light" onClick={handleShow}>
-        Edit
-      </Button>
-
-    <Modal
-        show={show}
-        onHide={handleClose}
-        backdrop="static"
-        keyboard={false}
-      >
-        
-
-        <Modal.Body>
-            <div className="header">
-                <Modal.Title>Legal name</Modal.Title>
-                <Button className="link" variant="link" onClick={handleClose}>
-                    Cancel
-                </Button>
+  useEffect(() => {
+    document.addEventListener("mousedown", (e) => {
+        if(!menuRef.current.contains(e.target))
+        setLegalName(false)
+    })
+}, [LegalName])
+  
+  
+  return(
+    
+    <div className="LegalName">
+      <div className="modalBodey" ref={menuRef}>
+          <div className="topContaine">
+            <div className="topElements">
+              <h5>Legal name</h5>
+              <button onClick={ e => setLegalName(false)}>Cancel</button>
             </div>
-            <div className="modalBody">
-                This is the name on your travel document, which could be a license or a passport.
-                <form action="">
-                    <input className="firstName" type="text" placeholder="First name" />
-                    <input className="lastName" type="text" placeholder="Last name" />
-                </form>
-                <div className="saveButton">
-                    <Button variant="dark" size="l">Save</Button>
-                </div>
-            </div>
-        </Modal.Body>
-    </Modal>
-    </>
-  );
+            <p>This is the name on your travel document, which could be a license 
+               or a passport.</p>
+          </div>
+          <form id="form">
+            <input className="inputLegalName" type="text" placeholder="First name" />
+            <input className="inputLegalName" type="text" placeholder="Last name" />
+          </form>
+          <button className="buttonLegalName">Save</button>
+      </div>
+    </div>
+  )
+
 }
 

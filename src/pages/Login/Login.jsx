@@ -7,21 +7,21 @@ import { useContext, useState, useRef, useEffect} from "react";
 export default function Login(){
 
     // Disable Modal by clicking outside............
-    const { login, setLogin } = useContext(loginContext)
+    const { loginModal, setLoginModal } = useContext(loginContext)
     let menuRef = useRef()
 
     useEffect(() => {
         document.addEventListener("mousedown", (e) => {
             if(!menuRef.current.contains(e.target))
-            setLogin(false)
+            setLoginModal(false)
         })
-    }, [login])
+    }, [loginModal])
     //////////////////////////////////////////////////////
 
     return(
         <div className="Login" ref={menuRef} >
             <div className="xAndLogIn">
-                <div id="X" onClick={ e => setLogin(false) }>X</div>
+                <div id="X" onClick={ e => setLoginModal(false) }>X</div>
                 <div>Login</div>
             </div>
 

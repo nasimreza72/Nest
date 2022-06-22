@@ -9,7 +9,7 @@ import { GiBodyBalance } from "react-icons/gi";
  
 export const Main=()=>{
 
-    const {login, setLogin, register, setRegister} = useContext(loginContext)
+    const {loginModal, setLoginModal, register, setRegister} = useContext(loginContext)
 
     return(
 
@@ -18,7 +18,7 @@ export const Main=()=>{
 
                 <div className="blackBox"></div>
 
-                {login ?  <Login /> : null }
+                {loginModal ?  <Login /> : null }
                 {register ?  <Register /> : null}
          
                 <div className="firstLargeImage">

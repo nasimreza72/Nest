@@ -42,8 +42,8 @@ const Navbar=()=>{
   }
 
    // it will come from Context
-  // const activeUser={name:"Ömer"}
-   const activeUser=null;
+   //const activeUser=null;
+   const activeUser={name:"Ömer"}
 
   return(
       <div className="navbar-container">
