@@ -1,16 +1,20 @@
-import './App.scss';
+import { useContext } from "react";
 import {Routes,Route} from "react-router-dom";
-import {Houses, House, Login, HostingPage1, HostingPage2, HostingPage3, HostingPage4, HostingPage5, HostingPage6,  HostingPage7, HostingPage8, HostingPage9} from "./pages";
+import {Houses, House, HostingPage1, HostingPage2, HostingPage3, HostingPage4, HostingPage5, HostingPage6,  HostingPage7, HostingPage8, HostingPage9} from "./pages";
 import {Navbar} from "./components/General_Components";
 import {Messages} from "./pages/Messages/Messages.jsx";
 import Home from "./pages/Home/index.jsx"
 import HostProfile from "./pages/PersonalinfoHost/PersonalinfoHost.jsx"
+import { navbarContext } from "./Context/NavbarContext.jsx";
+import './App.scss';
+
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
+  const {handleCloseAll} = useContext(navbarContext);
   return (
-    <div className="App">
+    <div className="App" onScroll={()=>console.log("onScroll")} >
       <Navbar/>
       <Routes>
         <Route path="/" element={<Home />} />
