@@ -4,7 +4,11 @@
     display: flex;
     align-items: flex-start;
     .recent-researches{
-
+        h6{
+            @include sm-header;
+            text-align: left;
+            margin-bottom: 1rem;
+        }
         width: 60%;
         border-right: .5px solid #d8d4d4;
         margin-right: 3rem;
@@ -34,6 +38,11 @@
         }        
     }
     .search-by-region-container{
+        h6{
+            @include sm-header;
+            text-align: left;
+            margin-bottom: 1rem;
+        }
         .search-by-region{
             display: flex;
             flex-wrap: wrap;
