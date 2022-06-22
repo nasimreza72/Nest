@@ -1,9 +1,11 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useContext } from "react";
+import { navbarContext } from "../../../../Context/NavbarContext.jsx";
 import { Link } from "react-router-dom";
 import "./RightMenu2.scss";
 
-const RightMenu2 = ({setRightMenu})=>{
+const RightMenu2 = ()=>{
 
+    const {setRightMenu} = useContext(navbarContext);
     const rightMenu2 = useRef();
 
     useEffect(() => {

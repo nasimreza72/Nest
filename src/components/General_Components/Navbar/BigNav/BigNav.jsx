@@ -1,8 +1,13 @@
+import {useContext} from "react";
 import { BiSearch } from "react-icons/bi";
 import {Link} from "react-router-dom";
+import { navbarContext } from "../../../../Context/NavbarContext.jsx";
 import "./BigNav.scss";
 
-const BigNav=({active, setActive,where,handleCloseModal,handleShowModal,handleCloseAll, bigNavRef})=>{
+const BigNav=()=>{
+
+    const {active, setActive,where,handleCloseModal,handleShowModal,handleCloseAll, bigNavRef}=useContext(navbarContext);
+
     return(
         <div ref={bigNavRef} className="big-nav">
             <div className="section1">

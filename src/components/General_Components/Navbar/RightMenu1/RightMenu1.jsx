@@ -1,9 +1,12 @@
 import {useContext,useRef, useEffect} from "react";
 import { loginContext } from "../../../../Context/LoginContext.jsx";
+import { navbarContext } from "../../../../Context/NavbarContext.jsx";
 import "./RightMenu1.scss";
 
-const RightMenu1 = ({setRightMenu})=>{
+const RightMenu1 = ()=>{
     const {login, setLogin, register, setRegister} = useContext(loginContext);
+    const {setRightMenu} = useContext(navbarContext);
+
     const rightMenu1 = useRef();
 
     useEffect(() => {

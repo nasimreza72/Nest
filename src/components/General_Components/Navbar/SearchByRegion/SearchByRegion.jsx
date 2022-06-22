@@ -1,11 +1,13 @@
-import {useRef,useEffect} from "react";
+import {useRef,useEffect, useContext} from "react";
 import WhereComp from "../WhereComp/WhereComp.jsx";
 import WhenComp from "../WhenComp/WhenComp.jsx";
 import WhoComp from "../WhoComp/WhoComp.jsx";
+import { navbarContext } from "../../../../Context/NavbarContext.jsx";
 import "./SearchByRegion.scss";
 
-function SearchByRegion({showModal, handleCloseAll, active, bigNavRef, setShowModal,showOffCanvas}) {
+function SearchByRegion() {
 
+  const {showModal, handleCloseAll, active, bigNavRef,showOffCanvas} = useContext(navbarContext);
   const offCanvas = useRef();
 
   const whoStyle={
@@ -19,11 +21,19 @@ function SearchByRegion({showModal, handleCloseAll, active, bigNavRef, setShowMo
     document.addEventListener("mousedown", (e) => {
         if(!offCanvas.current.contains(e.target) && !bigNavRef.current.contains(e.target) )
           {
+            console.log('mousdown :>> ');
+            console.log('showModal :>> ', showModal);
+            console.log('showOffCanvas :>> ', showOffCanvas);
             handleCloseAll();
-            document.classList.add({})
           }
     })
+    
   }, [])
+  useEffect(()=>{
+    document.addEventListener('scroll', (e) => {
+      if(showModal && showOffCanvas) handleCloseAll();
+    });
+  },[showModal,showOffCanvas])
 
   return(
     <div ref={offCanvas}   id="offcanvas" style={Object.assign(showModal ? {opacity:1} : {}, active === 2 ? whoStyle: {})  }>
