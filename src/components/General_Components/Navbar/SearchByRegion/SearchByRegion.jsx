@@ -19,7 +19,7 @@ function SearchByRegion() {
 
   useEffect(() => {
     document.addEventListener("mousedown", (e) => {
-        if(!offCanvas.current.contains(e.target) && !bigNavRef.current.contains(e.target) )
+        if(!offCanvas?.current?.contains(e.target) && !bigNavRef?.current?.contains(e.target) )
           {
             console.log('mousdown :>> ');
             console.log('showModal :>> ', showModal);
@@ -27,16 +27,17 @@ function SearchByRegion() {
             handleCloseAll();
           }
     })
-    
   }, [])
   useEffect(()=>{
     document.addEventListener('scroll', (e) => {
-      if(showModal && showOffCanvas) handleCloseAll();
+      // Todo: It doesn't effect the app but it calls everytime handleCloseAll function. 
+      // write a condition!!!
+      handleCloseAll();
     });
-  },[showModal,showOffCanvas])
+  },[])
 
   return(
-    <div ref={offCanvas}   id="offcanvas" style={Object.assign(showModal ? {opacity:1} : {}, active === 2 ? whoStyle: {})  }>
+    <div ref={offCanvas}   id="offcanvas" style={Object.assign(showModal ? {opacity:1,zIndex:0} : {}, active === 2 ? whoStyle: {})  }>
       {active === 0 ? <WhereComp/> :null}
       {active === 1 ? <WhenComp/> :null}
       {active === 2 ? <WhoComp/> :null}

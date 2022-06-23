@@ -17,17 +17,14 @@ const Navbar=()=>{
   // const handleCloseOffCanvas = () => setShowOffCanvas(false);
 
    // it will come from Context
-// legal-name-modal
-  //  const activeUser=null;
-   const activeUser={name:"Ömer"}
-
-  
+  const activeUser={name:"Ömer"}
+  //const activeUser=null;
 
    const bigNavStyle={
     height:"6.5rem",
     zIndex:1,
     transition:"height .3s"
-   } 
+   }
 
   return(
       <div className="navbar-container" style={ showOffCanvas ? bigNavStyle:null}>

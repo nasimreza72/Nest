@@ -10,7 +10,7 @@ const RightMenu2 = ()=>{
 
     useEffect(() => {
         document.addEventListener("mousedown", (e) => {
-            if(!rightMenu2.current.contains(e.target) )
+            if(!rightMenu2?.current?.contains(e.target) )
               setRightMenu(false);
         })
       }, [])
