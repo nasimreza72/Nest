@@ -1,59 +1,41 @@
 import "./Gender.scss"
-import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import Select from 'react-select';
-
-const options = [
-    { value: 'Male', label: 'Male' },
-    { value: 'Female', label: 'Female' },
-    { value: 'Other', label: 'Other' },
-  ];
+import React, { useRef, useContext, useEffect } from 'react';
+import { profileContext } from '../../../Context/ProfileContext';
 
 export default function Gender() {
-  const [show, setShow] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(null);
+  const { gender, setGender } = useContext(profileContext)
+  let menuRef = useRef()
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
-  return (
-    <>
-      <Button variant="light" onClick={handleShow}>
-        Edit
-      </Button>
-
-    <Modal
-        show={show}
-        onHide={handleClose}
-        backdrop="static"
-        keyboard={false}
-      >
-        
-        
-        <Modal.Body>
-            <div className="modalBody">
-                <div className="header">
-                <Modal.Title>Gender</Modal.Title>
-                    <Button className="link" variant="link" onClick={handleClose}>
-                    Cancel
-                </Button>
-                </div>
-                <div className="selectContainer" classNamePrefix="innerElements">
-                    <Select
-                        defaultValue={selectedOption}
-                        onChange={setSelectedOption}
-                        options={options}
-                    />
-                </div>
-                <div className="saveButton">
-                    <Button variant="dark" size="l">Save</Button>
-                </div>
-               
+  useEffect(() => {
+    document.addEventListener("mousedown", (e) => {
+        if(!menuRef.current.contains(e.target))
+        setGender(false)
+        console.log("insid gender useeffcet---------------------")
+    })
+}, [gender])
+  
+  
+  return(
+    
+    <div className="Gender">
+      <div className="modalBodey" ref={menuRef}>
+          <div className="topContaine">
+            <div className="topElements">
+              <h5>Gender</h5>
+              <button onClick={ e => setGender(false)}>Cancel</button>
             </div>
-              
-        </Modal.Body>
-    </Modal>
-    </>
-  );
+          </div>
+         <select className="selectGender" id="" placeholder="Gender">
+           <option value="Choose Gender" disabled selected>Choose gender</option>
+           <option value="He">He</option>
+           <option value="She">She</option>
+           <option value="Other">Other</option>
+         </select>
+          <button className="buttonGender">Save</button>
+      </div>
+    </div>
+  )
+
 }
+
