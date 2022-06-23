@@ -17,8 +17,8 @@ const Navbar=()=>{
   // const handleCloseOffCanvas = () => setShowOffCanvas(false);
 
    // it will come from Context
-  // const activeUser={name:"Ömer"}
-  const activeUser=null;
+  const activeUser={name:"Ömer"}
+  //const activeUser=null;
 
    const bigNavStyle={
     height:"6.5rem",

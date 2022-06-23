@@ -11,7 +11,7 @@ const RightMenu1 = ()=>{
 
     useEffect(() => {
         document.addEventListener("mousedown", (e) => {
-            if(!rightMenu1.current.contains(e.target) )
+            if(!rightMenu1?.current?.contains(e.target) )
               setRightMenu(false);
         })
       }, [])

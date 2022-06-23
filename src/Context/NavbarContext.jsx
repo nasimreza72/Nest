@@ -16,17 +16,17 @@ export default function NavbarContextProvider(props){
     const bigNavRef = useRef();
   
     const handleShowOffCanvas = () => setShowOffCanvas(true);
+    const handleCloseOffCanvas = () => setShowOffCanvas(false);
+
+    const handleShowModal = () => setShowModal(true)
+    const handleCloseModal = () => setShowModal(false);
 
     const handleCloseAll=()=>{
         console.log("handleCloseAll");
-        setShowOffCanvas(false);
-        setShowModal(false);
+        handleCloseOffCanvas();
+        handleCloseModal();
     }
     
-    const handleShowModal = () => setShowModal(true)
-
-    const handleCloseModal = () => setShowModal(false);
-
     const anyClick=(menu)=>{
       handleShowOffCanvas(); 
       handleShowModal(); 
