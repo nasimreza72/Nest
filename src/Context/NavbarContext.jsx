@@ -1,6 +1,4 @@
 import { useState, createContext, useRef } from 'react'
-
-
 export const navbarContext = createContext()
 
 export default function NavbarContextProvider(props){
@@ -22,7 +20,6 @@ export default function NavbarContextProvider(props){
     const handleCloseModal = () => setShowModal(false);
 
     const handleCloseAll=()=>{
-        console.log("handleCloseAll");
         handleCloseOffCanvas();
         handleCloseModal();
     }

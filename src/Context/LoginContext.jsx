@@ -5,9 +5,9 @@ export const loginContext = React.createContext()
 
 export default function LoginContextProvider(props){
     
-    const [login, setLogin] = useState(false)
+    const [loginModal, setLoginModal] = useState(false)
     const [register, setRegister] = useState(false)
-    const loginVariable = { login, setLogin, register, setRegister }
+    const loginVariable = { loginModal, setLoginModal, register, setRegister }
 
     return(
         <loginContext.Provider value={loginVariable}>

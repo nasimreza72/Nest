@@ -2,11 +2,14 @@ import "./PersonalinfoHost.scss"
 import { GrFormNext } from 'react-icons/gr';
 import LegalName from "../../components/Profile/LegalName/LegalName.jsx"
 import Gender from "../../components/Profile/Gender/Gender.jsx"
+import { useContext } from "react";
+import { profileContext } from "../../Context/ProfileContext";
 
 
 
 export default function HostProfile (){
-
+    const { legalName, setLegalName } = useContext(profileContext)
+    console.log(legalName)
     return(
         <div className="PersonalinfoHost">
             <section>
@@ -25,7 +28,8 @@ export default function HostProfile (){
                                 <h2>Legal name</h2>
                                 <div className="nameInput">Ronny Korneli</div>
                             </div>
-                            <LegalName />
+                            <button onClick={e => setLegalName(true)}>Edit</button> 
+                            {legalName ?  <LegalName /> : null }
                         </div>
                         <div className="InfoAndButton">
                             <div className="infoCells">
@@ -46,7 +50,7 @@ export default function HostProfile (){
                                 <h2>Email address</h2>
                                 <div className="nameInput">ronnykorneli@gmail.com</div>
                             </div>
-                            <button>Edit</button>
+                            
                         </div>
                         <div className="InfoAndButton">
                             <div className="infoCells">

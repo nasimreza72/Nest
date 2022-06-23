@@ -36,5 +36,5 @@ export default function HostingPage9() {
         </div>
       </div>
     </div>
-  );
+  )
 }
