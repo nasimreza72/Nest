@@ -34,9 +34,6 @@ export default function NavbarContextProvider(props){
     const navbarVariable={showOffCanvas, anyClick, rightMenu,setActive,handleShowModal,handleCloseAll,
         showModal, handleCloseModal, active, bigNavRef,where, setShowModal,setRightMenu}
 
-    console.log("showModal:>>>",showModal)
-    console.log("showOffCanvas:>>>",showOffCanvas)
-
     return(
         <navbarContext.Provider value={navbarVariable}>
             {props.children}
