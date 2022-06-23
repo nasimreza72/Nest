@@ -1,4 +1,5 @@
 import React from "react";
+import Geocode from "react-geocode";
 import { useState } from "react";
 import {
   GoogleMap,
@@ -65,6 +66,32 @@ const MapContainer = () => {
   const onSelect = (item) => {
     setSelected(item);
   };
+
+  /////// GEO CODE
+
+  Geocode.setApiKey(process.env.REACT_APP_GOOGLE_API_KEY);
+
+  Geocode.setLanguage("en");
+  Geocode.setLocationType("ROOFTOP");
+  Geocode.enableDebug();
+
+
+  navigator.geolocation.getCurrentPosition((position) => {
+    Geocode.fromLatLng(position.coords.latitude, position.coords.longitude).then(
+      (response) => {
+        const address = response.results[0].formatted_address;
+        console.log(address);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  })
+
+
+
+
+
 
   return (
     <LoadScript 

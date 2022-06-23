@@ -1,6 +1,4 @@
 import { useState, createContext, useRef } from 'react'
-
-
 export const navbarContext = createContext()
 
 export default function NavbarContextProvider(props){
@@ -16,17 +14,16 @@ export default function NavbarContextProvider(props){
     const bigNavRef = useRef();
   
     const handleShowOffCanvas = () => setShowOffCanvas(true);
+    const handleCloseOffCanvas = () => setShowOffCanvas(false);
 
-    const handleCloseAll=()=>{
-        console.log("handleCloseAll");
-        setShowOffCanvas(false);
-        setShowModal(false);
-    }
-    
     const handleShowModal = () => setShowModal(true)
-
     const handleCloseModal = () => setShowModal(false);
 
+    const handleCloseAll=()=>{
+        handleCloseOffCanvas();
+        handleCloseModal();
+    }
+    
     const anyClick=(menu)=>{
       handleShowOffCanvas(); 
       handleShowModal(); 
@@ -36,9 +33,6 @@ export default function NavbarContextProvider(props){
 
     const navbarVariable={showOffCanvas, anyClick, rightMenu,setActive,handleShowModal,handleCloseAll,
         showModal, handleCloseModal, active, bigNavRef,where, setShowModal,setRightMenu}
-
-    console.log("showModal:>>>",showModal)
-    console.log("showOffCanvas:>>>",showOffCanvas)
 
     return(
         <navbarContext.Provider value={navbarVariable}>
