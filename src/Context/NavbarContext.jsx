@@ -1,48 +1,59 @@
-import { useState, createContext, useRef } from 'react'
+import { useState, createContext, useRef } from "react";
 
+export const navbarContext = createContext();
 
-export const navbarContext = createContext()
+export default function NavbarContextProvider(props) {
+  const [showOffCanvas, setShowOffCanvas] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
-export default function NavbarContextProvider(props){
+  //active Menu where,when,who
+  const [active, setActive] = useState(null);
+  const [rightMenu, setRightMenu] = useState(false);
 
-    const [showOffCanvas, setShowOffCanvas] = useState(false);
-    const [showModal, setShowModal] = useState(false);
-    
-    //active Menu where,when,who
-    const [active, setActive] = useState(null);
-    const [rightMenu, setRightMenu] = useState(false);
+  const where = useRef();
+  const bigNavRef = useRef();
 
-    const where = useRef();
-    const bigNavRef = useRef();
-  
-    const handleShowOffCanvas = () => setShowOffCanvas(true);
+  const handleShowOffCanvas = () => setShowOffCanvas(true);
 
-    const handleCloseAll=()=>{
-        console.log("handleCloseAll");
-        setShowOffCanvas(false);
-        setShowModal(false);
-    }
-    
-    const handleShowModal = () => setShowModal(true)
+  const handleCloseAll = () => {
+    console.log("handleCloseAll");
+    setShowOffCanvas(false);
+    setShowModal(false);
+  };
 
-    const handleCloseModal = () => setShowModal(false);
+  const handleShowModal = () => setShowModal(true);
 
-    const anyClick=(menu)=>{
-      handleShowOffCanvas(); 
-      handleShowModal(); 
-      setActive(menu)
-        //  where?.current?.focus()
-    }
+  const handleCloseModal = () => setShowModal(false);
 
-    const navbarVariable={showOffCanvas, anyClick, rightMenu,setActive,handleShowModal,handleCloseAll,
-        showModal, handleCloseModal, active, bigNavRef,where, setShowModal,setRightMenu}
+  const anyClick = (menu) => {
+    handleShowOffCanvas();
+    handleShowModal();
+    setActive(menu);
+    //  where?.current?.focus()
+  };
 
-    console.log("showModal:>>>",showModal)
-    console.log("showOffCanvas:>>>",showOffCanvas)
+  const navbarVariable = {
+    showOffCanvas,
+    anyClick,
+    rightMenu,
+    setActive,
+    handleShowModal,
+    handleCloseAll,
+    showModal,
+    handleCloseModal,
+    active,
+    bigNavRef,
+    where,
+    setShowModal,
+    setRightMenu,
+  };
 
-    return(
-        <navbarContext.Provider value={navbarVariable}>
-            {props.children}
-        </navbarContext.Provider>
-    )
+  console.log("showModal:>>>", showModal);
+  console.log("showOffCanvas:>>>", showOffCanvas);
+
+  return (
+    <navbarContext.Provider value={navbarVariable}>
+      {props.children}
+    </navbarContext.Provider>
+  );
 }
