@@ -1,11 +1,10 @@
 import React, { useState, useRef, useContext, useEffect } from 'react';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
 import "./LegalName.scss"
 import { profileContext } from '../../../Context/ProfileContext';
 
 export default function LegalName() {
   const { legalName, setLegalName } = useContext(profileContext)
+  console.log(legalName)
   let menuRef = useRef()
 
 
@@ -13,8 +12,9 @@ export default function LegalName() {
     document.addEventListener("mousedown", (e) => {
         if(!menuRef.current.contains(e.target))
         setLegalName(false)
+        console.log("insid useEffect")
     })
-}, [LegalName])
+}, [legalName])
   
   
   return(

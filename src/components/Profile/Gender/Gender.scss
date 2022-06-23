@@ -1,24 +1,69 @@
 
-    //background-color: red;
-    .modalBody{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-            .header{
-                width: 100%;
-                margin: -10px;
-            }
-            .selectContainer{
-                width: 100%;
-                
-                margin-top: 20px;
-                margin-bottom: 15px;
-            }
-            .saveButton{
-                width: 100%;
-                margin-bottom: 2px;
-            }
-            
+    *{
+        //box-sizing: border-box;
+        margin: 0px;
+        padding: 0px;
     }
-
+    
+    
+    .Gender{
+        width:50%;
+        height: 800px;
+        background-color: rgba(255,255,255, 0.9);
+        position: absolute;
+        top: 340px;
+        min-width: 300px;
+        transform: translate(-0%, -25%);
+        box-sizing: border-box;
+        
+        
+            .modalBodey{
+                height: 300px;
+                width: 550px;
+                margin-top: 140px;
+    
+                display: flex;
+                flex-direction: column;
+                background-color: white;
+    
+                    .topContaine{
+                        width: 100%;
+                        height: 70px;
+                        background-color: white;
+                        margin-top: 10px;
+    
+                            .topElements{
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: flex-start;
+                                width: 100%;
+    
+                                    button{
+                                        text-decoration: underline;
+                                        font-size: 0.8rem;
+                                        font-weight: 500;
+                                    }  
+                            }
+                            
+                    }
+                    .selectGender{
+                        height: 50px;
+                        padding-left: 10px;
+                        background-color: white;
+                        border: 1px solid grey;
+                        border-radius: 7px;
+                    }
+                    
+                    .buttonGender{
+                        width: 80px;
+                        height: 50px;
+                        align-self: flex-start;
+                        background-color: black;
+                        color: white;
+                        font-weight: 500;
+                        border-radius: 10px;
+                        margin-top: 20px;
+                    }
+                    
+            }
+    }

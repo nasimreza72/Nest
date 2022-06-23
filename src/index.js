@@ -11,13 +11,13 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
       <LoginContextProvider>
-        <NavbarContextProvider>
            <ProfileContextProvider>
-            <TokenContextProvider>
-              <App />
-            </TokenContextProvider>
+              <NavbarContextProvider>
+              <TokenContextProvider>
+                <App />
+              </TokenContextProvider>
+            </NavbarContextProvider>
            </ProfileContextProvider>
-        </NavbarContextProvider>
       </LoginContextProvider>  
     </BrowserRouter>
 );

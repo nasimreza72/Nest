@@ -5,8 +5,9 @@ export const profileContext = React.createContext()
 
 export default function ProfileContextProvider(props){
 
-    const [legalName, setLegalName] = useState(false)
-    const profileVariable = { legalName, setLegalName }
+    const [legalName, setLegalName] = useState(true)
+    const [gender, setGender] =useState(false)
+    const profileVariable = { legalName, setLegalName, gender, setGender }
     
     return(
         <profileContext.Provider value={profileVariable}>

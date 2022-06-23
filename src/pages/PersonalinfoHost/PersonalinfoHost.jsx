@@ -8,8 +8,10 @@ import { profileContext } from "../../Context/ProfileContext";
 
 
 export default function HostProfile (){
-    const { legalName, setLegalName } = useContext(profileContext)
-    console.log(legalName)
+    const { legalName, setLegalName, gender, setGender } = useContext(profileContext)
+    console.log("this is dort....." + legalName)
+
+
     return(
         <div className="PersonalinfoHost">
             <section>
@@ -30,13 +32,17 @@ export default function HostProfile (){
                             </div>
                             <button onClick={e => setLegalName(true)}>Edit</button> 
                             {legalName ?  <LegalName /> : null }
+                           { console.log("this is dort...." + legalName)}
+
                         </div>
                         <div className="InfoAndButton">
                             <div className="infoCells">
                                 <h2>Gender</h2>
                                 <div className="nameInput">Male</div>
                             </div>
-                            <Gender />
+                            <button onClick={e => setGender(true)}>Edit</button> 
+                            {gender ?  <Gender /> : null }
+
                         </div>
                         <div className="InfoAndButton">
                             <div className="infoCells">
