@@ -17,7 +17,8 @@ export default function HostingPage2() {
     Geocode.setLocationType("ROOFTOP");
     Geocode.enableDebug();
 
-    navigator.geolocation.getCurrentPosition((position) => {
+    // navigator.geolocation.getCurrentPosition((position) => {
+      window.navigator.geolocation.getCurrentPosition((position) => {
       Geocode.fromLatLng(
         position.coords.latitude,
         position.coords.longitude
