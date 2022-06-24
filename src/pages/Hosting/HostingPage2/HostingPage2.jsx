@@ -13,7 +13,6 @@ export default function HostingPage2() {
 
   function addAddress() {
     Geocode.setApiKey(process.env.REACT_APP_GOOGLE_API_KEY);
-
     Geocode.setLanguage("en");
     Geocode.setLocationType("ROOFTOP");
     Geocode.enableDebug();
@@ -31,8 +30,18 @@ export default function HostingPage2() {
         (error) => {
           console.error(error);
         }
-      );
-    });
+      )
+    })
+
+    Geocode.fromAddress("Soldiner Str. 36, 13359 Berlin, Germany").then(
+      (response) => {
+        const { lat, lng } = response.results[0].geometry.location;
+        console.log("Current location lat & lng -->", lat, lng);
+      },
+      (error) => {
+        console.error(error);
+      }
+    )
   }
 
   return (
