@@ -1,16 +1,15 @@
 import "./style.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import { FaAngleDown, FaFilter, FaStar, FaHeart } from "react-icons/fa";
 import { useState } from "react";
 import Filter from "../../components/HousesComponents/Filter.jsx";
 import { Carousel } from "react-bootstrap";
 import MapContainer from "../../components/HousesComponents/MapContainer.jsx";
-
-
+import { useNavigate } from "react-router-dom";
 
 const Houses = () => {
   const [filter, setFilter] = useState(false);
-
+  let navigate = useNavigate();
 
   return (
     <div className="Houses">
@@ -60,7 +59,7 @@ const Houses = () => {
           <div className="subWrapper mediaScreenMax1750">
             <p>empty</p>
           </div>
-      
+
           <div className="subWrapper mediaScreenMax690 hiddenAmenities">
             <p>Amenities</p>
           </div>
@@ -74,14 +73,11 @@ const Houses = () => {
       {filter && <Filter setFilter={setFilter} />}
 
       <main>
-
-      {/* ---------- Beginning of LeftSection -------------*/}
+        {/* ---------- Beginning of LeftSection -------------*/}
 
         <section className="leftSection">
           <div className="subSectionInfo">
-            <p>
-              (add how many places available in map area) stays in map area
-            </p>
+            <p>(add how many places available in map area) stays in map area</p>
             <p style={{ color: "gray" }}>
               Select multiple filter and number of rooms to see the fastest
               result.
@@ -92,58 +88,12 @@ const Houses = () => {
             </p>
           </div>
 
-          <div className="subSection">
-            <Carousel >
-              <Carousel.Item >
-                <img
-                  // className="d-block w-100"
-                  src="https://media.istockphoto.com/photos/europe-modern-complex-of-residential-buildings-picture-id1165384568?k=20&m=1165384568&s=612x612&w=0&h=CAnAr3uJtmkr0IQ2EPgm0IBoo8oCm-FEYEtyor8X_9I="
-                  alt="First slide"
-                />
-              </Carousel.Item>
+          <div
+            className="subSection"
+            onClick={() => navigate("/House", { replace: true })}
+          >
+            <Carousel>
               <Carousel.Item>
-                <img
-                  className="d-block w-100"
-                  src="https://media.istockphoto.com/photos/portland-oregon-usa-condos-picture-id1349455712?b=1&k=20&m=1349455712&s=170667a&w=0&h=aAfwNY2ztNxyOenyOHuvhRUkaq1A7eZJg23S4SsZpug="
-                  alt="Second slide"
-                />
-              </Carousel.Item>
-              <Carousel.Item>
-                <img
-                  className="d-block w-100"
-                  src="https://images.unsplash.com/photo-1558981082-c7d43331cd8c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZmxhdHN8ZW58MHx8MHx8&w=1000&q=80"
-                  alt="Third slide"
-                />
-              </Carousel.Item>
-            </Carousel>
-
-            <div className="divInsideSubSection">
-              <div>
-                <p>Private room in Mitte</p>
-                <strong>
-                  Ruhiges & gemütliches Zimmer im Zentrum von Berlin
-                </strong>
-                <div className="DrawLine"></div>
-                <p className="leftSubSectionLastParagraph">
-                  1 guest 1 bedroom 2 bed 1 shared bath
-                </p>
-                <p className="leftSubSectionLastParagraph">
-                  Wifi - Kitchen -Washer - Dedicated workshop
-                </p>
-              </div>
-
-              <div>
-                <FaStar className="FaStar" />
-                <strong> 4.75</strong> (200 reviews)
-              </div>
-            </div>
-            <FaHeart className="FaHeart" />
-          </div>
-
-
-          <div className="subSection">
-            <Carousel >
-              <Carousel.Item >
                 <img
                   className="d-block w-100"
                   src="https://media.istockphoto.com/photos/europe-modern-complex-of-residential-buildings-picture-id1165384568?k=20&m=1165384568&s=612x612&w=0&h=CAnAr3uJtmkr0IQ2EPgm0IBoo8oCm-FEYEtyor8X_9I="
@@ -189,10 +139,12 @@ const Houses = () => {
             <FaHeart className="FaHeart" />
           </div>
 
-
-          <div className="subSection">
-            <Carousel >
-              <Carousel.Item >
+          <div
+            className="subSection"
+            onClick={() => navigate("/House", { replace: true })}
+          >
+            <Carousel>
+              <Carousel.Item>
                 <img
                   className="d-block w-100"
                   src="https://media.istockphoto.com/photos/europe-modern-complex-of-residential-buildings-picture-id1165384568?k=20&m=1165384568&s=612x612&w=0&h=CAnAr3uJtmkr0IQ2EPgm0IBoo8oCm-FEYEtyor8X_9I="
@@ -238,17 +190,63 @@ const Houses = () => {
             <FaHeart className="FaHeart" />
           </div>
 
-         
+          <div
+            className="subSection"
+            onClick={() => navigate("/House", { replace: true })}
+          >
+            <Carousel>
+              <Carousel.Item>
+                <img
+                  className="d-block w-100"
+                  src="https://media.istockphoto.com/photos/europe-modern-complex-of-residential-buildings-picture-id1165384568?k=20&m=1165384568&s=612x612&w=0&h=CAnAr3uJtmkr0IQ2EPgm0IBoo8oCm-FEYEtyor8X_9I="
+                  alt="First slide"
+                />
+              </Carousel.Item>
+              <Carousel.Item>
+                <img
+                  className="d-block w-100"
+                  src="https://media.istockphoto.com/photos/portland-oregon-usa-condos-picture-id1349455712?b=1&k=20&m=1349455712&s=170667a&w=0&h=aAfwNY2ztNxyOenyOHuvhRUkaq1A7eZJg23S4SsZpug="
+                  alt="Second slide"
+                />
+              </Carousel.Item>
+              <Carousel.Item>
+                <img
+                  className="d-block w-100"
+                  src="https://images.unsplash.com/photo-1558981082-c7d43331cd8c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZmxhdHN8ZW58MHx8MHx8&w=1000&q=80"
+                  alt="Third slide"
+                />
+              </Carousel.Item>
+            </Carousel>
+
+            <div className="divInsideSubSection">
+              <div>
+                <p>Private room in Mitte</p>
+                <strong>
+                  Ruhiges & gemütliches Zimmer im Zentrum von Berlin
+                </strong>
+                <div className="DrawLine"></div>
+                <p className="leftSubSectionLastParagraph">
+                  1 guest 1 bedroom 2 bed 1 shared bath
+                </p>
+                <p className="leftSubSectionLastParagraph">
+                  Wifi - Kitchen -Washer - Dedicated workshop
+                </p>
+              </div>
+
+              <div>
+                <FaStar className="FaStar" />
+                <strong> 4.75</strong> (200 reviews)
+              </div>
+            </div>
+            <FaHeart className="FaHeart" />
+          </div>
         </section>
 
-       {/* ---------- Beginning of RightSection Map part-------------*/}
+        {/* ---------- Beginning of RightSection Map part-------------*/}
 
-        <section className="rightSection" >
-          {/* <img src={image} alt="" /> */}
-         <MapContainer />
-    
+        <section className="rightSection">
+          <MapContainer />
         </section>
-
       </main>
     </div>
   );

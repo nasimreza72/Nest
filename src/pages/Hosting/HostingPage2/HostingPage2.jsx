@@ -2,12 +2,12 @@ import "./hostingPage2.scss";
 import { FaMapMarkerAlt, FaLocationArrow } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import MapContainer from "../../../components/HousesComponents/MapContainer.jsx";
-import { useEffect, useState } from "react";
-
+import { useState } from "react";
 import Geocode from "react-geocode";
 
 export default function HostingPage2() {
   const [currentAddress, setCurrentAddress] = useState(null);
+  const [showAddressForm, setShowAddressForm] = useState(false);
 
   let navigate = useNavigate();
 
@@ -47,13 +47,47 @@ export default function HostingPage2() {
           <div className="subMainRightDiv">
             <FaMapMarkerAlt />
 
-            <input onClick={ ()=> setCurrentAddress(null)} 
-            value={currentAddress} type="text"  
-            placeholder="Enter your address" />
+            <input
+              onClick={() => setCurrentAddress(null)}
+              value={currentAddress}
+              type="text"
+              placeholder="Enter your address"
+            />
 
-            <div onClick={addAddress} className="myCurrentLocation">
+            <div className="myCurrentLocation">
               <FaLocationArrow />
-              <button> use my current location</button>
+              <button onClick={addAddress}> Current location</button>
+              <button
+                className="addAddressManually"
+                onClick={() => setShowAddressForm(true)}
+              >
+                {" "}
+                Add manually{" "}
+              </button>
+
+              {showAddressForm && (
+                <div className="showAddressForm">
+                  <div className="subShowAddressForm">
+                    <button
+                      className="closeButton"
+                      onClick={() => setShowAddressForm(false)}
+                    >
+                      x
+                    </button>{" "}
+                    <br />
+                    <input type="text" placeholder="Street" /> <br />
+                    <input
+                      type="text"
+                      placeholder="Apt, house, etc. (Optional)"
+                    />{" "}
+                    <br />
+                    <input type="text" placeholder="City" /> <br />
+                    <input type="text" placeholder="Zip code" /> <br />
+                    <input type="text" placeholder="Country / Region" /> <br />
+                    <button className="confirmButton">Confirm address</button>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
