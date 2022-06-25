@@ -2,14 +2,19 @@ import "./PersonalinfoHost.scss"
 import { GrFormNext } from 'react-icons/gr';
 import LegalName from "../../components/Profile/LegalName/LegalName.jsx"
 import Gender from "../../components/Profile/Gender/Gender.jsx"
+import DateOfBirth from "../../components/Profile/DateOfBirth/DateOfBirth.jsx"
+import EmailAddresse from "../../components/Profile/EmailAdresse/EmailAddress.jsx"
+import PhoneNumber from "../../components/Profile/PhoneNumber/PhoneNumber.jsx"
 import { useContext } from "react";
 import { profileContext } from "../../Context/ProfileContext";
 
 
 
 export default function HostProfile (){
-    const { legalName, setLegalName, gender, setGender } = useContext(profileContext)
-    console.log("this is dort....." + legalName)
+    const { legalName, setLegalName, gender, setGender, 
+            dateOfBirth, setDateOfBirth,
+            emailAddresse, setEmailAdresse,
+            phoneNumber, setPhoneNumber  } = useContext(profileContext)
 
 
     return(
@@ -49,13 +54,20 @@ export default function HostProfile (){
                                 <h2>Date of birth</h2>
                                 <div className="nameInput">25.03.1977</div>
                             </div>
-                            <button>Edit</button>
+                            <button onClick={e => setDateOfBirth(true)}>Edit</button>
+                            {dateOfBirth ?  <DateOfBirth /> : null }
+
                         </div>
                         <div className="InfoAndButton">
                             <div className="infoCells">
                                 <h2>Email address</h2>
                                 <div className="nameInput">ronnykorneli@gmail.com</div>
                             </div>
+                            <button onClick={e => setEmailAdresse(true)}>Edit</button>
+                            {emailAddresse ?  <EmailAddresse /> : null }
+
+
+                            
                             
                         </div>
                         <div className="InfoAndButton">
@@ -63,7 +75,8 @@ export default function HostProfile (){
                                 <h2>Phone number</h2>
                                 <div className="nameInput">0176 732 54255</div>
                             </div>
-                            <button>Edit</button>
+                            <button onClick={ e => setPhoneNumber(true)}>Edit</button>
+                            { phoneNumber ? <PhoneNumber /> : null }
                         </div>
                         <div className="InfoAndButton">
                             <div className="infoCells">
