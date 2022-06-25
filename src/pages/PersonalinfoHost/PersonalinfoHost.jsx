@@ -5,6 +5,7 @@ import Gender from "../../components/Profile/Gender/Gender.jsx"
 import DateOfBirth from "../../components/Profile/DateOfBirth/DateOfBirth.jsx"
 import EmailAddresse from "../../components/Profile/EmailAdresse/EmailAddress.jsx"
 import PhoneNumber from "../../components/Profile/PhoneNumber/PhoneNumber.jsx"
+import Address from "../../components/Profile/Address/Address.jsx"
 import { useContext } from "react";
 import { profileContext } from "../../Context/ProfileContext";
 
@@ -14,7 +15,8 @@ export default function HostProfile (){
     const { legalName, setLegalName, gender, setGender, 
             dateOfBirth, setDateOfBirth,
             emailAddresse, setEmailAdresse,
-            phoneNumber, setPhoneNumber  } = useContext(profileContext)
+            phoneNumber, setPhoneNumber,
+            address, setAddress  } = useContext(profileContext)
 
 
     return(
@@ -37,8 +39,6 @@ export default function HostProfile (){
                             </div>
                             <button onClick={e => setLegalName(true)}>Edit</button> 
                             {legalName ?  <LegalName /> : null }
-                           { console.log("this is dort...." + legalName)}
-
                         </div>
                         <div className="InfoAndButton">
                             <div className="infoCells">
@@ -65,10 +65,6 @@ export default function HostProfile (){
                             </div>
                             <button onClick={e => setEmailAdresse(true)}>Edit</button>
                             {emailAddresse ?  <EmailAddresse /> : null }
-
-
-                            
-                            
                         </div>
                         <div className="InfoAndButton">
                             <div className="infoCells">
@@ -80,17 +76,11 @@ export default function HostProfile (){
                         </div>
                         <div className="InfoAndButton">
                             <div className="infoCells">
-                                <h2>Goverment ID</h2>
-                                <div className="nameInput">46358</div>
-                            </div>
-                            <button>Edit</button>
-                        </div>
-                        <div className="InfoAndButton">
-                            <div className="infoCells">
                                 <h2>Address</h2>
                                 <div className="nameInput">Richardplatz 5, 12055 Berlin</div>
                             </div>
-                            <button>Edit</button>
+                            <button onClick={ e => setAddress(true)}>Edit</button>
+                            { address ? <Address /> : null }
                         </div>
                         <div className="InfoAndButton">
                             <div className="infoCells">
