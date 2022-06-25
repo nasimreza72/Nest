@@ -1,0 +1,83 @@
+*{
+    //box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.EmailAddresse{
+    width:80%;
+    max-width: 900px;
+    height: 800px;
+    background-color: rgba(255,255,255, 0.9);
+    //background-color: red;
+    position: absolute;
+    top: 340px;
+    min-width: 450px;
+    transform: translate(-0%, -25%);
+    box-sizing: border-box;
+    
+    
+        .modalBodey{
+            height: 300px;
+            width: 60%;
+            min-width: 250px;
+            margin-top: 290px;
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+
+                .topContaine{
+                    width: 100%;
+                    height: 70px;
+                    background-color: white;
+                    margin-top: 10px;
+
+                        .topElements{
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: flex-start;
+                            width: 100%;
+
+                                button{
+                                    text-decoration: underline;
+                                    font-size: 0.8rem;
+                                    font-weight: 500;
+                                }  
+                        }
+                        p{
+                            font-size: 0.8rem;
+                            text-align: left;
+                        }
+                }
+                .formEmail{
+                    width: 100%;
+                    
+
+                        input{
+                            border: grey solid 1px;
+                            height: 55px;
+                            width: 100%;
+
+                                &::placeholder{
+                                    font-size: 0.8rem;
+                                    color: grey;
+                                    position: absolute;
+                                    left: 5px;
+                                    top: 5px;
+                                }
+                        }
+                }
+                .buttonEmail{
+                    width: 80px;
+                    height: 50px;
+                    align-self: flex-start;
+                    background-color: black;
+                    color: white;
+                    font-weight: 500;
+                    border-radius: 10px;
+                    margin-top: 20px;
+                }
+                
+        }
+}
