@@ -48,16 +48,23 @@
     line-height: 1rem;
 }
 
-@mixin  button {
-    border-width: 2px;
+@mixin button {
+    border:1px solid #e2e2e2;
     border-radius: 0.5rem;
-    padding:1rem 5rem 1rem 5rem;
     cursor: pointer;
     font-size: 1.125rem;
     line-height: 1.75rem;
-    border: none;
     width: 300px;
     height: 65px;
+}
+
+@mixin sendButton{
+    width: 19%;
+    padding: .5rem;
+    height: 3rem;
+    color: white;
+    background-color:  #9ACD32;
+    border-radius: .5rem;
 }
 
 @mixin buttonHover{

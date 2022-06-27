@@ -7,5 +7,6 @@ import { CheckInDate } from "./Check-inDate/Check-inDate";
 import { Reviews } from "./Reviews/Reviews";
 import { Location } from "./Location/Location";
 import { HostedBy } from "./HostedBy/HostedBy";
-
-export {Header,Images, Information, Price, Amenities, CheckInDate, Reviews, Location, HostedBy};
+import { Slider } from "./Slider/Slider";
+import { HouseCarousel } from "./HouseCarousel/HouseCarousel";
+export {Header,Images, Information, Price, Amenities, CheckInDate, Reviews, Location, HostedBy, Slider, HouseCarousel};

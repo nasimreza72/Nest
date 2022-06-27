@@ -1,24 +1,28 @@
-import { Header, Images, Information, Price, Amenities,CheckInDate, Reviews, Location, HostedBy } from "../../components/House";
+import { Header, Images, Information, Price, Amenities,CheckInDate, Reviews, Location, Slider } from "../../components/House";
+import HouseContextProvider from "../../Context/HouseContext.jsx";
 import "./House.scss";
 
 const Houses=()=>{
     return(
-        <div className="house-container">
-            <div className="house-subcontainer">
-                <Header/>
-                <Images/>
-                <div className="content-container">
-                    <div className="content">
-                        <Information/>
-                        <Amenities/>
-                        <CheckInDate/>
+        <HouseContextProvider>
+            <div className="house-container">
+                <div className="house-subcontainer">
+                    <Header/>
+                    <Images/>
+                    <div className="content-container">
+                        <div className="content">
+                            <Information/>
+                            <Amenities/>
+                            <CheckInDate/>
+                        </div>
+                        <Price/>
                     </div>
-                    <Price/>
+                    <Reviews/>
+                    <Location/>
                 </div>
-                <Reviews/>
-                <Location/>
+                <Slider/>
             </div>
-        </div>
+        </HouseContextProvider>
     )
 }
 

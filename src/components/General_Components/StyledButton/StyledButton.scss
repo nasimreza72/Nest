@@ -1,8 +1,15 @@
 @import "../../../mixin.scss";
 
-input{
-    @include button;
-}
-input:hover{
-    @include buttonHover;
+.button-container{
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 2.5rem;
+    margin-top: 1.25rem;
+    input{
+        @include button;
+        
+        &:hover{
+            @include buttonHover;
+        }
+    }
 }
