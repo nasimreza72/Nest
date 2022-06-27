@@ -4,7 +4,9 @@ import { profileContext } from '../../../Context/ProfileContext';
 
 export default function LegalName() {
   const { legalName, setLegalName } = useContext(profileContext)
-  console.log(legalName)
+  const [firstName, setFirstName] = useState("")
+  const [lastName, setLastName] = useState("")
+  console.log(lastName)
   let menuRef = useRef()
 
 
@@ -15,7 +17,12 @@ export default function LegalName() {
         console.log("insid useEffect")
     })
 }, [legalName])
-  
+
+
+const legalNameHandler = (e) => {
+
+}
+
   
   return(
     
@@ -30,10 +37,10 @@ export default function LegalName() {
                or a passport.</p>
           </div>
           <form id="form">
-            <input className="inputLegalName" type="text" placeholder="First name" />
-            <input className="inputLegalName" type="text" placeholder="Last name" />
+            <input className="inputLegalName" type="text" placeholder="First name" value={firstName} onChange={e => setFirstName(e.target.value)} />
+            <input className="inputLegalName" type="text" placeholder="Last name" value={lastName} onChange={e=> setLastName(e.target.value)} />
           </form>
-          <button className="buttonLegalName">Save</button>
+          <button className="buttonLegalName" onClick={legalNameHandler}>Save</button>
       </div>
     </div>
   )

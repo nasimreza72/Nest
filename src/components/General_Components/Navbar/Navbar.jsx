@@ -19,8 +19,8 @@ const Navbar=()=>{
    // it will come from Context
 
   //legal-name-modal
-   //const activeUser=null;
-   const activeUser={name:"Ömer"}
+   const activeUser=null;
+   //const activeUser={name:"Ömer"}
 
   
 
