@@ -37,7 +37,7 @@ function SearchByRegion() {
   },[])
 
   return(
-    <div ref={offCanvas}   id="offcanvas" style={Object.assign(showModal ? {opacity:1,zIndex:0} : {}, active === 2 ? whoStyle: {})  }>
+    <div ref={offCanvas}   id="offcanvas" style={Object.assign(showModal ? {opacity:1,zIndex:1} : {}, active === 2 ? whoStyle: {})  }>
       {active === 0 ? <WhereComp/> :null}
       {active === 1 ? <WhenComp/> :null}
       {active === 2 ? <WhoComp/> :null}
