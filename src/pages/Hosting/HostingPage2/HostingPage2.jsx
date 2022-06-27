@@ -2,14 +2,15 @@ import "./hostingPage2.scss";
 import { FaMapMarkerAlt, FaLocationArrow } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import MapContainer from "../../../components/HousesComponents/MapContainer.jsx";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Geocode from "react-geocode";
 
 export default function HostingPage2() {
-  const [currentAddress, setCurrentAddress] = useState(null);
   const [showAddressForm, setShowAddressForm] = useState(false);
 
   let navigate = useNavigate();
+  const addressRef = useRef()
+
 
   function addAddress() {
     Geocode.setApiKey(process.env.REACT_APP_GOOGLE_API_KEY);
@@ -17,15 +18,14 @@ export default function HostingPage2() {
     Geocode.setLocationType("ROOFTOP");
     Geocode.enableDebug();
 
-    // navigator.geolocation.getCurrentPosition((position) => {
-      window.navigator.geolocation.getCurrentPosition((position) => {
+      navigator.geolocation.getCurrentPosition((position) => {
       Geocode.fromLatLng(
         position.coords.latitude,
         position.coords.longitude
       ).then(
         (response) => {
           const address = response.results[0].formatted_address;
-          setCurrentAddress(address);
+          addressRef.current.value = address
           console.log("Current location address-->", address);
         },
         (error) => {
@@ -45,6 +45,9 @@ export default function HostingPage2() {
     )
   }
 
+
+
+
   return (
     <div className="hostingPage2">
       <div className="mainLeft">
@@ -58,8 +61,7 @@ export default function HostingPage2() {
             <FaMapMarkerAlt />
 
             <input
-              onClick={() => setCurrentAddress(null)}
-              value={currentAddress}
+              ref={addressRef}
               type="text"
               placeholder="Enter your address"
             />
