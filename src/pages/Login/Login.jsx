@@ -6,8 +6,11 @@ import { useContext, useState, useRef, useEffect} from "react";
 
 export default function Login(){
 
+    const { loginModal, setLoginModal, submitLoginDetails, setSubmitLoginDetails } = useContext(loginContext)
+
+    console.log("subm it thingi" + submitLoginDetails)
+
     // Disable Modal by clicking outside............
-    const { loginModal, setLoginModal } = useContext(loginContext)
     let menuRef = useRef()
 
     useEffect(() => {
@@ -38,7 +41,7 @@ export default function Login(){
                 </p>
             </div>
 
-            <button className="ContinueButton" type="submit">Continue</button>
+            <button className="ContinueButton" type="submit" onClick={e => setSubmitLoginDetails(true)}>Continue</button>
             
             <div className="leftLine"></div> 
             <div className="or">or</div> 
