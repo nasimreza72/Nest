@@ -3,8 +3,9 @@ import HouseContextProvider from "../../Context/HouseContext.jsx";
 import "./House.scss";
 
 const Houses=()=>{
+
     return(
-        <HouseContextProvider>
+        <HouseContextProvider >
             <div className="house-container">
                 <div className="house-subcontainer">
                     <Header/>
