@@ -1,4 +1,39 @@
 
 #slider{
     height: 100vh;
+    background-color: black;
+    #header{
+        color: white;
+        display: flex;
+        justify-content: space-around;
+        div{
+            width:33%;
+        }
+        .img-number{
+            text-align: center;
+        }
+        span{
+            cursor: pointer;
+            padding: .3rem 1rem; 
+            border-radius: 7px;
+            &:hover{
+                background-color: #4B4B4B;
+                
+            }
+        }
+    }
+    #body{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        color: white;
+        font-size: 30px;
+        img{
+            height: 80vh;
+            width: 60vw;
+        }
+        .icon{
+            cursor: pointer;
+        }
+    }
 }
