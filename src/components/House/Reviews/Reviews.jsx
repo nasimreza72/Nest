@@ -1,5 +1,6 @@
+import { useRef } from 'react';
 import { AiTwotoneStar } from 'react-icons/ai';
-import {StyledButton} from "../../General_Components"
+import {StyledButton} from "../../General_Components";
 import "./Reviews.scss";
 
 
@@ -21,6 +22,13 @@ const Review = ({src})=>{
 }
 
 export const Reviews = () =>{
+    const reviewText = useRef();
+    const sendReview = ()=>{
+        console.log('reviewText :>> ', reviewText.current.value);
+        //todo: save 
+        reviewText.current.value="";
+    }
+
     return(
         <div className="reviews-container">
             <div>
@@ -42,6 +50,10 @@ export const Reviews = () =>{
                 </div>
             </div>
             <StyledButton text={`Show all 455 reviews`}/>
+            <div className='create-review-container'>
+                <textarea ref={reviewText} placeholder='write your review...' rows={5} />
+                <input  onClick={sendReview} className='save-button' type="button" value="Save"/>
+            </div>
         </div>
     )
 }

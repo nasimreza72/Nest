@@ -56,6 +56,21 @@
             width: 100%;
         }
     }
+    .create-review-container{
+        margin-bottom: 2rem;
+        textarea{
+            border:1px solid #e2e2e2;
+            resize: none;
+            outline: none;
+            padding: 1rem;
+            width: 100%;  
+            margin-bottom: .5rem;         
+        }
+        .save-button{
+            @include sendButton;
+            width: 8rem;
+        }
+    }
 }
 
 @media (min-width: 1024px) {
