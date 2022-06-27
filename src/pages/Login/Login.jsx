@@ -41,7 +41,7 @@ export default function Login(){
                 </p>
             </div>
 
-            <button className="ContinueButton" type="submit" onClick={e => setSubmitLoginDetails(true)}>Continue</button>
+            <button className="ContinueButton" type="submit" onClick={e => setSubmitLoginDetails(!submitLoginDetails)}>Continue</button>
             
             <div className="leftLine"></div> 
             <div className="or">or</div> 
