@@ -3,8 +3,8 @@ import { loginContext } from "../../../../Context/LoginContext.jsx";
 import { navbarContext } from "../../../../Context/NavbarContext.jsx";
 import "./RightMenu1.scss";
 
-const RightMenu1 = ()=>{
-    const {login, setLogin, register, setRegister} = useContext(loginContext);
+const RightMenu1 = () => {
+    const {loginModal, setLoginModal, register, setRegister} = useContext(loginContext);
     const {setRightMenu} = useContext(navbarContext);
 
     const rightMenu1 = useRef();
@@ -15,10 +15,12 @@ const RightMenu1 = ()=>{
               setRightMenu(false);
         })
       }, [])
+
+      console.log("login-----------------------" + loginModal)
     return(
         <div ref={rightMenu1} className="right-menu1-container">
             <ul>
-                <li onClick={ e => { setLogin(!login); setRightMenu(false) }}>Log in</li>
+                <li onClick={ e => { setLoginModal(!loginModal); setRightMenu(false) }}>Log in</li>
                 <li onClick={ e => { setRegister(!register); setRightMenu(false)}}>Register</li>
             </ul>
         </div>
