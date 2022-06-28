@@ -29,7 +29,7 @@ export default function HouseContextProvider(props){
     const houseVariable={show,handleClose,toggleShow,setShow, house,counter,setCounter}
     
     useEffect(()=>{
-        axios.get("http://localhost:7777/api/house/62b1ad1ebe8b0ff3d23bc33d")
+        axios.get("http://localhost:7777/api/house/62bb54b78bc34763a759dcfc")
         .then(res=>{
             console.log('res :>> ');
             setHouse(res.data);

@@ -5,10 +5,11 @@ import "./Images.scss";
 export const Images=()=>{
 
     const {setShow, house, setCounter} = useContext(houseContext);
+    console.log('house :>> ', house);
     return(
             <div className="images-container">
                 <div className="images-left-container">
-                    <img onClick={()=>{setShow(true); setCounter(1) }} src={house?.images ? house.images[0]:null} alt="" />
+                    <img onClick={()=>{setShow(true); setCounter(1) }} src={`http://localhost:7777/getImage/${house.images ? house.images[0].filename: null}`} alt="" />
                 </div>
                 <div className="images-right-container">
                         <div><img onClick={()=>{ setShow(true); setCounter(2) }} src={house?.images ? house.images[1]:null} alt="" /></div>
