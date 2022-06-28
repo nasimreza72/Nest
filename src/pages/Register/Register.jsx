@@ -1,5 +1,6 @@
 import "./Register.scss"
-import { Input, FacebookButton, GoogleButton, AppleButton, EmailButton } from "../../components/Login/"
+import { FacebookButton, GoogleButton, AppleButton, EmailButton } from "../../components/Login/"
+import InputRegister from "../../components/Register/InputRegister.jsx" 
 import { loginContext } from "../../Context/LoginContext.jsx"
 import { useContext, useState, useRef, useEffect } from "react";
 
@@ -7,7 +8,9 @@ import { useContext, useState, useRef, useEffect } from "react";
 export default function Register(){
 
     // Disable Modal by clicking outside............
-    const { register, setRegister } = useContext(loginContext)
+    const { register, setRegister, 
+            submitRegistrationDetails, setSubmitRegistrationDetails } = useContext(loginContext)
+
     let menuRef = useRef()
 
     useEffect(() => {
@@ -29,7 +32,7 @@ export default function Register(){
             <div className="WelcomeToNest">Welcome to NEST</div>
 
             <div className="userNameAndPassword">
-                <Input />
+                <InputRegister />
             </div>
             
             <div className="privacyPolicy">
@@ -39,7 +42,7 @@ export default function Register(){
                 </p>
             </div>
 
-            <button className="ContinueButton" type="submit">Continue</button>
+            <button className="ContinueButton" type="submit" onClick={e => setSubmitRegistrationDetails(!submitRegistrationDetails)}>Continue</button>
             
             <div className="leftLine"></div> 
             <div className="or">or</div> 
