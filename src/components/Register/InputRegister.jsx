@@ -1,5 +1,4 @@
 import React, { useState, useContext, useEffect } from 'react'
-import "./LoginComponent.scss"
 import axios from "axios"
 import { loginContext } from "../../Context/LoginContext.jsx"
 import { tokenContext } from '../../Context/TokenContext'
@@ -7,21 +6,23 @@ import { tokenContext } from '../../Context/TokenContext'
 // "email":"ponni@hof",
 // "password":"123RonRon!!!"
 
-export default function Input(){
-    const { submitLoginDetails } = useContext(loginContext)
-    const { token, setToken } = useContext(tokenContext)
+export default function InputRegister(){
+    const { submitRegistrationDetails, setSubmitRegistrationDetails } = useContext(loginContext)
     const [ email, setEmail ] = useState("")
     const [ password, setPassword ] = useState("")
     
-    console.log("this is token" + token)
 
     useEffect(() => {
-        console.log("axios")
+        console.log()
 
-        axios.post('http://localhost:7777/api/user/login', {
+        axios.post('http://localhost:7777/api/user/register', {
           
-          email: email,
-          password: password
+            loginInfo: 
+            {
+                email:email,
+                password:password
+            },
+            role: "host"
 
         })
         .then(function (response) {
@@ -29,29 +30,13 @@ export default function Input(){
           if(response.error) {
             alert(response.error)
         } else {
-            setToken(response.data.token)
-            //navigate("/account")
+            console.log(response)
         }
     })
-    .catch(error => console.log(error))
-         
-      
-    },[submitLoginDetails])
+    .catch(error => console.log(error)) 
+    },[submitRegistrationDetails])
 
-    useEffect(() => {
-      if(token) {
-          console.log("lokalöstorage" + token)
-          localStorage.setItem('token', token)
-      } else {
-          localStorage.removeItem('token') /// what does this do???
-          
-      }
-
-
-  }, [token])
-
-
-
+     
     return(
         <form >
             <input className="topInput" type="text" value={email} onChange={ e => setEmail(e.target.value) } placeholder="username" />
