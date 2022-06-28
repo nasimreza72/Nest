@@ -9,7 +9,6 @@ import RightMenu2 from "./RightMenu2/RightMenu2.jsx";
 import { navbarContext } from "../../../Context/NavbarContext.jsx";
 import "./Navbar.scss";
 
-
 const Navbar=()=>{
   const {showOffCanvas, anyClick, rightMenu} = useContext(navbarContext);
   // const [isBigNav, setIsBigNav] = useState(false);
@@ -21,16 +20,12 @@ const Navbar=()=>{
   //legal-name-modal
    const activeUser=null;
    //const activeUser={name:"Ömer"}
-
-  
-
-
+   
    const bigNavStyle={
     height:"6.5rem",
     zIndex:1,
     transition:"height .3s"
    }
-
 
   return(
       <div className="navbar-container" style={ showOffCanvas ? bigNavStyle:null}>

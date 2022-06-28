@@ -2,8 +2,8 @@ import { Header, Images, Information, Price, Amenities,CheckInDate, Reviews, Loc
 import HouseContextProvider from "../../Context/HouseContext.jsx";
 import "./House.scss";
 
-const Houses=()=>{
-
+const House=()=>{
+    
     return(
         <HouseContextProvider >
             <div className="house-container">
@@ -13,7 +13,7 @@ const Houses=()=>{
                     <div className="content-container">
                         <div className="content">
                             <Information/>
-                            <Amenities/>
+                            {/* <Amenities/> */}
                             <CheckInDate/>
                         </div>
                         <Price/>
@@ -27,4 +27,4 @@ const Houses=()=>{
     )
 }
 
-export default Houses;
+export default House;

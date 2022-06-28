@@ -1,9 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { AiTwotoneStar,AiOutlinePlusCircle, AiOutlineMinusCircle } from 'react-icons/ai';
 import {IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import { houseContext } from '../../../Context/HouseContext.jsx'; 
 import "./Price.scss";
 
 export const Dropdown = ({guests,setGuests})=>{
+
     const [adult,setAdult] = useState(1);
     const [children, setChildren] = useState(0);
     const [infant, setInfant] = useState(0);
@@ -13,14 +15,13 @@ export const Dropdown = ({guests,setGuests})=>{
         if(value>min){
             setValue(value-1);
         }
-        
         console.log('guests :>> ', guests);
     }
 
     useEffect(()=>{
-        const text1 = adult+children ==1 ? "1 guest" : adult + children+" guests";
-        const text2 = text1+ (infant>0 ? infant==1 ? ", 1 infant" : ", "+infant+" infants":"");
-        const tempGuests = text2 + (pets>0 ? pets==1 ? ", 1 pet" : ", "+pets+" pets":"");
+        const text1 = adult+children === 1 ? "1 guest" : adult + children+" guests";
+        const text2 = text1+ (infant>0 ? infant === 1 ? ", 1 infant" : ", "+infant+" infants":"");
+        const tempGuests = text2 + (pets>0 ? pets === 1 ? ", 1 pet" : ", "+pets+" pets":"");
         setGuests(tempGuests);
     },[adult,children,infant,pets])
     
@@ -32,7 +33,7 @@ export const Dropdown = ({guests,setGuests})=>{
                     <p>Age 13+</p>
                 </div>
                 <div className='values'>
-                    <button style={adult == 1 ? {cursor:"not-allowed", }:null} onClick={()=>minus(adult,setAdult,1)}>
+                    <button style={adult === 1 ? {cursor:"not-allowed", }:null} onClick={()=>minus(adult,setAdult,1)}>
                         <AiOutlineMinusCircle className='icon'/>
                     </button>
                     <span>{adult}</span>
@@ -47,7 +48,7 @@ export const Dropdown = ({guests,setGuests})=>{
                     <p>Ages 2–12</p>
                 </div>
                 <div className='values'>
-                    <button style={children == 0 ? {cursor:"not-allowed"}:null} onClick={()=>minus(children,setChildren,0)}>
+                    <button style={children === 0 ? {cursor:"not-allowed"}:null} onClick={()=>minus(children,setChildren,0)}>
                         <AiOutlineMinusCircle className='icon'/>
                     </button>
                     <span>{children}</span>
@@ -62,7 +63,7 @@ export const Dropdown = ({guests,setGuests})=>{
                     <p>Under 2</p>
                 </div>
                 <div className='values'>
-                    <button style={infant == 0 ? {cursor:"not-allowed"}:null} onClick={()=>minus(infant,setInfant,0)}>
+                    <button style={infant === 0 ? {cursor:"not-allowed"}:null} onClick={()=>minus(infant,setInfant,0)}>
                         <AiOutlineMinusCircle className='icon'/>
                     </button>
                     <span>{infant}</span>
@@ -77,7 +78,7 @@ export const Dropdown = ({guests,setGuests})=>{
                     <p></p>
                 </div>
                 <div className='values'>
-                    <button style={pets == 0 ? {cursor:"not-allowed"}:null} onClick={()=>minus(pets,setPets,0)}>
+                    <button style={pets === 0 ? {cursor:"not-allowed"}:null} onClick={()=>minus(pets,setPets,0)}>
                         <AiOutlineMinusCircle className='icon'/>
                     </button>
                         <span>{pets}</span>
@@ -93,6 +94,7 @@ export const Dropdown = ({guests,setGuests})=>{
 export const Price=()=>{
     const [toggle, setToggle] = useState(false);
     const [guests,setGuests] = useState("1 guest");
+    const {house} = useContext(houseContext);
 
     return(
         <div className='preis-container'>            
@@ -101,8 +103,8 @@ export const Price=()=>{
                     <h2>Add dates for prices</h2>
                     <div>
                         <AiTwotoneStar className='star'/>
-                        <span>4.57</span>
-                        <a href="#">435 reviews</a>  
+                        <span>{house.rating}</span>
+                        <a href="#">{house?.reviews?.length} reviews</a>  
                     </div>
                 </div>
                 <div className='section-2'>
