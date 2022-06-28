@@ -1,20 +1,19 @@
-import {GrElevator} from "react-icons/gr";
-import {IoLaptopOutline,IoMedkitOutline} from "react-icons/io5";
+import { useContext } from "react";
+import { houseContext } from "../../../Context/HouseContext.jsx";
+import {MdKitchen} from "react-icons/md";
+import {BsTv} from "react-icons/bs";
 import {AiOutlineWifi} from "react-icons/ai";
-import {GiComb,GiHairStrands} from "react-icons/gi";
-import {MdOutlineSmokeFree} from "react-icons/md";
-import {FaFireExtinguisher} from "react-icons/fa";
-import {Button} from "../";
+import {GiWashingMachine} from "react-icons/gi";
+import {SiWorkplace} from "react-icons/si";
 import "./Amenities.scss";
 
 export const Amenities = ()=>{
+
+    const {house} = useContext(houseContext);
+
     const allAmenities=[
-    // {
-    //     sybmol:<GrElevator/>,
-    //     text:"Elevator"
-    // },
     {
-        sybmol:<AiOutlineWifi/>,
+        sybmol:<MdKitchen/>,
         text:"Kitchen"
     },
     {
@@ -22,15 +21,15 @@ export const Amenities = ()=>{
         text:"Wifi"
     },
     {
-        sybmol:<AiOutlineWifi/>,
+        sybmol:<BsTv/>,
         text:"TV"
     },
     {
-        sybmol:<AiOutlineWifi/>,
+        sybmol:<GiWashingMachine/>,
         text:"Washer"
     },
     {
-        sybmol:<IoLaptopOutline/>,
+        sybmol:<SiWorkplace/>,
         text:"Dedicated workspace"
     },
     // {
@@ -56,11 +55,12 @@ export const Amenities = ()=>{
     ]
 
     //This data is gonna come from database
-    const houseAmenities=["Kitchen","Wifi","TV","Washer","Dedicated workspace"]
+    // const houseAmenities=["Kitchen","Wifi","TV","Washer","Dedicated workspace"]
 
-    const houseAmenitiesWithSymbols = houseAmenities.map(item=>{
+    const houseAmenitiesWithSymbols = house?.amenities?.map(item=>{
+        console.log('item :>> ', item);
         return allAmenities.filter(e=>e.text===item)
-    })
+    });
     console.log('houseAmenitiesWithSymbols :>> ', houseAmenitiesWithSymbols);
     return(
         <div className="amenities-container">

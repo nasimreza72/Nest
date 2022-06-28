@@ -1,12 +1,15 @@
-import "./Information.scss";
+import {useContext} from "react";
 import {StyledButton} from "../../General_Components"
+import { houseContext } from "../../../Context/HouseContext.jsx";
+import "./Information.scss";
 
 export const Information=()=>{
+    const {house} = useContext(houseContext);
     return(
         <div className="information-container">
             <div>
                 <div className="house-information">
-                    <h1>Room hosted by St Christophers Inn Berlin Mitte</h1>
+                    <h1>{house.description}</h1>
                     <ul>
                         <li>1 guest</li>
                         <li>1 bedroom</li>

@@ -7,7 +7,7 @@ import "./Slider.scss";
 
 export const Slider = ()=>{
     
-    const {show, setShow, handleClose, images,counter, setCounter} = useContext(houseContext);
+    const {show, setShow, handleClose, house,counter, setCounter} = useContext(houseContext);
     
 
     return(
@@ -18,7 +18,7 @@ export const Slider = ()=>{
                 <div>
                   <span onClick={()=>setShow(false)}>X  Close</span>
                 </div>
-                <div className="img-number">{counter} / {images.length}</div>
+                <div className="img-number">{counter} / {house?.images?.length}</div>
                 <div></div>
               </Offcanvas.Header>
               <Offcanvas.Body id="body">
@@ -26,10 +26,10 @@ export const Slider = ()=>{
                     {counter > 1 ? <BsArrowLeftCircle className="icon" id="icon" onClick={()=> setCounter(counter-1)}/>:null}
                   </div>
                   <div>
-                    <img src={images[counter-1]}/>
+                    <img src={house?.images ? house.images[counter-1]:null} alt="house-img"/>
                   </div>
                   <div>
-                    {counter < images.length ? <BsArrowRightCircle className="icon" onClick={()=>setCounter(counter+1)}/> : null}
+                    {counter < house?.images?.length ? <BsArrowRightCircle className="icon" onClick={()=>setCounter(counter+1)}/> : null}
                   </div>
               </Offcanvas.Body>
             </Offcanvas>
