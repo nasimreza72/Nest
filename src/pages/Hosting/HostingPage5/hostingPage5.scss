@@ -38,7 +38,7 @@
 
         .subMainRightDiv {
             width: 55%;
-            min-width: 300px;
+            min-width: 400px;
             height: 80%;
             display: flex;
             justify-content: center;
@@ -72,11 +72,12 @@
                 margin-top: 100px;
 
                 .uploadFromDevice {
-                    font-size: 14px;
-                    border: 1px solid gray;
-                    padding: 2px 5px;
-                    border-radius: 5px;
-                    box-shadow: rgba(0, 0, 0, 0.18) 0px 1px 2px;
+                    width: fit-content;
+                    // font-size: 14px;
+                    // border: 1px solid gray;
+                    // padding: 2px 5px;
+                    // border-radius: 5px;
+                    // box-shadow: rgba(0, 0, 0, 0.18) 0px 1px 2px;
 
 
                     &:hover {
