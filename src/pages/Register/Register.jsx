@@ -8,8 +8,7 @@ import { useContext, useState, useRef, useEffect } from "react";
 export default function Register(){
 
     // Disable Modal by clicking outside............
-    const { register, setRegister, 
-            submitRegistrationDetails, setSubmitRegistrationDetails } = useContext(loginContext)
+    const { register, setRegister, registerFunction } = useContext(loginContext)
 
     let menuRef = useRef()
 
@@ -42,7 +41,7 @@ export default function Register(){
                 </p>
             </div>
 
-            <button className="ContinueButton" type="submit" onClick={e => setSubmitRegistrationDetails(!submitRegistrationDetails)}>Continue</button>
+            <button className="ContinueButton" type="submit" onClick={e =>{setRegister(false); registerFunction()}}>Continue</button>
             
             <div className="leftLine"></div> 
             <div className="or">or</div> 
