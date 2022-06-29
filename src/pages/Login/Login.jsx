@@ -18,8 +18,13 @@ export default function Login(){
             if(!menuRef.current.contains(e.target))
             setLoginModal(false)
         })
-    }, [loginModal])
+    }, [loginModal]) 
     //////////////////////////////////////////////////////
+
+    const submitHandler = async (e) => {
+        const submit = await setSubmitLoginDetails(!submitLoginDetails)
+        setLoginModal(false)
+    }
 
     return(
         <div className="Login" ref={menuRef} >
@@ -41,7 +46,7 @@ export default function Login(){
                 </p>
             </div>
 
-            <button className="ContinueButton" type="submit" onClick={e => {setSubmitLoginDetails(!submitLoginDetails); setLoginModal(false)}}>Continue</button>
+            <button className="ContinueButton" type="submit" onClick={submitHandler}>Continue</button>
             
             <div className="leftLine"></div> 
             <div className="or">or</div> 

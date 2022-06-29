@@ -25,13 +25,9 @@ export default function Input(){
 
         })
         .then(function (response) {
-
-          if(response.error) {
-            alert(response.error)
-        } else {
             setToken(response.data.token)
             //navigate("/account")
-        }
+        
     })
     .catch(error => console.log(error))
          
@@ -54,7 +50,7 @@ export default function Input(){
 
     return(
         <form >
-            <input className="topInput" type="text" value={email} onChange={ e => setEmail(e.target.value) } placeholder="username" />
+            <input className="topInput" type="text" value={email} onChange={ e => setEmail(e.target.value) } placeholder="E-Mail" />
             <input className="bottomInput" type="password" value={password} onChange={ e => setPassword(e.target.value) } placeholder="password" />
 
         </form> 
