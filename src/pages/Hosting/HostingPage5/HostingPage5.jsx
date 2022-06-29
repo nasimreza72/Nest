@@ -24,7 +24,10 @@ export default function HostingPage5() {
 
       axios
         .patch("http://localhost:7777/api/house/addImage/62bb54b78bc34763a759dcfc", formData)
-        .then((result) => setObjectId(result.data.fileID))
+        .then((result) => {
+          setObjectId(result.data.fileID)
+          console.log('result.data :>> ', result.data);
+        })
         .catch((err) => console.log("err :>> ", err));
     }
 
