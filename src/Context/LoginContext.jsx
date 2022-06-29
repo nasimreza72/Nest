@@ -48,11 +48,9 @@ export default function LoginContextProvider(props){
             role: "host"
         })
         .then(function (response) {
-          if(response.error) {
-            alert(response.error)
-            } else {
+          
             console.log(response)
-            }
+            
         })
         .catch(error => console.log(error)) 
     }
