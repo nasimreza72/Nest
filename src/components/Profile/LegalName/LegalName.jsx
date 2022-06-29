@@ -9,15 +9,11 @@ export default function LegalName() {
   const { activeUser, setActiveUser } = useContext(loginContext)
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")
-  let menuRef = useRef()
+  
 
-
- 
-const submitHandler = (e) => {
-  e.preventdefault()
-}
 
 const clickHandler = (e) => {
+  console.log("this is active user" + activeUser._id)
   const payload = {
     firstName: firstName,
     lastName: lastName
@@ -40,7 +36,7 @@ const clickHandler = (e) => {
   return(
     
     <div className="LegalName">
-      <div className="modalBodey" ref={menuRef}>
+      <div className="modalBodey" >
           <div className="topContaine">
             <div className="topElements">
               <h5>Legal name</h5>
@@ -49,11 +45,11 @@ const clickHandler = (e) => {
             <p>This is the name on your travel document, which could be a license 
                or a passport.</p>
           </div>
-          <form id="form" onSubmit={submitHandler} >
+          <form id="form">
             <input className="inputLegalName" type="text" placeholder="First name" value={firstName} onChange={e => setFirstName(e.target.value)} />
             <input className="inputLegalName" type="text" placeholder="Last name" value={lastName} onChange={e=> setLastName(e.target.value)} />
           </form>
-          <button className="buttonLegalName" onClick={clickHandler} >Save</button>
+          <button className="buttonLegalName" onClick={ e => clickHandler(e)} >Save</button>
       </div>
     </div>
   )

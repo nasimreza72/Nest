@@ -1,26 +1,44 @@
-import React, { useRef, useContext, useEffect } from 'react';
+import React, { useState, useRef, useContext, useEffect } from 'react';
 import { profileContext } from '../../../Context/ProfileContext';
+import { loginContext } from '../../../Context/LoginContext';
+
 import "./EmailAddress.scss"
 
 
 
 export default function EmailAddresse() {
   const { emailAddresse, setEmailAdresse } = useContext(profileContext)
-  let menuRef = useRef()
+  const { activeUser, setActiveUser } = useContext(loginContext)
 
+  const [email, setEmail] = useState("")
 
-  useEffect(() => {
-    document.addEventListener("mousedown", (e) => {
-        if(!menuRef.current.contains(e.target))
-        setEmailAdresse(false)
-    })
-}, [emailAddresse])
+  const clickHandler = (e) => {
+
+    const payload = {
+      loginInfo:{
+        email: email
+      }
+    }
   
+    const url = `http://localhost:7777/api/user/` + activeUser._id
+          const config ={
+              method: 'PATCH',
+              headers: {
+                  'Content-Type':'application/json',
+                  'Authorization': 'bearer ' + activeUser.password
+              },
+              body: JSON.stringify(payload)
+          }
+          fetch(url, config)
+              .then(response => response.json())
+              .then(data => console.log(data))
+  }
   
+
   return(
     
     <div className="EmailAddresse">
-      <div className="modalBodey" ref={menuRef}>
+      <div className="modalBodey">
           <div className="topContaine">
             <div className="topElements">
               <h5>Email address</h5>
@@ -29,10 +47,10 @@ export default function EmailAddresse() {
             <p>Use an address you’ll always have access to</p>
           </div>
           <form action="" className="formEmail">
-              <input type="text" placeholder="Email Address" />
+              <input type="text" placeholder="Email Address" value={email} onChange={e => setEmail(e.target.value)}/>
           </form>
          
-          <button className="buttonEmail">Save</button>
+          <button className="buttonEmail" onClick={clickHandler}>Save</button>
       </div>
     </div>
   )
