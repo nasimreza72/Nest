@@ -11,8 +11,12 @@ const RightMenu1 = () => {
 
     useEffect(() => {
         document.addEventListener("mousedown", (e) => {
-            if(!rightMenu1?.current?.contains(e.target) )
-              setRightMenu(false);
+            const x = document.querySelector(".right-menu1-container")
+            if(!x)return
+            if(!x.contains(e.target) ) {
+                setRightMenu(false);
+                console.log("2");
+            }
         })
       }, [])
 
@@ -20,7 +24,7 @@ const RightMenu1 = () => {
     return(
         <div ref={rightMenu1} className="right-menu1-container">
             <ul>
-                <li onClick={ e => { setLoginModal(!loginModal); setRightMenu(false) }}>Log in</li>
+                <li onClick={ e => { console.log("1"); setLoginModal(true); setRightMenu(false) }}>Log in</li>
                 <li onClick={ e => { setRegister(!register); setRightMenu(false)}}>Register</li>
             </ul>
         </div>

@@ -6,7 +6,7 @@ import { useContext, useState, useRef, useEffect} from "react";
 
 export default function Login(){
 
-    const { loginModal, setLoginModal, submitLoginDetails, setSubmitLoginDetails } = useContext(loginContext)
+    const { loginModal, setLoginModal, submitLoginDetails, setSubmitLoginDetails, login } = useContext(loginContext)
 
     console.log("subm it thingi" + submitLoginDetails)
 
@@ -14,11 +14,19 @@ export default function Login(){
     let menuRef = useRef()
 
     useEffect(() => {
-        document.addEventListener("mousedown", (e) => {
-            if(!menuRef.current.contains(e.target))
-            setLoginModal(false)
-        })
-    }, [loginModal]) 
+
+        const closeModal=(e) => {
+            if(!menuRef?.current?.contains(e.target)){
+                console.log("3")
+                setLoginModal(false)
+            }
+        }
+        document.addEventListener("mousedown", closeModal)
+        return ()=>{
+            document.removeEventListener("mousedown",closeModal);
+        }
+    }, [])
+
     //////////////////////////////////////////////////////
 
     const submitHandler = async (e) => {
@@ -46,7 +54,8 @@ export default function Login(){
                 </p>
             </div>
 
-            <button className="ContinueButton" type="submit" onClick={submitHandler}>Continue</button>
+
+            <button className="ContinueButton" type="submit" onClick={e =>{ setLoginModal(false); login(); }}>Continue</button>
             
             <div className="leftLine"></div> 
             <div className="or">or</div> 

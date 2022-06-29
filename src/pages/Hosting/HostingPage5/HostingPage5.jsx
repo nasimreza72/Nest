@@ -3,11 +3,13 @@ import { IoMdPhotos } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { type } from "@testing-library/user-event/dist/type";
+import { data } from "autoprefixer";
 
 export default function HostingPage5() {
   let navigate = useNavigate();
   const [file, setFile] = useState(null);
-  const [imageId, setImageId] = useState("");
+  const [objectId, setObjectId] = useState("");
 
   function handelFileSelect(e) {
     console.log("------>", e.target.files[0]);
@@ -17,18 +19,17 @@ export default function HostingPage5() {
     if (file) {
       const formData = new FormData();
       formData.append("selectedFile", file);
-
+ 
       console.log("formData :>> ", formData);
 
       axios
-        .post("http://localhost:7777/file", formData)
-        .then((result) => setImageId(result.data.fileID))
+        .patch("http://localhost:7777/api/house/addImage/62bb54b78bc34763a759dcfc", formData)
+        .then((result) => setObjectId(result.data.fileID))
         .catch((err) => console.log("err :>> ", err));
     }
 
-    return
-
-  }, [file])
+    return;
+  }, [file]);
 
   console.log("from state", file);
 
@@ -40,23 +41,55 @@ export default function HostingPage5() {
       <div className="mainRight">
         <div className="subMainRight">
           <div className="subMainRightDiv">
-            <div className="uploadImageTop">
+            <div
+              className="uploadImageTop"
+              style={{ display: objectId ? "none" : "flex" }}
+            >
               <IoMdPhotos className="logo" />
               <div className="dragPhoto">Drag your photo here</div>
-              <div className="addPhoto">Add at least 5 photos</div>
+              <div className="addPhoto">Add maximum 5 photos</div>
             </div>
-            <div className="uploadImageBottom">
-              {/* <button className="uploadFromDevice">
-                Upload from your device
-              </button> */}
-              <input
-                className="uploadFromDevice"
-                onChange={handelFileSelect}
-                type="file"
-              />
 
-              <img src={`http://localhost:7777/getImage/${imageId}`} width="350px" />
+            <div
+              className="uploadImageBottom"
+              style={{ display: objectId ? "none" : "flex" }}
+            >
+              <div className="uploadFromDevice">
+                Upload from your device
+                <input
+                  class="file_upload"
+                  onChange={handelFileSelect}
+                  type="file"
+                />
+              </div>
             </div>
+            {objectId && (
+              // eslint-disable-next-line jsx-a11y/alt-text
+              <div className="wrapper">
+                <img src={`http://localhost:7777/api/house/getImage/${objectId}`} />
+                <h5>Add maximum five photos</h5>
+                <div className="subWrapperTop">
+                  <div className="firstImageBox">
+                    <IoMdPhotos className="logo" />
+                    <input type="file" class="file_upload" />
+                  </div>
+                  <div className="secondImageBox">
+                    <IoMdPhotos className="logo" />
+                    <input type="file" class="file_upload" />
+                  </div>
+                </div>
+                <div className="subWrapperBottom">
+                  <div className="thirdImageBox">
+                    <IoMdPhotos className="logo" />
+                    <input type="file" class="file_upload" />
+                  </div>
+                  <div className="fourthImageBox">
+                    <IoMdPhotos className="logo" />
+                    <input type="file" class="file_upload" />
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
         <div className="subMainRightBottom">
