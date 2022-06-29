@@ -3,8 +3,7 @@ import { IoMdPhotos } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { type } from "@testing-library/user-event/dist/type";
-import { data } from "autoprefixer";
+
 
 export default function HostingPage5() {
   let navigate = useNavigate();
@@ -33,8 +32,6 @@ export default function HostingPage5() {
     return;
   }, [file]);
 
-
-  //h int 1 function pushIntoArray (e, imageNumber) {
   function pushIntoArray (e) {
     setSecondFile(e.target.files[0]);
   }
@@ -43,18 +40,16 @@ export default function HostingPage5() {
     if (secondFile) {
       const formData = new FormData();
       formData.append("selectedFile", secondFile);
-
-      // hint 2 http://localhost:7777/api/house/addImage/62bb3de8d6d08e2bdfaeb1ca/2"
       axios
         .patch(
-          "http://localhost:7777/api/house/addSecondImage/62bb3de8d6d08e2bdfaeb1ca",
+          "http://localhost:7777/api/house/addSecondImage/62bb54b78bc34763a759dcfc",
           formData
         )
         .then((result) => setHelper(helper+1))
         .catch((err) => console.log("err :>> ", err));
     }
     return;
-  }, [secondFile]);
+  },[secondFile]);
 
   console.log(helper);
 
@@ -92,14 +87,11 @@ export default function HostingPage5() {
               </div>
             </div>
             {objectId && (
-              // eslint-disable-next-line jsx-a11y/alt-text
               <div className="wrapper">
-
 
                 <img src={`http://localhost:7777/api/house/getImage/${objectId}/0`} />
 
                 <h5>Add maximum five photos</h5>
-
 
                 <div className="subWrapperTop">
 
@@ -109,7 +101,6 @@ export default function HostingPage5() {
                     onChange={pushIntoArray}
                     type="file" class="file_upload" />
                    {helper> 1 && <img  src={`http://localhost:7777/api/house/getImage/${objectId}/1`} alt="" /> }
-                   {/* {helper> 999999999 && <img  src={`http://localhost:7777/api/house/${objectId}/getImage/2`} alt="" /> } */}
                   </div>
 
 
