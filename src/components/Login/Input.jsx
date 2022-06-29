@@ -26,11 +26,11 @@ export default function Input(){
         })
         .then(function (response) {
             setToken(response.data.token)
-            //navigate("/account")
-        
+            //navigate("/account")  
     })
-    .catch(error => console.log(error))
+     .catch(error => console.log(error))
           
+
     },[submitLoginDetails])
 
     useEffect(() => {
