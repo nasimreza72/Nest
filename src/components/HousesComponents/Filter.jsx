@@ -29,7 +29,7 @@ export default function Filter({ setFilter }) {
                   onClick={() => setCount(count - 1 >= 0 ? count - 1 : 0)}
                 >
                   {" "}
-                  -{" "}
+                  -
                 </div>
                 <div className="counter">{count}</div>
                 <div onClick={() => setCount(count + 1)}> + </div>
