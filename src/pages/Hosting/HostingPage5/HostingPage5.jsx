@@ -1,7 +1,8 @@
 import "./hostingPage5.scss";
 import { IoMdPhotos } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { housesContext } from "../../../Context/HousesContext.jsx";
 import axios from "axios";
 
 
@@ -10,7 +11,10 @@ export default function HostingPage5() {
   const [file, setFile] = useState(null);
   const [helper, setHelper] = useState(1);
   const [secondFile, setSecondFile] = useState(null);
-  const [objectId, setObjectId] = useState("");
+  const [objectId, setObjectId] = useState(""); 
+
+  const {houseId} = useContext(housesContext);
+  console.log('houseId :>> ', houseId);
 
   function handelFileSelect(e) {
     console.log("------>", e.target.files[0]);
@@ -21,7 +25,7 @@ export default function HostingPage5() {
       const formData = new FormData();
       formData.append("selectedFile", file);
 
-      axios.patch("http://localhost:7777/api/house/addImage/62bb54b78bc34763a759dcfc", formData)
+      axios.patch(`http://localhost:7777/api/house/addImage/${houseId}`, formData)
         .then((result) => {
           setObjectId(result.data.fileID)
           console.log('result.data :>> ', result.data);
@@ -42,7 +46,7 @@ export default function HostingPage5() {
       formData.append("selectedFile", secondFile);
       axios
         .patch(
-          "http://localhost:7777/api/house/addSecondImage/62bb54b78bc34763a759dcfc",
+          `http://localhost:7777/api/house/addSecondImage/${houseId}`,
           formData
         )
         .then((result) => setHelper(helper+1))
