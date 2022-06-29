@@ -3,12 +3,13 @@ import { IoMdPhotos } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { type } from "@testing-library/user-event/dist/type";
-import { data } from "autoprefixer";
+
 
 export default function HostingPage5() {
   let navigate = useNavigate();
   const [file, setFile] = useState(null);
+  const [helper, setHelper] = useState(1);
+  const [secondFile, setSecondFile] = useState(null);
   const [objectId, setObjectId] = useState("");
 
   function handelFileSelect(e) {
@@ -19,20 +20,39 @@ export default function HostingPage5() {
     if (file) {
       const formData = new FormData();
       formData.append("selectedFile", file);
- 
-      console.log("formData :>> ", formData);
 
-      axios
-        .patch("http://localhost:7777/api/house/addImage/62bb54b78bc34763a759dcfc", formData)
+      axios.patch("http://localhost:7777/api/house/addImage/62bb54b78bc34763a759dcfc", formData)
         .then((result) => {
           setObjectId(result.data.fileID)
           console.log('result.data :>> ', result.data);
         })
+
         .catch((err) => console.log("err :>> ", err));
     }
-
     return;
   }, [file]);
+
+  function pushIntoArray (e) {
+    setSecondFile(e.target.files[0]);
+  }
+
+  useEffect(() => {
+    if (secondFile) {
+      const formData = new FormData();
+      formData.append("selectedFile", secondFile);
+      axios
+        .patch(
+          "http://localhost:7777/api/house/addSecondImage/62bb54b78bc34763a759dcfc",
+          formData
+        )
+        .then((result) => setHelper(helper+1))
+        .catch((err) => console.log("err :>> ", err));
+    }
+    return;
+  },[secondFile]);
+
+  console.log(helper);
+
 
   console.log("from state", file);
 
@@ -67,29 +87,49 @@ export default function HostingPage5() {
               </div>
             </div>
             {objectId && (
-              // eslint-disable-next-line jsx-a11y/alt-text
               <div className="wrapper">
-                <img src={`http://localhost:7777/api/house/getImage/${objectId}`} />
+
+                <img src={`http://localhost:7777/api/house/getImage/${objectId}/0`} />
+
                 <h5>Add maximum five photos</h5>
+
                 <div className="subWrapperTop">
+
                   <div className="firstImageBox">
                     <IoMdPhotos className="logo" />
-                    <input type="file" class="file_upload" />
+                    <input 
+                    onChange={pushIntoArray}
+                    type="file" class="file_upload" />
+                   {helper> 1 && <img  src={`http://localhost:7777/api/house/getImage/${objectId}/1`} alt="" /> }
                   </div>
+
+
                   <div className="secondImageBox">
                     <IoMdPhotos className="logo" />
-                    <input type="file" class="file_upload" />
+                    <input 
+                      onChange={pushIntoArray}
+                      type="file" class="file_upload" />
+                     {helper> 2 && <img  src={`http://localhost:7777/api/house/getImage/${objectId}/2`} alt="" /> }
                   </div>
+
+
                 </div>
                 <div className="subWrapperBottom">
+
                   <div className="thirdImageBox">
-                    <IoMdPhotos className="logo" />
-                    <input type="file" class="file_upload" />
+                    <IoMdPhotos className="logo" />   
+                    <input  onChange={pushIntoArray} type="file" class="file_upload" />
+                    {helper> 3 && <img  src={`http://localhost:7777/api/house/getImage/${objectId}/3`} alt="" /> }
                   </div>
+
+
                   <div className="fourthImageBox">
-                    <IoMdPhotos className="logo" />
-                    <input type="file" class="file_upload" />
+                    <IoMdPhotos className="logo" />  
+                    <input onChange={pushIntoArray} type="file" class="file_upload" />
+                    {helper> 4 && <img  src={`http://localhost:7777/api/house/getImage/${objectId}/4`} alt="" /> }
                   </div>
+
+
                 </div>
               </div>
             )}
