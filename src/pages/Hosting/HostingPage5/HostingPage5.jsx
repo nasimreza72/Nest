@@ -96,7 +96,7 @@ export default function HostingPage5() {
               <div className="wrapper">
 
 
-                <img src={`http://localhost:7777/api/house/getImage/${objectId}`} />
+                <img src={`http://localhost:7777/api/house/getImage/${objectId}/0`} />
 
                 <h5>Add maximum five photos</h5>
 
@@ -108,8 +108,8 @@ export default function HostingPage5() {
                     <input 
                     onChange={pushIntoArray}
                     type="file" class="file_upload" />
-                   {helper> 1 && <img  src={`http://localhost:7777/api/house/getSecondImage/${objectId}`} alt="" /> }
-                   {helper> 999999999 && <img  src={`http://localhost:7777/api/house/${objectId}/getImage/2`} alt="" /> }
+                   {helper> 1 && <img  src={`http://localhost:7777/api/house/getImage/${objectId}/1`} alt="" /> }
+                   {/* {helper> 999999999 && <img  src={`http://localhost:7777/api/house/${objectId}/getImage/2`} alt="" /> } */}
                   </div>
 
 
@@ -118,7 +118,7 @@ export default function HostingPage5() {
                     <input 
                       onChange={pushIntoArray}
                       type="file" class="file_upload" />
-                     {helper> 2 && <img  src={`http://localhost:7777/api/house/getSecondImage/${objectId}`} alt="" /> }
+                     {helper> 2 && <img  src={`http://localhost:7777/api/house/getImage/${objectId}/2`} alt="" /> }
                   </div>
 
 
@@ -126,14 +126,16 @@ export default function HostingPage5() {
                 <div className="subWrapperBottom">
 
                   <div className="thirdImageBox">
-                    <IoMdPhotos className="logo" />
-                    <input type="file" class="file_upload" />
+                    <IoMdPhotos className="logo" />   
+                    <input  onChange={pushIntoArray} type="file" class="file_upload" />
+                    {helper> 3 && <img  src={`http://localhost:7777/api/house/getImage/${objectId}/3`} alt="" /> }
                   </div>
 
 
                   <div className="fourthImageBox">
-                    <IoMdPhotos className="logo" />
-                    <input type="file" class="file_upload" />
+                    <IoMdPhotos className="logo" />  
+                    <input onChange={pushIntoArray} type="file" class="file_upload" />
+                    {helper> 4 && <img  src={`http://localhost:7777/api/house/getImage/${objectId}/4`} alt="" /> }
                   </div>
 
 
