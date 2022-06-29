@@ -26,7 +26,7 @@ export const Slider = ()=>{
                     {counter > 1 ? <BsArrowLeftCircle className="icon" id="icon" onClick={()=> setCounter(counter-1)}/>:null}
                   </div>
                   <div>
-                    <img src={`http://localhost:7777/api/house/getImage/62bc5a7fb932d686c9142a5a/${[counter-1]}`} alt="house-img"/>
+                    <img src={`http://localhost:7777/api/house/getImage/${house._id}/${[counter-1]}`} alt="house-img"/>
                   </div>
                   <div>
                     {counter < house?.images?.length ? <BsArrowRightCircle className="icon" onClick={()=>setCounter(counter+1)}/> : null}

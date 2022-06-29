@@ -1,8 +1,8 @@
 import "./StyledButton.scss";
-export const StyledButton = ({text})=>{
+export const StyledButton = ({text,onClick})=>{
     return (
         <div className="button-container">
-            <input type="button" value={text}/>
+            <input onClick={()=>onClick()} type="button" value={text}/>
         </div>
     )
 }
