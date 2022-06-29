@@ -9,6 +9,8 @@ import { data } from "autoprefixer";
 export default function HostingPage5() {
   let navigate = useNavigate();
   const [file, setFile] = useState(null);
+  const [helper, setHelper] = useState(1);
+  const [secondFile, setSecondFile] = useState(null);
   const [objectId, setObjectId] = useState("");
 
   function handelFileSelect(e) {
@@ -19,20 +21,43 @@ export default function HostingPage5() {
     if (file) {
       const formData = new FormData();
       formData.append("selectedFile", file);
- 
-      console.log("formData :>> ", formData);
 
-      axios
-        .patch("http://localhost:7777/api/house/addImage/62bb54b78bc34763a759dcfc", formData)
+      axios.patch("http://localhost:7777/api/house/addImage/62bb54b78bc34763a759dcfc", formData)
         .then((result) => {
           setObjectId(result.data.fileID)
           console.log('result.data :>> ', result.data);
         })
+
         .catch((err) => console.log("err :>> ", err));
     }
-
     return;
   }, [file]);
+
+
+  //h int 1 function pushIntoArray (e, imageNumber) {
+  function pushIntoArray (e) {
+    setSecondFile(e.target.files[0]);
+  }
+
+  useEffect(() => {
+    if (secondFile) {
+      const formData = new FormData();
+      formData.append("selectedFile", secondFile);
+
+      // hint 2 http://localhost:7777/api/house/addImage/62bb3de8d6d08e2bdfaeb1ca/2"
+      axios
+        .patch(
+          "http://localhost:7777/api/house/addSecondImage/62bb3de8d6d08e2bdfaeb1ca",
+          formData
+        )
+        .then((result) => setHelper(helper+1))
+        .catch((err) => console.log("err :>> ", err));
+    }
+    return;
+  }, [secondFile]);
+
+  console.log(helper);
+
 
   console.log("from state", file);
 
@@ -69,27 +94,49 @@ export default function HostingPage5() {
             {objectId && (
               // eslint-disable-next-line jsx-a11y/alt-text
               <div className="wrapper">
+
+
                 <img src={`http://localhost:7777/api/house/getImage/${objectId}`} />
+
                 <h5>Add maximum five photos</h5>
+
+
                 <div className="subWrapperTop">
+
                   <div className="firstImageBox">
                     <IoMdPhotos className="logo" />
-                    <input type="file" class="file_upload" />
+                    <input 
+                    onChange={pushIntoArray}
+                    type="file" class="file_upload" />
+                   {helper> 1 && <img  src={`http://localhost:7777/api/house/getSecondImage/${objectId}`} alt="" /> }
+                   {helper> 999999999 && <img  src={`http://localhost:7777/api/house/${objectId}/getImage/2`} alt="" /> }
                   </div>
+
+
                   <div className="secondImageBox">
                     <IoMdPhotos className="logo" />
-                    <input type="file" class="file_upload" />
+                    <input 
+                      onChange={pushIntoArray}
+                      type="file" class="file_upload" />
+                     {helper> 2 && <img  src={`http://localhost:7777/api/house/getSecondImage/${objectId}`} alt="" /> }
                   </div>
+
+
                 </div>
                 <div className="subWrapperBottom">
+
                   <div className="thirdImageBox">
                     <IoMdPhotos className="logo" />
                     <input type="file" class="file_upload" />
                   </div>
+
+
                   <div className="fourthImageBox">
                     <IoMdPhotos className="logo" />
                     <input type="file" class="file_upload" />
                   </div>
+
+
                 </div>
               </div>
             )}
