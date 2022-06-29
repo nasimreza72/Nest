@@ -22,14 +22,12 @@ export default function HostingPage5() {
       const formData = new FormData();
       formData.append("selectedFile", file);
 
-      console.log("formData :>> ", formData);
+      axios.patch("http://localhost:7777/api/house/addImage/62bb54b78bc34763a759dcfc", formData)
+        .then((result) => {
+          setObjectId(result.data.fileID)
+          console.log('result.data :>> ', result.data);
+        })
 
-      axios
-        .patch(
-          "http://localhost:7777/api/house/addImage/62bb3de8d6d08e2bdfaeb1ca",
-          formData
-        )
-        .then((result) => setObjectId(result.data.fileID))
         .catch((err) => console.log("err :>> ", err));
     }
     return;

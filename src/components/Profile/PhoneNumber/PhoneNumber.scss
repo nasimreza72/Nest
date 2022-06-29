@@ -62,8 +62,9 @@
                 }
                 .PhoneInput{
                     border: 1px solid grey;
-                    border-radius: 10px;
+                    border-radius: 0px;
                     padding-left: 10px;
+                    height: 40px;
                 }
                 .PhoneInputCountrySelect {
                     position: absolute;
@@ -79,6 +80,7 @@
                 .PhoneInputCountrySelect:focus + .PhoneInputCountryIcon + .PhoneInputCountrySelectArrow {
                     
                     color: white ;
+                    border-radius: 5px;
                 }
                 .PhoneInputCountrySelectArrow {
                     width: 10px;

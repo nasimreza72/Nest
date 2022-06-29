@@ -7,39 +7,17 @@ import { tokenContext } from '../../Context/TokenContext'
 // "password":"123RonRon!!!"
 
 export default function InputRegister(){
-    const { submitRegistrationDetails, setSubmitRegistrationDetails } = useContext(loginContext)
-    const [ email, setEmail ] = useState("")
-    const [ password, setPassword ] = useState("")
+    const { email, setEmail, password, setPassword } = useContext(loginContext)
+    // const [ email, setEmail ] = useState("")
+    // const [ password, setPassword ] = useState("")
     
 
-    useEffect(() => {
-        console.log()
-
-        axios.post('http://localhost:7777/api/user/register', {
-          
-            loginInfo: 
-            {
-                email:email,
-                password:password
-            },
-            role: "host"
-
-        })
-        .then(function (response) {
-
-          if(response.error) {
-            alert(response.error)
-        } else {
-            console.log(response)
-        }
-    })
-    .catch(error => console.log(error)) 
-    },[submitRegistrationDetails])
+    
 
      
     return(
         <form >
-            <input className="topInput" type="text" value={email} onChange={ e => setEmail(e.target.value) } placeholder="username" />
+            <input className="topInput" type="text" value={email} onChange={ e => setEmail(e.target.value) } placeholder="E-Mail" />
             <input className="bottomInput" type="password" value={password} onChange={ e => setPassword(e.target.value) } placeholder="password" />
 
         </form> 

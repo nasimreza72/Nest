@@ -14,6 +14,7 @@ export default function Login(){
     let menuRef = useRef()
 
     useEffect(() => {
+
         const closeModal=(e) => {
             if(!menuRef?.current?.contains(e.target)){
                 console.log("3")
@@ -25,7 +26,13 @@ export default function Login(){
             document.removeEventListener("mousedown",closeModal);
         }
     }, [])
+
     //////////////////////////////////////////////////////
+
+    const submitHandler = async (e) => {
+        const submit = await setSubmitLoginDetails(!submitLoginDetails)
+        setLoginModal(false)
+    }
 
     return(
         <div className="Login" ref={menuRef} >
@@ -46,6 +53,7 @@ export default function Login(){
                     <a href=""> Privacy Policy</a> 
                 </p>
             </div>
+
 
             <button className="ContinueButton" type="submit" onClick={e =>{ setLoginModal(false); login(); }}>Continue</button>
             

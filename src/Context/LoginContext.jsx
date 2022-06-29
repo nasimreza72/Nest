@@ -14,7 +14,7 @@ export default function LoginContextProvider(props){
 
     const [ email, setEmail ] = useState("")
     const [ password, setPassword ] = useState("")
-    const [activeUser, setActiveUser] = useState(activeUserFromLocalStorage);
+    const [ activeUser, setActiveUser ] = useState(activeUserFromLocalStorage);
 
     const login=()=>{
         axios.post('http://localhost:7777/api/user/login', {
@@ -37,8 +37,28 @@ export default function LoginContextProvider(props){
     .catch(error => console.log(error))
     }
 
+   
+    const registerFunction = ()=>{
+        axios.post('http://localhost:7777/api/user/register', {
+            loginInfo: 
+            {
+                email:email,
+                password:password
+            },
+            role: "host"
+        })
+        .then(function (response) {
+          if(response.error) {
+            alert(response.error)
+            } else {
+            console.log(response)
+            }
+        })
+        .catch(error => console.log(error)) 
+    }
+
     console.log('activeUser Logincontext :>> ', activeUser);
-    const loginVariable = { loginModal, setLoginModal, register, setRegister,submitLoginDetails, setSubmitLoginDetails,
+    const loginVariable = { loginModal, setLoginModal, register, setRegister,submitLoginDetails, setSubmitLoginDetails,registerFunction,
         submitRegistrationDetails, setSubmitRegistrationDetails, activeUser, setActiveUser, login, setEmail, setPassword, email, password }
 
 
