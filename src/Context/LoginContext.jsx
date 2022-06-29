@@ -14,7 +14,7 @@ export default function LoginContextProvider(props){
 
     const [ email, setEmail ] = useState("")
     const [ password, setPassword ] = useState("")
-    const [activeUser, setActiveUser] = useState(activeUserFromLocalStorage);
+    const [ activeUser, setActiveUser ] = useState(activeUserFromLocalStorage);
 
     const login=()=>{
         axios.post('http://localhost:7777/api/user/login', {
