@@ -11,14 +11,6 @@ export default function PhoneNumber() {
   let menuRef = useRef()
 
 
-  useEffect(() => {
-    document.addEventListener("mousedown", (e) => {
-        if(!menuRef.current.contains(e.target))
-        setPhoneNumber(false)
-    })
-}, [phoneNumber])
-  
-  
   return(
     
     <div className="PhoneNumber">
