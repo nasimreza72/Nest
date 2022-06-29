@@ -1,18 +1,18 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import "./LoginComponent.scss"
-import axios from "axios"
 import { loginContext } from "../../Context/LoginContext.jsx"
-import { tokenContext } from '../../Context/TokenContext'
+// import { tokenContext } from '../../Context/TokenContext'
 
 // "email":"ponni@hof",
 // "password":"123RonRon!!!"
 
 export default function Input(){
-    const { submitLoginDetails } = useContext(loginContext)
-    const { token, setToken } = useContext(tokenContext)
-    const [ email, setEmail ] = useState("")
-    const [ password, setPassword ] = useState("")
+    const {setEmail, setPassword, email, password } = useContext(loginContext)
+    // const { token, setToken } = useContext(tokenContext)
+    // console.log("this is token" + token)
     
+    
+
     console.log("this is token" + token)
 
     useEffect(() => {
@@ -30,8 +30,7 @@ export default function Input(){
         
     })
     .catch(error => console.log(error))
-         
-      
+          
     },[submitLoginDetails])
 
     useEffect(() => {
@@ -45,7 +44,6 @@ export default function Input(){
 
 
   }, [token])
-
 
 
     return(

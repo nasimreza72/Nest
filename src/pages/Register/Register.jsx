@@ -15,7 +15,7 @@ export default function Register(){
 
     useEffect(() => {
         document.addEventListener("mousedown", (e) => {
-            if(!menuRef.current.contains(e.target))
+            if(!menuRef?.current?.contains(e.target))
             setRegister(false)
         })
     }, [register])
