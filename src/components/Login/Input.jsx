@@ -13,9 +13,42 @@ export default function Input(){
     
     
 
+    console.log("this is token" + token)
+
+    useEffect(() => {
+        console.log("axios")
+
+        axios.post('http://localhost:7777/api/user/login', {
+          
+          email: email,
+          password: password
+
+        })
+        .then(function (response) {
+            setToken(response.data.token)
+            //navigate("/account")
+        
+    })
+    .catch(error => console.log(error))
+          
+    },[submitLoginDetails])
+
+    useEffect(() => {
+      if(token) {
+          console.log("lokalöstorage" + token)
+          localStorage.setItem('token', token)
+      } else {
+          localStorage.removeItem('token') /// what does this do???
+          
+      }
+
+
+  }, [token])
+
+
     return(
         <form >
-            <input className="topInput" type="text" value={email} onChange={ e => setEmail(e.target.value) } placeholder="username" />
+            <input className="topInput" type="text" value={email} onChange={ e => setEmail(e.target.value) } placeholder="E-Mail" />
             <input className="bottomInput" type="password" value={password} onChange={ e => setPassword(e.target.value) } placeholder="password" />
 
         </form> 
