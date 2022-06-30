@@ -5,38 +5,35 @@ import { useEffect, useState, useContext } from "react";
 import { housesContext } from "../../../Context/HousesContext.jsx";
 import axios from "axios";
 
-
 export default function HostingPage5() {
   let navigate = useNavigate();
   const [file, setFile] = useState(null);
-  const [helper, setHelper] = useState(1);
+  const [imageViewer, setImageViewer] = useState(0);
   const [secondFile, setSecondFile] = useState(null);
   const [objectId, setObjectId] = useState(""); 
 
   const {houseId} = useContext(housesContext);
   console.log('houseId :>> ', houseId);
 
-  function handelFileSelect(e) {
-    console.log("------>", e.target.files[0]);
+  function uploadFirstImage(e) {
     setFile(e.target.files[0]);
   }
   useEffect(() => {
     if (file) {
       const formData = new FormData();
       formData.append("selectedFile", file);
-
+      
       axios.patch(`http://localhost:7777/api/house/addImage/${houseId}`, formData)
         .then((result) => {
-          setObjectId(result.data.fileID)
-          console.log('result.data :>> ', result.data);
+          setObjectId(result.data.fileID);
+          setImageViewer(imageViewer + 1);
         })
-
         .catch((err) => console.log("err :>> ", err));
     }
     return;
   }, [file]);
 
-  function pushIntoArray (e) {
+  function uploadImage(e) {
     setSecondFile(e.target.files[0]);
   }
 
@@ -44,21 +41,12 @@ export default function HostingPage5() {
     if (secondFile) {
       const formData = new FormData();
       formData.append("selectedFile", secondFile);
-      axios
-        .patch(
-          `http://localhost:7777/api/house/addSecondImage/${houseId}`,
-          formData
-        )
-        .then((result) => setHelper(helper+1))
+      axios.patch(`http://localhost:7777/api/house/addSecondImage/${houseId}`, formData )
+        .then((result) => setImageViewer(imageViewer + 1))
         .catch((err) => console.log("err :>> ", err));
     }
     return;
-  },[secondFile]);
-
-  console.log(helper);
-
-
-  console.log("from state", file);
+  }, [secondFile]);
 
   return (
     <div className="hostingPage5">
@@ -85,55 +73,83 @@ export default function HostingPage5() {
                 Upload from your device
                 <input
                   class="file_upload"
-                  onChange={handelFileSelect}
+                  onChange={uploadFirstImage}
                   type="file"
                 />
               </div>
             </div>
+            
             {objectId && (
               <div className="wrapper">
-
-                <img src={`http://localhost:7777/api/house/getImage/${objectId}/0`} />
+                {imageViewer >= 1 && (
+                  <img
+                    src={`http://localhost:7777/api/house/getImage/${objectId}/0`}
+                  />
+                )}
 
                 <h5>Add maximum five photos</h5>
 
                 <div className="subWrapperTop">
-
                   <div className="firstImageBox">
                     <IoMdPhotos className="logo" />
-                    <input 
-                    onChange={pushIntoArray}
-                    type="file" class="file_upload" />
-                   {helper> 1 && <img  src={`http://localhost:7777/api/house/getImage/${objectId}/1`} alt="" /> }
+                    <input
+                      onChange={uploadImage}
+                      type="file"
+                      class="file_upload"
+                    />
+                    {imageViewer > 1 && (
+                      <img
+                        src={`http://localhost:7777/api/house/getImage/${objectId}/1`}
+                        alt=""
+                      />
+                    )}
                   </div>
-
 
                   <div className="secondImageBox">
                     <IoMdPhotos className="logo" />
-                    <input 
-                      onChange={pushIntoArray}
-                      type="file" class="file_upload" />
-                     {helper> 2 && <img  src={`http://localhost:7777/api/house/getImage/${objectId}/2`} alt="" /> }
+                    <input
+                      onChange={uploadImage}
+                      type="file"
+                      class="file_upload"
+                    />
+                    {imageViewer > 2 && (
+                      <img
+                        src={`http://localhost:7777/api/house/getImage/${objectId}/2`}
+                        alt=""
+                      />
+                    )}
                   </div>
-
-
                 </div>
                 <div className="subWrapperBottom">
-
                   <div className="thirdImageBox">
-                    <IoMdPhotos className="logo" />   
-                    <input  onChange={pushIntoArray} type="file" class="file_upload" />
-                    {helper> 3 && <img  src={`http://localhost:7777/api/house/getImage/${objectId}/3`} alt="" /> }
+                    <IoMdPhotos className="logo" />
+                    <input
+                      onChange={uploadImage}
+                      type="file"
+                      class="file_upload"
+                    />
+                    {imageViewer > 3 && (
+                      <img
+                        src={`http://localhost:7777/api/house/getImage/${objectId}/3`}
+                        alt=""
+                      />
+                    )}
                   </div>
-
 
                   <div className="fourthImageBox">
-                    <IoMdPhotos className="logo" />  
-                    <input onChange={pushIntoArray} type="file" class="file_upload" />
-                    {helper> 4 && <img  src={`http://localhost:7777/api/house/getImage/${objectId}/4`} alt="" /> }
+                    <IoMdPhotos className="logo" />
+                    <input
+                      onChange={uploadImage}
+                      type="file"
+                      class="file_upload"
+                    />
+                    {imageViewer > 4 && (
+                      <img
+                        src={`http://localhost:7777/api/house/getImage/${objectId}/4`}
+                        alt=""
+                      />
+                    )}
                   </div>
-
-
                 </div>
               </div>
             )}
