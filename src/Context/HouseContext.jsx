@@ -12,6 +12,7 @@ export default function HouseContextProvider(props){
     const toggleShow = () => setShow((s) => !s);
     const [counter, setCounter]=useState(1);
     const [house,setHouse] = useState({});
+    const [conversations,setConversations] = useState([]);
     const {activeUser,setActiveuser} = useContext(loginContext);
 
     const navigate = useNavigate();
@@ -35,9 +36,13 @@ export default function HouseContextProvider(props){
     }
     
     const getConversations = ()=>{
+        const tempConv=[]
         activeUser.conversations.map(conversationId=>{
             axios.get(`http://localhost:7777/api/conversation/${conversationId}`)
-            .then(res=>console.log('conversation.data :>> ', res.data))
+            .then(res=>{
+                tempConv.push(res.data);
+                setConversations(tempConv);   
+            })
             .catch(err=>console.log('err :>> ', err))
         })
     }
@@ -52,7 +57,7 @@ export default function HouseContextProvider(props){
     },[])
     
     const houseVariable={show,handleClose,toggleShow,setShow, house,counter,setCounter,createConversation,
-        getConversations}
+        getConversations, conversations}
 
     return(
         <houseContext.Provider value={houseVariable}>
