@@ -45,9 +45,6 @@ export default function HostingPage2() {
     )
   }
 
-
-
-
   return (
     <div className="hostingPage2">
       <div className="mainLeft">

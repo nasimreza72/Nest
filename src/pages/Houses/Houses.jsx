@@ -33,10 +33,10 @@ const Houses = () => {
             <p>Private room</p>
           </div>
           <div className="subWrapper mediaScreenMax885">
-            <p>Entire place</p>
+            <p>Apartment</p>
           </div>
           <div className="subWrapper mediaScreenMax885">
-            <p>Empty</p>
+            <p>House</p>
           </div>
           <div className="subWrapper mediaScreenMax1200">
             <p>Male</p>
@@ -51,13 +51,13 @@ const Houses = () => {
             <p>Wifi</p>
           </div>
           <div className="subWrapper mediaScreenMax1650">
-            <p>empty</p>
+            <p>Television</p>
           </div>
           <div className="subWrapper mediaScreenMax1650">
-            <p>empty</p>
+            <p>Refrigerator</p>
           </div>
           <div className="subWrapper mediaScreenMax1750">
-            <p>empty</p>
+            <p>Tableware</p>
           </div>
 
           <div className="subWrapper mediaScreenMax690 hiddenAmenities">
@@ -88,10 +88,8 @@ const Houses = () => {
             </p>
           </div>
 
-          <div
-            className="subSection"
-            onClick={() => navigate("/House", { replace: true })}
-          >
+          <div className="subSection">
+
             <Carousel>
               <Carousel.Item>
                 <img
@@ -119,15 +117,15 @@ const Houses = () => {
             <div className="divInsideSubSection">
               <div>
                 <p>Private room in Mitte</p>
-                <strong>
+                <h6 onClick={() => navigate("/House", { replace: true })} >
                   Ruhiges & gemütliches Zimmer im Zentrum von Berlin
-                </strong>
+                </h6>
                 <div className="DrawLine"></div>
                 <p className="leftSubSectionLastParagraph">
                   1 guest 1 bedroom 2 bed 1 shared bath
                 </p>
                 <p className="leftSubSectionLastParagraph">
-                  Wifi - Kitchen -Washer - Dedicated workshop
+                  Wifi - Kitchen - Washer - Dedicated workshop
                 </p>
               </div>
 
@@ -170,15 +168,15 @@ const Houses = () => {
             <div className="divInsideSubSection">
               <div>
                 <p>Private room in Mitte</p>
-                <strong>
+                <h6 onClick={() => navigate("/House", { replace: true })} >
                   Ruhiges & gemütliches Zimmer im Zentrum von Berlin
-                </strong>
+                </h6>
                 <div className="DrawLine"></div>
                 <p className="leftSubSectionLastParagraph">
                   1 guest 1 bedroom 2 bed 1 shared bath
                 </p>
                 <p className="leftSubSectionLastParagraph">
-                  Wifi - Kitchen -Washer - Dedicated workshop
+                  Wifi - Kitchen - Washer - Dedicated workshop
                 </p>
               </div>
 
@@ -221,15 +219,15 @@ const Houses = () => {
             <div className="divInsideSubSection">
               <div>
                 <p>Private room in Mitte</p>
-                <strong>
+                <h6 onClick={() => navigate("/House", { replace: true })} >
                   Ruhiges & gemütliches Zimmer im Zentrum von Berlin
-                </strong>
+                </h6>
                 <div className="DrawLine"></div>
                 <p className="leftSubSectionLastParagraph">
                   1 guest 1 bedroom 2 bed 1 shared bath
                 </p>
                 <p className="leftSubSectionLastParagraph">
-                  Wifi - Kitchen -Washer - Dedicated workshop
+                  Wifi - Kitchen - Washer - Dedicated workshop
                 </p>
               </div>
 
