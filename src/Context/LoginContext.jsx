@@ -56,9 +56,22 @@ export default function LoginContextProvider(props){
         .catch(error => console.log(error)) 
     }
 
+    const getUser = ()=>{
+        const headers={
+            Authorization:`Bearer ${activeUser.token}`
+        }
+        axios.get(`http://localhost:7777/api/user/${activeUser._id}`, {headers})
+        .then(res=>{
+            console.log('res.data :>> ', res.data)
+            setActiveUser({...res.data, token:activeUser.token})
+        })
+        .catch(err=>console.log('err :>> ', err))
+    }
+
     console.log('activeUser Logincontext :>> ', activeUser);
     const loginVariable = { loginModal, setLoginModal, register, setRegister,submitLoginDetails, setSubmitLoginDetails,registerFunction,
-        submitRegistrationDetails, setSubmitRegistrationDetails, activeUser, setActiveUser, login, setEmail, setPassword, email, password }
+        submitRegistrationDetails, setSubmitRegistrationDetails, activeUser, setActiveUser, login, setEmail, setPassword, email, password,
+        getUser }
 
 
         useEffect(() => {
