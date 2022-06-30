@@ -1,5 +1,4 @@
 import React from "react";
-// import Geocode from "react-geocode";
 import { useState } from "react";
 import {
   GoogleMap,
@@ -67,41 +66,6 @@ const MapContainer = () => {
     setSelected(item);
   };
 
-  /////// GEO CODE
-
-  // Geocode.setApiKey(process.env.REACT_APP_GOOGLE_API_KEY);
-
-  // Geocode.setLanguage("en");
-  // Geocode.setLocationType("ROOFTOP");
-  // Geocode.enableDebug();
-
-  // navigator.geolocation.getCurrentPosition((position) => {
-  //   Geocode.fromLatLng(
-  //     position.coords.latitude,
-  //     position.coords.longitude
-  //   ).then(
-  //     (response) => {
-  //       const address = response.results[0].formatted_address;
-  //       console.log("Current location address-->",address);
-  //     },
-  //     (error) => {
-  //       console.error(error);
-  //     }
-  //   );
-  // });
-
-  // Get latitude & longitude from address.
-
-  // Geocode.fromAddress("Soldiner Str. 36, 13359 Berlin, Germany").then(
-  //   (response) => {
-  //     const { lat, lng } = response.results[0].geometry.location;
-  //     console.log("Currenr location lat & lng -->", lat, lng);
-  //   },
-  //   (error) => {
-  //     console.error(error);
-  //   }
-  // );
-
   return (
     <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_API_KEY}>
       <GoogleMap mapContainerStyle={mapStyles} zoom={12} center={defaultCenter}>
@@ -121,10 +85,11 @@ const MapContainer = () => {
             clickable={true}
             onCloseClick={() => setSelected({})}
           >
-            {/* <p>{selected.name}</p> */}
-            <div>
-              <img src={selected.img} alt="" width={100} />
-              <p>{selected.name}</p>
+            <div style={{paddingRight: "12px"}}>
+              <img 
+                style={{borderRadius: "5px", width: "150px", marginBottom: "5px", boxShadow: "rgba(0, 0, 0, 0.16) 0px 1.5px 3px, rgba(0, 0, 0, 0.23) 0px 1.5px 3px"}}
+                src={selected.img} alt=""  />
+              <h6>{selected.name}</h6>
             </div>
           </InfoWindow>
         )}

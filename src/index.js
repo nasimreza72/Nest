@@ -5,15 +5,16 @@ import { BrowserRouter } from "react-router-dom";
 import LoginContextProvider from "./Context/LoginContext.jsx";
 // import TokenContextProvider from './Context/TokenContext.jsx';
 import ProfileContextProvider from "./Context/ProfileContext.jsx"
+import HousesContextProvider from './Context/HousesContext.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
       <LoginContextProvider>
            <ProfileContextProvider>
-              {/* <TokenContextProvider> */}
+              <HousesContextProvider>
                 <App />
-              {/* </TokenContextProvider> */}
+              </HousesContextProvider>
            </ProfileContextProvider>
       </LoginContextProvider>  
     </BrowserRouter>

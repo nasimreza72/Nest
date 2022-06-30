@@ -1,6 +1,5 @@
 /* @import 'bootstrap/dist/css/bootstrap.min.css'; */
 
-
 * {
   margin: 0;
   padding: 0;
@@ -79,6 +78,16 @@ main {
   padding: 0px 10px;
   height: 87vh;
   overflow: scroll;
+}
+
+.leftSection h6{
+  cursor: pointer;
+  color: #868686;
+  transition: .15s ease-in-out;
+}
+
+.leftSection h6:hover{
+  color: #414141;
 }
 
 ::-webkit-scrollbar {
