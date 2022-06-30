@@ -1,4 +1,5 @@
 import { useState, createContext, useEffect, useContext } from 'react'
+import {useNavigate} from "react-router-dom";
 import {loginContext} from "../Context/LoginContext.jsx"
 import axios from 'axios';
 
@@ -10,38 +11,39 @@ export default function HouseContextProvider(props){
     const handleClose = () => setShow(false);
     const toggleShow = () => setShow((s) => !s);
     const [counter, setCounter]=useState(1);
-
     const [house,setHouse] = useState({});
+    const {activeUser,setActiveuser} = useContext(loginContext);
 
-    const {activerUser} = useContext(loginContext);
+    const navigate = useNavigate();
 
-    
+    const getUser = ()=>{
+        axios.get("http://localhost:7777/api/user")
+        .then(res=>{
+            console.log('res.data :>> ', res.data)
+            setActiveuser(res.data)
+        })
+        .catch(err=>console.log('err :>> ', err))
+    }
+
     const createConversation = () => {
-        // axios.get("http://localhost:7777/api/conversation")
-        // .then(res=>{
-        //     console.log('res.data :>> ', res.data);
-        // })
-        // .catch(err=>console.log('err :>> ', err))
-        house.conversations.forEach(conversation => {
-            if(conversation.hostId == house.hostId && conversation.userId == activerUser._id){
-                console.log('there is a conversation before :>> ', conversation);
+        const conv = house.conversations.find(conversation=> conversation.hostId === house.hostID && conversation.userId === activeUser._id)
+        if(!conv){
+            const conversationObject={
+                hostId:house.hostID,
+                userId:activeUser._id,
+                messages:[],
+                houseId:house._id
             }
-            else {
-                const conversationObject={
-                    hostId:house.hostId,
-                    userId:activerUser._id,
-                    messages:[],
-                    houseId:house._id
-                }
-                axios.post("http://localhost:7777/api/conversation/create",conversationObject)
-                .then(res=>console.log('res.data :>> ', res.data))
-                .catch(err=>console.log('err :>> ', err))
-            }
-        });
+            axios.post("http://localhost:7777/api/conversation/create",conversationObject)
+            .then(res=>console.log('res.data :>> ', res.data))
+            .catch(err=>console.log('err :>> ', err))
+        }
+        else console.log("You created a converation before");
+        navigate("/messages");
     }
     
     useEffect(()=>{
-        axios.get(`http://localhost:7777/api/house/62bc7be7e8cb1cb70886102f`)
+        axios.get(`http://localhost:7777/api/house/62bd75e2026a32e39a3d0c90`)
         .then(res=>{
             console.log('res :>> ');
             setHouse(res.data);

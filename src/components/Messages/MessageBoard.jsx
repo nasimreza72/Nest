@@ -15,7 +15,6 @@ export const MessageBoard = ({activeConversation, activeUser, setActiveConversat
         text:text.current.value,
         conversationId
       });
-       
     }
   }
   
