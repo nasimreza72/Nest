@@ -15,9 +15,7 @@ export default function EmailAddresse() {
   const clickHandler = (e) => {
 
     const payload = {
-      loginInfo:{
-        email: email
-      }
+      "loginInfo.email": email
     }
   
     const url = `http://localhost:7777/api/user/` + activeUser._id
