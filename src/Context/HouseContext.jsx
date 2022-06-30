@@ -16,14 +16,6 @@ export default function HouseContextProvider(props){
 
     const navigate = useNavigate();
 
-    const getUser = ()=>{
-        axios.get("http://localhost:7777/api/user")
-        .then(res=>{
-            console.log('res.data :>> ', res.data)
-            setActiveuser(res.data)
-        })
-        .catch(err=>console.log('err :>> ', err))
-    }
 
     const createConversation = () => {
         const conv = house.conversations.find(conversation=> conversation.hostId === house.hostID && conversation.userId === activeUser._id)
@@ -42,6 +34,14 @@ export default function HouseContextProvider(props){
         navigate("/messages");
     }
     
+    const getConversations = ()=>{
+        activeUser.conversations.map(conversationId=>{
+            axios.get(`http://localhost:7777/api/conversation/${conversationId}`)
+            .then(res=>console.log('conversation.data :>> ', res.data))
+            .catch(err=>console.log('err :>> ', err))
+        })
+    }
+
     useEffect(()=>{
         axios.get(`http://localhost:7777/api/house/62bd75e2026a32e39a3d0c90`)
         .then(res=>{
@@ -51,7 +51,8 @@ export default function HouseContextProvider(props){
         .catch(err=>console.log('err :>> ', err))
     },[])
     
-    const houseVariable={show,handleClose,toggleShow,setShow, house,counter,setCounter,createConversation}
+    const houseVariable={show,handleClose,toggleShow,setShow, house,counter,setCounter,createConversation,
+        getConversations}
 
     return(
         <houseContext.Provider value={houseVariable}>

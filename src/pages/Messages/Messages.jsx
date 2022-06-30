@@ -1,12 +1,12 @@
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import "./Messages.scss";
 import { MessageBoard } from "../../components/Messages/MessageBoard.jsx";
-
+import { loginContext } from "../../Context/LoginContext.jsx";
+import { houseContext } from "../../Context/HouseContext.jsx";
 
 export const Messages = ()=>{
-    
-    // this activeUser will come as props
-    const [activeUser, setActiveUser]=useState("Ömer Iliski");
+    const {activeUser, getUser} = useContext(loginContext);
+    const {getConversations} = useContext(houseContext);
     
     const conversationsArray=[{
         image:"https://a0.muscache.com/im/pictures/d0dd10d8-84f6-4f66-9e41-a6108ff3ec60.jpg?im_w=720",
@@ -58,13 +58,17 @@ export const Messages = ()=>{
             date:"08.06.2022 14:17:45"
         }
         ]
-    }
-]
-const [activeConversation, setActiveConversation] = useState(conversationsArray[0]);
-const [conversations,setconversations]=useState(conversationsArray);
+    }]
+    const [activeConversation, setActiveConversation] = useState(conversationsArray[0]);
+    const [conversations,setconversations]=useState(conversationsArray);
 
-
-return(
+    useEffect(()=>{
+        getUser();
+    },[])
+    useEffect(()=>{
+        getConversations();
+    },[activeUser])
+    return(
     <>
         <h3>My Messages</h3>
         <div className="main-container">
