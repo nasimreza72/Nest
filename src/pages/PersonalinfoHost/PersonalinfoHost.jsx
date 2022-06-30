@@ -6,6 +6,8 @@ import DateOfBirth from "../../components/Profile/DateOfBirth/DateOfBirth.jsx"
 import EmailAddresse from "../../components/Profile/EmailAdresse/EmailAddress.jsx"
 import PhoneNumber from "../../components/Profile/PhoneNumber/PhoneNumber.jsx"
 import Address from "../../components/Profile/Address/Address.jsx"
+import Interests from "../../components/Profile/Interests/Interests.jsx"
+import WhyHost from "../../components/Profile/WhyHost/WhyHost.jsx"
 import { useContext } from "react";
 import { profileContext } from "../../Context/ProfileContext";
 
@@ -16,7 +18,9 @@ export default function HostProfile (){
             dateOfBirth, setDateOfBirth,
             emailAddresse, setEmailAdresse,
             phoneNumber, setPhoneNumber,
-            address, setAddress  } = useContext(profileContext)
+            address, setAddress,
+            interestModal, setInterestModal,
+            whyHostModal, setWhyHostModal  } = useContext(profileContext)
 
 
     return(
@@ -87,14 +91,16 @@ export default function HostProfile (){
                                 <h2>Interests</h2>
                                 <div className="nameInput">Love soccer and Inline Skating</div>
                             </div>
-                            <button>Edit</button>
+                            <button onClick={ e => setInterestModal(true)}>Edit</button>
+                            { interestModal ? <Interests /> : null }
                         </div>
                         <div className="InfoAndButton" id="lastInfoCell">
                             <div className="infoCells" >
                                 <h2>Why do I want to Host</h2>
                                 <div className="nameInput">I want to help and meet other cultures</div>
                             </div>
-                            <button>Edit</button>
+                            <button onClick={ e => setWhyHostModal(true)}>Edit</button>
+                            { whyHostModal ? <WhyHost /> : null }
                         </div>
                         
                     </div>

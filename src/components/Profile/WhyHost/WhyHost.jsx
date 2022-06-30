@@ -1,21 +1,21 @@
 import React, { useState, useRef, useContext, useEffect } from 'react';
 import { profileContext } from '../../../Context/ProfileContext';
 import { loginContext } from '../../../Context/LoginContext';
-import "./PhoneNumber.scss"
-import PhoneInput from 'react-phone-number-input'
-//import 'react-phone-number-input/style.css'
+import "./WhyHost.scss"
 
 
-export default function PhoneNumber() {
-  const { phoneNumber, setPhoneNumber } = useContext(profileContext)
+export default function WhyHost() {
+  const { whyHostModal, setWhyHostModal } = useContext(profileContext)
   const { activeUser, setActiveUser } = useContext(loginContext)
-  const [ value, setValue ] = useState("")
+  const [inputTextArea, setInputTextArea] = useState("")
+
+  console.log(inputTextArea)
+  
   const clickHandler = (e) => {
-
     const payload = {
-      phoneNumbers:value
+        reasonForHosting:inputTextArea
     }
-
+  
     const url = `http://localhost:7777/api/user/` + activeUser._id
           const config ={
               method: 'PATCH',
@@ -29,27 +29,29 @@ export default function PhoneNumber() {
               .then(response => response.json())
               .then(data => console.log(data))
   }
-  
+
 
   return(
     
-    <div className="PhoneNumber">
+    <div className="WhyHost">
       <div className="modalBodey" >
           <div className="topContaine">
             <div className="topElements">
-              <h5>Phone number</h5>
-              <button onClick={ e => setPhoneNumber(false)}>Cancel</button>
+              <h5>Personal reassons for hosting</h5>
+              <button onClick={ e => setWhyHostModal(false)}>Cancel</button>
             </div>
-            <p>Add a number so the we and confirmed guests can get in touch.</p>
+            <p> 
+                Tell us why you want to help refugees by offering them housing
+            </p>
           </div>
-            <PhoneInput
-              placeholder="Enter phone number"
-              value={value}
-              onChange={setValue}
-              defaultCountry="DE"
-              />
-            <p id="paragraph">We’ll send you a code to verify your number. Standard message and data rates apply.</p>
-          <button className="buttonPhoneNumber" onClick={clickHandler}>Save</button>
+            <textarea  
+                rows="8" 
+                cols="50"
+                className="textAreaInterests" 
+                value={inputTextArea}
+                onChange={e => setInputTextArea(e.target.value)}
+            />
+            <button className="buttonWhyHosting" onClick={clickHandler}>Save</button>
       </div>
     </div>
   )
