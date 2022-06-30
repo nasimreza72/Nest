@@ -45,7 +45,8 @@ export default function LoginContextProvider(props){
                 email:email,
                 password:password
             },
-            role: "host"
+            role: "host",
+            conversation:[]
         })
         .then(function (response) {
           

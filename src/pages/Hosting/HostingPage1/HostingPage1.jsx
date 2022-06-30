@@ -17,7 +17,8 @@ export default function HostingPage1() {
         beds: 0,
         kids: 0,
         adult: 0
-    }   
+    },
+    conversations:[]
   }
   const updateHouseObj = (typeofPlace)=>{
     houseObject.typeofPlace = typeofPlace;
