@@ -1,7 +1,8 @@
 import "./hostingPage5.scss";
 import { IoMdPhotos } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { housesContext } from "../../../Context/HousesContext.jsx";
 import axios from "axios";
 
 export default function HostingPage5() {
@@ -9,7 +10,10 @@ export default function HostingPage5() {
   const [file, setFile] = useState(null);
   const [imageViewer, setImageViewer] = useState(0);
   const [secondFile, setSecondFile] = useState(null);
-  const [objectId, setObjectId] = useState("");
+  const [objectId, setObjectId] = useState(""); 
+
+  const {houseId} = useContext(housesContext);
+  console.log('houseId :>> ', houseId);
 
   function uploadFirstImage(e) {
     setFile(e.target.files[0]);
@@ -18,12 +22,8 @@ export default function HostingPage5() {
     if (file) {
       const formData = new FormData();
       formData.append("selectedFile", file);
-
-      axios
-        .patch(
-          "http://localhost:7777/api/house/addImage/62bc7be7e8cb1cb70886102f",
-          formData
-        )
+      
+      axios.patch(`http://localhost:7777/api/house/addImage/${houseId}`, formData)
         .then((result) => {
           setObjectId(result.data.fileID);
           setImageViewer(imageViewer + 1);
@@ -41,11 +41,7 @@ export default function HostingPage5() {
     if (secondFile) {
       const formData = new FormData();
       formData.append("selectedFile", secondFile);
-      axios
-        .patch(
-          "http://localhost:7777/api/house/addSecondImage/62bc7be7e8cb1cb70886102f",
-          formData
-        )
+      axios.patch(`http://localhost:7777/api/house/addSecondImage/${houseId}`, formData )
         .then((result) => setImageViewer(imageViewer + 1))
         .catch((err) => console.log("err :>> ", err));
     }

@@ -7,7 +7,7 @@ import "./Slider.scss";
 
 export const Slider = ()=>{
     
-    const {show, setShow, handleClose, house,counter, setCounter} = useContext(houseContext);
+    const {show, setShow, handleClose, house ,counter, setCounter} = useContext(houseContext);
     
 
     return(
@@ -26,7 +26,7 @@ export const Slider = ()=>{
                     {counter > 1 ? <BsArrowLeftCircle className="icon" id="icon" onClick={()=> setCounter(counter-1)}/>:null}
                   </div>
                   <div>
-                    <img src={house?.images ? house.images[counter-1]:null} alt="house-img"/>
+                    <img src={`http://localhost:7777/api/house/getImage/${house._id}/${[counter-1]}`} alt="house-img"/>
                   </div>
                   <div>
                     {counter < house?.images?.length ? <BsArrowRightCircle className="icon" onClick={()=>setCounter(counter+1)}/> : null}
