@@ -40,7 +40,7 @@ export default function HostingPage1() {
         <div className="subMainRight">
           <div 
             className="subMainRightDiv"
-            style={{outline: activeBorder === 1 ? "2px solid rgb(73, 73, 73)" : "none"}}
+            style={activeBorder === 1 ? {background: "black", color: "white"}: null}
             onClick={()=>{ updateHouseObj("House")
                            setActiveBorder(1)
                          }} >
@@ -57,7 +57,7 @@ export default function HostingPage1() {
 
           <div 
             className="subMainRightDiv"
-            style={{outline: activeBorder === 2 ? "2px solid rgb(73, 73, 73)" : "none"}}
+            style={activeBorder === 2 ? {background: "black", color: "white"}: null}
             onClick={()=>{ updateHouseObj("House")
                            setActiveBorder(2)
                          }} >
@@ -74,7 +74,7 @@ export default function HostingPage1() {
 
           <div 
             className="subMainRightDiv"
-            style={{outline: activeBorder === 3 ? "2px solid rgb(73, 73, 73)" : "none"}}
+            style={activeBorder === 3 ? {background: "black", color: "white"}: null}
             onClick={()=>{ updateHouseObj("House")
                            setActiveBorder(3)
                          }} >
@@ -91,7 +91,7 @@ export default function HostingPage1() {
 
           <div 
             className="subMainRightDiv"
-            style={{outline: activeBorder === 4 ? "2px solid rgb(73, 73, 73)" : "none"}}
+            style={activeBorder === 4 ? {background: "black", color: "white"}: null}
             onClick={()=>{ updateHouseObj("House")
                            setActiveBorder(4)
                          }} >
@@ -107,7 +107,7 @@ export default function HostingPage1() {
 
           <div 
             className="subMainRightDiv"
-            style={{outline: activeBorder === 5 ? "2px solid rgb(73, 73, 73)" : "none"}}
+            style={activeBorder === 5 ? {background: "black", color: "white"}: null}
             onClick={()=>{ updateHouseObj("House")
                            setActiveBorder(5)
                          }} >
