@@ -6,6 +6,7 @@ import LoginContextProvider from "./Context/LoginContext.jsx";
 // import TokenContextProvider from './Context/TokenContext.jsx';
 import ProfileContextProvider from "./Context/ProfileContext.jsx"
 import HousesContextProvider from './Context/HousesContext.jsx';
+import HouseContextProvider from './Context/HouseContext.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,7 +14,9 @@ root.render(
       <LoginContextProvider>
            <ProfileContextProvider>
               <HousesContextProvider>
-                <App />
+                <HouseContextProvider>
+                  <App />
+                </HouseContextProvider>
               </HousesContextProvider>
            </ProfileContextProvider>
       </LoginContextProvider>  

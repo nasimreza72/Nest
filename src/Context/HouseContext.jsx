@@ -12,18 +12,11 @@ export default function HouseContextProvider(props){
     const toggleShow = () => setShow((s) => !s);
     const [counter, setCounter]=useState(1);
     const [house,setHouse] = useState({});
+    const [conversations,setConversations] = useState([]);
     const {activeUser,setActiveuser} = useContext(loginContext);
 
     const navigate = useNavigate();
 
-    const getUser = ()=>{
-        axios.get("http://localhost:7777/api/user")
-        .then(res=>{
-            console.log('res.data :>> ', res.data)
-            setActiveuser(res.data)
-        })
-        .catch(err=>console.log('err :>> ', err))
-    }
 
     const createConversation = () => {
         const conv = house.conversations.find(conversation=> conversation.hostId === house.hostID && conversation.userId === activeUser._id)
@@ -35,15 +28,34 @@ export default function HouseContextProvider(props){
                 houseId:house._id
             }
             axios.post("http://localhost:7777/api/conversation/create",conversationObject)
-            .then(res=>console.log('res.data :>> ', res.data))
+            .then(res=>{
+                console.log('res.data :>> ', res.data)
+                const tempActiveUser = {...activeUser};
+                tempActiveUser.conversations.push();
+                setActiveuser(tempActiveUser);
+            })
             .catch(err=>console.log('err :>> ', err))
         }
         else console.log("You created a converation before");
         navigate("/messages");
     }
     
+    const getConversations = ()=>{
+        const tempConv=[]
+        activeUser.conversations.map(conversationId=>{
+            axios.get(`http://localhost:7777/api/conversation/${conversationId}`)
+            .then(res=>{
+                tempConv.push(res.data);
+                console.log('tempConv :>> ', tempConv);
+                setConversations(tempConv);   
+            })
+            .catch(err=>console.log('err :>> ', err))
+        })
+        
+    }
+
     useEffect(()=>{
-        axios.get(`http://localhost:7777/api/house/62bd75e2026a32e39a3d0c90`)
+        axios.get(`http://localhost:7777/api/house/62bdac89053e041e08e6139d`)
         .then(res=>{
             console.log('res :>> ');
             setHouse(res.data);
@@ -51,7 +63,8 @@ export default function HouseContextProvider(props){
         .catch(err=>console.log('err :>> ', err))
     },[])
     
-    const houseVariable={show,handleClose,toggleShow,setShow, house,counter,setCounter,createConversation}
+    const houseVariable={show,handleClose,toggleShow,setShow, house,counter,setCounter,createConversation,
+        getConversations, conversations}
 
     return(
         <houseContext.Provider value={houseVariable}>
