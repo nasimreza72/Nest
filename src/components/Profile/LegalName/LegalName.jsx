@@ -10,7 +10,6 @@ export default function LegalName() {
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")
   
-
   const clickHandler = (e) => {
     console.log("active from name" + activeUser)
     const payload = {
