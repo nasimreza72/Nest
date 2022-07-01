@@ -18,6 +18,8 @@ export default function Address() {
   const [city, setCity] = useState("")
   const options = useMemo(() => countryList().getData(), [])
 
+  console.log('active User Addres.jsx  :>> ', activeUser );
+
   // Belongs to the react-select-country-list................
   const changeHandler = country => {
     setCountry(country)
