@@ -28,7 +28,12 @@ export default function HouseContextProvider(props){
                 houseId:house._id
             }
             axios.post("http://localhost:7777/api/conversation/create",conversationObject)
-            .then(res=>console.log('res.data :>> ', res.data))
+            .then(res=>{
+                console.log('res.data :>> ', res.data)
+                const tempActiveUser = {...activeUser};
+                tempActiveUser.conversations.push();
+                setActiveuser(tempActiveUser);
+            })
             .catch(err=>console.log('err :>> ', err))
         }
         else console.log("You created a converation before");
@@ -41,14 +46,16 @@ export default function HouseContextProvider(props){
             axios.get(`http://localhost:7777/api/conversation/${conversationId}`)
             .then(res=>{
                 tempConv.push(res.data);
+                console.log('tempConv :>> ', tempConv);
                 setConversations(tempConv);   
             })
             .catch(err=>console.log('err :>> ', err))
         })
+        
     }
 
     useEffect(()=>{
-        axios.get(`http://localhost:7777/api/house/62bd75e2026a32e39a3d0c90`)
+        axios.get(`http://localhost:7777/api/house/62bdac89053e041e08e6139d`)
         .then(res=>{
             console.log('res :>> ');
             setHouse(res.data);

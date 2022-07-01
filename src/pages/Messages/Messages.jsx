@@ -62,14 +62,14 @@ export const Messages = ()=>{
     // const [conversations,setconversations]=useState(conversationsArray);
     
     const [activeConversation, setActiveConversation] = useState(conversations[0]);
-
     console.log('conversations :>> ', conversations);
-    useEffect(()=>{
-        getUser();
-    },[])
+    console.log('activeConversation :>> ', activeConversation);
+    // useEffect(()=>{
+    //     getUser();
+    // },[])
     useEffect(()=>{
         getConversations();
-    },[activeUser])
+    },[])
     return(
     <>
         <h3>My Messages</h3>
@@ -82,17 +82,16 @@ export const Messages = ()=>{
                             <img src={`http://localhost:7777/api/house/getImage/${conversation.houseId._id}/0`}/>
                         </div>
                         <div>
-                            {/* <p>{conversation.sender1}</p> */}
+                            <p>{conversation.hostId.loginInfo.email}</p>
                             <h3>{conversation.houseId.title}</h3>
                         </div>
-
                     </div>
                 )}
             </div>
             <div className="message-board-container">
                 <div className="header">
                     <div className="img-container">
-                        {/* <img src={activeConversation.images[0]}/> */}
+                        {/* <img src={`http://localhost:7777/api/house/getImage/${activeConversation.houseId._id}/0`}/> */}
                     </div>
                     <div>
                         {/* <p>{activeConversation.sender1}</p>
