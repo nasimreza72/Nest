@@ -10,6 +10,7 @@ export default function LegalName() {
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")
   
+  console.log('activeUser Legalname.jsx :>> ', activeUser );
 
   const clickHandler = (e) => {
     console.log("active from name" + activeUser)

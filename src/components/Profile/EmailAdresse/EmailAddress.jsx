@@ -12,6 +12,8 @@ export default function EmailAddresse() {
 
   const [email, setEmail] = useState("")
 
+  console.log('activeUser Email.jsx :>> ', activeUser);
+
   const clickHandler = (e) => {
 
     const payload = {

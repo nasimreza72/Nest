@@ -10,7 +10,7 @@ import Interests from "../../components/Profile/Interests/Interests.jsx"
 import WhyHost from "../../components/Profile/WhyHost/WhyHost.jsx"
 import { useContext } from "react";
 import { profileContext } from "../../Context/ProfileContext";
-import { loginContext } from "../../Context/LoginContext.jsx"
+import { loginContext } from "../../Context/LoginContext.jsx";
 
 
 
