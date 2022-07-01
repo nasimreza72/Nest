@@ -68,7 +68,6 @@ export default function LoginContextProvider(props){
         .catch(err=>console.log('err :>> ', err))
     }
 
-    console.log('activeUser Logincontext :>> ', activeUser);
     const loginVariable = { loginModal, setLoginModal, register, setRegister,submitLoginDetails, setSubmitLoginDetails,registerFunction,
         submitRegistrationDetails, setSubmitRegistrationDetails, activeUser, setActiveUser, login, setEmail, setPassword, email, password,
         getUser }
