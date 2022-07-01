@@ -9,7 +9,8 @@ import 'react-calendar/dist/Calendar.css'
 const Date=()=>{
     const { dateOfBirth, setDateOfBirth } = useContext(profileContext)
     const {activeUser, setActiveUser} = useContext(loginContext);
-    const [selectedDate, setSelectedDate] = useState(new Date())
+    const [selectedDate, setSelectedDate] = useState()
+
     console.log('activeUser Date:>> ', activeUser);
 
     const clickHandler = (e) => {
@@ -23,18 +24,26 @@ const Date=()=>{
         const payload = {
           dateOfBirth:selectedDate
         }
+
+        
         const url = `http://localhost:7777/api/user/` + activeUser._id
         const config ={
             method: 'PATCH',
             headers: {
                 'Content-Type':'application/json',
-                'Authorization': 'bearer ' + activeUser.password
+                'Authorization': 'bearer ' + activeUser.token
             },
             body: JSON.stringify(payload)
         }
+
+        console.log('config :>> ', config);
+
         fetch(url, config)
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then(data => {
+          console.log(data)
+          setActiveUser({...data, token:activeUser.token});
+        })
     }
 
     return(
