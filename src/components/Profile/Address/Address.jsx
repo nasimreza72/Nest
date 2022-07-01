@@ -72,7 +72,6 @@ console.log(country)
                 <input
                   type="text" 
                   className="streetName"
-                  type="text" 
                   placeholder="Street address" 
                   value={street} 
                   onChange={e => setStreet(e.target.value)} 
@@ -80,7 +79,6 @@ console.log(country)
                   <input 
                     type="text" 
                     className="houseNumber"
-                    type="text" 
                     placeholder="House number" 
                     value={houseNumber} 
                     onChange={e => setHouseNumber(e.target.value)}
@@ -89,7 +87,6 @@ console.log(country)
                     <input 
                       type="text"
                       className="city"
-                      type="text" 
                       placeholder="City" 
                       value={city} 
                       onChange={e => setCity(e.target.value)} />
@@ -97,7 +94,6 @@ console.log(country)
                     <input 
                       type="text" 
                       className="zip"
-                      type="text" 
                       placeholder="Zip code" 
                       value={zip} 
                       onChange={e => setZip(e.target.value)} /> 
