@@ -1,11 +1,12 @@
 import "./hosting.scss";
 import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { housesContext } from "../../../Context/HousesContext.jsx";
 import { loginContext } from "../../../Context/LoginContext.jsx";
 
 export default function HostingPage1() {
   let navigate = useNavigate();
+  const [ activeBorder, setActiveBorder ] = useState(0)
   const {createHouse} = useContext(housesContext);
   const {activeUser} = useContext(loginContext);
 
@@ -37,7 +38,13 @@ export default function HostingPage1() {
       </div>
       <div className="mainRight">
         <div className="subMainRight">
-          <div className="subMainRightDiv" onClick={()=>updateHouseObj("Apartment")}>
+          <div 
+            className="subMainRightDiv"
+            style={{outline: activeBorder === 1 ? "2px solid rgb(73, 73, 73)" : "none"}}
+            onClick={()=>{ updateHouseObj("House")
+                           setActiveBorder(1)
+                         }} >
+
             <div className="leftWrapper">Apartment</div>
             <div className="apartmentImage">
               <img
@@ -48,7 +55,13 @@ export default function HostingPage1() {
             </div>
           </div>
 
-          <div className="subMainRightDiv" onClick={()=>updateHouseObj("House")}>
+          <div 
+            className="subMainRightDiv"
+            style={{outline: activeBorder === 2 ? "2px solid rgb(73, 73, 73)" : "none"}}
+            onClick={()=>{ updateHouseObj("House")
+                           setActiveBorder(2)
+                         }} >
+                            
             <div className="leftWrapper">House</div>
             <div className="apartmentImage">
               <img
@@ -59,7 +72,13 @@ export default function HostingPage1() {
             </div>
           </div>
 
-          <div className="subMainRightDiv" onClick={()=>updateHouseObj("Private Room")}>
+          <div 
+            className="subMainRightDiv"
+            style={{outline: activeBorder === 3 ? "2px solid rgb(73, 73, 73)" : "none"}}
+            onClick={()=>{ updateHouseObj("House")
+                           setActiveBorder(3)
+                         }} >
+
             <div className="leftWrapper">Private Room</div>
             <div className="apartmentImage">
               <img
@@ -70,7 +89,12 @@ export default function HostingPage1() {
             </div>
           </div>
 
-          <div className="subMainRightDiv" onClick={()=>updateHouseObj("Shared Room")}>
+          <div 
+            className="subMainRightDiv"
+            style={{outline: activeBorder === 4 ? "2px solid rgb(73, 73, 73)" : "none"}}
+            onClick={()=>{ updateHouseObj("House")
+                           setActiveBorder(4)
+                         }} >
             <div className="leftWrapper">Shared Room</div>
             <div className="apartmentImage">
               <img
@@ -81,7 +105,12 @@ export default function HostingPage1() {
             </div>
           </div>
 
-          <div className="subMainRightDiv" onClick={()=>updateHouseObj("Attic")}>
+          <div 
+            className="subMainRightDiv"
+            style={{outline: activeBorder === 5 ? "2px solid rgb(73, 73, 73)" : "none"}}
+            onClick={()=>{ updateHouseObj("House")
+                           setActiveBorder(5)
+                         }} >
             <div className="leftWrapper">Attic</div>
             <div className="apartmentImage">
               <img

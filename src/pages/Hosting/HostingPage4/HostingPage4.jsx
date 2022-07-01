@@ -13,6 +13,7 @@ export default function HostingPage4() {
       </div>
       <div className="mainRight">
         <div className="subMainRight">
+          
           <div className="subMainRightDiv">
             <div className="leftWrapper">Kitchen</div>
             <div className="rightWrapper">
