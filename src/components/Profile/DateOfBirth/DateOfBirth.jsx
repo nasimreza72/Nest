@@ -15,6 +15,12 @@ export default function DateOfBirth() {
 
   
 const clickHandler = (e) => {
+  //const tempActiveUser = {...activeUser};
+  console.log("active user" + activeUser)
+  
+  console.log("#########################" )
+  //tempActiveUser.dateOfBirth=selectedDate;
+  //setActiveUser(tempActiveUser)
 
   const payload = {
     dateOfBirth:selectedDate

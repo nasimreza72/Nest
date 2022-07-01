@@ -10,6 +10,7 @@ import Interests from "../../components/Profile/Interests/Interests.jsx"
 import WhyHost from "../../components/Profile/WhyHost/WhyHost.jsx"
 import { useContext } from "react";
 import { profileContext } from "../../Context/ProfileContext";
+import { loginContext } from "../../Context/LoginContext.jsx"
 
 
 
@@ -22,8 +23,11 @@ export default function HostProfile (){
             interestModal, setInterestModal,
             whyHostModal, setWhyHostModal  } = useContext(profileContext)
 
+    const { activeUser, setActiveUser } = useContext(loginContext)
 
-    return(
+    
+    return (
+        
         <div className="PersonalinfoHost">
             <section>
                 <div className="smallNavBar">
@@ -39,7 +43,7 @@ export default function HostProfile (){
                         <div className="InfoAndButton">
                             <div className="infoCells">
                                 <h2>Legal name</h2>
-                                <div className="nameInput">Ronny Korneli</div>
+                                <div className="nameInput">peter</div>
                             </div>
                             <button onClick={e => setLegalName(true)}>Edit</button> 
                             {legalName ?  <LegalName /> : null }
@@ -47,7 +51,7 @@ export default function HostProfile (){
                         <div className="InfoAndButton">
                             <div className="infoCells">
                                 <h2>Gender</h2>
-                                <div className="nameInput">Male</div>
+                                <div className="nameInput"> hes </div>
                             </div>
                             <button onClick={e => setGender(true)}>Edit</button> 
                             {gender ?  <Gender /> : null }
@@ -56,7 +60,7 @@ export default function HostProfile (){
                         <div className="InfoAndButton">
                             <div className="infoCells">
                                 <h2>Date of birth</h2>
-                                <div className="nameInput">25.03.1977</div>
+                                <div className="nameInput"> mai 8 </div>
                             </div>
                             <button onClick={e => setDateOfBirth(true)}>Edit</button>
                             {dateOfBirth ?  <DateOfBirth /> : null }

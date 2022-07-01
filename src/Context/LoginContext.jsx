@@ -56,6 +56,7 @@ export default function LoginContextProvider(props){
         .catch(error => console.log(error)) 
     }
 
+
     const getUser = ()=>{
         const headers={
             Authorization:`Bearer ${activeUser.token}`
@@ -71,6 +72,7 @@ export default function LoginContextProvider(props){
     const loginVariable = { loginModal, setLoginModal, register, setRegister,submitLoginDetails, setSubmitLoginDetails,registerFunction,
         submitRegistrationDetails, setSubmitRegistrationDetails, activeUser, setActiveUser, login, setEmail, setPassword, email, password,
         getUser }
+
 
 
         useEffect(() => {

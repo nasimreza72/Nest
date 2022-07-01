@@ -8,9 +8,11 @@ export default function Gender() {
   const { gender, setGender } = useContext(profileContext)
   const { activeUser, setActiveUser } = useContext(loginContext)
   const [whichGender, setWhichGender] = useState("")
+
   
   const clickHandler = (e) => {
-    console.log(whichGender)
+   
+
     const payload = {
       gender: whichGender
     }
@@ -41,8 +43,12 @@ export default function Gender() {
               <button onClick={ e => setGender(false)}>Cancel</button>
             </div>
           </div>
-         <select className="selectGender" id="" placeholder="Gender" value={whichGender} onChange={e => setWhichGender(e.target.value)}>
-           <option value="Choose Gender" disabled selected>Choose gender</option>
+         <select className="selectGender" 
+                 placeholder="Gender" 
+                 value={whichGender} 
+                 onChange={e => setWhichGender(e.target.value)}
+                 defaultValue= "Choose a gender"
+          >
            <option value="He">He</option>
            <option value="She">She</option>
            <option value="Other">Other</option>

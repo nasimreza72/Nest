@@ -11,29 +11,28 @@ export default function LegalName() {
   const [lastName, setLastName] = useState("")
   
 
-
-const clickHandler = (e) => {
-  console.log("this is active user" + activeUser._id)
-  const payload = {
-    firstName: firstName,
-    lastName: lastName
+  const clickHandler = (e) => {
+    console.log("active from name" + activeUser)
+    const payload = {
+      firstName: firstName,
+      lastName: lastName
   }
-
-  const url = `http://localhost:7777/api/user/` + activeUser._id
-        const config ={
-            method: 'PATCH',
-            headers: {
-                'Content-Type':'application/json',
-                'Authorization': 'bearer ' + activeUser.password
-            },
-            body: JSON.stringify(payload)
-        }
-        fetch(url, config)
-            .then(response => response.json())
-            .then(data => console.log(data))
-}
   
-  return(
+  const url = `http://localhost:7777/api/user/` + activeUser._id
+          const config ={
+              method: 'PATCH',
+              headers: {
+                  'Content-Type':'application/json',
+                  'Authorization': 'bearer ' + activeUser.password
+              },
+              body: JSON.stringify(payload)
+          }
+          fetch(url, config)
+              .then(response => response.json())
+              .then(data => console.log(data))
+  }
+  
+  return (
     
     <div className="LegalName">
       <div className="modalBodey" >
