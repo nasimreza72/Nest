@@ -1,10 +1,21 @@
 import "./hostingPage7.scss";
-import { IoMdPhotos } from "react-icons/io";
+import { useRef, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { housesContext } from "../../../Context/HousesContext.jsx";
 
 export default function HostingPage7() {
   let navigate = useNavigate();
+  const { updateHouse } = useContext(housesContext);
+  const descriptionRef = useRef();
+
+  const next = () => {
+    const descriptionObject = {
+      description: descriptionRef.current.value,
+    };
+    updateHouse(descriptionObject);
+    navigate("../hostingPage8", { replace: true });
+  };
+
   return (
     <div className="hostingPage7">
       <div className="mainLeft">
@@ -16,6 +27,7 @@ export default function HostingPage7() {
             <h4>Create your description</h4>
             <textarea
               type="text"
+              ref={descriptionRef}
               placeholder="You'll have a great time at this comfortable place to stay."
             />
             <p>0/500</p>
@@ -31,11 +43,7 @@ export default function HostingPage7() {
               </button>
             </div>
             <div className="next">
-              <button
-                onClick={() => navigate("../hostingPage8", { replace: true })}
-              >
-                Next
-              </button>
+              <button onClick={next}>Next</button>
             </div>
           </div>
         </div>

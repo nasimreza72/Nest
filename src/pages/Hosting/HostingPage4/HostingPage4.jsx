@@ -3,9 +3,16 @@ import { MdFoodBank, MdWifi, MdTv, MdHomeWork } from "react-icons/md";
 import { GiWashingMachine, GiForkKnifeSpoon } from "react-icons/gi";
 import { CgSmartHomeRefrigerator } from "react-icons/cg";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { housesContext } from "../../../Context/HousesContext.jsx";
+
+
+
 
 export default function HostingPage4() {
+
+  const { updateHouse } = useContext(housesContext);
+
   let navigate = useNavigate();
   const defaultAmenities={
     kitchen:false,
@@ -23,7 +30,16 @@ export default function HostingPage4() {
     tempAmenities[amenity]=!tempAmenities[amenity];
     setAmenities(tempAmenities);
   }
-  console.log('amenities :>> ', amenities);
+
+  const next = () => {
+    const amenitiesObject = {
+      amenities: amenities
+    }
+
+    updateHouse(amenitiesObject);
+    navigate("../hostingPage5", { replace: true });
+  };
+
   return (
     <div className="hostingPage4">
       <div className="mainLeft">
@@ -92,7 +108,7 @@ export default function HostingPage4() {
             </div>
             <div className="next">
               <button
-                onClick={() => navigate("../hostingPage5", { replace: true })}
+                onClick={next}
               >
                 Next
               </button>
