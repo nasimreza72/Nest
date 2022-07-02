@@ -1,12 +1,12 @@
-import { useState, useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import "./Messages.scss";
 import { MessageBoard } from "../../components/Messages/MessageBoard.jsx";
 import { loginContext } from "../../Context/LoginContext.jsx";
 import { houseContext } from "../../Context/HouseContext.jsx";
 
 export const Messages = ()=>{
-    const {activeUser, getUser} = useContext(loginContext);
-    const {getConversations, conversations} = useContext(houseContext);
+    const {activeUser} = useContext(loginContext);
+    const {getConversations, conversations,activeConversation,setActiveConversation, listen} = useContext(houseContext);
     
     // const conversationsArray=[{
     //     image:"https://a0.muscache.com/im/pictures/d0dd10d8-84f6-4f66-9e41-a6108ff3ec60.jpg?im_w=720",
@@ -61,12 +61,15 @@ export const Messages = ()=>{
     // }]
     // const [conversations,setconversations]=useState(conversationsArray);
     
-    const [activeConversation, setActiveConversation] = useState(conversations[0]);
-    console.log('conversations :>> ', conversations);
-    console.log('activeConversation :>> ', activeConversation);
-    // useEffect(()=>{
-    //     getUser();
-    // },[])
+    
+    // console.log('conversations :>> ', conversations);
+    // console.log('activeConversation :>> ', activeConversation);
+  
+    const conversationClick = (index) =>{
+        setActiveConversation(index);
+        listen(index)
+    }
+
     useEffect(()=>{
         getConversations();
     },[])
@@ -75,14 +78,14 @@ export const Messages = ()=>{
         <h3>My Messages</h3>
         <div className="main-container">
             <div className="messages-container">
-                {conversations.map((conversation)=>
+                {conversations.map((conversation, index)=>
                     // console.log('message :>> ', message);
-                    <div className="message-container" onClick={()=>setActiveConversation(conversation)}>
+                    <div className="message-container" onClick={()=>conversationClick(index)}>
                         <div className="img-container">
                             <img src={`http://localhost:7777/api/house/getImage/${conversation.houseId._id}/0`}/>
                         </div>
                         <div>
-                            <p>{conversation.hostId.loginInfo.email}</p>
+                            <p>{activeUser.role === "user" ? conversation.hostId.loginInfo.email : conversation.userId.loginInfo.email}</p>
                             <h3>{conversation.houseId.title}</h3>
                         </div>
                     </div>
@@ -91,14 +94,14 @@ export const Messages = ()=>{
             <div className="message-board-container">
                 <div className="header">
                     <div className="img-container">
-                        {/* <img src={`http://localhost:7777/api/house/getImage/${activeConversation.houseId._id}/0`}/> */}
+                        <img src={`http://localhost:7777/api/house/getImage/${conversations[activeConversation]?.houseId?._id}/0`}/>
                     </div>
                     <div>
-                        {/* <p>{activeConversation.sender1}</p>
-                        <h3>{activeConversation.house}</h3> */}
+                        <p>{activeUser.role === "user" ? conversations[activeConversation]?.hostId?.loginInfo.email : conversations[activeConversation]?.userId?.loginInfo.email}</p>
+                        <h3>{conversations[activeConversation]?.houseId?.title}</h3>
                     </div>
                 </div>
-                {/* <MessageBoard activeUser={activeUser} activeConversation={activeConversation} setActiveConversation={setActiveConversation}/> */}
+                <MessageBoard/>
             </div>
         </div>
     </>
