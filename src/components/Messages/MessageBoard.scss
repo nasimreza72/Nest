@@ -3,7 +3,7 @@
 .conversation-container{
    border: 1px solid rgb(226, 218, 218);
    height: 70vh;
-   padding: 2rem 1rem 1rem 1rem;
+   padding: 1rem;
    display: flex;
    flex-direction: column;
    justify-content: space-between;
@@ -11,23 +11,25 @@
    width: 100%;
    .conversation{
        overflow-y: scroll;
+       padding-bottom: 1.7rem;
+       padding-top: .5rem;
        .host-container{
            text-align: right;
-           margin-bottom: 1rem;
+           margin-bottom: .5rem;
            .host{
                background-color: #808080;
                color: white;
-               padding: .5rem;
+               padding: .3rem;
                border-radius: 7px;
             }
         }
         .client-container{
             text-align: left;
-            margin-bottom: 1rem;
+            margin-bottom: .5rem;
             .client{
                 @include nestRedBackground;
                 color: white;
-                padding: .5rem;
+                padding: .3rem;
                 border-radius: 7px;
             }
         }

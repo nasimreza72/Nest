@@ -1,38 +1,36 @@
 import "./MessageBoard.scss";
-import {useEffect, useContext} from "react";
-import { houseContext, listen } from "../../Context/HouseContext.jsx";
+import {useContext, useRef, useEffect} from "react";
+import { houseContext } from "../../Context/HouseContext.jsx";
 import { loginContext } from "../../Context/LoginContext.jsx";
 
-
 export const MessageBoard = () => {
-  const {activeConversation, listen,addMessage, conversations, text} = useContext(houseContext);
+  const {activeConversation, addMessage, conversations, text} = useContext(houseContext);
   const {activeUser} = useContext(loginContext);
   
-
-  console.log('conversations :>> ', conversations);
-  console.log('activeConversation :>> ', activeConversation);
-
+  const conversation = useRef();
   
+  
+  useEffect(()=>{
+    //  document.querySelector(".conversation").scrollIntoView();
+    document.querySelector(".conversation").scrollTop = 1000;
+  },[activeConversation])
+
   return (
     <div className="conversation-container">
-      <div className="conversation">
+      <div className="conversation" ref={conversation}>
         {conversations[activeConversation]?.messages.map((text, index) =>
-         <div className={
+        <div className={
               text.authorId === activeUser._id
               ? "host-container"
-              : "client-container"
-            }>
+              : "client-container"}>
             <span
-            className={
+              className={
               text.authorId === activeUser._id
               ? "host"
-              : "client"
-            }
-            >
-            {text.text}
-          </span>
-        </div>
-        )}
+              : "client"}>
+              {text.text}
+            </span>
+        </div>)}
       </div>
       <div className="input-container">
         <input className="text-input" onKeyDown={(e)=>e.key === "Enter" ? addMessage() : null} type="text" ref={text}/>

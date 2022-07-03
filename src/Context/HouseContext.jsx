@@ -61,7 +61,7 @@ export default function HouseContextProvider(props){
         .catch(err=>console.log('err :>> ', err))
     }
 
-    // this function gets the conver
+    // this function gets the conversation
     // const getConversation = (conversationId)=>{
     //     axios.get(`http://localhost:7777/api/conversation/${conversationId}`)
     //     .then(res=>console.log('res.data :>> ', res.data))
@@ -75,15 +75,8 @@ export default function HouseContextProvider(props){
     }
 
     const listen=(conversationsData, index)=>{
-        // socket.disconnect();
-        // socket.emit('forceDisconnect');
-        // console.log( 'listen index:>> ',index);
-        
-        // console.log('conversations[index]._id :>> ', conversations[index]?._id);
 
         socket.on(conversationsData[index]._id,(data)=>{
-            //   console.log('data :>> ', data);
-          // const tempActiveConversation={...activeConversation}
           const tempConversations = [...conversationsData];
           const message={
             text:data.text,
@@ -94,7 +87,7 @@ export default function HouseContextProvider(props){
           tempConversations[index].messages.push(message);
           setConversations(tempConversations);
           updateConversation(conversationsData[index]._id, tempConversations[index]);
-        //   if(text) text.current.value=""; 
+            text.current.value=""; 
         })
     }
 
@@ -106,10 +99,11 @@ export default function HouseContextProvider(props){
           authorId:activeUser._id
         });
       }
+      document.querySelector(".conversation").scrollTop = 1000;
     }
 
     useEffect(()=>{
-        axios.get(`http://localhost:7777/api/house/62c05038446ce1f715cc4cb6`)
+        axios.get(`http://localhost:7777/api/house/62c04abf446ce1f715cc4c00`)
         .then(res=>{
             console.log('res :>> ');
             setHouse(res.data);
