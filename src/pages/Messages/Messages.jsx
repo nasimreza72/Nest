@@ -67,12 +67,18 @@ export const Messages = ()=>{
   
     const conversationClick = (index) =>{
         setActiveConversation(index);
-        listen(index)
+        // getConversations();
+        // getConversation(conversations[index]._id);
+        // listen(index);
     }
 
     useEffect(()=>{
         getConversations();
     },[])
+    // useEffect(()=>{
+    //     console.log('conversations UseEffect :>> ', conversations);
+        
+    //   },[])
     return(
     <>
         <h3>My Messages</h3>

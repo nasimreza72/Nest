@@ -1,6 +1,6 @@
 import "./MessageBoard.scss";
 import {useEffect, useContext} from "react";
-import { houseContext } from "../../Context/HouseContext.jsx";
+import { houseContext, listen } from "../../Context/HouseContext.jsx";
 import { loginContext } from "../../Context/LoginContext.jsx";
 
 
@@ -12,19 +12,17 @@ export const MessageBoard = () => {
   console.log('conversations :>> ', conversations);
   console.log('activeConversation :>> ', activeConversation);
 
-  useEffect(()=>{
-    listen();
-  },[])
+  
   return (
-    <div className="messages">
-      <div>
-        {conversations[activeConversation]?.messages.map((text) =>
-        <div className={
-          text.authorId === activeUser._id
-          ? "host-container"
-          : "client-container"
-        }>
-          <span
+    <div className="conversation-container">
+      <div className="conversation">
+        {conversations[activeConversation]?.messages.map((text, index) =>
+         <div className={
+              text.authorId === activeUser._id
+              ? "host-container"
+              : "client-container"
+            }>
+            <span
             className={
               text.authorId === activeUser._id
               ? "host"

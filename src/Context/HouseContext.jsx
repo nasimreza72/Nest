@@ -23,7 +23,10 @@ export default function HouseContextProvider(props){
 
 
     const createConversation = () => {
+
+        // find conversation between host and user about this house
         const conv = house.conversations.find(conversation=> conversation.hostId === house.hostID && conversation.userId === activeUser._id)
+        
         if(!conv){
             const conversationObject={
                 hostId:house.hostID,
@@ -46,27 +49,52 @@ export default function HouseContextProvider(props){
 
     // This functions gets the active user's conversations
     const getConversations = ()=>{
-        console.log("getConversations")
         axios.get(`http://localhost:7777/api/conversation/user/${activeUser._id}`)
         .then((res)=>{
-            console.log('res.data :>> ', res.data)
             setConversations(res.data);
+            console.log("getConversations runs+++++++")
+            res.data.map((text, index) =>{
+                console.log('index !!!!!!!!!!!!!!!!!:>> ', index);
+                listen(res.data, index)
+              })
         })
         .catch(err=>console.log('err :>> ', err))
     }
 
-    const listen=(index)=>{
-        console.log( 'index:>> ',index);
-        socket.on(conversations[index]._id,(data)=>{
-          console.log('data :>> ', data);
+    // this function gets the conver
+    // const getConversation = (conversationId)=>{
+    //     axios.get(`http://localhost:7777/api/conversation/${conversationId}`)
+    //     .then(res=>console.log('res.data :>> ', res.data))
+    //     .catch(err=>console.log('err :>> ', err))
+    // }
+
+    const updateConversation = (conversationId, newMessage) =>{
+        axios.patch(`http://localhost:7777/api/conversation/${conversationId}`, newMessage)
+        .then(res=>console.log('res.data  updateConversation:>> ', res.data))
+        .catch(err=>console.log('err :>> ', err))
+    }
+
+    const listen=(conversationsData, index)=>{
+        // socket.disconnect();
+        // socket.emit('forceDisconnect');
+        // console.log( 'listen index:>> ',index);
+        
+        // console.log('conversations[index]._id :>> ', conversations[index]?._id);
+
+        socket.on(conversationsData[index]._id,(data)=>{
+            //   console.log('data :>> ', data);
           // const tempActiveConversation={...activeConversation}
-          // tempActiveConversation.texts.push({
-          //   sender:activeUser,
-          //   text:data,
-          //   date:Date.now()
-          // })
-          // setActiveConversation(tempActiveConversation);
-          if(text) text.current.value=""; 
+          const tempConversations = [...conversationsData];
+          const message={
+            text:data.text,
+            authorId:data.authorId,
+            date:Date.now()
+          }
+          console.log('message !!!!!!!!!!!!:>> ', message);
+          tempConversations[index].messages.push(message);
+          setConversations(tempConversations);
+          updateConversation(conversationsData[index]._id, tempConversations[index]);
+        //   if(text) text.current.value=""; 
         })
     }
 
@@ -81,7 +109,7 @@ export default function HouseContextProvider(props){
     }
 
     useEffect(()=>{
-        axios.get(`http://localhost:7777/api/house/62c03e19830812ce9116b252`)
+        axios.get(`http://localhost:7777/api/house/62c05038446ce1f715cc4cb6`)
         .then(res=>{
             console.log('res :>> ');
             setHouse(res.data);
