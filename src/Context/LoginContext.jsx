@@ -37,7 +37,6 @@ export default function LoginContextProvider(props){
     .catch(error => console.log(error))
     }
 
-   
     const registerFunction = ()=>{
         axios.post('http://localhost:7777/api/user/register', {
             loginInfo: 
