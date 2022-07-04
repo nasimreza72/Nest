@@ -10,6 +10,10 @@ const Date=()=>{
     const { dateOfBirth, setDateOfBirth } = useContext(profileContext)
     const {activeUser, setActiveUser} = useContext(loginContext);
     const [selectedDate, setSelectedDate] = useState()
+<<<<<<< HEAD
+=======
+
+>>>>>>> 194b552ea84a1cd9ac0ac83dcea2d6351f8e5d5e
     console.log('activeUser Date:>> ', activeUser);
 
     const clickHandler = (e) => {
@@ -22,6 +26,8 @@ const Date=()=>{
         const payload = {
           dateOfBirth:selectedDate
         }
+
+        
         const url = `http://localhost:7777/api/user/` + activeUser._id
         const config ={
             method: 'PATCH',
@@ -31,9 +37,15 @@ const Date=()=>{
             },
             body: JSON.stringify(payload)
         }
+
+        console.log('config :>> ', config);
+
         fetch(url, config)
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then(data => {
+          console.log(data)
+          setActiveUser({...data, token:activeUser.token});
+        })
     }
 
     return(

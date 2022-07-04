@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+.Footer{
+    width: 100vw;
+    height: 48px;
+    padding: 0px 7vw;
+    border-top: .5px solid lightgray ;
+    font-size: 14px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    .leftFooter{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: rgb(78, 78, 78);
+        div, button{
+            margin-right: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .MdCopyright{
+                margin-right: 5px;
+            }
+        }
+    }
+
+    .rightFooter{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: rgb(59, 59, 59);
+        font-size: 15px;
+        font-weight: bold;
+
+        button{
+            margin-left: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .TbWorld, .MdEuro{
+                margin-right: 5px;
+            }
+
+            .BiUpArrow{
+                margin-left: 5px;
+            }
+        }
+    }
+}

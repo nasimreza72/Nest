@@ -25,19 +25,15 @@ export default function LoginContextProvider(props){
 
         // if there is an error it goes to catch, that's why we can write the alert to the catch block
         // Instead of alert we should add an error message
-        // Can we take this function to the Login Context
         // Instead of loginContext and TokenContext can we use one userContext?
           
-        // setToken(response.data.token)
         setActiveUser(response.data)
-        console.log('response.data :>> ', response.data);
         //navigate("/account")
         
     })
     .catch(error => console.log(error))
     }
 
-   
     const registerFunction = ()=>{
         axios.post('http://localhost:7777/api/user/register', {
             loginInfo: 
@@ -49,9 +45,7 @@ export default function LoginContextProvider(props){
             conversation:[]
         })
         .then(function (response) {
-          
             console.log(response)
-            
         })
         .catch(error => console.log(error)) 
     }
