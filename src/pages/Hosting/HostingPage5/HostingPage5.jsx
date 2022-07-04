@@ -23,7 +23,7 @@ export default function HostingPage5() {
       const formData = new FormData();
       formData.append("selectedFile", file);
       
-      axios.patch(`http://localhost:7777/api/house/addImage/${houseId}`, formData)
+      axios.patch(`${process.env.REACT_APP_URL}/api/house/addImage/${houseId}`, formData)
         .then((result) => {
           setObjectId(result.data.fileID);
           setImageViewer(imageViewer + 1);
@@ -41,7 +41,8 @@ export default function HostingPage5() {
     if (secondFile) {
       const formData = new FormData();
       formData.append("selectedFile", secondFile);
-      axios.patch(`http://localhost:7777/api/house/addSecondImage/${houseId}`, formData )
+      
+      axios.patch(`${process.env.REACT_APP_URL}/api/house/addSecondImage/${houseId}`, formData )
         .then((result) => setImageViewer(imageViewer + 1))
         .catch((err) => console.log("err :>> ", err));
     }
@@ -83,7 +84,7 @@ export default function HostingPage5() {
               <div className="wrapper">
                 {imageViewer >= 1 && (
                   <img
-                    src={`http://localhost:7777/api/house/getImage/${objectId}/0`}
+                    src={`${process.env.REACT_APP_URL}/api/house/getImage/${objectId}/0`}
                   />
                 )}
 
@@ -99,7 +100,7 @@ export default function HostingPage5() {
                     />
                     {imageViewer > 1 && (
                       <img
-                        src={`http://localhost:7777/api/house/getImage/${objectId}/1`}
+                        src={`${process.env.REACT_APP_URL}/api/house/getImage/${objectId}/1`}
                         alt=""
                       />
                     )}
@@ -114,7 +115,7 @@ export default function HostingPage5() {
                     />
                     {imageViewer > 2 && (
                       <img
-                        src={`http://localhost:7777/api/house/getImage/${objectId}/2`}
+                        src={`${process.env.REACT_APP_URL}/api/house/getImage/${objectId}/2`}
                         alt=""
                       />
                     )}
@@ -130,7 +131,7 @@ export default function HostingPage5() {
                     />
                     {imageViewer > 3 && (
                       <img
-                        src={`http://localhost:7777/api/house/getImage/${objectId}/3`}
+                        src={`${process.env.REACT_APP_URL}/api/house/getImage/${objectId}/3`}
                         alt=""
                       />
                     )}
@@ -145,7 +146,7 @@ export default function HostingPage5() {
                     />
                     {imageViewer > 4 && (
                       <img
-                        src={`http://localhost:7777/api/house/getImage/${objectId}/4`}
+                        src={`${process.env.REACT_APP_URL}/api/house/getImage/${objectId}/4`}
                         alt=""
                       />
                     )}

@@ -9,7 +9,8 @@ export default function HousesContextProvider(props){
     
     const createHouse = (houseObject)=>{
         console.log("createHouse");
-        axios.post("http://localhost:7777/api/house/create", houseObject)
+        
+        axios.post(`${process.env.REACT_APP_URL}/api/house/create`, houseObject)
         .then(res=>{
             console.log('res.data :>> ', res.data._id)
             setHouseId(res.data._id);
@@ -19,7 +20,8 @@ export default function HousesContextProvider(props){
 
     const updateHouse = (houseObject)=>{
         console.log("createHouse");
-        axios.patch(`http://localhost:7777/api/house/create/${houseId}`, houseObject)
+        
+        axios.patch(`${process.env.REACT_APP_URL}/api/house/create/${houseId}`, houseObject)
         .then(res=>{
             console.log('Update message >> ', res.data.message)
         })
