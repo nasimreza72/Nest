@@ -10,9 +10,8 @@ export default function HostingPage2() {
   const [showAddressForm, setShowAddressForm] = useState(false);
 
   let navigate = useNavigate();
-  const addressRef = useRef()
+  const addressRef = useRef();
   const { updateHouse } = useContext(housesContext);
-
 
   function addAddress() {
     Geocode.setApiKey(process.env.REACT_APP_GOOGLE_API_KEY);
@@ -20,21 +19,22 @@ export default function HostingPage2() {
     Geocode.setLocationType("ROOFTOP");
     Geocode.enableDebug();
 
-      navigator.geolocation.getCurrentPosition((position) => {
+    navigator.geolocation.getCurrentPosition((position) => {
       Geocode.fromLatLng(
         position.coords.latitude,
         position.coords.longitude
       ).then(
         (response) => {
+          console.log("response :>> ", response);
           const address = response.results[0].formatted_address;
-          addressRef.current.value = address
+          addressRef.current.value = address;
           console.log("Current location address-->", address);
         },
         (error) => {
           console.error(error);
         }
-      )
-    })
+      );
+    });
 
     Geocode.fromAddress("Soldiner Str. 36, 13359 Berlin, Germany").then(
       (response) => {
@@ -44,20 +44,16 @@ export default function HostingPage2() {
       (error) => {
         console.error(error);
       }
-    )
+    );
   }
 
-
   const next = () => {
-
     const addressObject = {
       address: addressRef.current.value,
-    }
+    };
     updateHouse(addressObject);
     navigate("../hostingPage3", { replace: true });
   };
-
-
 
   return (
     <div className="hostingPage2">
@@ -124,11 +120,7 @@ export default function HostingPage2() {
               </button>
             </div>
             <div className="next">
-              <button
-                onClick={next}
-              >
-                Next
-              </button>
+              <button onClick={next}>Next</button>
             </div>
           </div>
         </div>
