@@ -1,49 +1,43 @@
-import "./DateOfBirth.scss"
-import React, { useState ,useRef, useContext, useEffect } from 'react';
+import { useContext,useState } from "react"
 import { profileContext } from '../../../Context/ProfileContext';
-import { loginContext } from '../../../Context/LoginContext';
-
+import { loginContext } from "../../../Context/LoginContext.jsx"
+import "./DateOfBirth.scss"
 import DatePicker from 'react-date-picker';
 import 'react-date-picker/dist/DatePicker.css';
 import 'react-calendar/dist/Calendar.css'
 
+const Date=()=>{
+    const { dateOfBirth, setDateOfBirth } = useContext(profileContext)
+    const {activeUser, setActiveUser} = useContext(loginContext);
+    const [selectedDate, setSelectedDate] = useState()
+    console.log('activeUser Date:>> ', activeUser);
 
-export default function DateOfBirth() {
-  const { dateOfBirth, setDateOfBirth } = useContext(profileContext)
-  const { activeUser, setActiveUser } = useContext(loginContext)
-  const [selectedDate, setSelectedDate] = useState(new Date())
-
-  
-const clickHandler = (e) => {
-  //const tempActiveUser = {...activeUser};
-  console.log("active user" + activeUser)
-  
-  console.log("#########################" )
-  //tempActiveUser.dateOfBirth=selectedDate;
-  //setActiveUser(tempActiveUser)
-
-  const payload = {
-    dateOfBirth:selectedDate
-  }
-
-  const url = `http://localhost:7777/api/user/` + activeUser._id
+    const clickHandler = (e) => {
+        //const tempActiveUser = {...activeUser};
+        console.log("active user" + activeUser)
+        console.log("#########################" )
+        //tempActiveUser.dateOfBirth=selectedDate;
+        //setActiveUser(tempActiveUser)
+      
+        const payload = {
+          dateOfBirth:selectedDate
+        }
+        const url = `http://localhost:7777/api/user/` + activeUser._id
         const config ={
             method: 'PATCH',
             headers: {
                 'Content-Type':'application/json',
-                'Authorization': 'bearer ' + activeUser.password
+                'Authorization': 'bearer ' + activeUser.token
             },
             body: JSON.stringify(payload)
         }
         fetch(url, config)
-            .then(response => response.json())
-            .then(data => console.log(data))
-}
+        .then(response => response.json())
+        .then(data => console.log(data))
+    }
 
-
-  return(
-    
-    <div className="DateOfBirth">
+    return(
+        <div className="DateOfBirth">
       <div className="modalBodey" >
           <div className="topContaine">
             <div className="topElements">
@@ -60,6 +54,7 @@ const clickHandler = (e) => {
           <button className="buttonBirthDate" onClick={clickHandler}>Save</button>
       </div>
     </div>
-  )
-
+    )
 }
+
+export default Date;

@@ -86,6 +86,8 @@ export default function LoginContextProvider(props){
           }
       }, [activeUser])
 
+
+      console.log('activeUser LoginContext:>> ', activeUser);
     return(
         <loginContext.Provider value={loginVariable}>
             {props.children}
