@@ -81,9 +81,6 @@ export default function LoginContextProvider(props){
               localStorage.removeItem('activeUser') /// what does this do???
           }
       }, [activeUser])
-
-
-      console.log('activeUser LoginContext:>> ', activeUser);
     return(
         <loginContext.Provider value={loginVariable}>
             {props.children}

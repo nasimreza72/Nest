@@ -8,8 +8,6 @@ export default function Login(){
 
     const { loginModal, setLoginModal, submitLoginDetails, setSubmitLoginDetails, login } = useContext(loginContext)
 
-    console.log("subm it thingi" + submitLoginDetails)
-
     // Disable Modal by clicking outside............
     let menuRef = useRef()
 
