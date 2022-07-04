@@ -1,6 +1,8 @@
 import "./hostingPage3.scss";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { housesContext } from "../../../Context/HousesContext.jsx";
+
 
 export default function HostingPage3() {
   let navigate = useNavigate();
@@ -8,6 +10,25 @@ export default function HostingPage3() {
   const [kidsCount, setKidsCount] = useState(0);
   const [bedsCount, setBedsCount] = useState(0);
   const [bedRoomsCount, setBedRoomsCount] = useState(0);
+
+  const { updateHouse } = useContext(housesContext);
+
+
+
+  const next = () => {
+
+    const guestsObject = {
+      guests: {
+        adult: adultCount,
+        kids: kidsCount,
+        beds: bedsCount,
+        bedrooms: bedRoomsCount
+      }
+    }
+    updateHouse(guestsObject);
+    navigate("../hostingPage4", { replace: true });
+  };
+
 
   return (
     <div className="hostingPage3">
@@ -121,7 +142,7 @@ export default function HostingPage3() {
             </div>
             <div className="next">
               <button
-                onClick={() => navigate("../hostingPage4", { replace: true })}
+                onClick={next}
               >
                 Next
               </button>

@@ -6,30 +6,28 @@ import { loginContext } from "../../../Context/LoginContext.jsx";
 
 export default function HostingPage1() {
   let navigate = useNavigate();
-  const [ activeBorder, setActiveBorder ] = useState(0)
-  const {createHouse} = useContext(housesContext);
-  const {activeUser} = useContext(loginContext);
+  const [activeBorder, setActiveBorder] = useState(0);
+  const [typeOfPlace, setTypeOfPlace] = useState(" ");
+  const { createHouse } = useContext(housesContext);
+  const { activeUser } = useContext(loginContext);
 
-  const houseObject={
-    hostID:activeUser._id,
-    title:" ",
-    description:"lökölk",
+  const houseObject = {
+    hostID: activeUser._id,
+    typeOfPlace: typeOfPlace,
+    title: "Quiet and peaceful place",
+    description: "Beautiful place and good neighborhood",
     guests: {
-        beds: 0,
-        kids: 0,
-        adult: 0
+      adult: 0,
+      kids: 0,
+      beds: 0,
     },
-    conversations:[]
-  }
-  const updateHouseObj = (typeofPlace)=>{
-    houseObject.typeofPlace = typeofPlace;
-    console.log('houseObject :>> ', houseObject);
-  }
+    conversations: [],
+  };
 
-   const next=()=>{
-     createHouse(houseObject);
+  const next = () => {
+    createHouse(houseObject);
     navigate("../hostingPage2", { replace: true });
-   } 
+  };
 
   return (
     <div className="hostingPage1">
@@ -38,13 +36,18 @@ export default function HostingPage1() {
       </div>
       <div className="mainRight">
         <div className="subMainRight">
-          <div 
+          <div
             className="subMainRightDiv"
-            style={{outline: activeBorder === 1 ? "2px solid rgb(73, 73, 73)" : "none"}}
-            onClick={()=>{ updateHouseObj("House")
-                           setActiveBorder(1)
-                         }} >
-
+            style={
+              activeBorder === 1
+                ? { background: "black", color: "white" }
+                : null
+            }
+            onClick={() => {
+              setTypeOfPlace("Apartment");
+              setActiveBorder(1);
+            }}
+          >
             <div className="leftWrapper">Apartment</div>
             <div className="apartmentImage">
               <img
@@ -55,13 +58,18 @@ export default function HostingPage1() {
             </div>
           </div>
 
-          <div 
+          <div
             className="subMainRightDiv"
-            style={{outline: activeBorder === 2 ? "2px solid rgb(73, 73, 73)" : "none"}}
-            onClick={()=>{ updateHouseObj("House")
-                           setActiveBorder(2)
-                         }} >
-                            
+            style={
+              activeBorder === 2
+                ? { background: "black", color: "white" }
+                : null
+            }
+            onClick={() => {
+              setTypeOfPlace("House");
+              setActiveBorder(2);
+            }}
+          >
             <div className="leftWrapper">House</div>
             <div className="apartmentImage">
               <img
@@ -72,13 +80,18 @@ export default function HostingPage1() {
             </div>
           </div>
 
-          <div 
+          <div
             className="subMainRightDiv"
-            style={{outline: activeBorder === 3 ? "2px solid rgb(73, 73, 73)" : "none"}}
-            onClick={()=>{ updateHouseObj("House")
-                           setActiveBorder(3)
-                         }} >
-
+            style={
+              activeBorder === 3
+                ? { background: "black", color: "white" }
+                : null
+            }
+            onClick={() => {
+              setTypeOfPlace("Private Room");
+              setActiveBorder(3);
+            }}
+          >
             <div className="leftWrapper">Private Room</div>
             <div className="apartmentImage">
               <img
@@ -89,12 +102,18 @@ export default function HostingPage1() {
             </div>
           </div>
 
-          <div 
+          <div
             className="subMainRightDiv"
-            style={{outline: activeBorder === 4 ? "2px solid rgb(73, 73, 73)" : "none"}}
-            onClick={()=>{ updateHouseObj("House")
-                           setActiveBorder(4)
-                         }} >
+            style={
+              activeBorder === 4
+                ? { background: "black", color: "white" }
+                : null
+            }
+            onClick={() => {
+              setTypeOfPlace("Shared Room");
+              setActiveBorder(4);
+            }}
+          >
             <div className="leftWrapper">Shared Room</div>
             <div className="apartmentImage">
               <img
@@ -105,12 +124,18 @@ export default function HostingPage1() {
             </div>
           </div>
 
-          <div 
+          <div
             className="subMainRightDiv"
-            style={{outline: activeBorder === 5 ? "2px solid rgb(73, 73, 73)" : "none"}}
-            onClick={()=>{ updateHouseObj("House")
-                           setActiveBorder(5)
-                         }} >
+            style={
+              activeBorder === 5
+                ? { background: "black", color: "white" }
+                : null
+            }
+            onClick={() => {
+              setTypeOfPlace("Attic");
+              setActiveBorder(5);
+            }}
+          >
             <div className="leftWrapper">Attic</div>
             <div className="apartmentImage">
               <img
@@ -129,11 +154,7 @@ export default function HostingPage1() {
               </button>
             </div>
             <div className="next">
-              <button
-                onClick={next}
-              >
-                Next
-              </button>
+              <button onClick={next}>Next</button>
             </div>
           </div>
         </div>

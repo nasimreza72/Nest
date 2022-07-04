@@ -1,31 +1,36 @@
 @import "../../mixin.scss";
 
-.messages{
+.conversation-container{
    border: 1px solid rgb(226, 218, 218);
-   height: 75vh;
-   padding: 2rem 1rem 1rem 1rem;
+   height: 70vh;
+   padding: 1rem;
    display: flex;
    flex-direction: column;
    justify-content: space-between;
    @include shadow;
-   .host-container{
-       text-align: right;
-        margin-bottom: 1rem;
-       .host{
-           background-color: #808080;
-           color: white;
-           padding: .5rem;
-           border-radius: 7px;
+   width: 100%;
+   .conversation{
+       overflow-y: scroll;
+       padding:.5rem .5rem 1.7rem .5rem;
+       .host-container{
+           text-align: right;
+           margin-bottom: .7rem;
+           .host{
+               background-color: #808080;
+               color: white;
+               padding: .3rem;
+               border-radius: 7px;
+            }
         }
-    }
-    .client-container{
-        text-align: left;
-        margin-bottom: 1rem;
-        .client{
-            @include nestRedBackground;
-            color: white;
-            padding: .5rem;
-            border-radius: 7px;
+        .client-container{
+            text-align: left;
+            margin-bottom: .7rem;
+            .client{
+                @include nestRedBackground;
+                color: white;
+                padding: .3rem;
+                border-radius: 7px;
+            }
         }
     }
     .input-container{

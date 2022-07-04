@@ -5,7 +5,7 @@ export const housesContext = createContext()
 
 export default function HousesContextProvider(props){
 
-    const [houseId, setHouseId] = useState(0);
+    const [houseId, setHouseId] = useState(null);
     
     const createHouse = (houseObject)=>{
         console.log("createHouse");
@@ -17,8 +17,18 @@ export default function HousesContextProvider(props){
         .catch(err=>console.log('err :>> ', err))
     }
 
+    const updateHouse = (houseObject)=>{
+        console.log("createHouse");
+        axios.patch(`http://localhost:7777/api/house/create/${houseId}`, houseObject)
+        .then(res=>{
+            console.log('Update message >> ', res.data.message)
+        })
+        .catch(err=>console.log('err :>> ', err))
+    }
 
-    const housesVariable={createHouse, houseId}
+
+
+    const housesVariable={createHouse, updateHouse, houseId}
   
     return(
         <housesContext.Provider value={housesVariable}>
