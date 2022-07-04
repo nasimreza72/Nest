@@ -16,7 +16,6 @@ const Date=()=>{
     const clickHandler = (e) => {
         //const tempActiveUser = {...activeUser};
         console.log("active user" + activeUser)
-        
         console.log("#########################" )
         //tempActiveUser.dateOfBirth=selectedDate;
         //setActiveUser(tempActiveUser)

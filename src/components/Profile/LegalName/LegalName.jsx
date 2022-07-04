@@ -10,8 +10,6 @@ export default function LegalName() {
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")
   
-  console.log('activeUser Legalname.jsx :>> ', activeUser );
-
   const clickHandler = (e) => {
     console.log("active from name" + activeUser)
     const payload = {
@@ -24,7 +22,7 @@ export default function LegalName() {
               method: 'PATCH',
               headers: {
                   'Content-Type':'application/json',
-                  'Authorization': 'bearer ' + activeUser.password
+                  'Authorization': 'bearer ' + activeUser.token
               },
               body: JSON.stringify(payload)
           }
