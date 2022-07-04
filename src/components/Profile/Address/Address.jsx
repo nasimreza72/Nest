@@ -27,14 +27,14 @@ export default function Address() {
 ///////////////////////////////////////////////////////////////
 
 const clickHandler = (e) => {
-console.log(country)
+
   const payload = {
    address : {
       street: street,
       houseNumber:houseNumber,
       zip:zip,
       city:city,
-      country: country
+      country: country.label
    }
   }
   const url = `${process.env.REACT_APP_URL}/api/user/` + activeUser._id
@@ -49,6 +49,8 @@ console.log(country)
         fetch(url, config)
             .then(response => response.json())
             .then(data => console.log(data))
+
+        setAddress(false)
 }
   return(
     

@@ -28,7 +28,10 @@ export default function LegalName() {
           }
           fetch(url, config)
               .then(response => response.json())
-              .then(data => console.log(data))
+              .then(data => { console.log(data)})
+
+              setLegalName(false)
+
   }
   
   return (

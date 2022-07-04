@@ -27,6 +27,7 @@ export default function Interests() {
           fetch(url, config)
               .then(response => response.json())
               .then(data => console.log(data))
+              setInterestModal(false)
   }
 
 
