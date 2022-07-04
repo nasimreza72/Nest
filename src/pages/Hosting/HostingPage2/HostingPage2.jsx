@@ -7,6 +7,7 @@ import { useState, useRef, useContext } from "react";
 import Geocode from "react-geocode";
 
 export default function HostingPage2() {
+  let addressObject={}
   const [showAddressForm, setShowAddressForm] = useState(false);
 
   let navigate = useNavigate();
@@ -25,10 +26,38 @@ export default function HostingPage2() {
         position.coords.longitude
       ).then(
         (response) => {
-          console.log("response :>> ", response);
-          const address = response.results[0].formatted_address;
-          addressRef.current.value = address;
-          console.log("Current location address-->", address);
+
+          // console.log('response from address :>> ', response);
+          // const address = response.results[0].formatted_address;
+          
+          // console.log("Current location address-->", address);
+            const address = response.results[0].formatted_address;
+            addressRef.current.value = address
+            let city, country;
+            for (let i = 0; i < response.results[0].address_components.length; i++) {
+              for (let j = 0; j < response.results[0].address_components[i].types.length; j++) {
+          
+                // eslint-disable-next-line default-case
+                switch (response.results[0].address_components[i].types[j]) {
+                  case "locality":
+                    city = response.results[0].address_components[i].long_name;
+                    break;
+                  case "country":
+                    country = response.results[0].address_components[i].long_name;
+                    break;
+                }
+              }
+            }
+            addressObject={
+              city,
+              country,
+              lat:position.coords.latitude,
+              long:position.coords.longitude,
+              formattedAddress:address
+            }
+            console.log(city, country);
+            console.log(address);
+
         },
         (error) => {
           console.error(error);
@@ -48,9 +77,6 @@ export default function HostingPage2() {
   }
 
   const next = () => {
-    const addressObject = {
-      address: addressRef.current.value,
-    };
     updateHouse(addressObject);
     navigate("../hostingPage3", { replace: true });
   };

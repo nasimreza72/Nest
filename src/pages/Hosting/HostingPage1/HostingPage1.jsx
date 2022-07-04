@@ -22,6 +22,7 @@ export default function HostingPage1() {
       beds: 0,
     },
     conversations: [],
+    address: {}
   };
 
   const next = () => {
