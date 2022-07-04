@@ -1,6 +1,7 @@
 import {Routes,Route} from "react-router-dom";
 import {Houses, House, HostingPage1, HostingPage2, HostingPage3, HostingPage4, HostingPage5, HostingPage6,  HostingPage7, HostingPage8, HostingPage9} from "./pages";
 import {Navbar} from "./components/General_Components";
+import Footer from "./pages/Footer/Footer.jsx";
 import {Messages} from "./pages/Messages/Messages.jsx";
 import Home from "./pages/Home/index.jsx"
 import HostProfile from "./pages/PersonalinfoHost/PersonalinfoHost.jsx"
@@ -32,6 +33,7 @@ function App() {
         <Route path="messages" element={<Messages/>} />
         <Route path="hostaccount" element={<HostProfile/>} />
       </Routes>
+      <Footer />
     </div>
   );
 }
