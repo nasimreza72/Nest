@@ -2,7 +2,8 @@ import "./hostingPage2.scss";
 import { FaMapMarkerAlt, FaLocationArrow } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import MapContainer from "../../../components/HousesComponents/MapContainer.jsx";
-import { useState, useRef } from "react";
+import { housesContext } from "../../../Context/HousesContext.jsx";
+import { useState, useRef, useContext } from "react";
 import Geocode from "react-geocode";
 
 export default function HostingPage2() {
@@ -10,6 +11,7 @@ export default function HostingPage2() {
 
   let navigate = useNavigate();
   const addressRef = useRef()
+  const { updateHouse } = useContext(housesContext);
 
 
   function addAddress() {
@@ -44,6 +46,18 @@ export default function HostingPage2() {
       }
     )
   }
+
+
+  const next = () => {
+
+    const addressObject = {
+      address: addressRef.current.value,
+    }
+    updateHouse(addressObject);
+    navigate("../hostingPage3", { replace: true });
+  };
+
+
 
   return (
     <div className="hostingPage2">
@@ -111,7 +125,7 @@ export default function HostingPage2() {
             </div>
             <div className="next">
               <button
-                onClick={() => navigate("../hostingPage3", { replace: true })}
+                onClick={next}
               >
                 Next
               </button>
