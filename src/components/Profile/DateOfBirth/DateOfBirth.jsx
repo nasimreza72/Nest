@@ -10,10 +10,7 @@ const Date=()=>{
     const { dateOfBirth, setDateOfBirth } = useContext(profileContext)
     const {activeUser, setActiveUser} = useContext(loginContext);
     const [selectedDate, setSelectedDate] = useState()
-<<<<<<< HEAD
-=======
 
->>>>>>> 194b552ea84a1cd9ac0ac83dcea2d6351f8e5d5e
     console.log('activeUser Date:>> ', activeUser);
 
     const clickHandler = (e) => {
