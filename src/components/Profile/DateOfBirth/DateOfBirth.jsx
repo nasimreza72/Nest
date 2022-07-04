@@ -5,6 +5,7 @@ import "./DateOfBirth.scss"
 import DatePicker from 'react-date-picker';
 import 'react-date-picker/dist/DatePicker.css';
 import 'react-calendar/dist/Calendar.css'
+import setDate from "date-fns/esm/fp/setDate/index.js";
 
 const Date=()=>{
     const { dateOfBirth, setDateOfBirth } = useContext(profileContext)
@@ -14,14 +15,21 @@ const Date=()=>{
     console.log('activeUser Date:>> ', activeUser);
 
     const clickHandler = (e) => {
+
+      const toISOfixed = (inputDate) => {
+        return inputDate.getFullYear() + "-" +  
+            ("0" + (inputDate.getMonth() + 1)).slice(-2) + "-" +
+            ("0" + inputDate.getDate()).slice(-2) + "T00:00:00.000Z";
+    }
         //const tempActiveUser = {...activeUser};
         console.log("active user" + activeUser)
+        console.log("this is selected date" + typeof selectedDate)
         console.log("#########################" )
         //tempActiveUser.dateOfBirth=selectedDate;
         //setActiveUser(tempActiveUser)
       
         const payload = {
-          dateOfBirth:selectedDate
+          dateOfBirth:toISOfixed(selectedDate)
         }
 
         
@@ -39,10 +47,9 @@ const Date=()=>{
 
         fetch(url, config)
         .then(response => response.json())
-        .then(data => {
-          console.log(data)
-          setActiveUser({...data, token:activeUser.token});
-        })
+        .then(data => console.log("data inside", data))
+        
+        setDateOfBirth(false)
     }
 
     return(
@@ -56,7 +63,9 @@ const Date=()=>{
           </div>
           <div className="DatePickerContainer">
             <DatePicker
+                dateFormat="yyyy/MM/dd"
                 className="datePicker"
+                selected={selectedDate}
                 onChange={setSelectedDate}
                 value={selectedDate} />
           </div>
