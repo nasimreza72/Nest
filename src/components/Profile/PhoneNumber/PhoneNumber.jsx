@@ -28,6 +28,9 @@ export default function PhoneNumber() {
           fetch(url, config)
               .then(response => response.json())
               .then(data => console.log(data))
+          
+          setPhoneNumber(false)
+
   }
   
 
