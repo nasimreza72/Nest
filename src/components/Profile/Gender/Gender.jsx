@@ -29,6 +29,7 @@ export default function Gender() {
           fetch(url, config)
               .then(response => response.json())
               .then(data => console.log(data))
+              setGender(false)
   }
 
   

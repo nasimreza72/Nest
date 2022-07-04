@@ -34,7 +34,7 @@ export default function HouseContextProvider(props){
                 messages:[],
                 houseId:house._id
             }
-            axios.post("${process.env.REACT_APP_URL}/api/conversation/create",conversationObject)
+            axios.post(`${process.env.REACT_APP_URL}/api/conversation/create`,conversationObject)
             .then(res=>{
                 console.log('res.data :>> ', res.data)
                 const tempActiveUser = {...activeUser};
@@ -105,7 +105,7 @@ export default function HouseContextProvider(props){
 
     useEffect(()=>{
         
-        axios.get(`${process.env.REACT_APP_URL}/api/house/62c04abf446ce1f715cc4c00`)
+        axios.get(`${process.env.REACT_APP_URL}/api/house/62c2c1e8133e1260046898b0`)
         .then(res=>{
             console.log('res :>> ');
             setHouse(res.data);
