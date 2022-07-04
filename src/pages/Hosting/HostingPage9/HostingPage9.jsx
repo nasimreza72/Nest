@@ -10,7 +10,7 @@ export default function HostingPage9() {
   const [hostData, setHostData] = useState(null);
 
   axios.get(
-      `http://localhost:7777/api/house/getAllHostInfo/${houseId}`
+      `${process.env.REACT_APP_URL}/api/house/getAllHostInfo/${houseId}`
     )
     .then((res) => {
       setHostData(res.data);

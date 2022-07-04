@@ -17,7 +17,8 @@ export default function LoginContextProvider(props){
     const [ activeUser, setActiveUser ] = useState(activeUserFromLocalStorage);
 
     const login=()=>{
-        axios.post('http://localhost:7777/api/user/login', {
+        
+        axios.post(`${process.env.REACT_APP_URL}/api/user/login`, {
           email: email,
           password: password
         })
@@ -35,7 +36,8 @@ export default function LoginContextProvider(props){
     }
 
     const registerFunction = ()=>{
-        axios.post('http://localhost:7777/api/user/register', {
+        
+        axios.post(`${process.env.REACT_APP_URL}/api/user/register`, {
             loginInfo: 
             {
                 email:email,
@@ -55,7 +57,7 @@ export default function LoginContextProvider(props){
         const headers={
             Authorization:`Bearer ${activeUser.token}`
         }
-        axios.get(`http://localhost:7777/api/user/${activeUser._id}`, {headers})
+        axios.get(`${process.env.REACT_APP_URL}/api/user/${activeUser._id}`, {headers})
         .then(res=>{
             console.log('res.data :>> ', res.data)
             setActiveUser({...res.data, token:activeUser.token})

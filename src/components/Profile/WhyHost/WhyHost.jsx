@@ -15,8 +15,8 @@ export default function WhyHost() {
     const payload = {
         reasonForHosting:inputTextArea
     }
-  
-    const url = `http://localhost:7777/api/user/` + activeUser._id
+    
+    const url = `${process.env.REACT_APP_URL}/api/user/` + activeUser._id
           const config ={
               method: 'PATCH',
               headers: {

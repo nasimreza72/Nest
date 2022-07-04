@@ -18,7 +18,7 @@ export default function HouseContextProvider(props){
     const {activeUser,setActiveuser} = useContext(loginContext);
 
     const navigate = useNavigate();
-    const socket = io("http://localhost:7777");
+    const socket = io(`${process.env.REACT_APP_URL}`);
     const text=useRef();
 
 
@@ -34,7 +34,7 @@ export default function HouseContextProvider(props){
                 messages:[],
                 houseId:house._id
             }
-            axios.post("http://localhost:7777/api/conversation/create",conversationObject)
+            axios.post("${process.env.REACT_APP_URL}/api/conversation/create",conversationObject)
             .then(res=>{
                 console.log('res.data :>> ', res.data)
                 const tempActiveUser = {...activeUser};
@@ -49,7 +49,7 @@ export default function HouseContextProvider(props){
 
     // This functions gets the active user's conversations
     const getConversations = ()=>{
-        axios.get(`http://localhost:7777/api/conversation/user/${activeUser._id}`)
+        axios.get(`${process.env.REACT_APP_URL}/api/conversation/user/${activeUser._id}`)
         .then((res)=>{
             setConversations(res.data);
             console.log("getConversations runs+++++++")
@@ -69,7 +69,7 @@ export default function HouseContextProvider(props){
     // }
 
     const updateConversation = (conversationId, newMessage) =>{
-        axios.patch(`http://localhost:7777/api/conversation/${conversationId}`, newMessage)
+        axios.patch(`${process.env.REACT_APP_URL}/api/conversation/${conversationId}`, newMessage)
         .then(res=>console.log('res.data  updateConversation:>> ', res.data))
         .catch(err=>console.log('err :>> ', err))
     }
@@ -104,7 +104,8 @@ export default function HouseContextProvider(props){
     }
 
     useEffect(()=>{
-        axios.get(`http://localhost:7777/api/house/62c04abf446ce1f715cc4c00`)
+        
+        axios.get(`${process.env.REACT_APP_URL}/api/house/62c04abf446ce1f715cc4c00`)
         .then(res=>{
             console.log('res :>> ');
             setHouse(res.data);
