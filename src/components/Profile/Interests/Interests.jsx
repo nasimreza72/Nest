@@ -8,6 +8,9 @@ export default function Interests() {
   const { interestModal, setInterestModal } = useContext(profileContext)
   const { activeUser, setActiveUser } = useContext(loginContext)
   const [interests, setInterests] = useState("")
+  
+  const temporaryUser = {...activeUser}
+  temporaryUser.interests = interests
 
   console.log(interests)
   
@@ -26,8 +29,9 @@ export default function Interests() {
           }
           fetch(url, config)
               .then(response => response.json())
-              .then(data => console.log(data))
-              setInterestModal(false)
+              .then(data => setActiveUser(temporaryUser))
+            
+          setInterestModal(false)
   }
 
 

@@ -19,7 +19,8 @@ export default function Address() {
   const options = useMemo(() => countryList().getData(), [])
 
   console.log('active User Addres.jsx  :>> ', activeUser );
-
+  console.log("this typeof country", typeof country)
+  
   // Belongs to the react-select-country-list................
   const changeHandler = country => {
     setCountry(country)
@@ -27,6 +28,13 @@ export default function Address() {
 ///////////////////////////////////////////////////////////////
 
 const clickHandler = (e) => {
+
+  const temporaryUser = {...activeUser}
+    temporaryUser.country = country
+    temporaryUser.street = street
+    temporaryUser.houseNumber = houseNumber
+    temporaryUser.zip = zip
+    temporaryUser.city = city
 
   const payload = {
    address : {
@@ -48,7 +56,7 @@ const clickHandler = (e) => {
         }
         fetch(url, config)
             .then(response => response.json())
-            .then(data => console.log(data))
+            .then(data => setActiveUser(temporaryUser))
 
         setAddress(false)
 }
