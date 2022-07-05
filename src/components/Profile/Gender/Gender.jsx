@@ -12,6 +12,8 @@ export default function Gender() {
   
   const clickHandler = (e) => {
    
+    const temporaryUser = {...activeUser}
+    temporaryUser.gender = whichGender
 
     const payload = {
       gender: whichGender
@@ -28,7 +30,7 @@ export default function Gender() {
           }
           fetch(url, config)
               .then(response => response.json())
-              .then(data => console.log(data))
+              .then(data => {setActiveUser(temporaryUser)})
               setGender(false)
   }
 
@@ -48,8 +50,9 @@ export default function Gender() {
                  placeholder="Gender" 
                  value={whichGender} 
                  onChange={e => setWhichGender(e.target.value)}
-                 defaultValue= "Choose a gender"
+                 defaultValue= "Choose"
           >
+          <option value="Choose">Choose</option>
            <option value="He">He</option>
            <option value="She">She</option>
            <option value="Other">Other</option>

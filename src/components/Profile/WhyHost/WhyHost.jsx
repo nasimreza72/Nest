@@ -12,6 +12,10 @@ export default function WhyHost() {
   console.log(inputTextArea)
   
   const clickHandler = (e) => {
+
+    const temporaryUser = {...activeUser}
+    temporaryUser.reasonForHosting = inputTextArea
+    
     const payload = {
         reasonForHosting:inputTextArea
     }
@@ -27,7 +31,7 @@ export default function WhyHost() {
           }
           fetch(url, config)
               .then(response => response.json())
-              .then(data => console.log(data))
+              .then(data => setActiveUser(temporaryUser))
 
           setWhyHostModal(false)
   }

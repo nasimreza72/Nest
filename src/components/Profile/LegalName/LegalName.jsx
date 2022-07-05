@@ -11,7 +11,12 @@ export default function LegalName() {
   const [lastName, setLastName] = useState("")
   
   const clickHandler = (e) => {
-    console.log("active from name" + activeUser)
+    
+    const temporaryUser = {...activeUser}
+    temporaryUser.firstName = firstName
+    temporaryUser.lastName = lastName
+    console.log("temp user" , temporaryUser)
+
     const payload = {
       firstName: firstName,
       lastName: lastName
@@ -26,9 +31,9 @@ export default function LegalName() {
               },
               body: JSON.stringify(payload)
           }
-          fetch(url, config)
+          fetch(url, config)//make try catch.......................
               .then(response => response.json())
-              .then(data => { console.log(data)})
+              .then(data => { setActiveUser(temporaryUser)})
 
               setLegalName(false)
 

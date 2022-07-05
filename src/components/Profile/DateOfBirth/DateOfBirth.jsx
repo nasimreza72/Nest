@@ -12,15 +12,20 @@ const Date=()=>{
     const {activeUser, setActiveUser} = useContext(loginContext);
     const [selectedDate, setSelectedDate] = useState()
 
+    const toISOfixed = (inputDate) => {
+      return inputDate.getFullYear() + "-" +  
+          ("0" + (inputDate.getMonth() + 1)).slice(-2) + "-" +
+          ("0" + inputDate.getDate()).slice(-2) + "T00:00:00.000Z";
+    }
+
+    
+
     console.log('activeUser Date:>> ', activeUser);
 
     const clickHandler = (e) => {
-
-      const toISOfixed = (inputDate) => {
-        return inputDate.getFullYear() + "-" +  
-            ("0" + (inputDate.getMonth() + 1)).slice(-2) + "-" +
-            ("0" + inputDate.getDate()).slice(-2) + "T00:00:00.000Z";
-    }
+      const temporaryUser = {...activeUser}
+      temporaryUser.dateOfBirth = toISOfixed(selectedDate)
+     
         //const tempActiveUser = {...activeUser};
         console.log("active user" + activeUser)
         console.log("this is selected date" + typeof selectedDate)
@@ -45,7 +50,7 @@ const Date=()=>{
 
         fetch(url, config)
         .then(response => response.json())
-        .then(data => console.log("data inside", data))
+        .then(data => setActiveUser(temporaryUser))
         
         setDateOfBirth(false)
     }
