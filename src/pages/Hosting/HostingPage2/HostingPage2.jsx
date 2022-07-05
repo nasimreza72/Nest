@@ -26,11 +26,6 @@ export default function HostingPage2() {
         position.coords.longitude
       ).then(
         (response) => {
-
-          // console.log('response from address :>> ', response);
-          // const address = response.results[0].formatted_address;
-          
-          // console.log("Current location address-->", address);
             const address = response.results[0].formatted_address;
             addressRef.current.value = address
             let city, country;
@@ -49,15 +44,16 @@ export default function HostingPage2() {
               }
             }
             addressObject={
+              address :{
               city,
               country,
               lat:position.coords.latitude,
               long:position.coords.longitude,
-              formattedAddress:address
+              formattedAddress: addressRef.current.value
+              }
             }
             console.log(city, country);
             console.log(address);
-
         },
         (error) => {
           console.error(error);
@@ -77,6 +73,7 @@ export default function HostingPage2() {
   }
 
   const next = () => {
+    console.log('addressObject :>> ', addressObject);
     updateHouse(addressObject);
     navigate("../hostingPage3", { replace: true });
   };
@@ -106,8 +103,7 @@ export default function HostingPage2() {
                 className="addAddressManually"
                 onClick={() => setShowAddressForm(true)}
               >
-                {" "}
-                Add manually{" "}
+                Add manually
               </button>
 
               {showAddressForm && (
@@ -118,13 +114,13 @@ export default function HostingPage2() {
                       onClick={() => setShowAddressForm(false)}
                     >
                       x
-                    </button>{" "}
+                    </button>
                     <br />
                     <input type="text" placeholder="Street" /> <br />
                     <input
                       type="text"
                       placeholder="Apt, house, etc. (Optional)"
-                    />{" "}
+                    />
                     <br />
                     <input type="text" placeholder="City" /> <br />
                     <input type="text" placeholder="Zip code" /> <br />
