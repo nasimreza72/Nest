@@ -1,13 +1,15 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import {
   GoogleMap,
   LoadScript,
   Marker,
   InfoWindow,
 } from "@react-google-maps/api";
+import { housesContext } from "../../Context/HousesContext.jsx";
 
 const MapContainer = () => {
+  const {activeCity} = useContext(housesContext);
   const [selected, setSelected] = useState({});
 
   const mapStyles = {
@@ -16,8 +18,8 @@ const MapContainer = () => {
   };
 
   const defaultCenter = {
-    lat: 52.52,
-    lng: 13.405,
+    lat: Number(activeCity.lat),
+    lng: Number(activeCity.lng)
   };
   const locations = [
     {
