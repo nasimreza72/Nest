@@ -12,6 +12,10 @@ export default function PhoneNumber() {
   const [ value, setValue ] = useState("")
   const clickHandler = (e) => {
 
+
+    const temporaryUser = {...activeUser}
+    temporaryUser.phoneNumbers = value 
+
     const payload = {
       phoneNumbers:value
     }
@@ -27,7 +31,7 @@ export default function PhoneNumber() {
           }
           fetch(url, config)
               .then(response => response.json())
-              .then(data => console.log(data))
+              .then(data => setActiveUser(temporaryUser))
           
           setPhoneNumber(false)
 

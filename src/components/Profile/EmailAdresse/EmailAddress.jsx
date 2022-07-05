@@ -9,8 +9,11 @@ import "./EmailAddress.scss"
 export default function EmailAddresse() {
   const { emailAddresse, setEmailAdresse } = useContext(profileContext)
   const { activeUser, setActiveUser } = useContext(loginContext)
-
   const [email, setEmail] = useState("")
+
+  const temporaryUser = {...activeUser}
+  temporaryUser.email = email
+   
 
   console.log('activeUser Email.jsx :>> ', activeUser);
 
@@ -31,7 +34,7 @@ export default function EmailAddresse() {
           }
           fetch(url, config)
               .then(response => response.json())
-              .then(data => console.log(data))
+              .then(data => setActiveUser(temporaryUser))
           setEmailAdresse(false)
   }
   
