@@ -54,7 +54,7 @@ export default function HostingPage9() {
                   <hr />
                   <p>
                     <strong>Address: </strong>
-                    {hostData.address}
+                    {hostData.address.formattedAddress}
                   </p>
                   <hr />
                   <p>

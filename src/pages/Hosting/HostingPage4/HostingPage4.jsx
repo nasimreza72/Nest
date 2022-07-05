@@ -6,9 +6,6 @@ import { useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { housesContext } from "../../../Context/HousesContext.jsx";
 
-
-
-
 export default function HostingPage4() {
 
   const { updateHouse } = useContext(housesContext);
