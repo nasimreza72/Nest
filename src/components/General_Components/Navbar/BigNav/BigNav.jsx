@@ -2,12 +2,24 @@ import {useContext} from "react";
 import { BiSearch } from "react-icons/bi";
 import {Link} from "react-router-dom";
 import { navbarContext } from "../../../../Context/NavbarContext.jsx";
+import { housesContext } from "../../../../Context/HousesContext.jsx";
+import cities from 'cities.json';
 import "./BigNav.scss";
 
 const BigNav=()=>{
+    const {active, setActive,where,handleCloseModal,handleShowModal,handleCloseAll, bigNavRef, filteredCities, setFilteredCities}=useContext(navbarContext);
+    const {getHousesByCity} = useContext(housesContext);
+    const filterCities = () =>{
+        const filteredCitiesVar = cities.filter(city=>city.name.toLowerCase().startsWith(where.current.value.toLowerCase()));
+        if(filteredCitiesVar.length>5) setFilteredCities(filteredCitiesVar.slice(0,5));
+        else setFilteredCities(filteredCitiesVar.slice(0,filteredCitiesVar.length));
+    }
 
-    const {active, setActive,where,handleCloseModal,handleShowModal,handleCloseAll, bigNavRef}=useContext(navbarContext);
-
+    const searchClickHandler = () =>{
+        console.log('cities :>> ', cities);
+        handleCloseAll();
+        getHousesByCity();
+    }
     return(
         <div ref={bigNavRef} className="big-nav">
             <div className="section1">
@@ -18,7 +30,7 @@ const BigNav=()=>{
             <div className="section2">
                 <div className="menu" onClick={()=>{setActive(0); handleShowModal()}} style={active===0 ? {boxShadow:"0px 0px 10px 4px #DBDBDB", backgroundColor:"white"} :null}>
                     <h6>Where</h6>
-                    <input ref={where}  style={active===0 ? {backgroundColor:"white"}:null} type="text" placeholder="Search destinations"/>
+                    <input ref={where} onKeyUp={filterCities}  style={active===0 ? {backgroundColor:"white"}:null} type="text" placeholder="Search destinations"/>
                 </div>
                 <div  className="menu" onClick={()=>{setActive(1); handleShowModal()}} style={active===1 ? {boxShadow:"0px 0px 10px 4px #DBDBDB", backgroundColor:"white"} :null}>
                     <h6>When</h6>
@@ -29,7 +41,7 @@ const BigNav=()=>{
                         <h6>Who</h6>
                         <p style={active===2 ? {backgroundColor:"white"}:null} type="text">Add guests</p>
                     </div>
-                    <Link onClick={handleCloseAll} className="search" to="houses">
+                    <Link onClick={searchClickHandler} className="search" to="houses">
                         <BiSearch className="search-icon"/>
                         <span>Search</span>
                     </Link>

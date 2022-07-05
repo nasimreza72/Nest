@@ -2,6 +2,7 @@ import { useState, createContext, useRef } from 'react'
 export const navbarContext = createContext()
 
 export default function NavbarContextProvider(props){
+    const [filteredCities, setFilteredCities] = useState([]);
 
     const [showOffCanvas, setShowOffCanvas] = useState(false);
     const [showModal, setShowModal] = useState(false);
@@ -32,7 +33,7 @@ export default function NavbarContextProvider(props){
     }
 
     const navbarVariable={showOffCanvas, anyClick, rightMenu,setActive,handleShowModal,handleCloseAll,
-        showModal, handleCloseModal, active, bigNavRef,where, setShowModal,setRightMenu}
+        showModal, handleCloseModal, active, bigNavRef,where, setShowModal,setRightMenu,filteredCities, setFilteredCities}
 
     return(
         <navbarContext.Provider value={navbarVariable}>

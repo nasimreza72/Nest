@@ -12,6 +12,18 @@
         width: 60%;
         border-right: .5px solid #d8d4d4;
         margin-right: 3rem;
+        .city-row{
+            display: flex;
+            justify-content: space-between;
+            .country{
+                width: 3rem;
+                text-align: left;
+            }
+            .city{
+                width: 10rem;
+                text-align: left;
+            }
+        }
         .recent{
             display: flex;
             align-items: center;

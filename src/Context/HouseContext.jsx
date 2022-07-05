@@ -103,17 +103,17 @@ export default function HouseContextProvider(props){
       document.querySelector(".conversation").scrollTop = 1000;
     }
 
-    useEffect(()=>{
+    // useEffect(()=>{
         
-        axios.get(`${process.env.REACT_APP_URL}/api/house/62c2c1e8133e1260046898b0`)
-        .then(res=>{
-            console.log('res :>> ');
-            setHouse(res.data);
-        })
-        .catch(err=>console.log('err :>> ', err))
-    },[])
+    //     axios.get(`${process.env.REACT_APP_URL}/api/house/62c2c1e8133e1260046898b0`)
+    //     .then(res=>{
+    //         console.log('res :>> ');
+    //         setHouse(res.data);
+    //     })
+    //     .catch(err=>console.log('err :>> ', err))
+    // },[])
     
-    const houseVariable={show,handleClose,toggleShow,setShow, house,counter,setCounter,createConversation,
+    const houseVariable={show,handleClose,toggleShow,setShow, house,setHouse, counter,setCounter,createConversation,
         getConversations, conversations, activeConversation,setActiveConversation, listen, addMessage, text}
 
     return(
