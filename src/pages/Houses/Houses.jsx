@@ -9,11 +9,11 @@ import { housesContext } from "../../Context/HousesContext.jsx";
 
 const Houses = () => {
   const [filter, setFilter] = useState(false);
-  const {activeHouses, getHousesByCity} = useContext(housesContext);
+  const { activeHouses, getHousesByCity } = useContext(housesContext);
 
-  useEffect(()=>{
+  useEffect(() => {
     getHousesByCity();
-  },[])
+  }, []);
   return (
     <div className="Houses">
       <nav>
@@ -76,25 +76,11 @@ const Houses = () => {
       {filter && <Filter setFilter={setFilter} />}
 
       <main>
-        {/* ---------- Beginning of LeftSection -------------*/}
-
         <section className="leftSection">
-          <div className="subSectionInfo">
-            <p>(add how many places available in map area) stays in map area</p>
-            <p style={{ color: "gray" }}>
-              Select multiple filter and number of rooms to see the fastest
-              result.
-            </p>
-            <p>
-              Support refugees fleeing Ukraine by giving them a home through our
-              website.
-            </p>
-          </div>
-          { activeHouses.map(house=><HouseCarousel house={house}/>)}
-          
+          {activeHouses.map((house) => (
+            <HouseCarousel house={house} />
+          ))}
         </section>
-
-        {/* ---------- Beginning of RightSection Map part-------------*/}
 
         <section className="rightSection">
           <MapContainer />
