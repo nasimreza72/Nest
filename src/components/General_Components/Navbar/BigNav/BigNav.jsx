@@ -8,7 +8,7 @@ import "./BigNav.scss";
 
 const BigNav=()=>{
     const {active, setActive,where,handleCloseModal,handleShowModal,handleCloseAll, bigNavRef, filteredCities, setFilteredCities}=useContext(navbarContext);
-    const {getHousesByCity} = useContext(housesContext);
+    const {getHousesByCity, setPageNumber} = useContext(housesContext);
     const filterCities = () =>{
         const filteredCitiesVar = cities.filter(city=>city.name.toLowerCase().startsWith(where.current.value.toLowerCase()));
         if(filteredCitiesVar.length>5) setFilteredCities(filteredCitiesVar.slice(0,5));
@@ -17,6 +17,7 @@ const BigNav=()=>{
 
     const searchClickHandler = () =>{
         handleCloseAll();
+        setPageNumber(1);
         getHousesByCity();
     }
     return(
