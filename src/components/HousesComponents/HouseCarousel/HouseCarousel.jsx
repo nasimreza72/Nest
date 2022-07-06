@@ -5,17 +5,16 @@ import { FaStar, FaHeart } from "react-icons/fa";
 import { houseContext } from "../../../Context/HouseContext.jsx";
 
 const HouseCarousel = ({ house }) => {
-  console.log("house>>>>", house);
   const { setHouse } = useContext(houseContext);
 
   let navigate = useNavigate();
 
   const houseClickHandler = () => {
     setHouse(house);
-    navigate("/House", { replace: true });
+    navigate("/House");
   };
 
-  const objToArray = house && Object.entries(house.amenities);
+  const objToArray = house?.amenities && Object.entries(house.amenities);
   const filterAmenities =
     objToArray && objToArray.filter((item) => item[1] === true);
 
@@ -48,7 +47,7 @@ const HouseCarousel = ({ house }) => {
           </p>
           <p className="leftSubSectionLastParagraph">
           <strong>Amenities: </strong>
-          {filterAmenities.map((item) => ( <span>{item[0]} </span> ))}
+          {filterAmenities && filterAmenities.map((item) => ( <span>{item[0]} </span> ))}
           </p>
         </div>
 
