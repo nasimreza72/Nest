@@ -2,17 +2,11 @@ import React, { useState, useContext, useEffect } from 'react'
 import axios from "axios"
 import { loginContext } from "../../Context/LoginContext.jsx"
 
-// "email":"ponni@hof",
-// "password":"123RonRon!!!"
+
 
 export default function InputRegister(){
+    
     const { email, setEmail, password, setPassword } = useContext(loginContext)
-    // const [ email, setEmail ] = useState("")
-    // const [ password, setPassword ] = useState("")
-    
-
-    
-
      
     return(
         <form >

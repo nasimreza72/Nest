@@ -24,7 +24,7 @@ export default function Gender() {
               method: 'PATCH',
               headers: {
                   'Content-Type':'application/json',
-                  'Authorization': 'bearer ' + activeUser.password
+                  'Authorization': 'bearer ' + activeUser.token
               },
               body: JSON.stringify(payload)
           }

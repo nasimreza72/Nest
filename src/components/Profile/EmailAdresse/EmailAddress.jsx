@@ -28,7 +28,7 @@ export default function EmailAddresse() {
               method: 'PATCH',
               headers: {
                   'Content-Type':'application/json',
-                  'Authorization': 'bearer ' + activeUser.password
+                  'Authorization': 'bearer ' + activeUser.token
               },
               body: JSON.stringify(payload)
           }
@@ -46,7 +46,7 @@ export default function EmailAddresse() {
           <div className="topContaine">
             <div className="topElements">
               <h5>Email address</h5>
-              <button onClick={ e => setEmailAdresse(false)}>Cancel</button>
+              <button onClick={ e => setEmailAdresse(false) }>Cancel</button>
             </div>
             <p>Use an address you’ll always have access to</p>
           </div>
