@@ -15,6 +15,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 1;
     // position: fixed;
     // bottom: 0;
     // left: 0;
@@ -59,4 +60,16 @@
             }
         }
     }
+}
+
+@media screen and (max-width: 868px) {
+    .Footer {
+        padding: 0px 15px;
+        .leftFooter{
+            .hideOnMediaScreen{
+                display: none;
+            }
+        }
+    }
+
 }

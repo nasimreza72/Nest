@@ -11,10 +11,8 @@ function Footer() {
             <div>
                 <MdCopyright className='MdCopyright'/> 2022 NeSt, Inc.
             </div>
-            <button>Privacy</button>
-            <button>Terms of Use</button>
-            <button>Sitemap</button>
-            <button>Information about the company</button>
+            <button className='hideOnMediaScreen' >Privacy</button>
+            <button className='hideOnMediaScreen' >Information about the company</button>
         </div>
         <div className="rightFooter">
             <button>
