@@ -16,7 +16,6 @@ const BigNav=()=>{
     }
 
     const searchClickHandler = () =>{
-        console.log('cities :>> ', cities);
         handleCloseAll();
         getHousesByCity();
     }

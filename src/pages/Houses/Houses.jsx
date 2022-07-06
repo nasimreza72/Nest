@@ -6,14 +6,15 @@ import Filter from "../../components/HousesComponents/Filter.jsx";
 import MapContainer from "../../components/HousesComponents/MapContainer.jsx";
 import HouseCarousel from "../../components/HousesComponents/HouseCarousel/HouseCarousel.jsx";
 import { housesContext } from "../../Context/HousesContext.jsx";
+import HousesPagination from "../../components/HousesComponents/Pagination/Pagination.jsx";
 
 const Houses = () => {
   const [filter, setFilter] = useState(false);
-  const { activeHouses, getHousesByCity } = useContext(housesContext);
+  const { activeHouses, getHousesByCity, pageNumber} = useContext(housesContext);
 
   useEffect(() => {
     getHousesByCity();
-  }, []);
+  }, [pageNumber]);
   return (
     <div className="Houses">
       <nav>
@@ -80,6 +81,7 @@ const Houses = () => {
           {activeHouses.map((house) => (
             <HouseCarousel house={house} />
           ))}
+          <HousesPagination/>
         </section>
 
         <section className="rightSection">
