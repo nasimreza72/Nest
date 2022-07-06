@@ -16,6 +16,7 @@ export default function LoginContextProvider(props){
 
     const [ email, setEmail ] = useState("")
     const [ password, setPassword ] = useState("")
+    const [ hostOrUser, setHostOrUser ] = useState("")
     const [ activeUser, setActiveUser ] = useState(activeUserFromLocalStorage);
 
     const login=()=>{
@@ -49,7 +50,7 @@ export default function LoginContextProvider(props){
                 email:email,
                 password:password
             },
-            role: "host",
+            role: hostOrUser,
             conversation:[]
         })
         .then(function (response) {
@@ -75,7 +76,7 @@ export default function LoginContextProvider(props){
 
     const loginVariable = { loginModal, setLoginModal, register, setRegister,submitLoginDetails, setSubmitLoginDetails,registerFunction,
         submitRegistrationDetails, setSubmitRegistrationDetails, activeUser, setActiveUser, login, setEmail, setPassword, email, password,
-        getUser }
+        getUser, hostOrUser, setHostOrUser }
 
 
 

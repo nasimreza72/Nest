@@ -1,6 +1,7 @@
 import "./Register.scss"
 import { FacebookButton, GoogleButton, AppleButton, EmailButton } from "../../components/Login/"
-import InputRegister from "../../components/Register/InputRegister.jsx" 
+import InputRegister from "../../components/Register/InputRegister.jsx"
+import HostOrUser from "../../components/Register/HostOrUser/HostOrUser.jsx" 
 import { loginContext } from "../../Context/LoginContext.jsx"
 import { useContext, useState, useRef, useEffect } from "react";
 
@@ -29,6 +30,7 @@ export default function Register(){
             </div>
 
             <div className="WelcomeToNest">Welcome to NEST</div>
+            <div className="selectHostAndUser"> <HostOrUser /> </div>
 
             <div className="userNameAndPassword">
                 <InputRegister />

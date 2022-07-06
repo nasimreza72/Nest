@@ -13,6 +13,7 @@ export default function ProfileContextProvider(props){
     const [address, setAddress] = useState(false)
     const [interestModal, setInterestModal] = useState(false)
     const [whyHostModal, setWhyHostModal] = useState(false)
+    const [describeSituationModal, setDescribeSituationModal] = useState(false)
     
     const profileVariable = { legalName, setLegalName, gender, setGender,
                               dateOfBirth, setDateOfBirth,
@@ -20,7 +21,9 @@ export default function ProfileContextProvider(props){
                               phoneNumber, setPhoneNumber,
                               address, setAddress,
                               interestModal, setInterestModal,
-                              whyHostModal, setWhyHostModal }
+                              whyHostModal, setWhyHostModal,
+                              describeSituationModal, setDescribeSituationModal
+                            }
     
     return(
         <profileContext.Provider value={profileVariable}>
