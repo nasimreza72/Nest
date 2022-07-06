@@ -47,7 +47,7 @@ const Navbar=()=>{
           </div>
           }
           <div className="right-menu-container">
-            <Link className="switch-to-hosting" to="hostingPage1">Switch to Hosting</Link>
+            {activeUser?.role ==="host" ? <Link className="switch-to-hosting" to="hostingPage1">Switch to Hosting</Link>:null}
             <RightMenuIcon />
             {activeUser ? rightMenu && <RightMenu2 /> : rightMenu && <RightMenu1/>}
           </div>

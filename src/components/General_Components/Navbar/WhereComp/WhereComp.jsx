@@ -1,8 +1,14 @@
-import "./WhereComp.scss";
+import {useContext, useEffect} from "react"; 
 import { Button } from "react-bootstrap";
 import {BsClock } from "react-icons/bs"
+import { navbarContext } from "../../../../Context/NavbarContext.jsx";
+import { housesContext } from "../../../../Context/HousesContext.jsx";
+import "./WhereComp.scss";
 
 const WhereComp = ()=>{
+    const {where, filteredCities} = useContext(navbarContext);
+    const {setActiveCity,activeCity} = useContext(housesContext);
+
     const regions=[{
         src: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Germany_in_Europe_%28-rivers_-mini_map%29.svg/701px-Germany_in_Europe_%28-rivers_-mini_map%29.svg.png?20160712194932",
         text:"Germany"
@@ -40,19 +46,38 @@ const WhereComp = ()=>{
         city:"Athens.Stays",
         date:""
     }]
+
+    const cityClickHandler = (city) => {
+        console.log('city :>> ', city);
+        setActiveCity(city);
+    }
+
+    useEffect(()=>{
+        localStorage.setItem("activeCity",JSON.stringify(activeCity));
+    },[activeCity])
     return(
         <div className="container">
             <div className="recent-researches">
                 <h6>Recent searches</h6>
-                {recentResearches.map((research)=>
-                <div className="recent">
-                    <div className="clock-container"><BsClock/></div>
+                {where?.current?.value ?
+                    filteredCities.map(city=>
                     <div>
+                        <div className="city-row">
+                            {/* <span className="country">{city.country}</span> */}
+                            <span className="city" onClick={()=>cityClickHandler(city)}>{city.name}</span>
+                        </div>
+                    </div>) 
+                    : 
+                    recentResearches.map((research)=>
+                    <div className="recent">
+                        <div className="clock-container"><BsClock/></div>
+                        <div>
                         <p>{research.city}</p>
                         <h6>{research.date}</h6>
+                        </div>
                     </div>
-                </div>
-                )}
+                )
+                } 
             </div>
             <div className="search-by-region-container">
                     <h6>Search by region</h6>
