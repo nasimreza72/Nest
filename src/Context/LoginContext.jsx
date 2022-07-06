@@ -1,4 +1,6 @@
 import { useState, useEffect, createContext } from 'react'
+import { useNavigate } from 'react-router-dom'
+
 import axios from "axios"
 
 export const loginContext = createContext()
@@ -35,7 +37,11 @@ export default function LoginContextProvider(props){
     .catch(error => console.log(error))
     }
 
+
+    const navigate = useNavigate()
+
     const registerFunction = ()=>{
+
         
         axios.post(`${process.env.REACT_APP_URL}/api/user/register`, {
             loginInfo: 
@@ -48,6 +54,8 @@ export default function LoginContextProvider(props){
         })
         .then(function (response) {
             console.log(response)
+            navigate("/hostaccount")
+            setActiveUser(response.data)
         })
         .catch(error => console.log(error)) 
     }
