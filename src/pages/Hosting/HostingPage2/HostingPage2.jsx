@@ -7,7 +7,7 @@ import { useState, useRef, useContext } from "react";
 import Geocode from "react-geocode";
 
 export default function HostingPage2() {
-  let addressObject={}
+  let addressObject = {};
   const [showAddressForm, setShowAddressForm] = useState(false);
 
   let navigate = useNavigate();
@@ -21,62 +21,59 @@ export default function HostingPage2() {
     Geocode.enableDebug();
 
     navigator.geolocation.getCurrentPosition((position) => {
-      Geocode.fromLatLng(
-        position.coords.latitude,
-        position.coords.longitude
-      ).then(
-        (response) => {
-            const address = response.results[0].formatted_address;
-            addressRef.current.value = address
-            let city, country;
-            for (let i = 0; i < response.results[0].address_components.length; i++) {
-              for (let j = 0; j < response.results[0].address_components[i].types.length; j++) {
-          
-                // eslint-disable-next-line default-case
-                switch (response.results[0].address_components[i].types[j]) {
-                  case "locality":
-                    city = response.results[0].address_components[i].long_name;
-                    break;
-                  case "country":
-                    country = response.results[0].address_components[i].long_name;
-                    break;
-                }
-              }
-            }
-            addressObject={
-              address :{
-              city,
-              country,
-              lat:position.coords.latitude,
-              long:position.coords.longitude,
-              formattedAddress: addressRef.current.value
-              }
-            }
-            console.log(city, country);
-            console.log(address);
-        },
-        (error) => {
-          console.error(error);
-        }
-      );
-    });
-
-    Geocode.fromAddress("Soldiner Str. 36, 13359 Berlin, Germany").then(
-      (response) => {
-        const { lat, lng } = response.results[0].geometry.location;
-        console.log("Current location lat & lng -->", lat, lng);
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
+      Geocode.fromLatLng(position.coords.latitude, position.coords.longitude)
+        .then((response) => {
+          const address = response.results[0].formatted_address;
+          addressRef.current.value = address;
+        })
+        .catch((err) => console.log(err));
+    })
   }
 
   const next = () => {
-    console.log('addressObject :>> ', addressObject);
-    updateHouse(addressObject);
-    navigate("../hostingPage3", { replace: true });
-  };
+    let updatedAddress = addressRef.current.value;
+    
+    Geocode.setApiKey(process.env.REACT_APP_GOOGLE_API_KEY);
+    Geocode.fromAddress(addressRef.current.value)
+      .then((response) => {
+        const { lat, lng } = response.results[0].geometry.location;
+        console.log("Current location lat & lng -->", lat, lng);
+
+        Geocode.fromLatLng(lat, lng).then((response) => {
+          let city, country;
+          for ( let i = 0; i < response.results[0].address_components.length; i++) {
+            for ( let j = 0; j < response.results[0].address_components[i].types.length; j++) {
+              // eslint-disable-next-line default-case
+              switch (response.results[0].address_components[i].types[j]) {
+                case "locality":
+                  city = response.results[0].address_components[i].long_name;
+                  break;
+                case "country":
+                  country = response.results[0].address_components[i].long_name;
+                  break;
+              }
+            }
+          }
+
+          addressObject = {
+            address: {
+              city,
+              country,
+              lat: lat,
+              long: lng,
+              formattedAddress: updatedAddress
+            }
+          }
+
+          updateHouse(addressObject);
+          console.log("addressObject :>> ", addressObject);
+          navigate("../hostingPage3", { replace: true });
+        })
+      })
+      .catch((error) => {
+        console.error(error);
+      })
+  }
 
   return (
     <div className="hostingPage2">
@@ -148,5 +145,5 @@ export default function HostingPage2() {
         </div>
       </div>
     </div>
-  );
+  )
 }
