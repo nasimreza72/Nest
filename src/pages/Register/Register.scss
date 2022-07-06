@@ -23,6 +23,7 @@
     gap: 5px;
     position: fixed;
     top: 410px;
+    z-index: 160;
     
     
         #X{
@@ -60,6 +61,14 @@
             @include margin; // margin left and right 30px
             margin-top: 20px;
             margin-bottom: 10px;
+        }
+        .selectHostAndUser{
+            grid-row: 2/3;
+            grid-column: 4/15;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            @include margin;
         }
         .userNameAndPassword{
             grid-row: 3/6;

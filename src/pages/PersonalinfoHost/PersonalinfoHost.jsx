@@ -7,6 +7,7 @@ import PhoneNumber from "../../components/Profile/PhoneNumber/PhoneNumber.jsx"
 import Address from "../../components/Profile/Address/Address.jsx"
 import Interests from "../../components/Profile/Interests/Interests.jsx"
 import WhyHost from "../../components/Profile/WhyHost/WhyHost.jsx"
+import DescribeSituation from "../../components/Profile/DescribeSituation/DescribeSituation.jsx"
 import { useContext } from "react";
 import { profileContext } from "../../Context/ProfileContext";
 import { loginContext } from "../../Context/LoginContext.jsx";
@@ -25,7 +26,9 @@ export default function HostProfile (){
             phoneNumber, setPhoneNumber,
             address, setAddress,
             interestModal, setInterestModal,
-            whyHostModal, setWhyHostModal  } = useContext(profileContext)
+            whyHostModal, setWhyHostModal,
+            describeSituationModal, setDescribeSituationModal
+          } = useContext(profileContext)
 
     const { activeUser, setActiveUser } = useContext(loginContext)
 
@@ -115,6 +118,8 @@ export default function HostProfile (){
                             <button onClick={ e => setInterestModal(true)}>Edit</button>
                             { interestModal ? <Interests /> : null }
                         </div>
+
+                        { activeUser.role === "host" ?  
                         <div className="InfoAndButton" id="lastInfoCell">
                             <div className="infoCells" >
                                 <h2>Why do I want to Host</h2>
@@ -123,6 +128,16 @@ export default function HostProfile (){
                             <button onClick={ e => setWhyHostModal(true)}>Edit</button>
                             { whyHostModal ? <WhyHost /> : null }
                         </div>
+                        : 
+                        <div className="InfoAndButton" id="lastInfoCell">
+                            <div className="infoCells" >
+                                <h2>My situation as a refugee</h2>
+                                <div className="nameInput"> { activeUser && activeUser.describeSituation ? activeUser.describeSituation : null} </div>
+                            </div>
+                            <button onClick={ e => setDescribeSituationModal(true)}>Edit</button>
+                            { describeSituationModal ? <DescribeSituation /> : null }
+                        </div> }
+                       
                         
                     </div>
                     
