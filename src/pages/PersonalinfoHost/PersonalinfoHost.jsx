@@ -47,7 +47,13 @@ export default function HostProfile (){
                         <div className="InfoAndButton">
                             <div className="infoCells">
                                 <h2>Legal name</h2>
-                                <div className="nameInput">{activeUser.firstName} {activeUser.lastName}</div>
+                                <div className="nameInput"> 
+                                    { 
+                                        activeUser && activeUser.firstName && activeUser.lastName ? 
+                                        `${activeUser.firstName} ${activeUser.lastName}` 
+                                        : null 
+                                    }
+                                </div>
                             </div>
                             <button onClick={e => setLegalName(true)}>Edit</button> 
                             {legalName ?  <LegalName /> : null }
@@ -55,7 +61,7 @@ export default function HostProfile (){
                         <div className="InfoAndButton">
                             <div className="infoCells">
                                 <h2>Gender</h2>
-                                <div className="nameInput"> {activeUser.gender} </div>
+                                <div className="nameInput"> { activeUser && activeUser.gender ? activeUser.gender : null} </div>
                             </div>
                             <button onClick={e => setGender(true)}>Edit</button> 
                             {gender ?  <Gender /> : null }
@@ -64,7 +70,7 @@ export default function HostProfile (){
                         <div className="InfoAndButton">
                             <div className="infoCells">
                                 <h2>Date of birth</h2>
-                                <div className="nameInput"> {activeUser.dateOfBirth} </div>
+                                <div className="nameInput"> { activeUser && activeUser.dateOfBirth ? activeUser.dateOfBirth : null} </div>
                             </div>
                             <button onClick={e => setDateOfBirth(true)}>Edit</button>
                             {dateOfBirth ?  <DateOfBirth /> : null }
@@ -73,7 +79,7 @@ export default function HostProfile (){
                         <div className="InfoAndButton">
                             <div className="infoCells">
                                 <h2>Email address</h2>
-                                <div className="nameInput"> {activeUser.email} </div>
+                                <div className="nameInput"> { activeUser && activeUser.email ? activeUser.email : null } </div>
                             </div>
                             <button onClick={e => setEmailAdresse(true)}>Edit</button>
                             {emailAddresse ?  <EmailAddresse /> : null }
@@ -81,7 +87,7 @@ export default function HostProfile (){
                         <div className="InfoAndButton">
                             <div className="infoCells">
                                 <h2>Phone number</h2>
-                                <div className="nameInput"> {activeUser.phoneNumbers} </div>
+                                <div className="nameInput"> { activeUser && activeUser.phoneNumbers ? activeUser.phoneNumbers : null} </div>
                             </div>
                             <button onClick={ e => setPhoneNumber(true)}>Edit</button>
                             { phoneNumber ? <PhoneNumber /> : null }
@@ -91,9 +97,9 @@ export default function HostProfile (){
                                 <h2>Address</h2>
                                 <div className="nameInput">
                                     { 
-                                      `${activeUser.street } ${activeUser.houseNumber}, 
-                                       ${activeUser.city} ${activeUser.zip},
-                                       ${ activeUser.country.label }`  
+                                        activeUser && activeUser.street && activeUser.houseNumber && activeUser.zip && activeUser.city && activeUser.country.label ? 
+                                        `${activeUser.street}, ${activeUser.houseNumber}, ${activeUser.zip } ${activeUser.city}, ${activeUser.country.label}` 
+                                        : null 
                                     }
     
                                 </div>
@@ -104,7 +110,7 @@ export default function HostProfile (){
                         <div className="InfoAndButton">
                             <div className="infoCells">
                                 <h2>Interests</h2>
-                                <div className="nameInput"> {activeUser.interests} </div>
+                                <div className="nameInput"> { activeUser && activeUser.interests ? activeUser.interests : null} </div>
                             </div>
                             <button onClick={ e => setInterestModal(true)}>Edit</button>
                             { interestModal ? <Interests /> : null }
@@ -112,7 +118,7 @@ export default function HostProfile (){
                         <div className="InfoAndButton" id="lastInfoCell">
                             <div className="infoCells" >
                                 <h2>Why do I want to Host</h2>
-                                <div className="nameInput"> {activeUser.reasonForHosting} </div>
+                                <div className="nameInput"> { activeUser && activeUser.reasonForHosting ? activeUser.reasonForHosting : null} </div>
                             </div>
                             <button onClick={ e => setWhyHostModal(true)}>Edit</button>
                             { whyHostModal ? <WhyHost /> : null }
