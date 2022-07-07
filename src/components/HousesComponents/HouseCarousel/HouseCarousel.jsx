@@ -1,22 +1,23 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Carousel } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { FaStar, FaHeart } from "react-icons/fa";
 import { houseContext } from "../../../Context/HouseContext.jsx";
 
 const HouseCarousel = ({ house }) => {
-  const { setHouse } = useContext(houseContext);
+  const { setActiveHouseId, activeHouseId } = useContext(houseContext);
 
   let navigate = useNavigate();
 
   const houseClickHandler = () => {
-    setHouse(house);
+    console.log('house._id :>> ', house._id);
+    setActiveHouseId(house._id);
     navigate("/House");
   };
 
   const objToArray = house?.amenities && Object.entries(house.amenities);
-  const filterAmenities =
-    objToArray && objToArray.filter((item) => item[1] === true);
+  const filterAmenities = objToArray && objToArray.filter((item) => item[1] === true);
+
 
   return (
     <div className="subSection" onClick={houseClickHandler}>
