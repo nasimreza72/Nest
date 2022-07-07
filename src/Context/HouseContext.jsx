@@ -1,4 +1,4 @@
-import { useState, createContext, useEffect, useContext, useRef } from 'react'
+import { useState, createContext, useContext, useRef, useEffect } from 'react'
 import {useNavigate} from "react-router-dom";
 import {loginContext} from "../Context/LoginContext.jsx"
 import io from "socket.io-client";
@@ -6,12 +6,15 @@ import axios from 'axios';
 
 export const houseContext = createContext()
 
+const activeHouseIdInLocalStorage = JSON.parse(localStorage.getItem("activeHouseId"));
+
 export default function HouseContextProvider(props){
 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const toggleShow = () => setShow((s) => !s);
     const [counter, setCounter]=useState(1);
+    const [activeHouseId, setActiveHouseId] = useState(activeHouseIdInLocalStorage);
     const [house,setHouse] = useState({});
     const [conversations,setConversations] = useState([]);
     const [activeConversation, setActiveConversation] = useState(0);
@@ -103,18 +106,26 @@ export default function HouseContextProvider(props){
       document.querySelector(".conversation").scrollTop = 1000;
     }
 
-    // useEffect(()=>{
-        
-    //     axios.get(`${process.env.REACT_APP_URL}/api/house/62c2c1e8133e1260046898b0`)
-    //     .then(res=>{
-    //         console.log('res :>> ');
-    //         setHouse(res.data);
-    //     })
-    //     .catch(err=>console.log('err :>> ', err))
-    // },[])
-    
+    const getHouseById = () => {
+        axios.get(`${process.env.REACT_APP_URL}/api/house/${activeHouseId}`)
+        .then(res=>{
+            console.log('res :>> ');
+            setHouse(res.data);
+        })
+        .catch(err=>console.log('err :>> ', err))
+    }
+
+    const createReview = (reviewObj)=>{
+        axios.post(`${process.env.REACT_APP_URL}/api/review/create`, reviewObj)
+        .then((res)=>{
+            console.log('res.data :>> ', res.data);
+        })
+        .catch(err=>console.log('err :>> ', err))
+    }
+
     const houseVariable={show,handleClose,toggleShow,setShow, house,setHouse, counter,setCounter,createConversation,
-        getConversations, conversations, activeConversation,setActiveConversation, listen, addMessage, text}
+        getConversations, conversations, activeConversation,setActiveConversation, listen, addMessage, text,createReview,
+        activeHouseId, setActiveHouseId,getHouseById}
 
     return(
         <houseContext.Provider value={houseVariable}>

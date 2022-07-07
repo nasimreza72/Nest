@@ -1,6 +1,8 @@
-import { useRef } from 'react';
+import { useRef, useContext } from 'react';
 import { AiTwotoneStar } from 'react-icons/ai';
 import {StyledButton} from "../../General_Components";
+import { houseContext } from '../../../Context/HouseContext.jsx';
+import { loginContext } from '../../../Context/LoginContext.jsx';
 import "./Reviews.scss";
 
 
@@ -22,11 +24,21 @@ const Review = ({src})=>{
 }
 
 export const Reviews = () =>{
+
+    const {createReview, house} = useContext(houseContext);
+    const {activeUser} = useContext(loginContext);
+
     const reviewText = useRef();
     const sendReview = ()=>{
-        console.log('reviewText :>> ', reviewText.current.value);
-        //todo: save 
+        const reviewObj = {
+            authorId:activeUser._id,
+            houseId:house._id,
+            rate:5,
+            text:reviewText.current.value
+        }
+        console.log('reviewObj :>> ', reviewObj);
         reviewText.current.value="";
+        createReview(reviewObj);
     }
 
     return(
