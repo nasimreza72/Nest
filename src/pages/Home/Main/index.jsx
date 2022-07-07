@@ -33,6 +33,8 @@ export const Main=()=>{
 
                 <div className="about-us">
                     <AboutUs />
+                    <button>The Press</button>
+
                 </div>
                 
                 <div className="imageAboutUs"></div>
@@ -41,7 +43,7 @@ export const Main=()=>{
                     <InfoUponEntering />
                 </div>
                 
-                <div className="cardOne cards">
+                <div className="cardOne cards ">
                     <CardOne />
                 </div>
                 <div className="cardTwo cards">
@@ -54,6 +56,8 @@ export const Main=()=>{
                 <div className="askSuperHost"></div>
                 <div className="filterSuperHost">
                     <HostQuestions />
+                    <button>Ask another host</button>
+
                 </div>
             </div>
         </div>

@@ -28,7 +28,6 @@ export default function AboutUs() {
                          
                         </p>
                     
-                    <button>The Press</button>
         </div>
     )
 }
