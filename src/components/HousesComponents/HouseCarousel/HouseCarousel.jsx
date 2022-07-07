@@ -18,7 +18,6 @@ const HouseCarousel = ({ house }) => {
   const filterAmenities =
     objToArray && objToArray.filter((item) => item[1] === true);
 
-
   return (
     <div className="subSection" onClick={houseClickHandler}>
       <Carousel>
@@ -34,29 +33,27 @@ const HouseCarousel = ({ house }) => {
       </Carousel>
 
       <div className="divInsideSubSection">
-        <div>
-          <p>{house.title}</p>
-          <h6>{house.description}</h6>
-          <div className="DrawLine"></div>
-          <p className="leftSubSectionLastParagraph">
-            <strong>Guest: </strong>
-            Adult: {house.guests.adult},
-            Kids: {house.guests.kids}, 
-            Beds: {house.guests.beds},
-            Bedrooms: {house.guests.bedrooms}
-          </p>
-          <p className="leftSubSectionLastParagraph">
-          <strong>Amenities: </strong>
-          {filterAmenities && filterAmenities.map((item) => ( <span>{item[0]} </span> ))}
-          </p>
-        </div>
+        <h6>{house.typeOfPlace}</h6>
+        <div className="DrawLine"></div>
+        <p>{house.title}</p>
+        <p className="description">{house.description}</p>
+        <p>
+          <span className="guests">Guest: </span>
+          Adult: {house.guests.adult}, Kids: {house.guests.kids}, Beds:{" "}
+          {house.guests.beds}, Bedrooms: {house.guests.bedrooms}
+        </p>
+        <p>
+          <span className="amenities">Amenities: </span>
+          {filterAmenities &&
+            filterAmenities.map((item) => <span>{item[0]} </span>)}
+        </p>
 
-        <div>
+        <p>
           <FaStar className="FaStar" />
-          <strong> 4.75</strong> (200 reviews)
-        </div>
+          <span className="review"> 4.75</span> (200 reviews)
+        </p>
+        <FaHeart className="FaHeart" />
       </div>
-      <FaHeart className="FaHeart" />
     </div>
   );
 };
