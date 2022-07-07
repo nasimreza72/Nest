@@ -42,7 +42,7 @@ export default function HostingPage1() {
             className="subMainRightDiv"
             style={
               activeBorder === 1
-                ? { background: "black", color: "white" }
+                ? { background: 'black', color: "white" }
                 : null
             }
             onClick={() => {

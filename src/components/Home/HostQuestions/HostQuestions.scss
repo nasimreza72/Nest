@@ -17,10 +17,9 @@
         @include xxl-header;
         
     }
-    button{
-       @include button;
-       background-color: white;
-       margin-top: 650px;
-
+    @media only screen and (max-width: 583px) {
+       h2{
+           font-size: 4rem;
+       }
     }
 }

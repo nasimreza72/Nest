@@ -4,6 +4,7 @@ import {BsClock } from "react-icons/bs"
 import { navbarContext } from "../../../../Context/NavbarContext.jsx";
 import { housesContext } from "../../../../Context/HousesContext.jsx";
 import "./WhereComp.scss";
+import { GrLocation } from 'react-icons/gr';
 
 const WhereComp = ()=>{
     const {where, filteredCities} = useContext(navbarContext);
@@ -63,7 +64,8 @@ const WhereComp = ()=>{
                     filteredCities.map(city=>
                     <div>
                         <div className="city-row">
-                            {/* <span className="country">{city.country}</span> */}
+                            <span className="locationIcon" >
+                             <GrLocation /></span> 
                             <span className="city" onClick={()=>cityClickHandler(city)}>{city.name}</span>
                         </div>
                     </div>) 

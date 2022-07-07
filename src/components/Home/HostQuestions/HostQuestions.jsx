@@ -9,7 +9,6 @@ export default function HostQuestions(){
                 <h2>about</h2>
                 <h2>hosting?</h2>
             </div>
-            <button>Ask another host</button>
         </div>
     )
 
