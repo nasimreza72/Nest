@@ -1,17 +1,18 @@
 import "./hostingPage8.scss";
-import { useRef, useContext } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { housesContext } from "../../../Context/HousesContext.jsx";
 
 
 export default function HostingPage8() {
+  const [price, setPrice] = useState(0);
   let navigate = useNavigate();
   const { updateHouse } = useContext(housesContext);
-  const priceRef = useRef();
+
 
   const next = () => {
     const priceObject = {
-      price: priceRef.current.value,
+      price: price,
     };
     updateHouse(priceObject);
     navigate("../hostingPage9", { replace: true });
@@ -25,13 +26,22 @@ export default function HostingPage8() {
       <div className="mainRight">
         <div className="subMainRight">
           <div className="subMainRightDiv">
-            <button className="decreaseButton">-</button>
-            <input type="text" ref={priceRef} placeholder="€00" />
-            <button className="increaseButton">+</button>
+            <button 
+            className="decreaseButton"
+            style={{ opacity: price > 0 ? "1" : "0.25" }}
+            onClick={() =>
+              setPrice(price - 1 >= 0 ? price - 1 : 0)
+            }
+            >-</button>
+            <input onChange={(e) => setPrice(Number(e.target.value))} type="number" value={price}  />
+            <button 
+            className="increaseButton"
+            onClick={() =>{setPrice(price + 50)}}
+            >+</button>
           </div>
           <div className="subMainRightText">
             <h6>Do you want to offer your place for free</h6>
-            <input type="checkbox" />
+            <input onClick={()=> setPrice(0)} type="checkbox" />
           </div>
         </div>
         <div className="subMainRightBottom">
