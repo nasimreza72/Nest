@@ -1,7 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Montserrat:wght@600&display=swap');
 @import "../../../mixin.scss";
 
-
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .Home{
     width: 100%;
     height: auto;
@@ -14,17 +18,17 @@
         background-color: #ffffff;
         display: grid;
         grid-template-columns: repeat(14, 1fr);
-        grid-template-rows: repeat(24, 1fr);
+        grid-template-rows: repeat(15, 1fr);
         column-gap: 20px;
 
         .blackBox{
             grid-column: 1/15;
-            grid-row: 1/4;
+            grid-row: 1/3;
             background-color: black;
         }
         .firstLargeImage{
             grid-column: 2/14;
-            grid-row: 1/5;
+            grid-row: 1/4;
             border-radius: 17px;
             background-image: url("./assets/familyWGrandma.jpg"); 
             background-size: cover;
@@ -34,9 +38,9 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-end;
-            padding-bottom: 60px;
-            margin-bottom: 10px;
+            justify-content: center;
+            margin-bottom: 150px;
+            
             
                 
                 #Nest{
@@ -61,22 +65,23 @@
         }
         .firstLargeImage + h2{
             grid-column: 2/14;
-            grid-row: 5/6;
+            grid-row: 3/4;
+            margin-top: 340px ;
             display: flex;
             justify-content: flex-start;
-            align-items: flex-end;
+            align-items: center;
             font-size: 2.4rem;
             font-family: 'Montserrat', sans-serif;
             padding-bottom: 20px;
         }
         .carouselli{
             grid-column: 2/14;
-            grid-row: 6/9;
+            grid-row: 4/6; 
         }
 
         .about-us{
             grid-column: 2/8;
-            grid-row: 9/13;
+            grid-row: 5/6;
             z-index: 100;
             border-radius: 17px;
             border: 5px solid #FF385C;
@@ -86,6 +91,42 @@
             flex-direction: column;
             padding: 50px;
             position: relative;
+            margin-top: 200px;
+
+                button{
+                    @include button;
+                    @include nestRedBackground;
+                    color: white;
+                }
+                
+        }
+        @media only screen and (max-width: 1260px) {
+            
+            .about-us{
+              grid-column: 2/14;
+              grid-row: 5/6;
+              margin-top: 200px;
+              
+            }
+        }
+        @media only screen and (max-width: 785px) {
+            .about-us{
+              grid-column: 2/14;
+              grid-row: 4/5;
+              margin-top: 500px;
+            }
+        }
+        .about-us p{
+            margin-top: 40px;
+            color: black;
+            @include font
+        }
+        @media only screen and (max-width: 540px) {
+            .about-us{
+              grid-column: 2/14;
+              grid-row: 4/8;
+              
+            }
         }
         .about-us p{
             margin-top: 40px;
@@ -94,16 +135,40 @@
         }
         .imageAboutUs{
             grid-column: 8/14;
-            grid-row: 9/13;
+            grid-row: 5/6;
             border-radius: 17px;
             background-image: url("./assets/we-were-all-refugees.jpg");
             background-size: cover;
             background-position-y: center;
             background-repeat: no-repeat;
+            margin-top: 200px;
+        }
+        @media only screen and (max-width: 1260px) {
+            .imageAboutUs{
+              grid-column: 2/14;
+              grid-row: 6/8;
+              margin-top: 100px;
+              
+            }
+        }
+        @media only screen and (max-width: 785px) {
+            .imageAboutUs{
+              grid-column: 2/14;
+              grid-row: 5/8;
+             
+            }
+        }
+        @media only screen and (max-width: 540px) {
+            .imageAboutUs{
+              grid-column: 2/14;
+              grid-row: 8/10;
+              margin-top: 50px;
+            }
         }
         .InfoUponEnter{
             grid-column: 2/6;
-            grid-row: 14/15;
+            grid-row: 6/7;
+            margin-top: 100px;
         }
         .cards{
             display: flex;
@@ -111,7 +176,10 @@
             align-items: center;
             font-size: 1.3rem;
             font-weight: 600;
-            grid-row: 14/15;
+            grid-row: 6/7;
+            margin-top: 100px;
+            background-color: goldenrod; 
+
         }
         .cardOne{
             grid-column: 8/10;
@@ -128,9 +196,98 @@
             border-radius: 17px;
             background-color: gray;
         }
+        @media only screen and (max-width: 1260px) {
+            .InfoUponEnter{
+              grid-row: 8/9;
+            }
+            .cards{
+                grid-row: 9/10;
+                
+                   
+            }
+            .cardOne{
+                grid-column: 2/6;
+            }
+            .cardTwo{
+
+                grid-column: 6/10;
+            }
+            .cardThree{
+                grid-column: 10/14;
+            }
+        }
+        @media only screen and (max-width: 785px) {
+            .InfoUponEnter{
+              margin-top: 50px;
+              grid-column: 2/14;
+              grid-row: 8/9;
+            }
+            .cards{
+                //grid-row: 15/16 ;
+                margin: 0px;
+                
+            }
+            .cardOne{
+                
+                grid-column: 2/8;
+                grid-row: 9/10;
+                margin: 0px;
+                
+            }
+            .cardTwo{
+                
+                grid-column: 8/14;
+                grid-row: 9/10;
+                margin: 0px;
+            }
+            .cardThree{
+                
+                grid-column: 2/14;
+                grid-row: 10/11;
+                margin-top: 20px;  
+                
+                 
+            }
+        }
+        @media only screen and (max-width: 540px) {
+            .grid-container{
+                grid-template-rows: repeat(20, 1fr);;
+            }
+            .InfoUponEnter{
+              margin-top: 50px;
+              grid-column: 2/14;
+              grid-row: 10/11;
+
+            }
+            .cards{
+                margin-bottom: 20px;
+                
+            }
+            .cardOne{
+                grid-column: 2/14;
+                grid-row: 11/12;
+                margin-bottom: 100px;
+                
+            }
+            .cardTwo{
+                
+                grid-column: 2/14;
+                grid-row: 12/13;
+                margin-bottom: 100px;
+            }
+            .cardThree{
+
+                grid-column: 2/14;
+                grid-row: 13/14;
+                margin-bottom: 100px;
+                   
+            }
+        }
         .askSuperHost{
             grid-column: 2/14;
-            grid-row: 16/22;
+            grid-row: 7/11;
+            margin-bottom: 30px;
+            margin-top: 100px;
             border-radius: 17px;
             background-image: url(../../../components/Home/AboutUs/assets/hannah-busing-Zyx1bK9mqmA-unsplash.jpg);
             background-size: cover;
@@ -138,7 +295,9 @@
         }
         .filterSuperHost{
             grid-column: 2/14;
-            grid-row: 16/22;
+            grid-row: 7/11;
+            margin-bottom: 30px;
+            margin-top: 100px;
             display: flex;
             border-radius: 17px;
             padding-top: 80px;
@@ -162,7 +321,45 @@
 
             /* global 94%+ browsers support */
             background:linear-gradient(124deg, rgba(18, 1, 18, 0.52) 0%, rgba(3, 3, 38, 0) 52%);  
-            
+
+                button{
+                    @include button;
+                    background-color: white;
+                    color: black;
+                    margin-bottom: 80px;
+                }
+        }
+        @media only screen and (max-width: 1260px) {
+            .askSuperHost{
+                grid-row: 10/12;
+                margin-top: 50px;
+            }
+            .filterSuperHost{
+                grid-row: 10/12;
+                margin-top: 50px;
+            }
+        }
+        @media only screen and (max-width: 785px) {
+            .grid-container{
+                grid-template-rows: repeat(21, 1fr);
+
+            }
+            .askSuperHost{
+                grid-row: 11/15;
+            }
+            .filterSuperHost{
+                grid-row: 11/15;
+            }
+        }
+        @media only screen and (max-width: 540px) {
+            .askSuperHost{
+                grid-row: 14/18;
+            }
+            .filterSuperHost{
+                grid-row: 14/18;
+            }
+
         }
     }
+   
 }

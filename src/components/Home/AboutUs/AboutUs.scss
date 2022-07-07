@@ -11,10 +11,4 @@
             @include xl-header;
             font-weight: 500;
         }
-        button{
-           @include button;
-           @include nestRedBackground;
-           color: white;
-           margin-top: 200px;
-        }
 }
