@@ -1,3 +1,5 @@
+import "./Pagination.scss";
+
 import { useContext } from "react";
 import { housesContext } from "../../../Context/HousesContext.jsx";
 
@@ -17,9 +19,9 @@ const HousesPagination = () =>{
         getHousesByCity();
     }
     return (
-        <div>
-            {pageNumber > 1 ? <button onClick={{previous}}>Previous</button>: <div></div>}
-            {pageNumber < Math.ceil(houseCount/5) ? <button onClick={next}>Next</button> : <div></div> }
+        <div className="pagination">
+            {pageNumber > 1 ? <button className="back" onClick={previous}>Back</button>: <div></div>}
+            {pageNumber < Math.ceil(houseCount/5) ? <button  className="next" onClick={next}>Next</button> : <div></div> }
         </div>
       );
 }

@@ -57,7 +57,6 @@ nav {
 main {
   width: 100%;
   display: flex;
-  color: #222222;
 }
 
 .rightSection {
@@ -66,7 +65,8 @@ main {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 
 .leftSection {
@@ -80,16 +80,6 @@ main {
   overflow: scroll;
 }
 
-.leftSection h6{
-  cursor: pointer;
-  color: #868686;
-  transition: .15s ease-in-out;
-}
-
-.leftSection h6:hover{
-  color: #414141;
-}
-
 ::-webkit-scrollbar {
   display: none;
 }
@@ -98,17 +88,23 @@ main {
   width: 100%;
   height: 240px;
   display: flex;
-  align-items: flex-start;
-  border-bottom: 1px solid #a3a3a3;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  position: relative;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+    rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+  margin-bottom: 10px;
+  transition: 0.1s ease-in-out;
+}
+
+.subSection:hover {
+  background-color: #f1f1f1;
 }
 
 .carousel {
   width: 500px;
   height: 220px;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 
 .carousel img {
@@ -118,24 +114,33 @@ main {
 
 .subSection .divInsideSubSection {
   width: 100%;
-  height: 200px;
+  height: 220px;
   text-align: start;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: flex-start;
-  justify-content: space-between;
   padding-left: 20px;
+  position: relative;
+  overflow: scroll;
 }
 
-.leftSubSectionLastParagraph {
-  color: rgb(92, 91, 91);
-  margin-top: 5px;
+.divInsideSubSection p {
+  color: #535353;
+  font-size: 15px;
+  line-height: 14px;
+}
+
+.guests,
+.amenities {
+  color: rgb(77, 77, 77);
+  font-weight: 500;
 }
 
 .DrawLine {
-  width: 40px;
+  width: 50px;
   border: 0.5px solid #a3a3a3;
-  margin: 8px 0px;
+  margin-bottom: 8px;
 }
 
 /****** React icon  *****/
@@ -144,13 +149,14 @@ main {
   display: inline;
   color: red;
   padding-bottom: 5px;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .FaHeart {
   font-size: x-large;
   position: absolute;
-  right: 0px;
+  right: 10px;
+  top: 10px;
   transition: ease-in-out 0.125s;
   color: #2e2e2e;
 }
@@ -164,8 +170,8 @@ main {
   display: none;
 }
 
-strong {
-  font-size: large;
+.review {
+  font-weight: 600;
   color: #414141;
 }
 
@@ -231,7 +237,7 @@ strong {
   font-size: larger;
 }
 
-.counterDiv div:noextt(:nth-child(2)) {
+.counterDiv div:not(:nth-child(2)) {
   border: 1px solid gray;
   padding: 2px 10px;
   border-radius: 7.5px;
@@ -325,14 +331,14 @@ strong {
     width: 100%;
     height: 450px;
   }
-  
-  .carousel img{
+
+  .carousel img {
     width: 100%;
     height: 450px;
   }
 
   .subSection .divInsideSubSection {
-    padding-left: 0px;
+    padding-left: 10px;
   }
 
   .filter section {
@@ -370,13 +376,11 @@ strong {
     width: 100%;
     height: 350px;
   }
-  
-  .carousel img{
+
+  .carousel img {
     width: 100%;
     height: 350px;
   }
-
-
 
   .filter section {
     width: 95vw;
@@ -402,8 +406,8 @@ strong {
     width: 100%;
     height: 250px;
   }
-  
-  .carousel img{
+
+  .carousel img {
     width: 100%;
     height: 250px;
   }

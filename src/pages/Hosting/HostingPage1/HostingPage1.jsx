@@ -1,3 +1,4 @@
+import "../../../../src/mixin.scss"
 import "./hosting.scss";
 import { useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";

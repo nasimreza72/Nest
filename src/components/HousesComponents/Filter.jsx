@@ -69,11 +69,11 @@ export default function Filter({ setFilter }) {
 
             <div>
               <FaCheck
-                style={{ color: checked == true ? "green" : "gray" }}
+                style={{ color: checked === true ? "green" : "gray" }}
                 onClick={() => {
-                  if (checked == true) {
+                  if (checked === true) {
                     setChecked(false);
-                  } else if (checked == false) {
+                  } else if (checked === false) {
                     setChecked(true);
                   }
                 }}
@@ -96,11 +96,11 @@ export default function Filter({ setFilter }) {
 
             <div>
               <FaCheck
-                style={{ color: instantBook == true ? "green" : "gray" }}
+                style={{ color: instantBook === true ? "green" : "gray" }}
                 onClick={() => {
-                  if (instantBook == true) {
+                  if (instantBook === true) {
                     setInstantBook(false);
-                  } else if (instantBook == false) {
+                  } else if (instantBook === false) {
                     setInstantBook(true);
                   }
                 }}
@@ -130,11 +130,11 @@ export default function Filter({ setFilter }) {
 
             <div>
               <FaCheck
-                style={{ color: superHost == true ? "green" : "gray" }}
+                style={{ color: superHost === true ? "green" : "gray" }}
                 onClick={() => {
-                  if (superHost == true) {
+                  if (superHost === true) {
                     setSuperHost(false);
-                  } else if (superHost == false) {
+                  } else if (superHost === false) {
                     setSuperHost(true);
                   }
                 }}
@@ -155,11 +155,11 @@ export default function Filter({ setFilter }) {
 
             <div>
               <FaCheck
-                style={{ color: cancellation == true ? "green" : "gray" }}
+                style={{ color: cancellation === true ? "green" : "gray" }}
                 onClick={() => {
-                  if (cancellation == true) {
+                  if (cancellation === true) {
                     setCancellation(false);
-                  } else if (cancellation == false) {
+                  } else if (cancellation === false) {
                     setCancellation(true);
                   }
                 }}
