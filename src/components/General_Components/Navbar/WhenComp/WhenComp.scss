@@ -1,13 +1,25 @@
 .when-container{
     display: flex;
     flex-direction: column;
-    margin-top: 2rem;
+    margin-top: 10px;
     .calendars-container{
-        margin-top: 2rem;
+        margin-top: 10px;
         display: flex;
-        margin-bottom: 5rem;
+        justify-content: center;
+        align-items: center;
         .calendar1{
-            margin-right: 1.25rem;
+            width: 310px;
+            height: 272px;
+            overflow: scroll;
+            margin-right: 10px;
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+        }
+
+        .calender2{
+            width: 310px;
+            height: 272px;
+            overflow: scroll;
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
         }
     }
 }
