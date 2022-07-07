@@ -1,75 +1,98 @@
 @import "../../../../mixin.scss";
 
-.container{
-    display: flex;
-    align-items: flex-start;
-    .recent-researches{
-        h6{
-            @include sm-header;
-            text-align: left;
-            margin-bottom: 1rem;
-        }
-        width: 60%;
-        border-right: .5px solid #d8d4d4;
-        margin-right: 3rem;
-        .city-row{
-            display: flex;
-            justify-content: space-between;
-            .country{
-                width: 3rem;
-                text-align: left;
-            }
-            .city{
-                width: 10rem;
-                text-align: left;
-            }
-        }
-        .recent{
-            display: flex;
-            align-items: center;
-            gap:1rem;
-            padding: .5rem;
-            cursor: pointer;
-            &:hover{
-                background-color: #f5f3f3;
-            }
-            .clock-container{
-                background-color: #d8d4d4;
-                padding: .8rem;
-                border-radius: 10px;
-            }
-            p{
-                @include sm-header;
-                text-align: left;
-                margin-bottom: 0px;
-            }
-            h6{
-                @include xs-header;
-                text-align: left;
-            }
-        }        
+.container {
+  display: flex;
+  align-items: flex-start;
+
+  .recent-researches {
+    h6 {
+      @include sm-header;
+      text-align: left;
+      margin-bottom: 1rem;
     }
-    .search-by-region-container{
-        h6{
-            @include sm-header;
-            text-align: left;
-            margin-bottom: 1rem;
+
+    width: 60%;
+    border-right: 0.5px solid #d8d4d4;
+    margin-right: 3rem;
+
+    .city-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+
+      .locationIcon {
+        width: 45px;
+        height: 45px;
+        font-size: large;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        background-color: #ebebeb;
+      }
+
+      .city {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 10rem;
+        height: 60px;
+        margin-left: 10px;
+        text-align: left;
+        font-size: 15px;
+
+        &:hover {
+          font-weight: 500;
         }
-        .search-by-region{
-            display: flex;
-            flex-wrap: wrap;
-            gap: .5rem;
-            .region{
-                width: 8rem;
-                img{
-                    width: 8rem;
-                    height: 6rem;
-                }
-                h6{
-                    margin-top: .5rem;
-                    @include xs-header;
-                }
-            }
-        }
+      }
     }
+    .recent {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.5rem;
+      cursor: pointer;
+      &:hover {
+        background-color: #f5f3f3;
+      }
+      .clock-container {
+        background-color: #d8d4d4;
+        padding: 0.8rem;
+        border-radius: 10px;
+      }
+      p {
+        @include sm-header;
+        text-align: left;
+        margin-bottom: 0px;
+      }
+      h6 {
+        @include xs-header;
+        text-align: left;
+      }
+    }
+  }
+  .search-by-region-container {
+    h6 {
+      @include sm-header;
+      text-align: left;
+      margin-bottom: 1rem;
+    }
+    .search-by-region {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      .region {
+        width: 8rem;
+        img {
+          width: 8rem;
+          height: 6rem;
+        }
+        h6 {
+          margin-top: 0.5rem;
+          @include xs-header;
+        }
+      }
+    }
+  }
 }
