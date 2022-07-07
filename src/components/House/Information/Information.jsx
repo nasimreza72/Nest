@@ -20,7 +20,7 @@ export const Information=(props)=>{
                     </ul>
                 </div>
                 <div className="host-information">
-                    <h3>Some Information about the host</h3>
+                    <h3>Some Informations</h3>
                     <p>At our reception, book yourself into one of our free walking tours of the city or come along on our host…<a href="">read more</a></p>
                     {activeUser?.role === "user" ? <StyledButton onClick={createConversation} text={`Contact Host`}/> :null}
                 </div>
