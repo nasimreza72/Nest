@@ -17,7 +17,8 @@ const WhenComp = ()=>{
                 <div className='calendar1'>
                     <Calendar onChange={onChange1} value={value} />
                 </div>
-                <div>
+                <div
+                className='calender2' >
                     <Calendar onChange={onChange2} value={value} />
                 </div>
             </div>
