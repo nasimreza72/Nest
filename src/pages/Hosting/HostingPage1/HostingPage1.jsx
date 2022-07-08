@@ -42,7 +42,7 @@ export default function HostingPage1(props) {
             className="subMainRightDiv"
             style={
               activeBorder === 1
-                ? { background: "black", color: "white" }
+                ? {border: "2px solid  black"}
                 : null
             }
             onClick={() => {
@@ -64,7 +64,7 @@ export default function HostingPage1(props) {
             className="subMainRightDiv"
             style={
               activeBorder === 2
-                ? { background: "black", color: "white" }
+                ? {border: "2px solid  black"}
                 : null
             }
             onClick={() => {
@@ -86,7 +86,7 @@ export default function HostingPage1(props) {
             className="subMainRightDiv"
             style={
               activeBorder === 3
-                ? { background: "black", color: "white" }
+                ? {border: "2px solid  black"}
                 : null
             }
             onClick={() => {
@@ -108,7 +108,7 @@ export default function HostingPage1(props) {
             className="subMainRightDiv"
             style={
               activeBorder === 4
-                ? { background: "black", color: "white" }
+                ? {border: "2px solid  black"}
                 : null
             }
             onClick={() => {
@@ -130,7 +130,7 @@ export default function HostingPage1(props) {
             className="subMainRightDiv"
             style={
               activeBorder === 5
-                ? { background: "black", color: "white" }
+                ? {border: "2px solid  black"}
                 : null
             }
             onClick={() => {
