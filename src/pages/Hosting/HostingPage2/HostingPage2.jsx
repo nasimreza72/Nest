@@ -5,8 +5,11 @@ import MapContainer from "../../../components/HousesComponents/MapContainer.jsx"
 import { housesContext } from "../../../Context/HousesContext.jsx";
 import { useState, useRef, useContext } from "react";
 import Geocode from "react-geocode";
+import ErrorMessage from "../../../components/HousesComponents/ErrorMessage/ErrorMessage.jsx";
 
-export default function HostingPage2() {
+export default function HostingPage2(props) {
+  const [showMessage, setShowMessage] = useState(false);
+  const [helper, setHelper] = useState(false);
   let addressObject = {};
   const [showAddressForm, setShowAddressForm] = useState(false);
 
@@ -25,6 +28,7 @@ export default function HostingPage2() {
         .then((response) => {
           const address = response.results[0].formatted_address;
           addressRef.current.value = address;
+          setHelper(true)
         })
         .catch((err) => console.log(err));
     })
@@ -71,7 +75,8 @@ export default function HostingPage2() {
         })
       })
       .catch((error) => {
-        console.error(error);
+        setShowMessage(true)
+        console.error("Address error >>", error);
       })
   }
 
@@ -88,6 +93,7 @@ export default function HostingPage2() {
             <FaMapMarkerAlt />
 
             <input
+              onChange={() => setHelper(true)}
               ref={addressRef}
               type="text"
               placeholder="Enter your address"
@@ -138,12 +144,16 @@ export default function HostingPage2() {
                 <u>Back</u>
               </button>
             </div>
-            <div className="next">
+            <div className="next"
+            style={ helper ? { opacity: 1 } : { opacity: ".25", zIndex: -1 } }
+            >
               <button onClick={next}>Next</button>
             </div>
           </div>
         </div>
       </div>
+      {showMessage && <ErrorMessage setShowMessage={setShowMessage} message={"Please add the valid address!"} />}
+
     </div>
   )
 }

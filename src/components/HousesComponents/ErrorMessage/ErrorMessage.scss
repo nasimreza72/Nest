@@ -1,0 +1,46 @@
+.ErrorMessage {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.377);
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: .5s ease-in-out;
+  z-index: 1;
+
+  .wrapper {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 120px;
+    overflow: scroll;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.781);
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+
+    button {
+      position: absolute;
+      padding: 0px 10px;
+      font-size: 30px;
+      color: white;
+      top: 0px;
+      left: 10px;
+      transition: .15s ease-in-out;
+
+      &:hover{
+        font-weight: bold;
+      }
+    }
+
+    p {
+      font-size: 22px;
+      color: white;
+      font-weight: bold;
+    }
+  }
+}
