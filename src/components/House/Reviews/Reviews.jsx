@@ -1,4 +1,4 @@
-import { useRef, useContext } from 'react';
+import { useRef, useContext, useState } from 'react';
 import { AiTwotoneStar } from 'react-icons/ai';
 import {StyledButton} from "../../General_Components";
 import { houseContext } from '../../../Context/HouseContext.jsx';
@@ -15,8 +15,8 @@ const Review = ({reviewItem})=>{
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkpclgdZQ3ZHBh6xTt4wlROP30NE_GY7MdVw&usqp=CAU" alt="Avatar"/>
                 </div>
                 <div className='text'>
-                    <h4>{reviewItem.authorId.loginInfo.email}</h4>
-                    <p>{new Date(reviewItem.createdAt).getMonth()} {new Date(reviewItem.createdAt).getFullYear()}</p>
+                    <h4>{reviewItem.authorId.firstName} {reviewItem.authorId.lastName}</h4>
+                    <p>{new Date(reviewItem.createdAt).toLocaleString('default', { month: 'long' })} {new Date(reviewItem.createdAt).getFullYear()}</p>
                 </div>
             </div>
             <p>{reviewItem.text}</p>
@@ -28,13 +28,14 @@ export const Reviews = () =>{
 
     const {createReview, house, setHouse} = useContext(houseContext);
     const {activeUser} = useContext(loginContext);
+    const [starIndex, setStarIndex] = useState(1);
 
     const reviewText = useRef();
     const sendReview = ()=>{
         const reviewObj = {
             authorId:activeUser._id,
             houseId:house._id,
-            rate:5,
+            rate:starIndex,
             text:reviewText.current.value
         }
         console.log('reviewObj :>> ', reviewObj);
@@ -50,23 +51,30 @@ export const Reviews = () =>{
             },
             createdAt : Date.now(),
             houseId:house._id,
-            rate:5,
+            rate:starIndex,
             text:reviewText.current.value
         };
         console.log('tempReviewObj :>> ', tempReviewObj);
         const tempHouse = {...house};
         tempHouse.reviews.push(tempReviewObj);
+
+        // const totalRate = tempHouse.reviews.reduce((total, item) => total+ Number(item.rate),0)
+        // const houseRating = totalRate/tempHouse.reviews.length;
         setHouse(tempHouse);
 
         reviewText.current.value="";
     }
 
+    const starClickHandler = (index)=>{
+        console.log('index :>> ', index);
+        setStarIndex(index+1);
+    }
     return(
         <div className="reviews-container">
             <div>
                 <div className='header'>
                     <AiTwotoneStar className='icon'/>
-                    <h1 >4.57 ( 455 reviews )</h1>
+                    <h1 >{((house?.reviews?.reduce((total, item) => total+ Number(item.rate),0))/house?.reviews?.length).toFixed(1) && null } ( {house?.reviews?.length} reviews )</h1>
                 </div>
             </div>
             <div className='reviews'>
@@ -79,6 +87,11 @@ export const Reviews = () =>{
             {house?.reviews?.length > 6 ? <StyledButton text={`Show all ${house.reviews.length} reviews`}/> : null}
             <div className='create-review-container'>
                 <textarea ref={reviewText} placeholder='write your review...' rows={5} />
+                <div className='stars-container'>
+                    {Array(5).fill().map((_, index)=>
+                        <AiTwotoneStar className='star' onMouseOver={()=>starClickHandler(index)} style={starIndex>index ? {color: "red"}:{color:"black"}}/>
+                    )}
+                </div>
                 <input  onClick={sendReview} className='save-button' type="button" value="Save"/>
             </div>
         </div>

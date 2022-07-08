@@ -24,7 +24,8 @@
            }
            p{
                margin: 0;
-               @include sm-header;
+               font-size: 14px;
+               font-weight: lighter;
            }
         }
     }
@@ -68,6 +69,13 @@
             padding: 1rem;
             width: 100%;  
             margin-bottom: .5rem;         
+        }
+        .stars-container{
+            display: flex;
+            .star{
+                cursor: pointer;
+                
+            }
         }
         .save-button{
             @include sendButton;
