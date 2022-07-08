@@ -18,6 +18,8 @@ export default function HouseContextProvider(props){
     const [house,setHouse] = useState({});
     const [conversations,setConversations] = useState([]);
     const [activeConversation, setActiveConversation] = useState(0);
+    const [rating, setRating] = useState(null);
+
     const {activeUser,setActiveuser} = useContext(loginContext);
 
     const navigate = useNavigate();
@@ -125,7 +127,7 @@ export default function HouseContextProvider(props){
 
     const houseVariable={show,handleClose,toggleShow,setShow, house,setHouse, counter,setCounter,createConversation,
         getConversations, conversations, activeConversation,setActiveConversation, listen, addMessage, text,createReview,
-        activeHouseId, setActiveHouseId,getHouseById}
+        activeHouseId, setActiveHouseId,getHouseById, rating, setRating}
 
     return(
         <houseContext.Provider value={houseVariable}>

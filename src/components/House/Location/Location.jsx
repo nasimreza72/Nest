@@ -1,39 +1,41 @@
-import React, { useState } from 'react'
-import { GoogleMap, LoadScript, Marker, InfoBox, InfoWindow } from '@react-google-maps/api';
+import { useState, useContext } from 'react'
+import { GoogleMap, LoadScript, Marker, InfoBox } from '@react-google-maps/api';
+import { houseContext } from '../../../Context/HouseContext.jsx';
 // const ScriptLoaded = require("../../docs/ScriptLoaded").default;
+
 import "./Location.scss";
 
 export const Location = ()=>{
-
+    const {house} = useContext(houseContext);
     const [showInfo, setShowInfo]=useState(false);
 
     const containerStyle = {
-        width: "100%",
-        height: '400px'
+      width: "100%",
+      height: '400px'
     };
       
     const center = {
-        lat: -3.745,
-        lng: -38.523
+      lat: house?.address?.lat,
+      lng: house?.address?.long
     };
 
     const position = {
-        lat: -3.745,
-        lng: -38.523
-      }
+      lat: house?.address?.lat,
+      lng: house?.address?.long
+    }
       
-      const onLoad = marker => {
-        console.log('marker: ', marker)
-      }
+    const onLoad = marker => {
+      console.log('marker: ', marker)
+    }
 
-      const options = { closeBoxURL: '', enableEventPropagation: true };
+    const options = { closeBoxURL: '', enableEventPropagation: true };
     // const divStyle = {
     //     background: `white`,
     //     border: `1px solid #ccc`,
     //     padding: 15
     //   }
     return(
-        <div className="location-container">
+        <div className="location-container" id="location-container">
             <h1>Where Yo'll be</h1>
             <div className="map-container">
                 <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_API_KEY}>
