@@ -6,6 +6,7 @@ import { housesContext } from "../../../Context/HousesContext.jsx";
 
 export default function HostingPage8() {
   const [price, setPrice] = useState(0);
+  const [helper, setHelper] = useState(false);
   let navigate = useNavigate();
   const { updateHouse } = useContext(housesContext);
 
@@ -33,7 +34,7 @@ export default function HostingPage8() {
               setPrice(price - 1 >= 0 ? price - 1 : 0)
             }
             >-</button>
-            <input onChange={(e) => setPrice(Number(e.target.value))} type="number" value={price}  />
+            <input onChange={(e) => setPrice(Number(e.target.value))} type="number" value={(price)}  />
             <button 
             className="increaseButton"
             onClick={() =>{setPrice(price + 50)}}
@@ -41,7 +42,7 @@ export default function HostingPage8() {
           </div>
           <div className="subMainRightText">
             <h6>Do you want to offer your place for free</h6>
-            <input onClick={()=> setPrice(0)} type="checkbox" />
+            <input onClick={()=> {setPrice(0); setHelper(true)}} type="checkbox" />
           </div>
         </div>
         <div className="subMainRightBottom">
@@ -53,7 +54,11 @@ export default function HostingPage8() {
                 <u>Back</u>
               </button>
             </div>
-            <div className="next">
+            <div className="next"
+            style={
+              price || helper ? { opacity: 1 } : { opacity: ".25", zIndex: -1 }
+            }
+            >
               <button onClick={next}>Next</button>
             </div>
           </div>
