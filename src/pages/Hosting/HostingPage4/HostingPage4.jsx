@@ -45,49 +45,49 @@ export default function HostingPage4() {
       <div className="mainRight">
         <div className="subMainRight">
           
-          <div className="subMainRightDiv" style={amenities.kitchen ? { backgroundColor:"black", color: "white"}:null} onClick={()=>selectAmenity("kitchen")}>
+          <div className="subMainRightDiv" style={amenities.kitchen ? {border: "2px solid  black"}:null} onClick={()=>selectAmenity("kitchen")}>
             <div className="leftWrapper">Kitchen</div>
             <div className="rightWrapper">
               <MdFoodBank className="rightWrapperIcon" />
             </div>
           </div>
 
-          <div className="subMainRightDiv" style={amenities.tableware ? { backgroundColor:"black", color: "white"}:null}  onClick={()=>selectAmenity("tableware")}>
+          <div className="subMainRightDiv" style={amenities.tableware ? {border: "2px solid  black"}:null}  onClick={()=>selectAmenity("tableware")}>
             <div className="leftWrapper">Tableware</div>
             <div className="rightWrapper">
               <GiForkKnifeSpoon className="rightWrapperIcon" />
             </div>
           </div>
 
-          <div className="subMainRightDiv" style={amenities.wifi ? { backgroundColor:"black", color: "white"}:null} onClick={()=>selectAmenity("wifi")}>
+          <div className="subMainRightDiv" style={amenities.wifi ? {border: "2px solid  black"}:null} onClick={()=>selectAmenity("wifi")}>
             <div className="leftWrapper">Wifi</div>
             <div className="rightWrapper">
               <MdWifi className="rightWrapperIcon" />
             </div>
           </div>
 
-          <div className="subMainRightDiv" style={amenities.television ? { backgroundColor:"black", color: "white"}:null} onClick={()=>selectAmenity("television")}>
+          <div className="subMainRightDiv" style={amenities.television ? {border: "2px solid  black"}:null} onClick={()=>selectAmenity("television")}>
             <div className="leftWrapper">Television</div>
             <div className="rightWrapper">
               <MdTv className="rightWrapperIcon" />
             </div>
           </div>
 
-          <div className="subMainRightDiv" style={amenities.refrigerator ? { backgroundColor:"black", color: "white"}:null} onClick={()=>selectAmenity("refrigerator")}>
+          <div className="subMainRightDiv" style={amenities.refrigerator ? {border: "2px solid  black"}:null} onClick={()=>selectAmenity("refrigerator")}>
             <div className="leftWrapper">Refrigerator</div>
             <div className="rightWrapper">
               <CgSmartHomeRefrigerator className="rightWrapperIcon" />
             </div>
           </div>
 
-          <div className="subMainRightDiv" style={amenities.washingMachine ? { backgroundColor:"black", color: "white"}:null} onClick={()=>selectAmenity("washingMachine")}>
+          <div className="subMainRightDiv" style={amenities.washingMachine ? {border: "2px solid  black"}:null} onClick={()=>selectAmenity("washingMachine")}>
             <div className="leftWrapper">Washing machine</div>
             <div className="rightWrapper">
               <GiWashingMachine className="rightWrapperIcon" />
             </div>
           </div>
 
-          <div className="subMainRightDiv" style={amenities.workSpace ? { backgroundColor:"black", color: "white"}:null} onClick={()=>selectAmenity("workSpace")}>
+          <div className="subMainRightDiv" style={amenities.workSpace ? {border: "2px solid  black"}:null} onClick={()=>selectAmenity("workSpace")}>
             <div className="leftWrapper">Work space</div>
             <div className="rightWrapper">
               <MdHomeWork className="rightWrapperIcon" />
