@@ -34,8 +34,7 @@ export default function HostingPage9() {
       <div className="mainLeft">
         <h1>Check out your listing!</h1>
         <p>
-          Once you save, we'll ask yo to confirm a few details before you can
-          publish.
+          Once you save, we'll ask you to confirm a few details before you can publish.
         </p>
       </div>
       <div className="mainRight">
