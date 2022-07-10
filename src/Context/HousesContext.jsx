@@ -45,7 +45,7 @@ export default function HousesContextProvider(props){
     }
 
     const housesVariable={createHouse, updateHouse, houseId, activeCity, setActiveCity, getHousesByCity, setActiveHouses, activeHouses
-    ,houseCount, pageNumber, setPageNumber}
+    ,houseCount, pageNumber, setPageNumber, setHouseCount}
   
     return(
         <housesContext.Provider value={housesVariable}>

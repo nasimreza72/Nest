@@ -33,6 +33,7 @@ nav {
   border-radius: 25px;
   transition: ease-in-out 0.25s;
   margin-right: 8px;
+  cursor: pointer;
 }
 
 .subWrapper p {
@@ -245,10 +246,6 @@ main {
   cursor: pointer;
 }
 
-.selectionOfPlaces {
-  font-size: 15px;
-  color: gray;
-}
 
 /***** Verified Place *****/
 .verifiedPlaces {
