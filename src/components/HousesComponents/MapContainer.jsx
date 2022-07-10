@@ -25,13 +25,16 @@ const MapContainer = () => {
     setSelected(item);
   };
 
+
   return (
     <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_API_KEY}>
-      <GoogleMap mapContainerStyle={mapStyles} zoom={12} center={defaultCenter}>
+      <GoogleMap mapContainerStyle={mapStyles} zoom={12} center={defaultCenter} >
+
+        
+
         {activeHouses.map((house) => {
           const location = {lat:Number(house.address.lat), lng:Number(house.address.long)}
-          return (
-            
+          return (            
             <Marker
               icon={"https://img.icons8.com/flat-round/45/home--v1.png"}
               key={house._id}
