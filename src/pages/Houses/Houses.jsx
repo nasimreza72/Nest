@@ -21,12 +21,15 @@ const Houses = () => {
     pageNumber,
     setFilteredHouses,
     filteredHouses,
+    setTypeOfPlace,
+    typeOfPlace
   } = useContext(housesContext);
   // const [selectedPlace, setSelectedPlace] = useState("");
 
   useEffect(() => {
     getHousesByCity();
-  }, [pageNumber]);
+    console.log('typeOfPlace :>> ', typeOfPlace);
+  }, [pageNumber, typeOfPlace]);
 
   // useEffect(() => {
   //   axios
@@ -61,12 +64,11 @@ const Houses = () => {
 
 const filterByType=(selectedPlace)=>{
 
-  const  filteredHouseobj = activeHouses.filter(item => item.typeOfPlace === selectedPlace)
+  // const  filteredHouseobj = activeHouses.filter(item => item.typeOfPlace === selectedPlace)
   
-  setFilteredHouses(filteredHouseobj)
+  // setFilteredHouses(filteredHouseobj)
+  setTypeOfPlace(selectedPlace);
 }
-
-  console.log('houseCount :>> ', houseCount);
 
 
   return (

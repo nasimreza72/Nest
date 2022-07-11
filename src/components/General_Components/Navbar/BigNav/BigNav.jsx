@@ -8,7 +8,7 @@ import "./BigNav.scss";
 
 const BigNav=()=>{
     const {active, setActive,where,handleCloseModal,handleShowModal,handleCloseAll, bigNavRef, filteredCities, setFilteredCities}=useContext(navbarContext);
-    const {getHousesByCity, setPageNumber} = useContext(housesContext);
+    const {getHousesByCity, setPageNumber, setTypeOfPlace} = useContext(housesContext);
     const filterCities = () =>{
         const filteredCitiesVar = cities.filter(city=>city.name.toLowerCase().startsWith(where.current.value.toLowerCase()));
         if(filteredCitiesVar.length>5) setFilteredCities(filteredCitiesVar.slice(0,5));
@@ -19,6 +19,7 @@ const BigNav=()=>{
         handleCloseAll();
         setPageNumber(1);
         getHousesByCity();
+        setTypeOfPlace(null)
     }
     return(
         <div ref={bigNavRef} className="big-nav">
