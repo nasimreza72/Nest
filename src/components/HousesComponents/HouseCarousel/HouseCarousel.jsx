@@ -7,6 +7,7 @@ import { houseContext } from "../../../Context/HouseContext.jsx";
 const HouseCarousel = ({ house }) => {
   const { setActiveHouseId, activeHouseId } = useContext(houseContext);
 
+
   let navigate = useNavigate();
 
   const houseClickHandler = () => {
