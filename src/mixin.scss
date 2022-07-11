@@ -79,12 +79,15 @@
     margin-right: 25px;
 }
 
-// @mixin shadow{
-//     --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-//     --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
-//     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-// }
 
 @mixin shadow{
     box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px; 
+}
+
+@mixin hostingPageMainHeight{
+    height: 90.5vh;
+}
+
+@mixin hostingPageMainRightHeight{
+    height: 82.5vh;
 }
