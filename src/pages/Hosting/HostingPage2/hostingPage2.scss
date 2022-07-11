@@ -1,3 +1,5 @@
+@import "../../../mixin.scss";
+
 * {
   margin: 0;
   padding: 0;
@@ -6,15 +8,15 @@
 }
 
 .hostingPage2 {
+  @include hostingPageMainHeight;
   width: 100vw;
-  min-height: 92vh;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   display: flex;
 
   .mainLeft {
     width: 50vw;
-    height: 92vh;
+    height: 100%;
     background: linear-gradient(-225deg, #ff057c 0%, #8d0b93 50%, #321575 100%);
     display: flex;
     align-items: center;
@@ -29,11 +31,12 @@
 
   .mainRight {
     width: 50vw;
-    height: 100%;
+    @include hostingPageMainRightHeight;
+    
 
     .subMainRight {
       width: 100%;
-      height: 84vh;
+      height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -203,11 +206,12 @@
 @media screen and (max-width: 768px) {
   .hostingPage2 {
     flex-direction: column;
-    width: 100vw;
+    width: 100vw; 
+    height: 103vh;
 
     .mainLeft {
       width: 100vw;
-      height: 250px;
+      height: 400px;
       justify-content: center;
 
       h1 {
