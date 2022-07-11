@@ -10,6 +10,7 @@ export default function HostingPage5() {
   const [file, setFile] = useState(null);
   const [imageViewer, setImageViewer] = useState(0);
   const [secondFile, setSecondFile] = useState(null);
+  const [helper, setHelper] = useState(false);
   const [objectId, setObjectId] = useState(""); 
 
   const {houseId} = useContext(housesContext);
@@ -63,7 +64,7 @@ export default function HostingPage5() {
             >
               <IoMdPhotos className="logo" />
               <div className="dragPhoto">Drag your photo here</div>
-              <div className="addPhoto">Add maximum 5 photos</div>
+              <div className="addPhoto">Add minimum 5 photos</div>
             </div>
 
             <div
@@ -83,6 +84,7 @@ export default function HostingPage5() {
             {objectId && (
               <div className="wrapper">
                 {imageViewer >= 1 && (
+                  // eslint-disable-next-line jsx-a11y/alt-text
                   <img
                     src={`${process.env.REACT_APP_URL}/api/house/getImage/${objectId}/0`}
                   />
@@ -137,7 +139,9 @@ export default function HostingPage5() {
                     )}
                   </div>
 
-                  <div className="fourthImageBox">
+                  <div className="fourthImageBox"
+                  onChange={() => setHelper(true)}
+                  >
                     <IoMdPhotos className="logo" />
                     <input
                       onChange={uploadImage}
@@ -165,7 +169,11 @@ export default function HostingPage5() {
                 <u>Back</u>
               </button>
             </div>
-            <div className="next">
+            <div className="next"
+              style={
+                helper ? { opacity: 1 } : { opacity: ".25", zIndex: -1 }
+              }
+            >
               <button
                 onClick={() => navigate("../hostingPage6", { replace: true })}
               >

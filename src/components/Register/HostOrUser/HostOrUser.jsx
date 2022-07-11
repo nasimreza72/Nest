@@ -19,10 +19,6 @@ export default function HostOrUser(){
             <option value="host">Host</option>
             <option value="user">User</option>
        
-        </select>
-        
-        
+        </select>   
     )
-
-
 }

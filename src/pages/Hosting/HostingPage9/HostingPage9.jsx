@@ -3,11 +3,14 @@ import { useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
 import { housesContext } from "../../../Context/HousesContext.jsx";
 import axios from "axios";
+import ErrorMessage from "../../../components/HousesComponents/ErrorMessage/ErrorMessage.jsx";
 
 export default function HostingPage9() {
   let navigate = useNavigate();
   const { houseId } = useContext(housesContext);
   const [hostData, setHostData] = useState(null);
+  const [showMessage, setShowMessage] = useState(false);
+
 
   axios.get(
       `${process.env.REACT_APP_URL}/api/house/getAllHostInfo/${houseId}`
@@ -21,13 +24,17 @@ export default function HostingPage9() {
   const filterAmenities =
     objToArray && objToArray.filter((item) => item[1] === true);
 
+    function next () {
+      setShowMessage(true)
+      setTimeout(() => {navigate("/", { replace: true })}, 2000);
+      }
+
   return (
     <div className="hostingPage9">
       <div className="mainLeft">
         <h1>Check out your listing!</h1>
         <p>
-          Once you save, we'll ask yo to confirm a few details before you can
-          publish.
+          Once you save, we'll ask you to confirm a few details before you can publish.
         </p>
       </div>
       <div className="mainRight">
@@ -95,16 +102,13 @@ export default function HostingPage9() {
                 <u>Back</u>
               </button>
             </div>
-            <div className="next" onClick={ ()=> {
-              alert("Congratulation!! You have successfully hosted your place!!!");
-              navigate("/", { replace: true });
-              
-              }}>
+            <div className="next" onClick={next}>
               <button>Next</button>
             </div>
           </div>
         </div>
       </div>
+      {showMessage && <ErrorMessage setShowMessage={setShowMessage} message={"Congratulation! You have successfully hosted your place :)"} />}
     </div>
   );
 }

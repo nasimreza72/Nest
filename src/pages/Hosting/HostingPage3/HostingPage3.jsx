@@ -140,7 +140,11 @@ export default function HostingPage3() {
                 <u>Back</u>
               </button>
             </div>
-            <div className="next">
+            <div className="next"
+            style={
+              (adultCount || kidsCount || bedsCount || bedRoomsCount) ? { opacity: 1 } : { opacity: ".25", zIndex: -1 }
+            }
+            >
               <button
                 onClick={next}
               >

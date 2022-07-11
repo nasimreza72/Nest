@@ -1,9 +1,10 @@
 import "./hostingPage6.scss";
-import { useRef, useContext } from "react";
+import { useRef, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { housesContext } from "../../../Context/HousesContext.jsx";
 
 export default function HostingPage6() {
+  const [ helper, setHelper ] = useState(false)
   let navigate = useNavigate();
   const { updateHouse } = useContext(housesContext);
   const titleRef = useRef()
@@ -27,6 +28,7 @@ export default function HostingPage6() {
           <div className="subMainRightDiv">
             <h4>Create your title</h4>
             <textarea
+              onChange={ () => setHelper(true)}
               type="text"
               ref={titleRef}
               placeholder="Cheerful 1-bedroom home in Berlin"
@@ -44,7 +46,11 @@ export default function HostingPage6() {
                   <u>Back</u>
                 </button>
               </div>
-              <div className="next">
+              <div className="next"
+                style={
+                  helper ? { opacity: 1 } : { opacity: ".25", zIndex: -1 }
+                }
+              >
                 <button
                   onClick={next}
                 >

@@ -19,8 +19,9 @@
     background-color: white;
     display: grid;
     grid-template-columns: repeat(14, 1fr);
-    grid-template-rows: repeat(17, 1fr);
-    gap: 5px;
+    grid-template-rows: repeat(26, 1fr);
+    row-gap: 6px;
+    
     position: fixed;
     top: 410px;
     z-index: 160;
@@ -70,117 +71,55 @@
             align-items: center;
             @include margin;
         }
-        .userNameAndPassword{
-            grid-row: 3/6;
-            grid-column: 1/15;
-            @include margin;
-            background-color: blanchedalmond; 
-        }
-        .privacyPolicy{
-            grid-row: 6/8;
-            padding-top: 15px;
-            grid-column: 1/15;
+        .HostUserRequired{
             color: black;
-            @include font;
-            @include margin;
-            font-size: 0.7rem;
+            grid-row: 2/3;
+            grid-column: 10/14;
             display: flex;
             justify-content: flex-start;
-            align-items: flex-start;
-            //background-color: chartreuse;
-            // margin-left: 25px;
-            // margin-right: 25px;
-            // padding-top: 15px;
-            
-                p{
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: flex-start;
-                    align-items: flex-start;
-                }
-                a{
-                    text-decoration: underline;
-                    font-weight: 500; 
-                    align-self: flex-start;  
-                }
-                
+            align-items: flex-end;
+            color: red;
+            font-size: 0.8rem;
+            position: absolute;
+            top: 50px;
+            left: 20px;
+            height: 30%;
+            /* background-color: cyan; */
         }
-        .ContinueButton{
-            grid-row: 7/8;
+        .userNameAndPassword{
+            grid-row: 3/10;
             grid-column: 1/15;
-            background-color: lightblue;
-            @include nestRedBackground;
-            height: 50px;
             @include margin;
-            margin-top: 35px;
-            border-radius: 10px;
-            font-weight: 500;
-            @include font;
-            font-size: 1rem;
             display: flex;
-            justify-content: center;
-            align-items: center;
-
+            justify-content:center;
+              
         }
-        .leftLine{
-            grid-row: 8/9;
-            grid-column: 1/7;
-            margin: 0 0 0 30px;
-            border-bottom: 1px solid lightgrey;
-            display: flex;
-            align-self: center;
-            padding-top: 10px;
-               
-        }
-        .or{
-            grid-row: 8/9;
-            grid-column: 7/9;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: black;
-            padding-top: 10px;
-        }
-        .rightLine{
-            grid-row: 8/9;
-            grid-column: 9/15;
-            margin: 0 30px 0 0;
-            border-bottom: 1px solid lightgrey;
-            display: flex;
-            align-self: center;
-            padding-top: 10px;
-
-        }
+        ////////////////////
+       
+       
         .buttonFacebook{
-            grid-row: 10/12;
+            grid-row: 17/19;
             grid-column: 1/15;
-            margin-top: -20px ;
-            margin-bottom: 30px;
             @include margin;
             cursor: pointer;
                
         }
         .buttonGoogle{
-            grid-row: 12/14;
+            grid-row: 19/21;
             grid-column: 1/15;
-            margin-top: -20px ;
-            margin-bottom: 30px;
             @include margin;
             cursor: pointer;
         }
         .buttonApple{
-            grid-row: 14/16;
+            grid-row: 21/23;
             grid-column: 1/15;
-            margin-top: -20px ;
-            margin-bottom: 30px;
+            
             @include margin;
             cursor: pointer;
         }
         .buttonEmail{
-            grid-row: 16/18;
+            grid-row: 23/25;
             grid-column: 1/15;
-            margin-top: -20px ;
-            margin-bottom: 30px;
             @include margin;
             cursor: pointer;
         }

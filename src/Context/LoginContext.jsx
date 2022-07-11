@@ -19,6 +19,8 @@ export default function LoginContextProvider(props){
     const [ hostOrUser, setHostOrUser ] = useState("")
     const [ activeUser, setActiveUser ] = useState(activeUserFromLocalStorage);
 
+    console.log("inside context", email, password)
+
     const login=()=>{
         
         axios.post(`${process.env.REACT_APP_URL}/api/user/login`, {
@@ -39,10 +41,20 @@ export default function LoginContextProvider(props){
     }
 
 
+    // Trigger the Register Fetch to Backend .............
+    useEffect(() => {
+        if(email && password && hostOrUser){
+            registerFunction()
+        }
+        return
+    }, [email, password, hostOrUser])
+    //////////////////////////////////////////////////////////
+
     const navigate = useNavigate()
 
     const registerFunction = ()=>{
-
+        console.log("Im in register function")
+        console.log("email ", email, "password ", password, "host or user ", hostOrUser)
         
         axios.post(`${process.env.REACT_APP_URL}/api/user/register`, {
             loginInfo: 
