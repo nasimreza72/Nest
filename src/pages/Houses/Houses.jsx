@@ -19,25 +19,54 @@ const Houses = () => {
     activeHouses,
     getHousesByCity,
     pageNumber,
+    setFilteredHouses,
+    filteredHouses,
   } = useContext(housesContext);
-  const [selectedPlace, setSelectedPlace] = useState("");
+  // const [selectedPlace, setSelectedPlace] = useState("");
 
   useEffect(() => {
     getHousesByCity();
   }, [pageNumber]);
 
-  useEffect(() => {
-    axios
-      .get(
-        `${process.env.REACT_APP_URL}/api/house/getPrivateRoom/${activeCity.name}/${selectedPlace}`
-      )
-      .then((res) => {
-        console.log("res.data :>> ", res.data);
-        setActiveHouses(res.data);
-        setHouseCount(res.data.length);
-      })
-      .catch((err) => console.log("err :>> ", err));
-  }, [selectedPlace]);
+  // useEffect(() => {
+  //   axios
+  //     .get(
+  //       `${process.env.REACT_APP_URL}/api/house/getPrivateRoom/${activeCity.name}/${selectedPlace}`
+  //     )
+  //     .then((res) => {
+  //       console.log("res.data :>> ", res.data);
+  //       setActiveHouses(res.data);
+  //       setHouseCount(res.data.length);
+  //     })
+  //     .catch((err) => console.log("err :>> ", err));
+  // }, [selectedPlace]);
+
+
+  // todo!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  //useEffect( ()  => {
+  // const  filteredHouseobj = activeHouses.filter(item => item.typeOfPlace === selectedPlace)
+  //
+  //  setFilteredHouses(filteredHouseobj)
+//
+  // 
+  //console.log('filteredHouse :>> ', filteredHouseobj);
+//
+  //}, [selectedPlace]);
+
+//   function filteredHouse (e) {
+//    const filteredHouse = activeHouses.filter(item => item.typeOfPlace === e)
+//  setSelectedPlace(filteredHouse)
+// console.log('filteredHouse :>> ', filteredHouse);
+
+//   }
+
+const filterByType=(selectedPlace)=>{
+
+  const  filteredHouseobj = activeHouses.filter(item => item.typeOfPlace === selectedPlace)
+  
+  setFilteredHouses(filteredHouseobj)
+}
+
 
   console.log('houseCount :>> ', houseCount);
 
@@ -59,27 +88,27 @@ const Houses = () => {
         <div className="NavWrapper">
           <div
             className="subWrapper mediaScreenMax690"
-            onClick={(e) => setSelectedPlace("Shared Room")}
+            onClick={(e) => filterByType("Shared Room")}
           >
             <p>Shared room</p>
           </div>
           <div
             className="subWrapper mediaScreenMax690"
-            onClick={(e) => setSelectedPlace("Private Room")}
+            onClick={(e) => filterByType("Private Room")}
           >
             <p>Private room</p>
           </div>
           <div
             className="subWrapper mediaScreenMax885"
-            onClick={(e) => setSelectedPlace("Apartment")}>
+            onClick={ (e) => filterByType("Apartment")}>
             <p>Apartment</p>
           </div>
           <div className="subWrapper mediaScreenMax885"
-          onClick={ (e) => setSelectedPlace("House")}>
+          onClick={ (e) => filterByType("House")}>
             <p>House</p>
           </div>
           <div className="subWrapper mediaScreenMax1200"
-          onClick={ (e) => setSelectedPlace("Attic")}>
+          onClick={ (e) => filterByType("Attic")}>
             <p>Attic</p>
           </div>
           <div className="subWrapper mediaScreenMax1200">
