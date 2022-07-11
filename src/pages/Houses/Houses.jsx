@@ -26,18 +26,18 @@ const Houses = () => {
     getHousesByCity();
   }, [pageNumber]);
 
-  useEffect(() => {
-    axios
-      .get(
-        `${process.env.REACT_APP_URL}/api/house/getPrivateRoom/${activeCity.name}/${selectedPlace}`
-      )
-      .then((res) => {
-        console.log("res.data :>> ", res.data);
-        setActiveHouses(res.data);
-        setHouseCount(res.data.length);
-      })
-      .catch((err) => console.log("err :>> ", err));
-  }, [selectedPlace]);
+  // useEffect(() => {
+  //   axios
+  //     .get(
+  //       `${process.env.REACT_APP_URL}/api/house/getPrivateRoom/${activeCity.name}/${selectedPlace}`
+  //     )
+  //     .then((res) => {
+  //       console.log("res.data :>> ", res.data);
+  //       setActiveHouses(res.data);
+  //       setHouseCount(res.data.length);
+  //     })
+  //     .catch((err) => console.log("err :>> ", err));
+  // }, [selectedPlace]);
 
   console.log('houseCount :>> ', houseCount);
 

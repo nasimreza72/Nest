@@ -105,7 +105,7 @@ export default function HouseContextProvider(props){
           authorId:activeUser._id
         });
       }
-      document.querySelector(".conversation").scrollTop = 1000;
+      document.querySelector(".conversation").scrollTop = conversations[activeConversation]?.messages.length*30;
     }
 
     const getHouseById = () => {
@@ -113,6 +113,15 @@ export default function HouseContextProvider(props){
         .then(res=>{
             console.log('res :>> ');
             setHouse(res.data);
+        })
+        .catch(err=>console.log('err :>> ', err))
+    }
+
+    const updateHouse = (houseObj)=>{
+        // console.log('updateHouse :>> !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! ',houseObj);
+        axios.patch(`${process.env.REACT_APP_URL}/api/house/${house._id}`, houseObj)
+        .then((res)=>{
+            console.log('res.data updateHouse!!!!!!:>> ', res.data);
         })
         .catch(err=>console.log('err :>> ', err))
     }
@@ -127,7 +136,7 @@ export default function HouseContextProvider(props){
 
     const houseVariable={show,handleClose,toggleShow,setShow, house,setHouse, counter,setCounter,createConversation,
         getConversations, conversations, activeConversation,setActiveConversation, listen, addMessage, text,createReview,
-        activeHouseId, setActiveHouseId,getHouseById, rating, setRating}
+        activeHouseId, setActiveHouseId,getHouseById, rating, setRating, navigate, updateHouse}
 
     return(
         <houseContext.Provider value={houseVariable}>

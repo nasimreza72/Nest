@@ -14,7 +14,7 @@ export const Header = ()=>{
             <div className='second-line'>
                 <div className='second-line-left'>
                     <AiTwotoneStar className='star'/>
-                    <span>{((house?.reviews?.reduce((total, item) => total+ Number(item.rate),0))/house?.reviews?.length).toFixed(1) && null}</span>
+                    <span>{house?.reviews?.length > 0 ? ((house?.reviews?.reduce((total, item) => total+ Number(item.rate),0))/house?.reviews?.length).toFixed(1) :null}</span>
                     <a href="#">{house?.reviews?.length} reviews</a>  
                     <a href="#location-container">{house?.address?.city}, {house?.address?.country}</a>
                 </div>

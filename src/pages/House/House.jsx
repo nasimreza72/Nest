@@ -6,6 +6,7 @@ import "./House.scss";
 const House=()=>{
     const {getHouseById,activeHouseId} = useContext(houseContext);
     useEffect(()=>{
+        window.scroll({top: 0, left: 0});
         getHouseById();
     },[])
     useEffect(()=>{
