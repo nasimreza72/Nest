@@ -41,7 +41,6 @@ const Houses = () => {
   //     .catch((err) => console.log("err :>> ", err));
   // }, [selectedPlace]);
 
-
   // todo!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   //useEffect( ()  => {
   // const  filteredHouseobj = activeHouses.filter(item => item.typeOfPlace === selectedPlace)
@@ -66,7 +65,6 @@ const filterByType=(selectedPlace)=>{
   
   setFilteredHouses(filteredHouseobj)
 }
-
 
   console.log('houseCount :>> ', houseCount);
 

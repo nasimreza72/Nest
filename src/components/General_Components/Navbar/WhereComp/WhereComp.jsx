@@ -69,6 +69,7 @@ const WhereComp = ()=>{
     const cityClickHandler = (city) => {
         console.log('city :>> ', city);
         setActiveCity(city);
+        where.current.value=city.name;
     }
 
     const regionClickHandler=(city)=>{

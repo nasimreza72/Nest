@@ -26,7 +26,7 @@ const Review = ({reviewItem})=>{
 
 export const Reviews = () =>{
 
-    const {createReview, house, setHouse} = useContext(houseContext);
+    const {createReview, house, setHouse, updateHouse} = useContext(houseContext);
     const {activeUser} = useContext(loginContext);
     const [starIndex, setStarIndex] = useState(1);
 
@@ -57,12 +57,20 @@ export const Reviews = () =>{
         console.log('tempReviewObj :>> ', tempReviewObj);
         const tempHouse = {...house};
         tempHouse.reviews.push(tempReviewObj);
-
+        
         // const totalRate = tempHouse.reviews.reduce((total, item) => total+ Number(item.rate),0)
         // const houseRating = totalRate/tempHouse.reviews.length;
-        setHouse(tempHouse);
+        
+        // update the rating of the house in db
+        const ratedHouse = {...house}
+        ratedHouse.rating=((tempHouse?.reviews?.reduce((total, item) => total+ Number(item.rate),0))/house?.reviews?.length).toFixed(1);
+        updateHouse(ratedHouse);
 
+        setHouse(tempHouse);
+       
         reviewText.current.value="";
+        setStarIndex(1);
+
     }
 
     const starClickHandler = (index)=>{
@@ -74,7 +82,7 @@ export const Reviews = () =>{
             <div>
                 <div className='header'>
                     <AiTwotoneStar className='icon'/>
-                    <h1 >{((house?.reviews?.reduce((total, item) => total+ Number(item.rate),0))/house?.reviews?.length).toFixed(1) && null } ( {house?.reviews?.length} reviews )</h1>
+                    <h1 >{house?.reviews?.length >0 ? ((house?.reviews?.reduce((total, item) => total+ Number(item.rate),0))/house?.reviews?.length).toFixed(1) :null} ( {house?.reviews?.length} reviews )</h1>
                 </div>
             </div>
             <div className='reviews'>

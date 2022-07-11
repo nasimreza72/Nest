@@ -12,7 +12,9 @@ export const MessageBoard = () => {
   
   useEffect(()=>{
     //  document.querySelector(".conversation").scrollIntoView();
-    document.querySelector(".conversation").scrollTop = 1000;
+    const conversationElement = document.querySelector(".conversation")
+    // console.log('conversations[activeConversation]?.messages; ', conversations[activeConversation]?.messages.length*20);
+    conversationElement.scrollTop = conversations[activeConversation]?.messages.length*30;
   },[activeConversation])
 
   return (
