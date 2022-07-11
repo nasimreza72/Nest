@@ -13,6 +13,8 @@ export default function HousesContextProvider(props){
     const [pageNumber, setPageNumber] = useState(1);
     const [houseCount,setHouseCount] = useState(0);
 
+    const [filteredHouses, setFilteredHouses] =useState(activeHouses);
+
     const createHouse = (houseObject)=>{
         console.log("createHouse");
         
@@ -40,13 +42,14 @@ export default function HousesContextProvider(props){
         .then(res=>{
             console.log('res.data :>> ', res.data)
             setActiveHouses(res.data.houseList);
+            setFilteredHouses(res.data.houseList)
             setHouseCount(res.data.houseCount);   
         })
         .catch(err=>console.log('err :>> ', err))
     }
 
     const housesVariable={createHouse, updateHouse, houseId, activeCity, setActiveCity, getHousesByCity, setActiveHouses, activeHouses
-    ,houseCount, pageNumber, setPageNumber, setHouseCount}
+    ,houseCount, pageNumber, setPageNumber, setHouseCount, filteredHouses, setFilteredHouses}
   
     return(
         <housesContext.Provider value={housesVariable}>
