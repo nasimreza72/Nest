@@ -35,6 +35,7 @@ export default function HousesContextProvider(props){
     }
 
     const getHousesByCity = ()=>{
+        console.log('activeCity :>> ',activeCity);
         axios.get(`${process.env.REACT_APP_URL}/api/house/getCity/${activeCity.name}?pageNumber=${pageNumber}&nPerPage=5`)
         .then(res=>{
             console.log('res.data :>> ', res.data)

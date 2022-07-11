@@ -85,7 +85,8 @@ export const Reviews = () =>{
                 })}
             </div>
             {house?.reviews?.length > 6 ? <StyledButton text={`Show all ${house.reviews.length} reviews`}/> : null}
-            <div className='create-review-container'>
+            
+            {activeUser?.role ==="user" ? <div className='create-review-container'>
                 <textarea ref={reviewText} placeholder='write your review...' rows={5} />
                 <div className='stars-container'>
                     {Array(5).fill().map((_, index)=>
@@ -93,7 +94,7 @@ export const Reviews = () =>{
                     )}
                 </div>
                 <input  onClick={sendReview} className='save-button' type="button" value="Save"/>
-            </div>
+            </div>:null}
         </div>
     )
 }
