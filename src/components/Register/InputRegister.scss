@@ -1,0 +1,193 @@
+@import "../../mixin.scss";
+
+
+form{
+
+ 
+    
+    .topInput{
+        width: 100%;
+        height: 50px;
+        border: 1px solid gray;
+        border-radius: 10px 10px 0 0;
+        padding-left: 20px;
+        margin-top: -20px;
+        color: black;
+    }
+    .bottomInput{
+        width: 100%;
+        height: 50px;
+        border: 1px solid gray;
+        padding-left: 20px;
+        border-radius:0 0 10px 10px; 
+        color: black;  
+    }
+    .formControl{
+       width: 500px;
+       
+    }
+    input[type="password"],
+    input[type="email"] {
+    display: block;
+    width: 500px;
+    padding: 6px 12px;
+    font-size: 19px;
+    line-height: 1.42;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 7px;
+    margin-bottom: 20px;
+    }
+
+.formControl{
+  margin-bottom: -30px;
+}
+.error{
+  color: red;
+  margin-top: -18px;
+  margin-bottom: 20px;
+  font-size: 0.8rem;
+  text-align: left;
+}
+.privacyPolicy{
+    display: flex;
+    width: 100%;
+    
+        p{
+            text-align: left;
+            font-size:0.8rem;
+            margin-top: 14px;
+            color: black;
+            @include font;
+        }
+}
+.ContinueButton{
+    background-color: lightblue;
+    @include nestRedBackground;
+    height: 50px;
+    margin-top: -10px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    font-weight: 500;
+    @include font;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.lineAndOrContainer{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+        
+    .leftLine{
+        //margin: 0 0 0 30px;
+        border-top: 1px solid black;
+        display: flex;
+        align-self: center;
+        padding-top: 10px;
+        //margin-top: 30px;
+        width: 40%;
+        height: 100%;
+        margin-bottom: 20px;
+    }
+    .or{
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        height: 100%;
+        color: black;
+        margin-bottom: 45px;
+    }
+    .rightLine{
+        //margin: 0 30px 0 0;
+        border-top: 1px solid black;
+        display: flex;
+        align-self: center;
+        margin-bottom: 20px;
+        padding-top: 10px;
+        //padding-top: 10px;
+        //margin-top: 30px;
+        width: 40%;        
+        height: 100%;
+    }
+}
+
+}
+.FacebookButton{
+   color: black;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100%;
+   border: 1px solid black;
+   border-radius: 10px;
+   
+   
+
+        button{
+            font-weight: 450;
+            font-size: 1rem;
+        }
+        #FaIcon{
+            position: absolute;
+            left: 50px;
+        } 
+       
+}
+.GoogleButton{
+   color: black;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100%;
+   border: 1px solid black;
+   border-radius: 10px;
+
+        button{
+            font-weight: 450;
+            font-size: 1rem;
+        }
+        #GoogleIcon{
+            position: absolute;
+            left: 50px;
+        }
+}
+.AppleButton{
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 10px;
+        button{
+            font-weight: 450;
+            font-size: 1rem;
+        }
+        #AppleIcon{
+            position: absolute;
+            left: 50px;       
+        }
+}
+.EmailButton{
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 10px;
+        button{
+            font-weight: 450;
+            font-size: 1rem;
+        }
+        #EmailIcon{
+            position: absolute;
+            left: 50px;
+        }
+}
