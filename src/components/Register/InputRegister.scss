@@ -22,14 +22,11 @@ form{
         border-radius:0 0 10px 10px; 
         color: black;  
     }
-    .formControl{
-       width: 500px;
-       
-    }
+    
     input[type="password"],
     input[type="email"] {
     display: block;
-    width: 500px;
+    //width: 500px;
     padding: 6px 12px;
     font-size: 19px;
     line-height: 1.42;
@@ -40,19 +37,44 @@ form{
     margin-bottom: 20px;
     }
 
-.formControl{
-  margin-bottom: -30px;
+
+.select-field{
+     height: 40px;
+     padding: 0px 10px 0px 10px;
+     border-radius: 7px;
+     //background-color: greenyellow;
+     border: black 1px solid;
+     color: black;
+     //margin-bottom: 20px;
+
+    .options{
+        color: black;
+        background-color: white;
+    }
 }
 .error{
   color: red;
-  margin-top: -18px;
-  margin-bottom: 20px;
+  
+  //margin-bottom: 20px;
   font-size: 0.8rem;
   text-align: left;
 }
+#selectErrorStyle{
+    color: darkblue;
+    //margin-top: 100px;
+}
+// Error styling select menu...........
+/* 
+#errorStyle{
+    color: red;
+    font-size: 0.8rem;
+    text-align: left;
+    
+} */
 .privacyPolicy{
     display: flex;
     width: 100%;
+    z-index: 600;
     
         p{
             text-align: left;
@@ -62,7 +84,7 @@ form{
             @include font;
         }
 }
-.ContinueButton{
+/* .ContinueButton{
     background-color: lightblue;
     @include nestRedBackground;
     height: 50px;
@@ -76,7 +98,7 @@ form{
     justify-content: center;
     align-items: center;
     width: 100%;
-}
+} */
 .lineAndOrContainer{
     display: flex;
     justify-content: space-evenly;
