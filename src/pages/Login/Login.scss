@@ -69,7 +69,7 @@
         }
         .privacyPolicy{
             grid-row: 6/8;
-            padding-top: 15px;
+            padding-top: 20px;
             grid-column: 1/15;
             color: black;
             @include font;
@@ -98,7 +98,7 @@
         }
         .ContinueButton{
             grid-row: 7/8;
-            grid-column: 1/15;
+            grid-column: 1/14;
             background-color: lightblue;
             @include nestRedBackground;
             height: 50px;
@@ -115,31 +115,38 @@
         }
         .leftLine{
             grid-row: 8/9;
-            grid-column: 1/7;
-            margin: 0 0 0 30px;
+            grid-column: 2/7;
+            //margin: 0 0 0 30px;
             border-bottom: 1px solid lightgrey;
             display: flex;
             align-self: center;
-            padding-top: 10px;
+            //padding-top: 10px;
+            margin-top: -45px;
+
                
         }
         .or{
             grid-row: 8/9;
             grid-column: 7/9;
+            height: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
             color: black;
-            padding-top: 10px;
+            padding-bottom: 10px;
+            margin-top: -18px;
+
         }
         .rightLine{
+
             grid-row: 8/9;
-            grid-column: 9/15;
-            margin: 0 30px 0 0;
+            grid-column: 9/14;
+            //margin: 0 30px 0 0;
             border-bottom: 1px solid lightgrey;
             display: flex;
             align-self: center;
-            padding-top: 10px;
+            //padding-top: 10px;
+            margin-top: -45px;
 
         }
         .buttonFacebook{

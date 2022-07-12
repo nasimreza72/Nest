@@ -4,6 +4,8 @@ import InputRegister from "../../components/Register/InputRegister.jsx"
 import HostOrUser from "../../components/Register/HostOrUser/HostOrUser.jsx" 
 import { loginContext } from "../../Context/LoginContext.jsx"
 import { useContext, useState, useRef, useEffect } from "react";
+import FormikContainer from "../../components/Register/NewRegister/FormikContainer"
+import { Form } from "formik"
 
 
 export default function Register(){
@@ -32,11 +34,12 @@ export default function Register(){
             <div className="WelcomeToNest">Welcome to NEST</div>
             
             <div className="selectHostAndUser"> 
-                <HostOrUser />
+               {/*  <HostOrUser /> */}
             </div>
             
             <div className="userNameAndPassword">
-                <InputRegister />
+                {/* <InputRegister /> */}
+                <FormikContainer />
             </div>
             
             <div className="buttonFacebook">
