@@ -1,8 +1,9 @@
 import React, { useContext, useEffect } from 'react'
 import "./InputRegister.scss"
-import { useFormik } from "formik"
+import { useFormik, Formik, Form } from "formik"
 import { loginContext } from '../../Context/LoginContext.jsx'
 import * as Yup from "yup"
+import FormikControl from "./HostOrUser/FormikControl.jsx";
 
 
 
@@ -11,9 +12,11 @@ function InputRegister() {
     const { email, setEmail, password, setPassword,register, setRegister, registerFunction } = useContext(loginContext)
     console.log("email" ,email, "password", password)
 
+   
     const initialValues = {
     email:"",
-    password:""
+    password:"",
+    selectOption:""
     }
 
     const onChange = values => {
@@ -37,7 +40,10 @@ function InputRegister() {
             .email('Invalid email format')
             .required('Required'),
         password: Yup.string()
+            .required('Required'),
+        selectOption: Yup.string()
             .required('Required')
+
     })
 
     const formik = useFormik({
