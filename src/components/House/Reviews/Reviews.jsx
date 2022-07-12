@@ -15,7 +15,9 @@ const Review = ({reviewItem})=>{
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkpclgdZQ3ZHBh6xTt4wlROP30NE_GY7MdVw&usqp=CAU" alt="Avatar"/>
                 </div>
                 <div className='text'>
-                    <h4>{reviewItem.authorId.firstName} {reviewItem.authorId.lastName}</h4>
+                    {/* todo: show the name and lastname
+                     <h4>{reviewItem.authorId.firstName} {reviewItem.authorId.lastName}</h4> */}
+                     <h4>{reviewItem.authorId.loginInfo.email}</h4>
                     <p>{new Date(reviewItem.createdAt).toLocaleString('default', { month: 'long' })} {new Date(reviewItem.createdAt).getFullYear()}</p>
                 </div>
             </div>
