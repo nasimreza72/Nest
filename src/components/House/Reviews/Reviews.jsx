@@ -3,6 +3,7 @@ import { AiTwotoneStar } from 'react-icons/ai';
 import {StyledButton} from "../../General_Components";
 import { houseContext } from '../../../Context/HouseContext.jsx';
 import { loginContext } from '../../../Context/LoginContext.jsx';
+import { housesContext } from '../../../Context/HousesContext.jsx';
 import "./Reviews.scss";
 
 
@@ -28,7 +29,8 @@ const Review = ({reviewItem})=>{
 
 export const Reviews = () =>{
 
-    const {createReview, house, setHouse, updateHouse} = useContext(houseContext);
+    const {createReview, house, setHouse} = useContext(houseContext);
+    const {updateHouse} = useContext(housesContext)
     const {activeUser} = useContext(loginContext);
     const [starIndex, setStarIndex] = useState(1);
 
