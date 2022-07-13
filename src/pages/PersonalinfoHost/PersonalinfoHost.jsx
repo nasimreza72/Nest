@@ -82,7 +82,7 @@ export default function HostProfile (){
                         <div className="InfoAndButton">
                             <div className="infoCells">
                                 <h2>Email address</h2>
-                                <div className="nameInput"> { activeUser && activeUser.email ? activeUser.email : null } </div>
+                                <div className="nameInput"> { activeUser && activeUser.loginInfo.email ? activeUser.loginInfo.email : null } </div>
                             </div>
                             <button onClick={e => setEmailAdresse(true)}>Edit</button>
                             {emailAddresse ?  <EmailAddresse /> : null }
@@ -99,12 +99,14 @@ export default function HostProfile (){
                             <div className="infoCells">
                                 <h2>Address</h2>
                                 <div className="nameInput">
+                                    
                                     { 
-                                        activeUser && activeUser.street && activeUser.houseNumber && activeUser.zip && activeUser.city && activeUser.country.label ? 
-                                        `${activeUser.street}, ${activeUser.houseNumber}, ${activeUser.zip } ${activeUser.city}, ${activeUser.country.label}` 
-                                        : null 
+                                        activeUser ? 
+                                        `${activeUser.address.street}, ${activeUser.address.houseNumber}, ${activeUser.address.zip } ${activeUser.address.city}, ${activeUser.address.country.label}` 
+                                        : null
+
                                     }
-    
+                                    {console.log(activeUser)}
                                 </div>
                             </div>
                             <button onClick={ e => setAddress(true)}>Edit</button>
