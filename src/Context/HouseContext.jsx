@@ -119,7 +119,7 @@ export default function HouseContextProvider(props){
 
     const updateHouse = (houseObj)=>{
         // console.log('updateHouse :>> !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! ',houseObj);
-        axios.patch(`${process.env.REACT_APP_URL}/api/house/${house._id}`, houseObj)
+        axios.patch(`${process.env.REACT_APP_URL}/api/house/create/${house._id}`, houseObj)
         .then((res)=>{
             console.log('res.data updateHouse!!!!!!:>> ', res.data);
         })
