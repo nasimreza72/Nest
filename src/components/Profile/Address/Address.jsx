@@ -30,11 +30,13 @@ export default function Address() {
 const clickHandler = (e) => {
 
   const temporaryUser = {...activeUser}
-    temporaryUser.country = country
-    temporaryUser.street = street
-    temporaryUser.houseNumber = houseNumber
-    temporaryUser.zip = zip
-    temporaryUser.city = city
+    temporaryUser.address.country = country
+    temporaryUser.address.street = street
+    temporaryUser.address.houseNumber = houseNumber
+    temporaryUser.address.zip = zip
+    temporaryUser.address.city = city
+
+    console.log("this uis temp +++++++++++++++##++++++++++ ", temporaryUser)
 
   const payload = {
    address : {
@@ -56,7 +58,9 @@ const clickHandler = (e) => {
         }
         fetch(url, config)
             .then(response => response.json())
-            .then(data => setActiveUser(temporaryUser))
+            .then(data => {setActiveUser(temporaryUser)
+              console.log("+++++++++++++++++++++++++",data)
+            })
 
         setAddress(false)
 }

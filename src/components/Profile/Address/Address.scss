@@ -8,10 +8,11 @@
 .Address{
     width:80%;
     max-width: 900px;
-    height: 1000px;
+    height: 800px;
     background-color: rgba(255,255,255, 0.7);
+    
     position: absolute;
-    top: 380px;
+    top: 440px;
     min-width: 450px;
     transform: translate(-0%, -25%);
     box-sizing: border-box;
@@ -21,7 +22,7 @@
             height: 690px;
             width: 60%;
             min-width: 250px;
-            margin-top: 510px;
+            margin-top: 51px;
             display: flex;
             flex-direction: column;
             background-color: white;

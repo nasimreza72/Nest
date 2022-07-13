@@ -125,7 +125,7 @@
                                     .lockIcon{
                                         font-size: 4rem;
                                         margin-bottom: 10px;
-                                        color: #FF385C;
+                                        @include nestRedTextColor;
                                     }
                                     h3{
                                         text-align: left;
