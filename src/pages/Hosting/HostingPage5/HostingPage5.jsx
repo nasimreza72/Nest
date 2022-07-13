@@ -3,7 +3,7 @@ import { IoMdPhotos } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 import { housesContext } from "../../../Context/HousesContext.jsx";
-import axios from "axios";
+import { updateDataPrivate } from "../../../lib";
 
 export default function HostingPage5() {
   let navigate = useNavigate();
@@ -24,7 +24,7 @@ export default function HostingPage5() {
       const formData = new FormData();
       formData.append("selectedFile", file);
       
-      axios.patch(`${process.env.REACT_APP_URL}/api/house/addImage/${houseId}`, formData)
+      updateDataPrivate(`${process.env.REACT_APP_URL}/api/house/addImage/${houseId}`, formData)
         .then((result) => {
           setObjectId(result.data.fileID);
           setImageViewer(imageViewer + 1);
@@ -43,7 +43,7 @@ export default function HostingPage5() {
       const formData = new FormData();
       formData.append("selectedFile", secondFile);
       
-      axios.patch(`${process.env.REACT_APP_URL}/api/house/addSecondImage/${houseId}`, formData )
+      updateDataPrivate(`${process.env.REACT_APP_URL}/api/house/addSecondImage/${houseId}`, formData )
         .then((result) => setImageViewer(imageViewer + 1))
         .catch((err) => console.log("err :>> ", err));
     }
