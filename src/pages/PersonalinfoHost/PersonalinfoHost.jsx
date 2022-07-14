@@ -30,7 +30,7 @@ export default function HostProfile (){
             describeSituationModal, setDescribeSituationModal
           } = useContext(profileContext)
 
-    const { activeUser, setActiveUser } = useContext(loginContext)
+    const { activeUser } = useContext(loginContext)
 
     
     return (
