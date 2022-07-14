@@ -11,12 +11,9 @@ const RightMenu1 = () => {
 
     useEffect(() => {
         document.addEventListener("mousedown", (e) => {
-            const x = document.querySelector(".right-menu1-container")
-            if(!x)return
-            if(!x.contains(e.target) ) {
-                setRightMenu(false);
-                console.log("2");
-            }
+            const rightMenu1Container = document.querySelector(".right-menu1-container")
+            if(!rightMenu1Container)return
+            if(!rightMenu1Container.contains(e.target) ) setRightMenu(false);
         })
       }, [])
 

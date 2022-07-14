@@ -1,23 +1,21 @@
 import "./Login.scss"
 import { Input, FacebookButton, GoogleButton, AppleButton, EmailButton } from "../../components/Login/"
 import { loginContext } from "../../Context/LoginContext.jsx"
-import { useContext, useState, useRef, useEffect} from "react";
+import { useContext, useRef, useEffect} from "react";
 
 
 export default function Login(){
 
-    const { loginModal, setLoginModal, submitLoginDetails, setSubmitLoginDetails, login } = useContext(loginContext)
+    const { setLoginModal, submitLoginDetails, setSubmitLoginDetails, login } = useContext(loginContext)
 
     // Disable Modal by clicking outside............
     let menuRef = useRef()
 
     useEffect(() => {
-
         const closeModal=(e) => {
-            if(!menuRef?.current?.contains(e.target)){
-                console.log("3")
-                setLoginModal(false)
-            }
+            const loginElement = document.querySelector(".Login")
+            if(!loginElement.contains(e.target)) setLoginModal(false)
+            
         }
         document.addEventListener("mousedown", closeModal)
         return ()=>{
