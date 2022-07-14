@@ -32,7 +32,7 @@ export default function HostProfile (){
 
     const { activeUser } = useContext(loginContext)
 
-    
+    console.log('activeUser !!!!!!:>> ', activeUser)
     return (
         
         <div className="PersonalinfoHost">
@@ -100,10 +100,10 @@ export default function HostProfile (){
                                 <h2>Address</h2>
                                 <div className="nameInput">
                                     
-                                    { 
-                                        activeUser ? 
+                                    {   
+                                        activeUser &&
                                         `${activeUser.address.street}, ${activeUser.address.houseNumber}, ${activeUser.address.zip } ${activeUser.address.city}, ${activeUser.address.country.label}` 
-                                        : null
+                                        
 
                                     }
                                     {console.log(activeUser)}
