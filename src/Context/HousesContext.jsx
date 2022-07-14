@@ -1,5 +1,5 @@
-import { useState, createContext, useEffect } from 'react'
-import axios from 'axios';
+import { useState, createContext } from 'react'
+import { postDataPrivate, updateDataPrivate, fetchData } from "../lib/index.jsx";
 
 export const housesContext = createContext()
 
@@ -13,13 +13,10 @@ export default function HousesContextProvider(props){
     const [pageNumber, setPageNumber] = useState(1);
     const [typeOfPlace,setTypeOfPlace] =useState(null);
     const [houseCount,setHouseCount] = useState(0);
-
     const [filteredHouses, setFilteredHouses] =useState(activeHouses);
 
     const createHouse = (houseObject)=>{
-        console.log("createHouse");
-        
-        axios.post(`${process.env.REACT_APP_URL}/api/house/create`, houseObject)
+        postDataPrivate(`${process.env.REACT_APP_URL}/api/house/create`, houseObject)
         .then(res=>{
             console.log('res.data :>> ', res.data._id)
             setHouseId(res.data._id);
@@ -28,18 +25,17 @@ export default function HousesContextProvider(props){
     }
 
     const updateHouse = (houseObject)=>{
-        console.log("createHouse");
-        
-        axios.patch(`${process.env.REACT_APP_URL}/api/house/create/${houseId}`, houseObject)
+        updateDataPrivate(`${process.env.REACT_APP_URL}/api/house/create/${houseId}`, houseObject)
         .then(res=>{
             console.log('Update message >> ', res.data.message)
         })
-        .catch(err=>console.log('err :>> ', err))
+        .catch(err=>console.log('updateHouse err :>> ', err))
     }
+
 
     const getHousesByCity = ()=>{
         console.log('activeCity :>> ',activeCity);
-        axios.get(`${process.env.REACT_APP_URL}/api/house/getCity/${activeCity.name}?pageNumber=${pageNumber}&nPerPage=5&typeOfPlace=${typeOfPlace}`)
+        fetchData(`${process.env.REACT_APP_URL}/api/house/getCity/${activeCity.name}?pageNumber=${pageNumber}&nPerPage=5&typeOfPlace=${typeOfPlace}`)
         .then(res=>{
             console.log('activeHouses :>> ', res.data)
             setActiveHouses(res.data.houseList);
