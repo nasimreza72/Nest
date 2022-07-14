@@ -44,7 +44,7 @@ const MapContainer = () => {
           const location = {lat:Number(house.address.lat), lng:Number(house.address.long)}
           return (            
             <Marker
-              icon={"https://img.icons8.com/flat-round/45/home--v1.png"}
+              icon={"https://img.icons8.com/external-glyph-on-circles-amoghdesign/45/external-agriculture-agriculture-gardening-glyph-on-circles-amoghdesign-25.png"}
               key={house._id}
               position={location}
               onClick={() => onSelect(house)}

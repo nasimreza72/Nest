@@ -8,6 +8,7 @@ import RightMenu1 from "./RightMenu1/RightMenu1.jsx";
 import RightMenu2 from "./RightMenu2/RightMenu2.jsx";
 import { navbarContext } from "../../../Context/NavbarContext.jsx";
 import { loginContext } from "../../../Context/LoginContext.jsx";
+import logo from "./logo.png"
 import "./Navbar.scss";
 
 const Navbar=()=>{
@@ -33,7 +34,7 @@ const Navbar=()=>{
       <div className="navbar-container" style={ showOffCanvas ? bigNavStyle:null}>
           <div className="logo-container">
             <Link to="/">
-              <img alt="logo" src="https://www.nest-mv.de/images/nest-logo-web-negativ.svg"/>
+              <img alt="logo" src={logo} style={{width:"70px"}}/>
             </Link>
           </div>
           { showOffCanvas ? 
