@@ -6,13 +6,6 @@ export const Images=()=>{
 
     const {setShow, house, setCounter} = useContext(houseContext);
     console.log('house :>> ', house);
-
-    // const getPath = () => {
-    //     axios.get(`http://localhost:7777/api/house/getImage/${house._id}`)
-    //     .then(res=>console.log('res.data image :>> ', res.data))
-    //     .catch(err=>console.log('err :>> ', err));
-    // }
-    // getPath();
     return(
             <div className="images-container">
                 <div className="images-left-container">

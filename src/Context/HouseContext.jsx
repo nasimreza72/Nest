@@ -2,9 +2,9 @@ import { useState, createContext, useContext, useRef, useEffect } from 'react'
 import {useNavigate} from "react-router-dom";
 import {loginContext} from "../Context/LoginContext.jsx"
 import io from "socket.io-client";
-import axios from 'axios';
+import { postDataPrivate, fetchDataPrivate, updateDataPrivate, fetchData } from "../lib/index.jsx";
 
-export const houseContext = createContext()
+export const houseContext = createContext();
 
 const activeHouseIdInLocalStorage = JSON.parse(localStorage.getItem("activeHouseId"));
 
@@ -20,7 +20,7 @@ export default function HouseContextProvider(props){
     const [activeConversation, setActiveConversation] = useState(0);
     const [rating, setRating] = useState(null);
 
-    const {activeUser,setActiveuser} = useContext(loginContext);
+    const {activeUser,setActiveUser} = useContext(loginContext);
 
     const navigate = useNavigate();
     const socket = io(`${process.env.REACT_APP_URL}`);
@@ -39,12 +39,12 @@ export default function HouseContextProvider(props){
                 messages:[],
                 houseId:house._id
             }
-            axios.post(`${process.env.REACT_APP_URL}/api/conversation/create`,conversationObject)
+            postDataPrivate(`${process.env.REACT_APP_URL}/api/conversation/create`,conversationObject)
             .then(res=>{
                 console.log('res.data :>> ', res.data)
                 const tempActiveUser = {...activeUser};
                 tempActiveUser.conversations.push();
-                setActiveuser(tempActiveUser);
+                setActiveUser(tempActiveUser);
             })
             .catch(err=>console.log('err :>> ', err))
         }
@@ -54,7 +54,7 @@ export default function HouseContextProvider(props){
 
     // This functions gets the active user's conversations
     const getConversations = ()=>{
-        axios.get(`${process.env.REACT_APP_URL}/api/conversation/user/${activeUser._id}`)
+        fetchDataPrivate(`${process.env.REACT_APP_URL}/api/conversation/user/${activeUser._id}`)
         .then((res)=>{
             setConversations(res.data);
             console.log("getConversations runs+++++++")
@@ -74,7 +74,7 @@ export default function HouseContextProvider(props){
     // }
 
     const updateConversation = (conversationId, newMessage) =>{
-        axios.patch(`${process.env.REACT_APP_URL}/api/conversation/${conversationId}`, newMessage)
+        updateDataPrivate(`${process.env.REACT_APP_URL}/api/conversation/${conversationId}`, newMessage)
         .then(res=>console.log('res.data  updateConversation:>> ', res.data))
         .catch(err=>console.log('err :>> ', err))
     }
@@ -109,7 +109,7 @@ export default function HouseContextProvider(props){
     }
 
     const getHouseById = () => {
-        axios.get(`${process.env.REACT_APP_URL}/api/house/${activeHouseId}`)
+        fetchData(`${process.env.REACT_APP_URL}/api/house/${activeHouseId}`)
         .then(res=>{
             console.log('res :>> ');
             setHouse(res.data);
@@ -117,17 +117,8 @@ export default function HouseContextProvider(props){
         .catch(err=>console.log('err :>> ', err))
     }
 
-    const updateHouse = (houseObj)=>{
-        // console.log('updateHouse :>> !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! ',houseObj);
-        axios.patch(`${process.env.REACT_APP_URL}/api/house/create/${house._id}`, houseObj)
-        .then((res)=>{
-            console.log('res.data updateHouse!!!!!!:>> ', res.data);
-        })
-        .catch(err=>console.log('err :>> ', err))
-    }
-
     const createReview = (reviewObj)=>{
-        axios.post(`${process.env.REACT_APP_URL}/api/review/create`, reviewObj)
+        postDataPrivate(`${process.env.REACT_APP_URL}/api/review/create`, reviewObj)
         .then((res)=>{
             console.log('res.data :>> ', res.data);
         })
@@ -136,7 +127,7 @@ export default function HouseContextProvider(props){
 
     const houseVariable={show,handleClose,toggleShow,setShow, house,setHouse, counter,setCounter,createConversation,
         getConversations, conversations, activeConversation,setActiveConversation, listen, addMessage, text,createReview,
-        activeHouseId, setActiveHouseId,getHouseById, rating, setRating, navigate, updateHouse}
+        activeHouseId, setActiveHouseId,getHouseById, rating, setRating, navigate}
 
     return(
         <houseContext.Provider value={houseVariable}>

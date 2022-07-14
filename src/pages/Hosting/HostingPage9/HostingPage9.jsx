@@ -2,7 +2,7 @@ import "./hostingPage9.scss";
 import { useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
 import { housesContext } from "../../../Context/HousesContext.jsx";
-import axios from "axios";
+import { fetchData } from "../../../lib";
 import ErrorMessage from "../../../components/HousesComponents/ErrorMessage/ErrorMessage.jsx";
 
 export default function HostingPage9() {
@@ -12,7 +12,7 @@ export default function HostingPage9() {
   const [showMessage, setShowMessage] = useState(false);
 
 
-  axios.get(
+  fetchData(
       `${process.env.REACT_APP_URL}/api/house/getAllHostInfo/${houseId}`
     )
     .then((res) => {

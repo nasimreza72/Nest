@@ -16,10 +16,14 @@ export default function Register(){
     let menuRef = useRef()
 
     useEffect(() => {
-        document.addEventListener("mousedown", (e) => {
-            if(!menuRef?.current?.contains(e.target))
-            setRegister(false)
-        })
+        const closeModal=(e)=>{
+            const registerElement = document.querySelector(".Register");
+            if(!registerElement.contains(e.target)) setRegister(false)
+        }
+        document.addEventListener("mousedown", closeModal)
+        return ()=>{
+            document.removeEventListener("mousedown",closeModal);
+        }
     })
     ////////////////////////////////////////////////////
 

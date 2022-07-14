@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useRef, useContext, useEffect } from 'react';
+import React, { useMemo, useState, useContext } from 'react';
 import { profileContext } from '../../../Context/ProfileContext';
 import { loginContext } from '../../../Context/LoginContext';
 import "./Address.scss"
@@ -9,8 +9,10 @@ import countryList from 'react-select-country-list'
 
 export default function Address() {
 
+
  
   const { address, setAddress } = useContext(profileContext)
+
   const { activeUser, setActiveUser } = useContext(loginContext)
 
   const [country, setCountry] = useState("")
