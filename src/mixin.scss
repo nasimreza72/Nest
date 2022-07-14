@@ -92,3 +92,8 @@
 @mixin hostingPageMainRightHeight{
     height: 82.5vh;
 }
+
+@mixin hostingPageBackground {
+    background: radial-gradient(circle at 10% 20%, rgb(0, 52, 89) 0%, rgb(0, 168, 232) 90%);
+}
+
