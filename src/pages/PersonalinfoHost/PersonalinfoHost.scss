@@ -57,10 +57,11 @@
 
                         .InfoContainer{
                             width: 60%;
+                            //min-width: 360;
                             height: auto;
-
+                            
                                 #lastInfoCell{
-                                    margin-bottom: 50px;
+                                    margin-bottom: 150px;
                                 }
                                 .InfoAndButton{
                                     width: 100%;
@@ -142,6 +143,9 @@
                         @media screen and (max-width: 745px) {
                             .sideBarInfoContainer {
                               display: none;
+                            }
+                            .InfoContainer{
+                                width:360px ;
                             }
                         }
                         @media screen and (max-width: 1000px) {

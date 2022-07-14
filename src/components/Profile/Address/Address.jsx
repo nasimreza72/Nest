@@ -8,28 +8,33 @@ import countryList from 'react-select-country-list'
 
 
 export default function Address() {
-  const { setAddress } = useContext(profileContext)
+ 
+  const { address, setAddress } = useContext(profileContext)
   const { activeUser, setActiveUser } = useContext(loginContext)
 
-  const [country, setCountry] = useState('')
+  const [country, setCountry] = useState("")
+  const options = useMemo(() => countryList().getData(), [])
   const [street, setStreet] = useState("")
   const [houseNumber, setHouseNumber] = useState("")
   const [zip, setZip] = useState("")
   const [city, setCity] = useState("")
-  const options = useMemo(() => countryList().getData(), [])
 
-  console.log('active User Addres.jsx  :>> ', activeUser );
+  console.log('active User Addres.jsx  :>> ', street );
   console.log("this typeof country", typeof country)
   
   // Belongs to the react-select-country-list................
-  const changeHandler = country => {
-    setCountry(country)
-  }
 ///////////////////////////////////////////////////////////////
+
+const changeHandler = country => {
+  console.log("changeHandler----------------")
+  setCountry(country)
+}
+
+const temporaryUser = {...activeUser}
+console.log(temporaryUser)
 
 const clickHandler = (e) => {
 
-  const temporaryUser = {...activeUser}
     temporaryUser.address.country = country
     temporaryUser.address.street = street
     temporaryUser.address.houseNumber = houseNumber

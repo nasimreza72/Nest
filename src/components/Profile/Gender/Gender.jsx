@@ -47,13 +47,12 @@ export default function Gender() {
             </div>
           </div>
          <select className="selectGender" 
-                 placeholder="Gender" 
                  value={whichGender} 
                  onChange={e => setWhichGender(e.target.value)}
                  defaultValue= "Choose"
           >
-          <option value="Choose">Choose</option>
-           <option value="He">He</option>
+          <option  value="Choose">Choose</option>
+           <option value="He" >He</option>
            <option value="She">She</option>
            <option value="Other">Other</option>
          </select>
