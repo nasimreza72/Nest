@@ -10,21 +10,22 @@
 .PhoneNumber{
     width:80%;
     max-width: 900px;
-    height: 800px;
+    height: 690px;
     background-color: rgba(255,255,255, 0.7);
     //background-color: red;
     position: absolute;
-    top: 390px;
-    min-width: 450px;
+    top: 310px;
+    min-width: 300px;
     transform: translate(-0%, -25%);
     box-sizing: border-box;
     
     
         .modalBodey{
             height: 300px;
-            width: 60%;
+            width: 53%;
             min-width: 250px;
-            margin-top: 373px;
+            margin-top: 203px;
+            max-width: 480px;
             display: flex;
             flex-direction: column;
             background-color: white;
@@ -62,7 +63,7 @@
                 }
                 .PhoneInput{
                     border: 1px solid grey;
-                    border-radius: 0px;
+                    border-radius: 10px;
                     padding-left: 10px;
                     height: 40px;
                 }

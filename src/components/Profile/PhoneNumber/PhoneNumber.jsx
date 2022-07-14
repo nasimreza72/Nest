@@ -47,7 +47,7 @@ export default function PhoneNumber() {
               <h5>Phone number</h5>
               <button onClick={ e => setPhoneNumber(false)}>Cancel</button>
             </div>
-            <p>Add a number so the we and confirmed guests can get in touch.</p>
+            <p>Add a your phone code number </p>
           </div>
             <PhoneInput
               placeholder="Enter phone number"

@@ -100,13 +100,13 @@ export default function HostProfile (){
                                 <h2>Address</h2>
                                 <div className="nameInput">
                                     
-                                    { 
-                                        activeUser ? 
+                                   {/*  { 
+                                        activeUser && activeUser.firstName ? 
                                         `${activeUser.address.street}, ${activeUser.address.houseNumber}, ${activeUser.address.zip } ${activeUser.address.city}, ${activeUser.address.country.label}` 
                                         : null
 
                                     }
-                                    {console.log(activeUser)}
+                                    {console.log(activeUser)} */}
                                 </div>
                             </div>
                             <button onClick={ e => setAddress(true)}>Edit</button>
