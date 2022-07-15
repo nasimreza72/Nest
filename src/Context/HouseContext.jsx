@@ -80,7 +80,6 @@ export default function HouseContextProvider(props){
     }
 
     const listen=(conversationsData, index)=>{
-
         socket.on(conversationsData[index]._id,(data)=>{
           const tempConversations = [...conversationsData];
           const message={
@@ -94,7 +93,6 @@ export default function HouseContextProvider(props){
           updateConversation(conversationsData[index]._id, tempConversations[index]);
             text.current.value=""; 
         })
-
     }
 
     const addMessage=()=>{
