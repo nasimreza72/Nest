@@ -63,7 +63,14 @@ export default function LoginContextProvider(props){
                 password:password
             },
             role: hostOrUser,
-            conversation:[]
+            conversation:[],
+            // address:{
+            //     street:"",
+            //     houseNumber:null,
+            //     zip:null,
+            //     city:"",
+            //     country:"",
+            // }
         })
         .then(function (response) {
             console.log(response)

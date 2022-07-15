@@ -30,11 +30,15 @@ export default function Address() {
 const clickHandler = (e) => {
 
   const temporaryUser = {...activeUser}
-    temporaryUser.address.country = country
-    temporaryUser.address.street = street
-    temporaryUser.address.houseNumber = houseNumber
-    temporaryUser.address.zip = zip
-    temporaryUser.address.city = city
+  temporaryUser.address = { country,street,houseNumber,zip,city }
+  console.log('country :>> ', country);
+    // temporaryUser.address.country = country
+    // temporaryUser.address.street = street
+    // temporaryUser.address.houseNumber = houseNumber
+    // temporaryUser.address.zip = zip
+    // temporaryUser.address.city = city
+
+    
 
     console.log("this uis temp +++++++++++++++##++++++++++ ", temporaryUser)
 
