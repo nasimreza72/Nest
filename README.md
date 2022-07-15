@@ -5,6 +5,9 @@
 ## Available Scripts
 
 In the project directory, you can run:
+### Link for the page:
+
+http://34.76.19.123:3007/
 
 ### `npm start`
 
