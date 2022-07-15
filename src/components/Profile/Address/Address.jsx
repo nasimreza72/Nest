@@ -23,7 +23,7 @@ export default function Address() {
   const [city, setCity] = useState("")
 
   console.log('active User Addres.jsx  :>> ', street );
-  console.log("this typeof country", typeof country)
+  console.log("this country",  country)
   
   // Belongs to the react-select-country-list................
 ///////////////////////////////////////////////////////////////
