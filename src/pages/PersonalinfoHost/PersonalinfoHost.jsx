@@ -99,8 +99,7 @@ export default function HostProfile (){
                             <div className="infoCells">
                                 <h2>Address</h2>
                                 <div className="nameInput">
-                                    
- 
+
 
                                     {   
                                         activeUser && activeUser.address ?
