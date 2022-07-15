@@ -6,8 +6,8 @@ export default function HostQuestions(){
         <div className="HostQuestions">
             <div className="text">
                 <h2>Questions</h2>
-                <h2>about</h2>
-                <h2>hosting?</h2>
+                <h2 id="adjustPosition">about</h2>
+                <h2 id="adjustPosition">hosting?</h2>
             </div>
         </div>
     )
