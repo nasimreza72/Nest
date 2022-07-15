@@ -38,11 +38,9 @@ console.log(temporaryUser)
 
 const clickHandler = (e) => {
 
-    temporaryUser.address.country = country
-    temporaryUser.address.street = street
-    temporaryUser.address.houseNumber = houseNumber
-    temporaryUser.address.zip = zip
-    temporaryUser.address.city = city
+  const temporaryUser = {...activeUser}
+  temporaryUser.address = { country,street,houseNumber,zip,city }
+  console.log('country :>> ', country);
 
     console.log("this uis temp +++++++++++++++##++++++++++ ", temporaryUser)
 
