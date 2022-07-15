@@ -103,10 +103,9 @@ export default function HostProfile (){
  
 
                                     {   
-                                        activeUser ?
-
+                                        activeUser && activeUser.address ?
                                         `${activeUser.address.street}, ${activeUser.address.houseNumber}, ${activeUser.address.zip } ${activeUser.address.city}, ${activeUser.address.country.label}` 
-                                        : null
+                                        :null
                                     }
                                     
                                 </div>
