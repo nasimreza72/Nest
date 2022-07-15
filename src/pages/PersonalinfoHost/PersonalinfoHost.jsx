@@ -99,12 +99,12 @@ export default function HostProfile (){
                             <div className="infoCells">
                                 <h2>Address</h2>
                                 <div className="nameInput">
+
                                     {   
                                         activeUser && activeUser.address ?
                                         `${activeUser.address.street}, ${activeUser.address.houseNumber}, ${activeUser.address.zip } ${activeUser.address.city}, ${activeUser.address.country.label}` 
                                         :null
                                     }
-                                    
                                     
                                 </div>
                             </div>
