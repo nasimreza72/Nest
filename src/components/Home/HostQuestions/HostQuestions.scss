@@ -17,9 +17,23 @@
         @include xxl-header;
         
     }
+    @media only screen and (max-width: 1260px) {
+        h2{
+            font-size: 4.4rem;
+        }
+        #adjustPosition{
+            margin-top: -20px;
+        }
+        
+     }
+
     @media only screen and (max-width: 583px) {
        h2{
-           font-size: 4rem;
+           font-size: 3rem;
        }
+       #adjustPosition{
+            margin-top: -40px;
+        }
+        
     }
 }

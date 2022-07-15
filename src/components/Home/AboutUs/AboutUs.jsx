@@ -17,6 +17,8 @@ export default function AboutUs() {
                             As we progress on this journey of creating this project, new ideas and features are developing as we go along. 
                             In our message board, where host and refugee can communicate, text messages will be translated in real time. Making communcation effortless.
                         </p>
+                        <button>The Press</button>
+
                     
         </div>
     )

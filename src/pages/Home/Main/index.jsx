@@ -33,7 +33,6 @@ export const Main=()=>{
 
                 <div className="about-us">
                     <AboutUs />
-                    <button>The Press</button>
 
                 </div>
                 
