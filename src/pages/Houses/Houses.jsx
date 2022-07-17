@@ -11,33 +11,21 @@ import HousesPagination from "../../components/HousesComponents/Pagination/Pagin
 const Houses = () => {
   const [filter, setFilter] = useState(false);
   const {
-    setActiveHouses,
-    setHouseCount,
-    houseCount,
-    activeCity,
     activeHouses,
     getHousesByCity,
     pageNumber,
-    setFilteredHouses,
-    filteredHouses,
     setTypeOfPlace,
-    typeOfPlace
+    typeOfPlace,
   } = useContext(housesContext);
-  // const [selectedPlace, setSelectedPlace] = useState("");
 
   useEffect(() => {
     getHousesByCity();
-    console.log('typeOfPlace :>> ', typeOfPlace);
+    console.log("typeOfPlace :>> ", typeOfPlace);
   }, [pageNumber, typeOfPlace]);
 
-const filterByType=(selectedPlace)=>{
-
-  // const  filteredHouseobj = activeHouses.filter(item => item.typeOfPlace === selectedPlace)
-  
-  // setFilteredHouses(filteredHouseobj)
-  setTypeOfPlace(selectedPlace);
-}
-
+  const filterByType = (selectedPlace) => {
+    setTypeOfPlace(selectedPlace);
+  };
 
   return (
     <div className="Houses">
@@ -68,15 +56,20 @@ const filterByType=(selectedPlace)=>{
           </div>
           <div
             className="subWrapper mediaScreenMax885"
-            onClick={ (e) => filterByType("Apartment")}>
+            onClick={(e) => filterByType("Apartment")}
+          >
             <p>Apartment</p>
           </div>
-          <div className="subWrapper mediaScreenMax885"
-          onClick={ (e) => filterByType("House")}>
+          <div
+            className="subWrapper mediaScreenMax885"
+            onClick={(e) => filterByType("House")}
+          >
             <p>House</p>
           </div>
-          <div className="subWrapper mediaScreenMax1200"
-          onClick={ (e) => filterByType("Attic")}>
+          <div
+            className="subWrapper mediaScreenMax1200"
+            onClick={(e) => filterByType("Attic")}
+          >
             <p>Attic</p>
           </div>
           <div className="subWrapper mediaScreenMax1200">
