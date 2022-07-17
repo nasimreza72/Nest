@@ -131,10 +131,12 @@ main {
   color: #535353;
   font-size: 15px;
   line-height: 14px;
+  margin: 5px;
 }
 
 .guests,
-.amenities {
+.amenities,
+.price {
   color: rgb(77, 77, 77);
   font-weight: 500;
 }
