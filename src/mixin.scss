@@ -1,98 +1,101 @@
 @mixin font {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-@mixin blackTextColor{
-    color: #222222;
+@mixin blackTextColor {
+  color: #222222;
 }
 
-@mixin  grayTextColor {
-    color:#717171;
+@mixin grayTextColor {
+  color: #717171;
 }
 
-@mixin  nestRedBackground {
-    background-color: #0b5394 ;
+@mixin nestRedBackground {
+  background-color: #0b5394;
 }
 @mixin borderColor {
-    border: 2px solid #0b5394  ;
+  border: 2px solid #0b5394;
 }
 //#FF385C
 
-@mixin nestRedTextColor{
-    color: #0b5394 ;
+@mixin nestRedTextColor {
+  color: #0b5394;
 }
 
-@mixin xxl-header{
-    font-size: 5.75rem;
-    line-height: 5.8rem;
+@mixin xxl-header {
+  font-size: 5.75rem;
+  line-height: 5.8rem;
 }
 
-@mixin xl-header{
-    font-size: 1.5rem;
-    line-height: 2.0rem;
+@mixin xl-header {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
-@mixin lg-header{
-    font-size: 1.25rem;
-    line-height: 1.75rem;
+@mixin lg-header {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
-@mixin  md-header{
-    font-size: 1rem;
-    line-height: 1.5rem;
+@mixin md-header {
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
-@mixin sm-header{
-    font-size: 0.875rem;
-    // line-height: 1.25rem;
+@mixin sm-header {
+  font-size: 0.875rem;
+  // line-height: 1.25rem;
 }
-@mixin xs-header{
-    font-size: 0.75rem;
-    line-height: 1rem;
+@mixin xs-header {
+  font-size: 0.75rem;
+  line-height: 1rem;
 }
 
 @mixin button {
-    border:1px solid #e2e2e2;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    font-size: 1.125rem;
-    line-height: 1.75rem;
-    width: 300px;
-    height: 65px;
+  border: 1px solid #e2e2e2;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  width: 300px;
+  height: 65px;
 }
 
-@mixin sendButton{
-    width: 19%;
-    padding: .5rem;
-    height: 3rem;
-    color: white;
-    background-color:  #9ACD32;
-    border-radius: .5rem;
+@mixin sendButton {
+  width: 19%;
+  padding: 0.5rem;
+  height: 3rem;
+  color: white;
+  background-color: #9acd32;
+  border-radius: 0.5rem;
 }
 
-@mixin buttonHover{
-    --tw-bg-opacity: 1;
-    background-color: rgb(243 244 246 / var(--tw-bg-opacity));
-    text-decoration-line: underline;
+@mixin buttonHover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+  text-decoration-line: underline;
 }
 
-@mixin  margin{
-
-    margin-left: 25px;
-    margin-right: 25px;
+@mixin margin {
+  margin-left: 25px;
+  margin-right: 25px;
 }
 
-@mixin shadow{
-    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px; 
+@mixin shadow {
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
 }
 
-@mixin hostingPageMainHeight{
-    height: 90.5vh;
+@mixin hostingPageMainHeight {
+  height: 90.5vh;
 }
 
-@mixin hostingPageMainRightHeight{
-    height: 82.5vh;
+@mixin hostingPageMainRightHeight {
+  height: 82.5vh;
 }
 
 @mixin hostingPageBackground {
-    background: radial-gradient(circle at 10% 20%, rgb(0, 52, 89) 0%, rgb(0, 168, 232) 90%);
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(0, 52, 89) 0%,
+    rgb(0, 168, 232) 90%
+  );
 }
-

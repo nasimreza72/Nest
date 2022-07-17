@@ -10,21 +10,27 @@ import HousesPagination from "../../components/HousesComponents/Pagination/Pagin
 
 const Houses = () => {
   const [filter, setFilter] = useState(false);
+  const [helper, setHelper] = useState(0);
+  const [price, setPrice] = useState(false);
   const {
     activeHouses,
     getHousesByCity,
     pageNumber,
     setTypeOfPlace,
     typeOfPlace,
+    setHousePrice,
+    housePrice
+
   } = useContext(housesContext);
 
   useEffect(() => {
     getHousesByCity();
     console.log("typeOfPlace :>> ", typeOfPlace);
-  }, [pageNumber, typeOfPlace]);
+    console.log("housePrice :>> ", housePrice);
+  }, [pageNumber, typeOfPlace, housePrice]);
 
   const filterByType = (selectedPlace) => {
-    setTypeOfPlace(selectedPlace);
+    setTypeOfPlace(selectedPlace)
   };
 
   return (
@@ -35,7 +41,14 @@ const Houses = () => {
             <p>Price </p>
             <FaAngleDown style={{ display: "inline" }} />
           </div>
-          <div className="subWrapper">
+          <div className="subWrapper"
+          style={price? {border: "1.5px solid black"} : {opacity:1}}
+          onClick={() => {
+            setHousePrice(0);
+            if(price){setPrice(false); setHousePrice(null)}
+            else{setPrice(true)}
+            }}
+          >
             <p>Free housing</p>
           </div>
           <div className="subWrapperRightBorder"></div>
@@ -44,39 +57,44 @@ const Houses = () => {
         <div className="NavWrapper">
           <div
             className="subWrapper mediaScreenMax690"
-            onClick={(e) => filterByType("Shared Room")}
+            style={helper === 1 ? {border: "1.5px solid black"} : {opacity:1}}
+            onClick={(e) => {filterByType("Shared Room"); setHelper(1)}}
           >
             <p>Shared room</p>
           </div>
           <div
             className="subWrapper mediaScreenMax690"
-            onClick={(e) => filterByType("Private Room")}
+            style={helper === 2 ? {border: "1.5px solid black"} : {opacity:1}}
+            onClick={(e) => {filterByType("Private Room"); setHelper(2)}}
           >
             <p>Private room</p>
           </div>
           <div
             className="subWrapper mediaScreenMax885"
-            onClick={(e) => filterByType("Apartment")}
+            style={helper === 3 ? {border: "1.5px solid black"} : {opacity:1}}
+            onClick={(e) => {filterByType("Apartment"); setHelper(3)}}
           >
             <p>Apartment</p>
           </div>
           <div
             className="subWrapper mediaScreenMax885"
-            onClick={(e) => filterByType("House")}
+            style={helper === 4 ? {border: "1.5px solid black"} : {opacity:1}}
+            onClick={(e) => {filterByType("House"); setHelper(4)}}
           >
             <p>House</p>
           </div>
           <div
             className="subWrapper mediaScreenMax1200"
-            onClick={(e) => filterByType("Attic")}
+            style={helper === 5 ? {border: "1.5px solid black"} : {opacity:1}}
+            onClick={(e) => {filterByType("Attic"); setHelper(5)}}
           >
             <p>Attic</p>
           </div>
           <div className="subWrapper mediaScreenMax1200">
-            <p>Female</p>
+            <p>Kitchen</p>
           </div>
           <div className="subWrapper mediaScreenMax1450">
-            <p>Kitchen</p>
+            <p>Tableware</p>
           </div>
           <div className="subWrapper mediaScreenMax1450">
             <p>Wifi</p>
@@ -88,7 +106,7 @@ const Houses = () => {
             <p>Refrigerator</p>
           </div>
           <div className="subWrapper mediaScreenMax1750">
-            <p>Tableware</p>
+            <p>Workspace</p>
           </div>
 
           <div className="subWrapper mediaScreenMax690 hiddenAmenities">
