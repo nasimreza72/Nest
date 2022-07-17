@@ -8,24 +8,27 @@
 .Address{
     width:80%;
     max-width: 900px;
-    height: 800px;
+    height: 690px;
     background-color: rgba(255,255,255, 0.7);
-    
     position: absolute;
-    top: 440px;
-    min-width: 450px;
+    top: 310px;
+    min-width: 300px;
     transform: translate(-0%, -25%);
     box-sizing: border-box;
     
     
         .modalBodey{
-            height: 690px;
-            width: 60%;
+            height: 390px;
+            width: 53%;
             min-width: 250px;
-            margin-top: 51px;
+            margin-top: 200px;
             display: flex;
             flex-direction: column;
             background-color: white;
+
+            @media screen and (max-width: 745px) {
+                min-width: 360px;    
+            }
 
                 .topContaine{
                     width: 100%;
