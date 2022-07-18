@@ -13,6 +13,7 @@ export default function HousesContextProvider(props){
     const [pageNumber, setPageNumber] = useState(1);
     const [typeOfPlace,setTypeOfPlace] =useState(null);
     const [houseCount,setHouseCount] = useState(0);
+    const [housePrice,setHousePrice] = useState(null);
     const [filteredHouses, setFilteredHouses] =useState(activeHouses);
 
     const createHouse = (houseObject)=>{
@@ -35,7 +36,7 @@ export default function HousesContextProvider(props){
 
     const getHousesByCity = ()=>{
         console.log('activeCity :>> ',activeCity);
-        fetchData(`${process.env.REACT_APP_URL}/api/house/getCity/${activeCity.name}?pageNumber=${pageNumber}&nPerPage=5&typeOfPlace=${typeOfPlace}`)
+        fetchData(`${process.env.REACT_APP_URL}/api/house/getCity/${activeCity.name}?pageNumber=${pageNumber}&nPerPage=5&typeOfPlace=${typeOfPlace}&housePrice=${housePrice}`)
         .then(res=>{
             console.log('activeHouses :>> ', res.data)
             setActiveHouses(res.data.houseList);
@@ -45,8 +46,9 @@ export default function HousesContextProvider(props){
         .catch(err=>console.log('err :>> ', err))
     }
 
+
     const housesVariable={createHouse, updateHouse, houseId, activeCity, setActiveCity, getHousesByCity, setActiveHouses, activeHouses
-    ,houseCount, pageNumber, setPageNumber, setHouseCount, filteredHouses, setFilteredHouses, setTypeOfPlace, typeOfPlace}
+    ,houseCount, pageNumber, setPageNumber, setHouseCount, filteredHouses, setFilteredHouses, setTypeOfPlace, typeOfPlace, setHousePrice, housePrice}
   
     return(
         <housesContext.Provider value={housesVariable}>
