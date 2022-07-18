@@ -55,8 +55,6 @@ export const Main=()=>{
                 <div className="askSuperHost"></div>
                 <div className="filterSuperHost">
                     <HostQuestions />
-                    <button>Ask another host</button>
-
                 </div>
             </div>
         </div>
