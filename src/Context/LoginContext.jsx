@@ -42,27 +42,27 @@ export default function LoginContextProvider(props){
 
 
     // Trigger the Register Fetch to Backend .............
-    useEffect(() => {
+    /* useEffect(() => {
         if(email && password && hostOrUser){
             registerFunction()
         }
         return
-    }, [email, password, hostOrUser])
+    }, [email, password, hostOrUser]) */
     //////////////////////////////////////////////////////////
 
     const navigate = useNavigate()
 
-    const registerFunction = ()=>{
+    const registerFunction = (values)=>{
         console.log("Im in register function")
         console.log("email ", email, "password ", password, "host or user ", hostOrUser)
         
         axios.post(`${process.env.REACT_APP_URL}/api/user/register`, {
             loginInfo: 
             {
-                email:email,
-                password:password
+                email:values.email,
+                password:values.password
             },
-            role: hostOrUser,
+            role: values.hostOrUser,
             conversation:[],
             // address:{
             //     street:"",
@@ -94,8 +94,10 @@ export default function LoginContextProvider(props){
     }
 
     const loginVariable = { loginModal, setLoginModal, register, setRegister,submitLoginDetails, setSubmitLoginDetails,registerFunction,
-        submitRegistrationDetails, setSubmitRegistrationDetails, activeUser, setActiveUser, login, setEmail, setPassword, email, password,
-        getUser, hostOrUser, setHostOrUser }
+                            submitRegistrationDetails, setSubmitRegistrationDetails, activeUser, setActiveUser, login, setEmail, 
+                            setPassword, email, password,
+                            getUser, hostOrUser, setHostOrUser
+                          }
 
 
 

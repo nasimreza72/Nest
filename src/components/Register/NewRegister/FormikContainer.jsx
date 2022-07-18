@@ -11,7 +11,7 @@ import { loginContext } from "../../../Context/LoginContext.jsx"
 function FormikContainer() {
         
         const navigate = useNavigate()
-        const { setEmail, setPassword, email, password, setRegister, hostOrUser, setHostOrUser } = useContext(loginContext)
+        const { setEmail, setPassword, email, password, setRegister, hostOrUser, setHostOrUser, registerFunction } = useContext(loginContext)
         const dropdownOptions = [
             { key:'User or Host?', value:'' },
             { key:'User', value:'user' },
@@ -37,6 +37,7 @@ function FormikContainer() {
                                     setHostOrUser(values.selectOption)
                                     setRegister(false)
                                     console.log("this is values..........",values)
+                                    registerFunction(values)
                                    }
 
 
