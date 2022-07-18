@@ -41,10 +41,11 @@ export default function HouseContextProvider(props){
             }
             postDataPrivate(`${process.env.REACT_APP_URL}/api/conversation/create`,conversationObject)
             .then(res=>{
-                console.log('res.data :>> ', res.data)
+                console.log('res.data  conversation:>> ', res.data)
                 const tempActiveUser = {...activeUser};
-                tempActiveUser.conversations.push();
+                tempActiveUser.conversations.push(res.data._id);
                 setActiveUser(tempActiveUser);
+                getConversations();
             })
             .catch(err=>console.log('err :>> ', err))
         }
