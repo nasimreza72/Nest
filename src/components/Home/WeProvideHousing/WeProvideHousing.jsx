@@ -1,4 +1,3 @@
-import "./WeProvideHousing.scss"
 
 export default function WeProvideHousing(){
 

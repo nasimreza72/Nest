@@ -78,12 +78,13 @@
                     width: 200px;
                     height: 55px;
                     color: black;
-                    font-size: 1.3rem;
+                    font-size: 1.2rem;
                     border-radius: 25px;
                     background-color: #FF385C;// need to find out why BG color is not changing
                     @include font;
                     background-color: white;
-                    font-weight: 600;
+                    font-weight: 500;
+                    margin: 50px;
                 }
                    
         }
