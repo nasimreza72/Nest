@@ -41,15 +41,6 @@ export default function LoginContextProvider(props){
     }
 
 
-    // Trigger the Register Fetch to Backend .............
-    /* useEffect(() => {
-        if(email && password && hostOrUser){
-            registerFunction()
-        }
-        return
-    }, [email, password, hostOrUser]) */
-    //////////////////////////////////////////////////////////
-
     const navigate = useNavigate()
 
     const registerFunction = (values)=>{
