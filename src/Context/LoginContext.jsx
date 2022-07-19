@@ -44,8 +44,7 @@ export default function LoginContextProvider(props){
     const navigate = useNavigate()
 
     const registerFunction = (values)=>{
-        console.log("Im in register function")
-        console.log("email ", email, "password ", password, "host or user ", hostOrUser)
+        console.log("values", values);
         
         axios.post(`${process.env.REACT_APP_URL}/api/user/register`, {
             loginInfo: 
@@ -53,7 +52,7 @@ export default function LoginContextProvider(props){
                 email:values.email,
                 password:values.password
             },
-            role: values.hostOrUser,
+            role: values.selectOption,
             conversation:[],
             // address:{
             //     street:"",
