@@ -17,23 +17,29 @@ export default function HostingPage2(props) {
   const addressRef = useRef();
   const { updateHouse } = useContext(housesContext);
 
-  function addAddress() {
-    Geocode.setApiKey(process.env.REACT_APP_GOOGLE_API_KEY);
-    Geocode.setLanguage("en");
-    Geocode.setLocationType("ROOFTOP");
-    Geocode.enableDebug();
+  // Added manually because google VM it doesn't work without https
 
-    navigator.geolocation.getCurrentPosition((position) => {
-      // Geocode.fromLatLng(position.coords.latitude, position.coords.longitude)
-      // Added manually because google VM it doesn't work without https
-      Geocode.fromLatLng(52.559840, 13.383110)
-        .then((response) => {
-          const address = response.results[0].formatted_address;
-          addressRef.current.value = address;
-          setHelper(true)
-        })
-        .catch((err) => console.log(err));
-    })
+  // function addAddress() {
+  //   Geocode.setApiKey(process.env.REACT_APP_GOOGLE_API_KEY);
+  //   Geocode.setLanguage("en");
+  //   Geocode.setLocationType("ROOFTOP");
+  //   Geocode.enableDebug();
+
+  //   navigator.geolocation.getCurrentPosition((position) => {
+  //     Geocode.fromLatLng(position.coords.latitude, position.coords.longitude)
+  //     Geocode.fromLatLng(52.559840, 13.383110)
+  //       .then((response) => {
+  //         const address = response.results[0].formatted_address;
+  //         addressRef.current.value = address;
+  //         setHelper(true)
+  //       })
+  //       .catch((err) => console.log(err));
+  //   })
+  // }
+
+  function addAddress() {
+    setHelper(true)
+    addressRef.current.value = "Stockholmer strasse 33, 13359 Berlin"
   }
 
   const next = () => {
