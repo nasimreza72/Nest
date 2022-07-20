@@ -22,7 +22,7 @@ export default function HostingPage8() {
   return (
     <div className="hostingPage8">
       <div className="mainLeft">
-        <h1>Set your price</h1>
+        <h1>Set your monthly price</h1>
       </div>
       <div className="mainRight">
         <div className="subMainRight">
