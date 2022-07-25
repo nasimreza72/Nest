@@ -17,34 +17,34 @@ export default function HostingPage2(props) {
   const addressRef = useRef();
   const { updateHouse } = useContext(housesContext);
 
+  function addAddress() {
+    Geocode.setApiKey(process.env.REACT_APP_GOOGLE_API_KEY);
+    Geocode.setLanguage("en");
+    Geocode.setLocationType("ROOFTOP");
+    Geocode.enableDebug();
+
+    navigator.geolocation.getCurrentPosition((position) => {
+      Geocode.fromLatLng(position.coords.latitude, position.coords.longitude);
+      Geocode.fromLatLng(52.55984, 13.38311)
+        .then((response) => {
+          const address = response.results[0].formatted_address;
+          addressRef.current.value = address;
+          setHelper(true);
+        })
+        .catch((err) => console.log(err));
+    });
+  }
+
   // Added manually because google VM it doesn't work without https
 
   // function addAddress() {
-  //   Geocode.setApiKey(process.env.REACT_APP_GOOGLE_API_KEY);
-  //   Geocode.setLanguage("en");
-  //   Geocode.setLocationType("ROOFTOP");
-  //   Geocode.enableDebug();
-
-  //   navigator.geolocation.getCurrentPosition((position) => {
-  //     Geocode.fromLatLng(position.coords.latitude, position.coords.longitude)
-  //     Geocode.fromLatLng(52.559840, 13.383110)
-  //       .then((response) => {
-  //         const address = response.results[0].formatted_address;
-  //         addressRef.current.value = address;
-  //         setHelper(true)
-  //       })
-  //       .catch((err) => console.log(err));
-  //   })
+  //   setHelper(true)
+  //   addressRef.current.value = "Stockholmer strasse 33, 13359 Berlin"
   // }
-
-  function addAddress() {
-    setHelper(true)
-    addressRef.current.value = "Stockholmer strasse 33, 13359 Berlin"
-  }
 
   const next = () => {
     let updatedAddress = addressRef.current.value;
-    
+
     Geocode.setApiKey(process.env.REACT_APP_GOOGLE_API_KEY);
     Geocode.fromAddress(addressRef.current.value)
       .then((response) => {
@@ -53,8 +53,16 @@ export default function HostingPage2(props) {
 
         Geocode.fromLatLng(lat, lng).then((response) => {
           let city, country;
-          for ( let i = 0; i < response.results[0].address_components.length; i++) {
-            for ( let j = 0; j < response.results[0].address_components[i].types.length; j++) {
+          for (
+            let i = 0;
+            i < response.results[0].address_components.length;
+            i++
+          ) {
+            for (
+              let j = 0;
+              j < response.results[0].address_components[i].types.length;
+              j++
+            ) {
               // eslint-disable-next-line default-case
               switch (response.results[0].address_components[i].types[j]) {
                 case "locality":
@@ -73,20 +81,20 @@ export default function HostingPage2(props) {
               country,
               lat: lat,
               long: lng,
-              formattedAddress: updatedAddress
-            }
-          }
+              formattedAddress: updatedAddress,
+            },
+          };
 
           updateHouse(addressObject);
           console.log("addressObject :>> ", addressObject);
           navigate("../hostingPage3", { replace: true });
-        })
+        });
       })
       .catch((error) => {
-        setShowMessage(true)
+        setShowMessage(true);
         console.error("Address error >>", error);
-      })
-  }
+      });
+  };
 
   return (
     <div className="hostingPage2">
@@ -152,16 +160,21 @@ export default function HostingPage2(props) {
                 <u>Back</u>
               </button>
             </div>
-            <div className="next"
-            style={ helper ? { opacity: 1 } : { opacity: ".25", zIndex: -1 } }
+            <div
+              className="next"
+              style={helper ? { opacity: 1 } : { opacity: ".25", zIndex: -1 }}
             >
               <button onClick={next}>Next</button>
             </div>
           </div>
         </div>
       </div>
-      {showMessage && <ErrorMessage setShowMessage={setShowMessage} message={"Please add the valid address!"} />}
-
+      {showMessage && (
+        <ErrorMessage
+          setShowMessage={setShowMessage}
+          message={"Please add the valid address!"}
+        />
+      )}
     </div>
-  )
+  );
 }
