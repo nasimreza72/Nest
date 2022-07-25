@@ -39,7 +39,7 @@ const HouseCarousel = ({ house }) => {
         <div className="DrawLine"></div>
         <p>{house.title}</p>
         <p className="description">{house.description}</p>
-        <p> <span className="price">Price:</span> {house.price === 0 ? "Free" : "€" +house.price + " monthly."} </p>
+        <p> <span className="price">Price:</span> {house.price === 0 ? "Free" : "€" + house.price + " monthly."} </p>
         <p>
           <span className="guests">Guest: </span>
           Adult: {house.guests.adult}, Kids: {house.guests.kids}, Beds:{" "}
