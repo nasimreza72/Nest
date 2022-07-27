@@ -10,7 +10,7 @@ import { houseContext } from "../../Context/HouseContext.jsx";
 
 const MapContainer = () => {
   const {activeCity, activeHouses} = useContext(housesContext);
-  const {setActiveHouseId, house, navigate} = useContext(houseContext);
+  const {setActiveHouseId, navigate} = useContext(houseContext);
 
   const [selected, setSelected] = useState(null);
 
